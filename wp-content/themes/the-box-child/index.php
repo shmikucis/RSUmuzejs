@@ -11,46 +11,19 @@
  * @package WordPress
  * @since The Box 1.0
  */
-
 get_header(); ?>
 
 		<div id="primary" class="content-area">
-                    <div id="scene">
-            <div id ="background" class="layer" data-depth="0.3">
-            </div>
-            <div id="middle" class="layer" data-depth="0.5">
-                
-            </div>
-            <div id="foreground" class="layer" data-depth="0.6"></div>
-        </div>
-<!--			<div id="content" class="site-content" role="main">
-			
-			<?php if ( have_posts() ) : ?>
+			<div id="fullpage" class="site-content scene" role="main">
+                            
 
-				<?php /* Start the Loop */ ?>
-				<?php while ( have_posts() ) : the_post(); ?>
+                                    <?php while ( have_posts() ) : the_post(); ?>
+					<?php get_template_part( 'citation', 'single'); ?>
+                                    <?php endwhile; // end of the loop. ?>
+                           
 
-					<?php
-						/* Include the Post-Format-specific template for the content.
-						 * If you want to overload this in a child theme then include a file
-						 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-						 */
-//						get_template_part( 'content', get_post_format() );
-					?>
-
-				<?php endwhile; ?>
-				
-				<?php /* Pagination */ ?>
-				<?php thebox_pagination(); ?>
-
-			<?php else : ?>
-
-				<?php // get_template_part( 'content', 'none' ); ?>
-
-			<?php endif; ?>
-
-
-			</div> #content .site-content -->
+			</div><!-- #content .site-content -->
 		</div><!-- #primary .content-area -->
 
+<?php // get_sidebar(); ?>
 <?php get_footer(); ?>

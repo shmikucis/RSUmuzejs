@@ -36,7 +36,7 @@ var contents = [
         "class": "anim-right",
         "parent": "foreground",
         "style": "width: 100%; top: 58%; text-align: center; font-size: 2.7vmin; color: #F3F0F5;",
-        "text": "Virtuālais muzejs, izmantojot RSU muzejā sakopotos materiālus,"+String.fromCharCode(13)+" palīdzēs jums iepazīties ar to, kā noritējusi mūsu augstskolas"+String.fromCharCode(13)+" attīstība dažādos vēsturiskajos laikposmos."}
+        "text": "Virtu�?lais muzejs, izmantojot RSU muzej�? sakopotos materi�?lus,"+String.fromCharCode(13)+" palīdzēs jums iepazīties ar to, k�? noritējusi mūsu augstskolas"+String.fromCharCode(13)+" attīstība daž�?dos vēsturiskajos laikposmos."}
 ];
 
 
@@ -57,9 +57,15 @@ function init(){
         elem.style.cssText = contents[i].style;
     }*/
     
+    $(document).ready(function() {
+        $('#fullpage').fullpage();
+    });
     
+    $(document).on('click', '#continue', function(){
+        $.fn.fullpage.moveSectionDown();
+    });
     
-    var scene = document.getElementById("scene");
+    var scene = document.getElementsByClassName("scene");
     var parallax = new Parallax (scene);
 //    var bg = document.createElement("div");
 //    bg.id = "bg1";
@@ -91,7 +97,7 @@ function init(){
 //    var fore = document.createElement("p");
 //    fore.id = "for3";
 //    document.getElementById("foreground").appendChild(fore);
-//    fore.innerText = "Virtuālais muzejs, izmantojot RSU muzejā sakopotos materiālus,"+String.fromCharCode(13)+" palīdzēs jums iepazīties ar to, kā noritējusi mūsu augstskolas"+String.fromCharCode(13)+" attīstība dažādos vēsturiskajos laikposmos.";
+//    fore.innerText = "Virtu�?lais muzejs, izmantojot RSU muzej�? sakopotos materi�?lus,"+String.fromCharCode(13)+" palīdzēs jums iepazīties ar to, k�? noritējusi mūsu augstskolas"+String.fromCharCode(13)+" attīstība daž�?dos vēsturiskajos laikposmos.";
 //    fore.style.cssText = "width: 100%; top: 58%; left: -5%; text-align: center; font-size: 2.7vmin; color: #F3F0F5;";
     
 }

@@ -14,6 +14,8 @@
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/main.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/parallax.js"></script>
+<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/jquery.fullPage.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">	

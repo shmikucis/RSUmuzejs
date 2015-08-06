@@ -36,8 +36,8 @@
   function Parallax(element, options) {
 
     // DOM Context
-    this.element = element;
-    this.layers = element.getElementsByClassName('layer');
+    this.element = element[0];
+    this.layers = element[0].getElementsByClassName('layer');
 
     // Data Extraction
     var data = {

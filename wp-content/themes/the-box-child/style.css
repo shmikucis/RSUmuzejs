@@ -14,7 +14,7 @@ Tags: two-columns, right-sidebar, fixed-layout, responsive-layout, custom-header
 FontAwesome License: SIL Open Font License - http://scripts.sil.org/OFL
 This Theme is licensed under the GPL.
 */
-
+@import "jquery.fullPage.css";
 html{
 	height: 100vh;
 	width: 100%;
@@ -45,7 +45,11 @@ div#primary.content-area{
         position: relative;
 }
 
-div#content.content-area{
+/*div#content.content-area{
+    position: absolute;
+    height: 93vh;
+}*/
+div#fullpage.content-area{
     position: absolute;
     height: 93vh;
 }
@@ -81,12 +85,12 @@ p{
     padding: 0px;
     /*position: inherit;*/
 }
-#scene
+.scene
 {
     position: relative;
     width: 100%;
     height: 93vh;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
 #foreground
@@ -114,7 +118,7 @@ p{
 }
 
 #head_image{
-    position: absolute;
+    position: relative !important;
     width: 110%;
     left: -5% !important;
     z-index: -1;
@@ -188,7 +192,7 @@ p.citation{
     width: 100%;
     margin: auto;
     bottom: 0;
-    height: 15%;
+    height: 10%;
     border-top-color: gray;
     border-top-width: thin;
     border-top-style: solid;
@@ -198,8 +202,9 @@ p.citation{
 button#continue{
     position: relative;
     width: 15%;
-    top: -12.5%;
-    height: 25%;
+    top: -19%;
+    height: 37.5%;
+    z-index: 999;
 }
 
 .bg{
@@ -220,13 +225,14 @@ button#continue{
 .bg.stripes{    
     height: 90%;    
     top: -20% !important;
-    left: -15vw !important;    
+    left: -15vw !important;
+    z-index: -1;
 }
 
 .stripes{
     width: 110vw;
     background-color: lightgray;
-    z-index: -1;
+    /*z-index: -1;*/
 }
 
 .anim-left{
