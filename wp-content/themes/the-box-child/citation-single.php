@@ -21,8 +21,8 @@
 	
 		
 		<div class="entry-content layer" data-depth="0.3">
-                    <div class="bg cardboard layer" data-depth="0.04"></div>
-                    <div class="bg stripes layer" data-depth="0.07"></div>
+                    <div class="bg cardboard layer anim-left" data-depth="0.04"></div>
+                    <div class="bg stripes layer anim-right" data-depth="0.07"></div>
 			<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'thebox' ) ); ?>
 			<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'thebox' ), 'after' => '</div>' ) ); ?>
 		</div>

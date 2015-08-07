@@ -93,23 +93,35 @@ p{
     /*overflow: hidden;*/
 }
 
+#intro{
+    position: relative;
+    z-index: 999;
+}
+
 #foreground
 {
-    position: absolute;
+    position: relative;
+    top: 32% !important;
 }
 
 #middle
 {
-    position: absolute;
+    position: relative;
+    height: 100%;
+    width: 110%;
 }
 
 #background
 {
-    position: absolute;
+    position: relative;
     width: 110%;
-    height: 110%;
-    top: -5%;
+    height: 100%;
     left: -5%;
+}
+
+#fore3{
+    padding-left: 25.5%;
+    width: 50% !important;
 }
 
 .layer{
@@ -197,6 +209,7 @@ p.citation{
     border-top-width: thin;
     border-top-style: solid;
     text-align: center;
+    z-index: 2;
 }
 
 button#continue{
@@ -219,7 +232,8 @@ button#continue{
 
 .cardboard{
     width: 110%;
-    background-color: rgb(244,244,244);
+    /*background-color: rgb(244,244,244);*/
+    background-image: url(images/cardboard.jpg);
 }
 
 .bg.stripes{    
@@ -263,10 +277,10 @@ button#continue{
 
 @keyframes right{
     from {transform: translateX(115%);}
-    to {transform: translateX(-5%);}
+    to {transform: translateX(0%);}
 }
 
 @keyframes left{
     from {transform: translateX(-115%);}
-    to {transform: translateX(-5%);}
+    to {transform: translateX(0%);}
 }
