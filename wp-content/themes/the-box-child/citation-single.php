@@ -8,12 +8,12 @@
 
 <article id="post-<?php the_ID(); ?>" class="section">
  
-        <div id="head_image" class="layer" data-depth="0.1"></div>
-        <div id="head_image_bot"><div></div></div>
+        <div id="head_image" class="layer anim-left" data-depth="0.1"></div>
+        <div id="head_image_bot" class="anim-left"><div></div></div>
 	<header class="entry-header layer" data-depth="0.4">
 		<?php
 			
-				the_title( '<h1 class="entry-title">', '</h1>' );
+				the_title( '<h1 class="entry-title anim-right">', '</h1>' );
 		?>
 
 	</header>

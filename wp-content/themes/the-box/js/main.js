@@ -41,12 +41,6 @@ var contents = [
 
 
 function init(){
-//    $.keyframe.define([{
-//            name: 'right',
-//            'from': {'transform': 'translate(115%)'},
-//            'to': {'transform': 'translate(-5%)'}
-//    }]);
- 
     
     for (var i=0; i<contents.length; i++){
         var elem = document.createElement(contents[i].type);
@@ -62,55 +56,43 @@ function init(){
     });
     
     $(document).on('click', '#continue', function(){
-        $.fn.fullpage.moveSectionDown();
+        var outroR = document.getElementsByClassName("anim-right");
+        var outroL = document.getElementsByClassName("anim-left");
+        for (var j=0; j<4; j++){
+        for (var i=0; i<outroR.length; i++){
+            var newone  =  outroR[i].cloneNode(true);
+            if (outroR[i].className !== ""){
+                newone.className = outroR[i].className + "-rev";
+                outroR[i].parentNode.replaceChild(newone, outroR[i]);
+            }
+        }
+        }
+        for (var j = 0; j<4; j++){
+        for (var i=0; i<outroL.length; i++){
+            var newone  =  outroL[i].cloneNode(true);
+            if (outroL[i].className !== ""){
+                newone.className = outroL[i].className + "-rev";
+                outroL[i].parentNode.replaceChild(newone, outroL[i]);
+            }
+        }
+        }
+        $(".main_text_single:first").bind('oanimationend animationend webkitAnimationEnd', function() { 
+            $.fn.fullpage.moveSectionDown();
+});
+//        $.fn.fullpage.moveSectionDown();
     });
     
     var scene = document.getElementsByClassName("scene");
     var parallax = new Parallax (scene);
-//    var bg = document.createElement("div");
-//    bg.id = "bg1";
-//    document.getElementById("background").appendChild(bg);
-//    bg.style.cssText = "position: absolute; width: 110%; height: 110%; top: -5%; left: -5%; background: url(MF_1933.jpg) no-repeat center center; background-size: cover";
-//    
-//    var mid = document.createElement("div");
-//    mid.id = "mid1";
-//    document.getElementById("middle").appendChild(mid);
-//    mid.style.cssText = "position: absolute; top: 30%; width: 110%; left: -5%; height: 25%; background-color: #F3F0F5; opacity: 0.7;";
-//    
-//    var mid = document.createElement("div");
-//    mid.id = "mid2";
-//    document.getElementById("middle").appendChild(mid);
-//    mid.style.cssText = "position: absolute; top: 55%; width: 110%; left: -5%; height: 15%; background-color: #E3364D; opacity: 0.7;";
-//    
-//    var fore = document.createElement("h1");
-//    fore.id = "for1";
-//    document.getElementById("foreground").appendChild(fore);
-//    fore.innerText = "RĪGAS STRADIŅA UNIVERSITĀTES";
-//    fore.style.cssText = "width: 100%; top: 35%; left: -5%; text-align: center; font-size: 8vmin; color: #E3364D;";
-//    
-//    var fore = document.createElement("p");
-//    fore.id = "for2";
-//    document.getElementById("foreground").appendChild(fore);
-//    fore.innerText = "VĒSTURES VIRTUĀLĀ EKSPOZĪCIJA";
-//    fore.style.cssText = "width: 100%; top: 47%; left: -5%; text-align: center; font-size: 3vmin; color: #403924;";
-//    
-//    var fore = document.createElement("p");
-//    fore.id = "for3";
-//    document.getElementById("foreground").appendChild(fore);
-//    fore.innerText = "Virtu�?lais muzejs, izmantojot RSU muzej�? sakopotos materi�?lus,"+String.fromCharCode(13)+" palīdzēs jums iepazīties ar to, k�? noritējusi mūsu augstskolas"+String.fromCharCode(13)+" attīstība daž�?dos vēsturiskajos laikposmos.";
-//    fore.style.cssText = "width: 100%; top: 58%; left: -5%; text-align: center; font-size: 2.7vmin; color: #F3F0F5;";
-    
 }
 
 function removeElems(){
     for (var i = 0; i<contents.length; i++){
         var elem = document.getElementById(contents[i].id);
-//        elem.parentNode.removeChild(elem);
         var newone  =  elem.cloneNode(true);
         if (elem.className !== ""){
             newone.className = elem.className + "-rev";
             elem.parentNode.replaceChild(newone, elem);
         }
-            //elem.style.webkitAnimationPlayState = "running";
     }
 }

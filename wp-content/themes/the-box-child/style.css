@@ -251,36 +251,74 @@ button#continue{
 
 .anim-left{
     animation-name: left;
-    animation-duration: 3s;
+    animation-duration: 2s;
     animation-fill-mode: forwards;
+    -webkit-animation-timing-function: ease-out;
 }
 
 .anim-right{
     animation-name: right;
-    animation-duration: 3s;
+    animation-duration: 2s;
     animation-fill-mode: forwards;
+    -webkit-animation-timing-function: ease-out;
 }
 
 .anim-left-rev{
     animation-name: left;
-    animation-duration: 3s;
+    animation-duration: 2s;
     animation-fill-mode: forwards;
     -webkit-animation-direction: reverse;
+    -webkit-animation-timing-function: ease-in;
 }
 
 .anim-right-rev{
     animation-name: right;
-    animation-duration: 3s;
+    animation-duration: 2s;
     animation-fill-mode: forwards;
     -webkit-animation-direction: reverse;
+    -webkit-animation-timing-function: ease-in;
+}
+
+.anim-left-delay{
+    animation-name: left;
+    animation-duration: 3s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+    -webkit-animation-timing-function: linear;
+}
+
+.anim-right-delay{
+    animation-name: right;
+    animation-duration: 3s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+    -webkit-animation-timing-function: linear;
+}
+
+.anim-left-rev-delay{
+    animation-name: left;
+    animation-duration: 2s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+    -webkit-animation-direction: reverse;
+    -webkit-animation-timing-function: linear;
+}
+
+.anim-right-rev-delay{
+    animation-name: right;
+    animation-duration: 2s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+    -webkit-animation-direction: reverse;
+    -webkit-animation-timing-function: linear;
 }
 
 @keyframes right{
-    from {transform: translateX(115%);}
+    from {transform: translateX(200%);}
     to {transform: translateX(0%);}
 }
 
 @keyframes left{
-    from {transform: translateX(-115%);}
+    from {transform: translateX(-200%);}
     to {transform: translateX(0%);}
 }
