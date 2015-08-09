@@ -58,6 +58,7 @@ function init(){
     $(document).on('click', '#continue', function(){
         var outroR = document.getElementsByClassName("anim-right");
         var outroL = document.getElementsByClassName("anim-left");
+        console.log(outroL);
         for (var j=0; j<4; j++){
         for (var i=0; i<outroR.length; i++){
             var newone  =  outroR[i].cloneNode(true);
@@ -78,12 +79,38 @@ function init(){
         }
         $(".main_text_single:first").bind('oanimationend animationend webkitAnimationEnd', function() { 
             $.fn.fullpage.moveSectionDown();
+            transition_in();
 });
 //        $.fn.fullpage.moveSectionDown();
     });
     
     var scene = document.getElementsByClassName("scene");
     var parallax = new Parallax (scene);
+}
+
+function transition_in(){
+    var introR = document.getElementsByClassName("anim-right-rev");
+    var introL = document.getElementsByClassName("anim-left-rev");
+    for (var j=0; j<5; j++){
+    for (var i=0; i<introR.length; i++){
+        var newone  =  introR[i].cloneNode(true);
+        if (introR[i].className !== ""){
+            newone.className = introR[i].className.slice(0, -4);
+            introR[i].parentNode.replaceChild(newone, introR[i]);
+//            introR[i].className = "anim-right";
+            
+        }
+    }
+    }
+    for (var j = 0; j<5; j++){
+    for (var i=0; i<introL.length; i++){
+        var newone  =  introL[i].cloneNode(true);
+        if (introL[i].className !== ""){
+            newone.className = introL[i].className.slice(0, -4);
+            introL[i].parentNode.replaceChild(newone, introL[i]);
+        }
+    }
+    }
 }
 
 function removeElems(){
