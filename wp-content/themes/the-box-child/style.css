@@ -252,7 +252,7 @@ button#continue{
 .anim-left{
     animation-name: left;
     animation-duration: 2s;
-    animation-fill-mode: forwards;
+    /*animation-fill-mode: forwards;*/
     -webkit-animation-timing-function: ease-out;
 }
 
