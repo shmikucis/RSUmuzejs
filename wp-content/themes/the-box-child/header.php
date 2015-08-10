@@ -14,7 +14,7 @@
 <!--<meta charset="<?php // bloginfo( 'charset' ); ?>">-->
 <meta charset="utf-8" />
 <!--<meta charset="windows-1257"/>-->
-<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/main.js"></script>
+<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/main.js" charset="utf-8"></script>
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/parallax.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/jquery.fullPage.js"></script>

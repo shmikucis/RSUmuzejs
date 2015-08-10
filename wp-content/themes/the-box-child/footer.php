@@ -10,7 +10,7 @@
 ?>
 		
 	<div id="footer" class="stripes">
-            <button id="continue">Turpinat</button>
+            <a id="continue" href="#"></a>
         </div>
 
 <?php wp_footer(); ?>
