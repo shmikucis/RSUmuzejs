@@ -293,27 +293,34 @@ p.citation{
     animation-name: left;
     animation-duration: 1.5s;
     /*animation-fill-mode: forwards;*/
-    -webkit-animation-timing-function: ease-out;
+/*    -webkit-animation-timing-function: ease-out;
+    -moz-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;*/
+}
+
+.anim-right{
+    animation-name: right;
+    animation-duration: 1.5s;
+    /*animation-fill-mode: forwards;*/
+/*    -webkit-animation-timing-function: ease-out;
+    -moz-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;*/
 }
 
 .anim-up{
     animation-name: up;
     animation-duration: 1s;
 }
-
-.anim-right{
-    animation-name: right;
-    animation-duration: 1.5s;
-    animation-fill-mode: forwards;
-    -webkit-animation-timing-function: ease-out;
-}
-
 .anim-left-rev{
     animation-name: left;
     animation-duration: 1s;
     animation-fill-mode: forwards;
     -webkit-animation-direction: reverse;
+    -moz-animation-direction: reverse;
+    animation-direction: reverse;
     -webkit-animation-timing-function: ease-in;
+    -moz-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
 }
 
 .anim-right-rev{
@@ -321,7 +328,11 @@ p.citation{
     animation-duration: 1s;
     animation-fill-mode: forwards;
     -webkit-animation-direction: reverse;
+    -moz-animation-direction: reverse;
+    animation-direction: reverse;
     -webkit-animation-timing-function: ease-in;
+    -moz-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
 }
 
 .anim-left-delay{
@@ -359,16 +370,34 @@ p.citation{
 }
 
 @keyframes right{
-    from {transform: translateX(200%);}
-    to {transform: translateX(0%);}
+    from {
+        transform: translateX(200%);
+        /*opacity: 0;*/
+    }
+    to {
+        transform: translateX(0%);
+        /*opacity: initial;*/
+    }
 }
 
 @keyframes left{
-    from {transform: translateX(-200%);}
-    to {transform: translateX(0%);}
+    from {
+        transform: translateX(-200%);
+        /*opacity: 0;*/
+    }
+    to {
+        transform: translateX(0%);
+        /*opacity: initial;*/
+    }
 }
 
 @keyframes up{
-    from{transform: translateY(0%);}
-    to{transform: translateY(-200%);}
+    from{
+        transform: translateY(0%);
+        opacity: 1;
+    }
+    to{
+        transform: translateY(-200%);
+        opacity: 0;
+    }
 }
