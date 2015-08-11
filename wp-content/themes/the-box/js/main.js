@@ -22,14 +22,14 @@ var contents = [
     {   "type": "h1",
         "id": "fore1",
         "class": "anim-left",
-        "parent": "foreground",
-        "style": "width: 100%; margin-left: 25%; top: 35%; text-align: center; font-family: palatino; font-size: 8vmin; color: #E3364D;",
+        "parent": "foretext",
+        "style": "width: 100%; margin: auto; top: 35%; text-align: center; font-family: palatino; font-size: 5vw; color: #E3364D;",
         "text": "RĪGAS STRADIŅA UNIVERSITĀTES"},
     {   "type": "p",
         "id": "fore2",
         "class": "anim-left",
-        "parent": "foreground",
-        "style": "width: 100%; margin-left: 25%; top: 47%; text-align: center; font-family: palatino; font-size: 3vmin; color: #403924;",
+        "parent": "foretext",
+        "style": "width: 100%; margin: auto; top: 47%; text-align: center; font-family: palatino; font-size: 3vmin; color: #403924;",
         "text": "VĒSTURES VIRTUĀLĀ EKSPOZĪCIJA"},
     {   "type": "p",
         "id": "fore3",
@@ -52,13 +52,17 @@ function init(){
     }
     
     $(document).ready(function() {
-        $('#fullpage').fullpage();
+        $('#fullpage').fullpage({
+            scrollingSpeed: 0
+        });
     });
     
     $(document).on('click', '#continue', function(){
+        var up = document.getElementById("background");
+        up.className += " anim-up";
+        
         var outroR = document.getElementsByClassName("anim-right");
         var outroL = document.getElementsByClassName("anim-left");
-        console.log(outroL);
         for (var j=0; j<4; j++){
         for (var i=0; i<outroR.length; i++){
             var newone  =  outroR[i].cloneNode(true);
@@ -77,8 +81,9 @@ function init(){
             }
         }
         }
+       
         $(".main_text_single:first").bind('oanimationend animationend webkitAnimationEnd', function() { 
-            $.fn.fullpage.moveSectionDown();
+             $.fn.fullpage.moveSectionDown();
             transition_in();
 });
 //        $.fn.fullpage.moveSectionDown();
@@ -111,6 +116,8 @@ function transition_in(){
         }
     }
     }
+    var up = document.getElementById("background");
+    up.className = "layer";
 }
 
 function removeElems(){

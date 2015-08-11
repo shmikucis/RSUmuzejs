@@ -109,8 +109,15 @@ p{
 
 #foreground
 {
-    position: relative;
+    width: 100%;
     top: 32% !important;
+}
+
+#foreground div{
+    width: 90%;
+    text-align: center;
+    position: relative !important;
+    margin: auto;
 }
 
 #middle
@@ -284,21 +291,26 @@ p.citation{
 
 .anim-left{
     animation-name: left;
-    animation-duration: 2s;
+    animation-duration: 1.5s;
     /*animation-fill-mode: forwards;*/
     -webkit-animation-timing-function: ease-out;
 }
 
+.anim-up{
+    animation-name: up;
+    animation-duration: 1s;
+}
+
 .anim-right{
     animation-name: right;
-    animation-duration: 2s;
+    animation-duration: 1.5s;
     animation-fill-mode: forwards;
     -webkit-animation-timing-function: ease-out;
 }
 
 .anim-left-rev{
     animation-name: left;
-    animation-duration: 2s;
+    animation-duration: 1s;
     animation-fill-mode: forwards;
     -webkit-animation-direction: reverse;
     -webkit-animation-timing-function: ease-in;
@@ -306,7 +318,7 @@ p.citation{
 
 .anim-right-rev{
     animation-name: right;
-    animation-duration: 2s;
+    animation-duration: 1s;
     animation-fill-mode: forwards;
     -webkit-animation-direction: reverse;
     -webkit-animation-timing-function: ease-in;
@@ -354,4 +366,9 @@ p.citation{
 @keyframes left{
     from {transform: translateX(-200%);}
     to {transform: translateX(0%);}
+}
+
+@keyframes up{
+    from{transform: translateY(0%);}
+    to{transform: translateY(-200%);}
 }

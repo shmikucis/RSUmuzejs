@@ -18,7 +18,7 @@ get_header(); ?>
                             <div id="intro" class="section">
                                 <div id ="background" class="layer" data-depth="0.3"></div>
                                 <div id="middle" class="layer" data-depth="0.5"></div>
-                                <div id="foreground" class="layer" data-depth="0.6"></div>
+                                <div id="foreground" class="layer" data-depth="0.6"><div id="foretext"></div></div>
                             </div>
                                     <?php while ( have_posts() ) : the_post(); ?>
 					<?php get_template_part( 'citation', 'single'); ?>
