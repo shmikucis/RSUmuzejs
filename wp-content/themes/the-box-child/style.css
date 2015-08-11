@@ -24,6 +24,17 @@ This Theme is licensed under the GPL.
     font-family: baskerville;
     src: url(fonts/baskerville.ttf);
 }
+
+.page_load {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background: url(images/ui/preload.gif) center no-repeat #fff;
+}
+
 html{
 	height: 100vh;
 	width: 100%;

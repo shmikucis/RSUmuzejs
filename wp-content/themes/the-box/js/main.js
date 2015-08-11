@@ -1,3 +1,8 @@
+$(window).load(function() {
+		// Animate loader off screen
+		$(".page_load").fadeOut("slow");;
+	});
+
 window.onload = init;
 
 var contents = [
