@@ -322,6 +322,18 @@ p.citation{
     animation-name: up;
     animation-duration: 1s;
 }
+
+.anim-up-rev{
+    animation-name: up;
+    animation-duration: 1s;    
+    -webkit-animation-direction: reverse;
+    -moz-animation-direction: reverse;
+    animation-direction: reverse;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-timing-function: linear;
+    animation-timing-function: linear;
+}
+
 .anim-left-rev{
     animation-name: left;
     animation-duration: 1s;
@@ -344,40 +356,6 @@ p.citation{
     -webkit-animation-timing-function: ease-in;
     -moz-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
-}
-
-.anim-left-delay{
-    animation-name: left;
-    animation-duration: 3s;
-    animation-delay: 1s;
-    animation-fill-mode: forwards;
-    -webkit-animation-timing-function: linear;
-}
-
-.anim-right-delay{
-    animation-name: right;
-    animation-duration: 3s;
-    animation-delay: 1s;
-    animation-fill-mode: forwards;
-    -webkit-animation-timing-function: linear;
-}
-
-.anim-left-rev-delay{
-    animation-name: left;
-    animation-duration: 2s;
-    animation-delay: 1s;
-    animation-fill-mode: forwards;
-    -webkit-animation-direction: reverse;
-    -webkit-animation-timing-function: linear;
-}
-
-.anim-right-rev-delay{
-    animation-name: right;
-    animation-duration: 2s;
-    animation-delay: 1s;
-    animation-fill-mode: forwards;
-    -webkit-animation-direction: reverse;
-    -webkit-animation-timing-function: linear;
 }
 
 @keyframes right{
@@ -408,7 +386,7 @@ p.citation{
         opacity: 1;
     }
     to{
-        transform: translateY(-200%);
+        transform: translateY(-100%);
         opacity: 0;
     }
 }
