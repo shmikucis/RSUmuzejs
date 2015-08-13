@@ -21,7 +21,13 @@ get_header(); ?>
                                 <div id="foreground" class="layer" data-depth="0.6"><div id="foretext"></div></div>
                             </div>
                                     <?php while ( have_posts() ) : the_post(); ?>
-					<?php get_template_part( 'citation', 'single'); ?>
+                                        <?php 
+                                        $post_id = get_the_ID(); 
+                                        $post_categories = wp_get_post_categories( $post_id );
+                                        $cat = get_category( $post_categories[0] );
+                                        $parent = get_category ($cat->parent);                                        
+                                        ?> 
+					<?php get_template_part( $parent->slug, $cat->slug ); ?>
                                     <?php endwhile; // end of the loop. ?>
                            
 

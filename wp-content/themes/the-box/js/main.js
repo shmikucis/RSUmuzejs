@@ -64,10 +64,11 @@ function init() {
     $(document).ready(function() {
         $('#fullpage').fullpage({
             scrollingSpeed: 0,
-            loopBottom: true,
-            loopTop: true,
+//            loopBottom: true,
+//            loopTop: true,
             keyboardScrolling: false
         });
+        $.fn.fullpage.setMouseWheelScrolling(false);
     });
 
     $(document).on('click', '#continue', function() {
@@ -81,7 +82,6 @@ function init() {
 
     $(window).bind('mousewheel DOMMouseScroll', function(event) {
         if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
-            $.fn.fullpage.moveSectionDown();
             transition_out();
 
             $(".main_text_single:first").bind('oanimationend animationend webkitAnimationEnd', function() {
@@ -89,7 +89,6 @@ function init() {
                 transition_in();
             });
         } else {
-            $.fn.fullpage.moveSectionUp();
             transition_out();
 
             $(".main_text_single:first").bind('oanimationend animationend webkitAnimationEnd', function() {
@@ -97,6 +96,8 @@ function init() {
                 transition_in();
             });
         }
+        event.preventDefault();
+        event.stopPropagation();
     });
     
     $(document).keydown(function(e) {

@@ -224,21 +224,38 @@ p{
     /*padding: 30px 0px 30px 0px;*/
 }
 
+img.alignleft{
+    position: absolute;
+    width: auto;
+    height: 50vh;
+    left: -10%;
+    top: -50%;
+}
+
 p.main_text_single{
-    position:relative;
     width: 100%;
     margin: auto;
     font-size: 3vmin;
 }
 
 p.author_text_single{
-    position: relative;
-    /*text-align: center;*/
     padding-top: 2%;
     font-size: 2vmin;
 }
 
+p.main_text_right{
+    width: 60%;
+    text-align: left;
+    font-size: 3vmin;
+    left: 55%;
+}
+
+/*p.author_text_right{
+    float: right;
+}*/
+
 p.citation{
+    position: relative;
     top: 35%;
 }
 
@@ -288,7 +305,7 @@ p.citation{
 }
 
 .bg.stripes{    
-    height: 95%;    
+    height: 27vh;    
     top: -20% !important;
     left: -25vw !important;
     z-index: -1;
