@@ -1,0 +1,409 @@
+/*
+Theme Name: The Box
+Theme URI: http://design.altervista.org/thebox/
+Author: Design Lab
+Author URI: http://design.altervista.org
+Template: the-box
+Description: Simple and minimal two columns Theme: custom header, custom background, custom colors, post thumbnails, post formats
+Version: 1.4.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: thebox-child
+Tags: two-columns, right-sidebar, fixed-layout, responsive-layout, custom-header, custom-background, custom-menu, custom-colors, sticky-post, featured-images, post-formats, full-width-template, translation-ready
+
+FontAwesome License: SIL Open Font License - http://scripts.sil.org/OFL
+This Theme is licensed under the GPL.
+*/
+@import "jquery.fullPage.css";
+
+@font-face {
+    font-family: palatino;
+    src: url(fonts/palatino.ttf);
+}
+@font-face {
+    font-family: baskerville;
+    src: url(fonts/baskerville.ttf);
+}
+
+.page_load {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background: url(images/ui/preload.gif) center no-repeat #fff;
+}
+
+html{
+	height: 100vh;
+	width: 100%;
+}
+
+body{
+    margin: 0px;
+    padding: 0px;
+}
+
+header.site-header{
+	width: 100vw;
+	height: 7vh;
+	background-image: url(images/header_bg.png);
+        position: absolute;
+        z-index: 3;
+}
+
+div.top_bar{
+    /*display:none;*/
+    position: absolute;
+}
+
+div#primary.content-area{
+	width: 100vw;
+        top: 5vh;
+        height: 93vh;
+        position: relative;
+}
+
+/*div#content.content-area{
+    position: absolute;
+    height: 93vh;
+}*/
+div#fullpage.content-area{
+    position: absolute;
+    height: 93vh;
+}
+
+#secondary{
+	display: none;
+}
+
+#page{
+	width: 100%;
+	height: 100vh;
+	margin: 0px;
+	padding: 0px;
+}
+
+footer{
+	display: none;
+}
+
+body{
+    margin: 0px;
+    padding: 0px;
+}
+
+h1{
+    margin: 0px;
+    padding: 0px;
+    /*position: inherit;*/
+}
+
+p{
+    margin: 0px;
+    padding: 0px;
+    /*position: inherit;*/
+}
+.scene
+{
+    position: relative;
+    width: 100%;
+    height: 93vh;
+    /*overflow: hidden;*/
+}
+
+#intro{
+    position: relative;
+    z-index: 999;
+}
+
+#foreground
+{
+    width: 100%;
+    top: 32% !important;
+}
+
+#foreground div{
+    width: 90%;
+    text-align: center;
+    position: relative !important;
+    margin: auto;
+}
+
+#middle
+{
+    position: relative;
+    height: 100%;
+    width: 110%;
+}
+
+#background
+{
+    position: relative;
+    width: 110%;
+    height: 100%;
+    left: -5%;
+}
+
+#bg1{
+    background: url(images/AI_Image.jpg) no-repeat center center;
+}
+
+#mid1{
+    background-image: url(images/ui/line_pattern.png);
+    opacity: 0.9;
+}
+
+#fore3{
+    width: 50% !important;
+    margin-top: 10px;
+    font-family: baskerville;
+    font-size: 3vmin;
+}
+
+.layer{
+    margin: 0px;
+    padding: 0px;
+}
+
+#head_image{
+    position: relative !important;
+    width: 110%;
+    left: -5% !important;
+    z-index: -1;
+    height: 17%;
+    background-image: url(images/head1.jpg);
+    background-position: center;
+}
+
+#head_image_bot{
+    position:relative;
+    top:-3%;
+    background-color: white;
+    height: 4%;
+}
+
+#head_image_bot div{
+    position: relative;
+    background-color: darkred;
+    height: 25%;
+}
+
+.entry-header{
+    text-transform: uppercase;
+    float: none;
+    text-align: center;
+    position: relative !important;
+    width: 100%;
+    font-family: palatino;
+    font-size: 5vmin;
+}
+
+.entry-title{
+    position: relative;
+    width: 30%;
+    margin: auto;
+    text-align: center;
+    top: 20%;
+    font-size: 4vmin;
+    padding: 3px 16px;
+    border-style: solid;
+    border-width: thin;
+    border-color: rgb(224,224,224);
+}
+
+.entry-content{
+    position: relative !important;
+    width: 60%;
+    margin: auto;
+    text-align: center;
+    top: 10% !important;
+    font-family: baskerville;
+    /*ja kartons k� bg*/
+    /*padding: 30px 0px 30px 0px;*/
+}
+
+img.alignleft{
+    position: absolute;
+    width: auto;
+    height: 50vh;
+    left: -10%;
+    top: -50%;
+}
+
+p.main_text_single{
+    width: 100%;
+    margin: auto;
+    font-size: 3vmin;
+}
+
+p.author_text_single{
+    padding-top: 2%;
+    font-size: 2vmin;
+}
+
+p.main_text_right{
+    width: 60%;
+    text-align: left;
+    font-size: 3vmin;
+    left: 55%;
+}
+
+/*p.author_text_right{
+    float: right;
+}*/
+
+p.citation{
+    position: relative;
+    top: 35%;
+}
+
+#footer{
+    position: absolute;
+    width: 100%;
+    margin: auto;
+    bottom: 0;
+    height: 10%;
+    border-top-color: #EAE3E3;
+    border-top-width: thin;
+    border-top-style: solid;
+    text-align: center;
+    z-index: 2;
+}
+
+#continue{
+    position: relative;
+    display: block;
+    margin: auto;
+    background-image: url(images/ui/cont_out.png);
+    background-size: contain;
+    background-repeat: no-repeat;    
+    top: -32%;
+    height: 40px;
+    width: 160px;
+    z-index: 999;
+}
+#continue:hover{
+    background-image: url(images/ui/cont_hover.png);
+}
+
+.bg{
+    position: absolute;
+}
+
+.bg.cardboard{    
+    height: 130%;    
+    top: -15% !important;
+    left: -10% !important;   
+}
+
+.cardboard{
+    width: 120%;
+    /*background-color: rgb(244,244,244);*/
+    background-image: url(images/cardboard.jpg);
+}
+
+.bg.stripes{    
+    height: 27vh;    
+    top: -20% !important;
+    left: -25vw !important;
+    z-index: -1;
+}
+
+.stripes{
+    width: 120vw;
+    background-image: url(images/ui/line_pattern.png);
+    /*z-index: -1;*/
+}
+
+.anim-left{
+    animation-name: left;
+    animation-duration: 1.5s;
+    /*animation-fill-mode: forwards;*/
+/*    -webkit-animation-timing-function: ease-out;
+    -moz-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;*/
+}
+
+.anim-right{
+    animation-name: right;
+    animation-duration: 1.5s;
+    /*animation-fill-mode: forwards;*/
+/*    -webkit-animation-timing-function: ease-out;
+    -moz-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;*/
+}
+
+.anim-up{
+    animation-name: up;
+    animation-duration: 1s;
+}
+
+.anim-up-rev{
+    animation-name: up;
+    animation-duration: 1s;    
+    -webkit-animation-direction: reverse;
+    -moz-animation-direction: reverse;
+    animation-direction: reverse;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-timing-function: linear;
+    animation-timing-function: linear;
+}
+
+.anim-left-rev{
+    animation-name: left;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    -webkit-animation-direction: reverse;
+    -moz-animation-direction: reverse;
+    animation-direction: reverse;
+    -webkit-animation-timing-function: ease-in;
+    -moz-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+}
+
+.anim-right-rev{
+    animation-name: right;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    -webkit-animation-direction: reverse;
+    -moz-animation-direction: reverse;
+    animation-direction: reverse;
+    -webkit-animation-timing-function: ease-in;
+    -moz-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+}
+
+@keyframes right{
+    from {
+        transform: translateX(200%);
+        /*opacity: 0;*/
+    }
+    to {
+        transform: translateX(0%);
+        /*opacity: initial;*/
+    }
+}
+
+@keyframes left{
+    from {
+        transform: translateX(-200%);
+        /*opacity: 0;*/
+    }
+    to {
+        transform: translateX(0%);
+        /*opacity: initial;*/
+    }
+}
+
+@keyframes up{
+    from{
+        transform: translateY(0%);
+        opacity: 1;
+    }
+    to{
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+}
