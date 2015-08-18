@@ -10,7 +10,7 @@
 ?>
 		
 	<div id="footer">
-            <a id="continue" href="#"></a>
+            <div id="continue"></div>
         </div>
 
 <?php wp_footer(); ?>

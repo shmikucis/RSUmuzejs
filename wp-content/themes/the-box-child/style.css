@@ -17,12 +17,16 @@ This Theme is licensed under the GPL.
 @import "jquery.fullPage.css";
 
 @font-face {
-    font-family: palatino;
-    src: url(fonts/palatino.ttf);
+    font-family: pagella;
+    src: url(fonts/texgyrepagella-regular.otf);
 }
 @font-face {
     font-family: baskerville;
-    src: url(fonts/baskerville.ttf);
+    src: url(fonts/LibreBaskerville-Regular.otf);
+}
+@font-face{
+    font-family: oswald;
+    src: url(fonts/Oswald-Medium.ttf);
 }
 
 .page_load {
@@ -195,27 +199,27 @@ p{
     height: 25%;
 }
 
-.entry-header{
-    text-transform: uppercase;
+.entry-header{   
     float: none;
-    text-align: center;
     position: relative !important;
-    width: 100%;
-    font-family: palatino;
-    font-size: 5vmin;
+    width: 100%;    
 }
 
 .entry-title{
     position: relative;
-    width: 30%;
+    width: 25%;
     margin: auto;
+    text-transform: uppercase;
+    font-weight: normal;
     text-align: center;
     top: 20%;
-    font-size: 4vmin;
-    padding: 3px 16px;
+    font-family: palatino;
+    font-size: 3.2vmin;
+    color: #575756;
     border-style: solid;
     border-width: thin;
     border-color: rgb(224,224,224);
+    z-index: 2;
 }
 
 .entry-content{
@@ -225,6 +229,7 @@ p{
     text-align: center;
     top: 10% !important;
     font-family: baskerville;
+    color: #575756;
     /*ja kartons k� bg*/
     /*padding: 30px 0px 30px 0px;*/
 }
@@ -240,18 +245,21 @@ img.alignleft{
 p.main_text_single{
     width: 100%;
     margin: auto;
-    font-size: 3vmin;
+    font-size: 2vmin;
+    font-weight: normal;
+    line-height: 150%;
 }
 
 p.author_text_single{
-    padding-top: 2%;
-    font-size: 2vmin;
+    padding-top: 4%;
+    font-size: 1.5vmin;
 }
 
 p.main_text_right{
     width: 60%;
     text-align: left;
-    font-size: 3vmin;
+    font-size: 2vmin;
+    line-height: 150%;
     left: 55%;
 }
 
@@ -284,10 +292,9 @@ p.citation{
     margin: auto;
     background-image: url(images/ui/cont_out.png);
     background-size: contain;
-    background-repeat: no-repeat;    
-    top: -32%;
-    height: 40px;
-    width: 160px;
+    background-repeat: no-repeat;
+    height: 5vh;
+    width: 12.5vw;
     z-index: 999;
 }
 #continue:hover{
@@ -299,7 +306,7 @@ p.citation{
 }
 
 .bg.cardboard{    
-    height: 130%;    
+    height: 150%;    
     top: -15% !important;
     left: -10% !important;   
 }

@@ -1,6 +1,11 @@
 $(window).load(function() {
     // Animate loader off screen
-    $(".page_load").fadeOut("slow");;
+    $(".page_load").fadeOut("slow");
+    setButtonMargin();
+});
+
+$( window ).resize(function() {
+    setButtonMargin();    
 });
 
 window.onload = init;
@@ -17,7 +22,7 @@ var contents = [{
     "id": "mid1",
     "class": "anim-left",
     "parent": "middle",
-    "style": "position: absolute; top: 30%; width: 110%; margin-left: -5%; height: 25%;",
+    "style": "position: absolute; top: 25%; width: 110%; margin-left: -5%; height: 30%;",
     "text": ""
 }, {
     "type": "div",
@@ -31,21 +36,21 @@ var contents = [{
     "id": "fore1",
     "class": "anim-left",
     "parent": "foretext",
-    "style": "width: 100%; margin: auto; top: 35%; text-align: center; font-family: palatino; font-size: 5vw; color: #E3364D;",
+    "style": "width: 100%; margin: auto; top: 35vmin; text-align: center; font-family: palatino; font-size: 7vmin; color: #AB182B; font-weight: normal;",
     "text": "RĪGAS STRADIŅA UNIVERSITĀTES"
 }, {
     "type": "p",
     "id": "fore2",
     "class": "anim-left",
     "parent": "foretext",
-    "style": "width: 100%; margin: auto; top: 47%; text-align: center; font-family: palatino; font-size: 3vmin; color: #403924;",
+    "style": "width: 100%; margin: auto; top: 47%; text-align: center; font-family: palatino; font-size: 3vmin; color: #575756;",
     "text": "VĒSTURES VIRTUĀLĀ EKSPOZĪCIJA"
 }, {
     "type": "p",
     "id": "fore3",
     "class": "layer anim-right",
     "parent": "mid2",
-    "style": "position: relative; margin-left: 20%; text-align: center; width: 50%; font-size: 2.7vmin; color: #F3F0F5;",
+    "style": "position: relative; margin-left: 20%; text-align: center; width: 50%; font-family: baskerville; font-size: 2vmin; color: #F3F0F5; line-height: 150%; font-weight: normal;",
     "text": "Virtuālais muzejs, izmantojot RSU muzejā sakopotos materiālus," + String.fromCharCode(13) + " palīdzēs jums iepazīties ar to, kā noritējusi mūsu augstskolas" + String.fromCharCode(13) + " attīstība dažādos vēsturiskajos laikposmos."
 }];
 
@@ -185,13 +190,9 @@ function transition_in() {
     }
 }
 
-function removeElems() {
-    for (var i = 0; i < contents.length; i++) {
-        var elem = document.getElementById(contents[i].id);
-        var newone = elem.cloneNode(true);
-        if (elem.className !== "") {
-            newone.className = elem.className + "-rev";
-            elem.parentNode.replaceChild(newone, elem);
-        }
-    }
+function setButtonMargin(){
+    var btnOffset = $('#continue').height();
+    btnOffset/=-2;
+    console.log($('#continue').height(), btnOffset);
+  $('#continue').css('top', btnOffset);
 }
