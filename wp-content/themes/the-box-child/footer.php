@@ -9,7 +9,7 @@
  */
 ?>
 		
-	<div id="footer" class="stripes">
+	<div id="footer">
             <a id="continue" href="#"></a>
         </div>
 

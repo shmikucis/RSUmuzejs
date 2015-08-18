@@ -4,11 +4,11 @@ $(window).load(function() {
 });
 
 window.onload = init;
-
+window.parallax = null;
 var contents = [{
     "type": "div",
     "id": "bg1",
-    "class": "",
+    "class": "anim-up",
     "parent": "background",
     "style": "position: absolute; width: 110%; height: 100%; left: -5%; top: -5%; background-size: cover",
     "text": ""
@@ -61,11 +61,13 @@ function init() {
         elem.style.cssText = contents[i].style;
     }
 
+
+    var scene = document.getElementsByClassName("scene");
+    parallax = new Parallax(scene);
+
     $(document).ready(function() {
         $('#fullpage').fullpage({
             scrollingSpeed: 0,
-//            loopBottom: true,
-//            loopTop: true,
             keyboardScrolling: false
         });
         $.fn.fullpage.setMouseWheelScrolling(false);
@@ -124,64 +126,61 @@ function init() {
     e.preventDefault(); // prevent the default action (scroll / move caret)
     });
 
-    var scene = document.getElementsByClassName("scene");
-    var parallax = new Parallax(scene);
 }
 
 function transition_out() {
-    var up = document.getElementById("background");
-    var newUp = up.cloneNode(true);
-    newUp.className = up.className.slice(0, -4);
-    up.parentNode.replaceChild(newUp, up);
+//    var up = document.getElementById("background");
+//    var newUp = up.cloneNode(true);
+//    newUp.className = up.className.slice(0, -4);
+//    up.parentNode.replaceChild(newUp, up);
 
     var outroR = document.getElementsByClassName("anim-right");
     var outroL = document.getElementsByClassName("anim-left");
+    var outroU = document.getElementsByClassName("anim-up");
     for (var j = 0; j < 4; j++) {
         for (var i = 0; i < outroR.length; i++) {
             var newone = outroR[i].cloneNode(true);
-            if (outroR[i].className !== "") {
-                newone.className = outroR[i].className + "-rev";
-                outroR[i].parentNode.replaceChild(newone, outroR[i]);
-            }
+            newone.className = outroR[i].className + "-rev";
+            outroR[i].parentNode.replaceChild(newone, outroR[i]);            
+        }        
+        for (var k = 0; k < outroL.length; k++) {
+            var newone = outroL[k].cloneNode(true);
+            newone.className = outroL[k].className + "-rev";
+            outroL[k].parentNode.replaceChild(newone, outroL[k]);            
+        }
+        for (var l = 0; l < outroU.length; l++){
+            var newone = outroU[l].cloneNode(true);
+            newone.className = outroU[l].className + "-rev";
+            outroU[l].parentNode.replaceChild(newone, outroU[l]);
         }
     }
-    for (var j = 0; j < 4; j++) {
-        for (var i = 0; i < outroL.length; i++) {
-            var newone = outroL[i].cloneNode(true);
-            if (outroL[i].className !== "") {
-                newone.className = outroL[i].className + "-rev";
-                outroL[i].parentNode.replaceChild(newone, outroL[i]);
-            }
-        }
-    }
+    
 }
 
 function transition_in() {
-    var up = document.getElementById("background");
-    var newUp = up.cloneNode(true);
-    newUp.className = up.className + "-rev";
-    up.parentNode.replaceChild(newUp, up);
+//    var up = document.getElementById("background");
+//    var newUp = up.cloneNode(true);
+//    newUp.className = up.className + "-rev";
+//    up.parentNode.replaceChild(newUp, up);
 
     var introR = document.getElementsByClassName("anim-right-rev");
     var introL = document.getElementsByClassName("anim-left-rev");
+    var introU = document.getElementsByClassName("anim-up-rev");
     for (var j = 0; j < 5; j++) {
         for (var i = 0; i < introR.length; i++) {
             var newone = introR[i].cloneNode(true);
-            if (introR[i].className !== "") {
                 newone.className = introR[i].className.slice(0, -4);
                 introR[i].parentNode.replaceChild(newone, introR[i]);
-                //            introR[i].className = "anim-right";
-
-            }
         }
-    }
-    for (var j = 0; j < 5; j++) {
-        for (var i = 0; i < introL.length; i++) {
-            var newone = introL[i].cloneNode(true);
-            if (introL[i].className !== "") {
-                newone.className = introL[i].className.slice(0, -4);
-                introL[i].parentNode.replaceChild(newone, introL[i]);
-            }
+        for (var k = 0; k < introL.length; i++) {
+            var newone = introL[k].cloneNode(true);
+                newone.className = introL[k].className.slice(0, -4);
+                introL[k].parentNode.replaceChild(newone, introL[k]);            
+        }
+        for (var l = 0; l < introU.length; l++){
+            var newone = introU[l].cloneNode(true);
+            newone.className = introU[l].className.slice(0, -4);
+            introU[l].parentNode.replaceChild(newone, introU[l]);
         }
     }
 }

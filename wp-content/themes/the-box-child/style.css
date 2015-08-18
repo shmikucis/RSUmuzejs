@@ -48,9 +48,11 @@ body{
 header.site-header{
 	width: 100vw;
 	height: 7vh;
-	background-image: url(images/header_bg.png);
+	background-image: url(images/ui/header_pattern.png);
+        background-size: cover;
         position: absolute;
         z-index: 3;
+        margin: 0;
 }
 
 div.top_bar{
@@ -171,10 +173,13 @@ p{
     position: relative !important;
     width: 110%;
     left: -5% !important;
-    z-index: -1;
-    height: 17%;
+    height: 17%;    
+}
+#head_image div{
     background-image: url(images/head1.jpg);
-    background-position: center;
+    background-position: center;    
+    height: 100%;
+    /*z-index: -1;*/
 }
 
 #head_image_bot{
@@ -228,8 +233,8 @@ img.alignleft{
     position: absolute;
     width: auto;
     height: 50vh;
-    left: -10%;
-    top: -50%;
+    left: -10% !important;
+    top: -10vh !important;
 }
 
 p.main_text_single{
@@ -270,6 +275,7 @@ p.citation{
     border-top-style: solid;
     text-align: center;
     z-index: 2;
+    background-image: url(images/ui/line_pattern.png);
 }
 
 #continue{
@@ -305,22 +311,33 @@ p.citation{
 }
 
 .bg.stripes{    
-    height: 27vh;    
+    height: 27vh;
+    width: 120vw;
+    top: -20% !important;
+    left: -25vw !important;
+    /*z-index: -1;*/
+}
+
+.bg.stripes div{
+    height: 100%;
+    width: 100%;
+    background-image: url(images/ui/line_pattern.png);
+    /*z-index: -1;*/
+}
+
+@media only screen and (orientation: portrait) {
+    .bg.stripes{    
+    height: 40vh;    
     top: -20% !important;
     left: -25vw !important;
     z-index: -1;
 }
-
-.stripes{
-    width: 120vw;
-    background-image: url(images/ui/line_pattern.png);
-    /*z-index: -1;*/
 }
 
 .anim-left{
     animation-name: left;
     animation-duration: 1.5s;
-    /*animation-fill-mode: forwards;*/
+    animation-fill-mode: forwards;
 /*    -webkit-animation-timing-function: ease-out;
     -moz-animation-timing-function: ease-out;
     animation-timing-function: ease-out;*/
@@ -329,7 +346,7 @@ p.citation{
 .anim-right{
     animation-name: right;
     animation-duration: 1.5s;
-    /*animation-fill-mode: forwards;*/
+    animation-fill-mode: forwards;
 /*    -webkit-animation-timing-function: ease-out;
     -moz-animation-timing-function: ease-out;
     animation-timing-function: ease-out;*/
@@ -338,6 +355,7 @@ p.citation{
 .anim-up{
     animation-name: up;
     animation-duration: 1s;
+    animation-fill-mode: forwards;
 }
 
 .anim-up-rev{
@@ -349,6 +367,7 @@ p.citation{
     -webkit-animation-timing-function: linear;
     -moz-animation-timing-function: linear;
     animation-timing-function: linear;
+    /*animation-fill-mode: forwards;*/
 }
 
 .anim-left-rev{
@@ -361,6 +380,7 @@ p.citation{
     -webkit-animation-timing-function: ease-in;
     -moz-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
+    /*animation-fill-mode: forwards;*/
 }
 
 .anim-right-rev{
@@ -373,7 +393,13 @@ p.citation{
     -webkit-animation-timing-function: ease-in;
     -moz-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
+        /*animation-fill-mode: forwards;*/
+
 }
+
+/*.fast{
+    animation-duration: 0.5s !important;
+}*/
 
 @keyframes right{
     from {
@@ -381,7 +407,8 @@ p.citation{
         /*opacity: 0;*/
     }
     to {
-        transform: translateX(0%);
+        transform: initial;
+            /*translateX(0%);*/
         /*opacity: initial;*/
     }
 }
@@ -392,18 +419,20 @@ p.citation{
         /*opacity: 0;*/
     }
     to {
-        transform: translateX(0%);
+        transform: initial;
+            /*translateX(0%);*/
         /*opacity: initial;*/
     }
 }
 
 @keyframes up{
     from{
-        transform: translateY(0%);
-        opacity: 1;
-    }
-    to{
         transform: translateY(-100%);
         opacity: 0;
+    }
+    to{        
+        transform: initial;
+            /*translateY(0%);*/
+        opacity: 1;
     }
 }
