@@ -1,14 +1,17 @@
 $(window).load(function() {
     // Animate loader off screen
     $(".page_load").fadeOut("slow");
-    setButtonMargin();
 });
 
 $( window ).resize(function() {
     setButtonMargin();    
+    setSocialMargin();
 });
 
-window.onload = init;
+//window.onload = init;
+$( document ).ready(function() {
+  init();
+});
 window.parallax = null;
 var contents = [{
     "type": "div",
@@ -56,6 +59,8 @@ var contents = [{
 
 
 function init() {
+    setButtonMargin();
+    setSocialMargin();
 
     for (var i = 0; i < contents.length; i++) {
         var elem = document.createElement(contents[i].type);
@@ -134,11 +139,6 @@ function init() {
 }
 
 function transition_out() {
-//    var up = document.getElementById("background");
-//    var newUp = up.cloneNode(true);
-//    newUp.className = up.className.slice(0, -4);
-//    up.parentNode.replaceChild(newUp, up);
-
     var outroR = document.getElementsByClassName("anim-right");
     var outroL = document.getElementsByClassName("anim-left");
     var outroU = document.getElementsByClassName("anim-up");
@@ -163,11 +163,6 @@ function transition_out() {
 }
 
 function transition_in() {
-//    var up = document.getElementById("background");
-//    var newUp = up.cloneNode(true);
-//    newUp.className = up.className + "-rev";
-//    up.parentNode.replaceChild(newUp, up);
-
     var introR = document.getElementsByClassName("anim-right-rev");
     var introL = document.getElementsByClassName("anim-left-rev");
     var introU = document.getElementsByClassName("anim-up-rev");
@@ -193,6 +188,18 @@ function transition_in() {
 function setButtonMargin(){
     var btnOffset = $('#continue').height();
     btnOffset/=-2;
-    console.log($('#continue').height(), btnOffset);
   $('#continue').css('top', btnOffset);
+}
+
+function setSocialMargin(){
+    var ulOffset = $('.social').height();
+    var headbar = $('#head_image_bot div').height();
+    if (headbar === 0)
+        {
+            headbar = window.innerHeight / 100 * 1.04;
+        }
+    ulOffset /=-2;
+    ulOffset += headbar/2;
+    console.log(headbar);
+    $('.social').css('margin-top', ulOffset);
 }

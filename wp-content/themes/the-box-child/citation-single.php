@@ -11,7 +11,16 @@
         <div id="head_image" class="layer" data-depth="0.1">
             <div class="anim-up"></div>
         </div>
-        <div id="head_image_bot" class=""><div></div></div>
+        <div id="head_image_bot" class="">
+            <div>
+                <ul class="social">
+                    <li><a href="#" id="twitter"></a></li>
+                    <li><a href="#" id="facebook"></a></li>
+                    <li><a href="#" id="draugiem"></a></li>
+                </ul>
+            </div>
+            
+        </div>
 	<header class="entry-header layer" data-depth="0.5">
 		<?php
 			

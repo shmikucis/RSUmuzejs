@@ -199,6 +199,52 @@ p{
     height: 25%;
 }
 
+ul.social{
+    float: right;
+    list-style: none;
+    height: 4.5vh;
+    width: auto;
+    margin-bottom: 0;
+    padding-right: 2vmin;
+}
+
+.social li{
+    display: inline-block;
+    position: relative;
+    height: 4.8vh;
+    width: 4.125vh;
+}
+
+.social li a{
+    display: inline-block;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#twitter{
+    background-image: url(images/ui/twitter_idle.png);
+}
+#twitter:hover{
+    background-image: url(images/ui/twitter_hover.png);
+}
+
+#facebook{
+    background-image: url(images/ui/fb_idle.png);
+}
+#facebook:hover{
+    background-image: url(images/ui/fb_hover.png);
+}
+
+#draugiem{
+    background-image: url(images/ui/draugiem_idle.png);
+}
+#draugiem:hover{
+    background-image: url(images/ui/draugiem_hover.png);
+}
+
 .entry-header{   
     float: none;
     position: relative !important;
