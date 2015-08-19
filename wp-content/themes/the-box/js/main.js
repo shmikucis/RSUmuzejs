@@ -3,16 +3,18 @@ $(window).load(function() {
     $(".page_load").fadeOut("slow");
 });
 
-$( window ).resize(function() {
-    setButtonMargin();    
+$(window).resize(function() {
+    setButtonMargin();
     setSocialMargin();
 });
 
-//window.onload = init;
-$( document ).ready(function() {
-  init();
+$(document).ready(function() {
+    init();
 });
+
 window.parallax = null;
+var slideIndex = 0;
+
 var contents = [{
     "type": "div",
     "id": "bg1",
@@ -61,6 +63,7 @@ var contents = [{
 function init() {
     setButtonMargin();
     setSocialMargin();
+    checkContinue();
 
     for (var i = 0; i < contents.length; i++) {
         var elem = document.createElement(contents[i].type);
@@ -82,58 +85,76 @@ function init() {
         });
         $.fn.fullpage.setMouseWheelScrolling(false);
     });
+    
+    $(document).on('click', '#bigmore', function() {
+        //        transition_out();
+        $.fn.fullpage.moveSectionDown();
+        slideIndex++;
+        checkContinue();
+    });
 
     $(document).on('click', '#continue', function() {
-        transition_out();
-
+        //        transition_out();
+        $.fn.fullpage.moveSectionDown();
+        slideIndex++;
+        checkContinue();
         $(".main_text_single:first").bind('oanimationend animationend webkitAnimationEnd', function() {
-            $.fn.fullpage.moveSectionDown();
-            transition_in();
+
+            //            transition_in();
         });
     });
 
     $(window).bind('mousewheel DOMMouseScroll', function(event) {
         if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
-            transition_out();
-
+            //            transition_out();
+            $.fn.fullpage.moveSectionUp();
+            if (slideIndex <= 0) slideIndex = 0;
+            else slideIndex--;
             $(".main_text_single:first").bind('oanimationend animationend webkitAnimationEnd', function() {
-                $.fn.fullpage.moveSectionUp();
-                transition_in();
+
+                //                transition_in();
             });
         } else {
-            transition_out();
-
+            //            transition_out();
+            $.fn.fullpage.moveSectionDown();
+            slideIndex++;
             $(".main_text_single:first").bind('oanimationend animationend webkitAnimationEnd', function() {
-                $.fn.fullpage.moveSectionDown();
-                transition_in();
+
+                //                transition_in();
             });
         }
+        checkContinue();
         event.preventDefault();
         event.stopPropagation();
     });
-    
+
     $(document).keydown(function(e) {
-    switch(e.which) {
-        case 38: // up
-            transition_out();
-
-            $(".main_text_single:first").bind('oanimationend animationend webkitAnimationEnd', function() {
+        switch (e.which) {
+            case 38: // up
+                //            transition_out();
                 $.fn.fullpage.moveSectionUp();
-                transition_in();
-            });
-        break;
-        case 40: // down
-            transition_out();
+                if (slideIndex <= 0) slideIndex = 0;
+                else slideIndex--;
+                $(".main_text_single:first").bind('oanimationend animationend webkitAnimationEnd', function() {
 
-            $(".main_text_single:first").bind('oanimationend animationend webkitAnimationEnd', function() {
+                    //                transition_in();
+                });
+                break;
+            case 40: // down
+                //            transition_out();
                 $.fn.fullpage.moveSectionDown();
-                transition_in();
-            });
-        break;
+                slideIndex++;
+                $(".main_text_single:first").bind('oanimationend animationend webkitAnimationEnd', function() {
 
-        default: return; // exit this handler for other keys
-    }
-    e.preventDefault(); // prevent the default action (scroll / move caret)
+                    //                transition_in();
+                });
+                break;
+
+            default:
+                return; // exit this handler for other keys
+        }
+        checkContinue();
+        e.preventDefault(); // prevent the default action (scroll / move caret)
     });
 
 }
@@ -146,20 +167,20 @@ function transition_out() {
         for (var i = 0; i < outroR.length; i++) {
             var newone = outroR[i].cloneNode(true);
             newone.className = outroR[i].className + "-rev";
-            outroR[i].parentNode.replaceChild(newone, outroR[i]);            
-        }        
+            outroR[i].parentNode.replaceChild(newone, outroR[i]);
+        }
         for (var k = 0; k < outroL.length; k++) {
             var newone = outroL[k].cloneNode(true);
             newone.className = outroL[k].className + "-rev";
-            outroL[k].parentNode.replaceChild(newone, outroL[k]);            
+            outroL[k].parentNode.replaceChild(newone, outroL[k]);
         }
-        for (var l = 0; l < outroU.length; l++){
+        for (var l = 0; l < outroU.length; l++) {
             var newone = outroU[l].cloneNode(true);
             newone.className = outroU[l].className + "-rev";
             outroU[l].parentNode.replaceChild(newone, outroU[l]);
         }
     }
-    
+
 }
 
 function transition_in() {
@@ -169,15 +190,15 @@ function transition_in() {
     for (var j = 0; j < 5; j++) {
         for (var i = 0; i < introR.length; i++) {
             var newone = introR[i].cloneNode(true);
-                newone.className = introR[i].className.slice(0, -4);
-                introR[i].parentNode.replaceChild(newone, introR[i]);
+            newone.className = introR[i].className.slice(0, -4);
+            introR[i].parentNode.replaceChild(newone, introR[i]);
         }
         for (var k = 0; k < introL.length; i++) {
             var newone = introL[k].cloneNode(true);
-                newone.className = introL[k].className.slice(0, -4);
-                introL[k].parentNode.replaceChild(newone, introL[k]);            
+            newone.className = introL[k].className.slice(0, -4);
+            introL[k].parentNode.replaceChild(newone, introL[k]);
         }
-        for (var l = 0; l < introU.length; l++){
+        for (var l = 0; l < introU.length; l++) {
             var newone = introU[l].cloneNode(true);
             newone.className = introU[l].className.slice(0, -4);
             introU[l].parentNode.replaceChild(newone, introU[l]);
@@ -185,21 +206,29 @@ function transition_in() {
     }
 }
 
-function setButtonMargin(){
+//pielabo "Turpināt" pogas pozīciju, lai vertikāli būtu līnijas vidū
+function setButtonMargin() {
     var btnOffset = $('#continue').height();
-    btnOffset/=-2;
-  $('#continue').css('top', btnOffset);
+    btnOffset /= -2;
+    $('#continue').css('top', btnOffset);
 }
 
-function setSocialMargin(){
+//pielabo soctīklu pogu pozīcijas, lai tie būtu līnijas vidū
+function setSocialMargin() {
     var ulOffset = $('.social').height();
     var headbar = $('#head_image_bot div').height();
-    if (headbar === 0)
-        {
-            headbar = window.innerHeight / 100 * 1.04;
-        }
-    ulOffset /=-2;
-    ulOffset += headbar/2;
-    console.log(headbar);
+    if (headbar === 0) {
+        headbar = window.innerHeight / 100 * 1.04;
+    }
+    ulOffset /= -2;
+    ulOffset += headbar / 2;
     $('.social').css('margin-top', ulOffset);
+}
+
+//pārbauda, vai vajag paslēpt "turpināt" pogu
+function checkContinue(){
+    if(slideIndex===0){
+        $('#continue').css('display', 'none');
+    }
+    else $('#continue').css('display', 'block');
 }
