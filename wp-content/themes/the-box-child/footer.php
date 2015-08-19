@@ -9,8 +9,8 @@
  */
 ?>
 		
-	<div id="footer" class="stripes">
-            <a id="continue" href="#"></a>
+	<div id="footer">
+            <div id="continue"></div>
         </div>
 
 <?php wp_footer(); ?>

@@ -8,9 +8,20 @@
 
 <article id="post-<?php the_ID(); ?>" class="section">
  
-        <div id="head_image" class="layer anim-left" data-depth="0.1"></div>
-        <div id="head_image_bot" class="anim-left"><div></div></div>
-	<header class="entry-header layer" data-depth="0.4">
+        <div id="head_image" class="layer" data-depth="0.1">
+            <div class="anim-up"></div>
+        </div>
+        <div id="head_image_bot" class="">
+            <div>
+                <ul class="social">
+                    <li><a href="#" id="twitter"></a></li>
+                    <li><a href="#" id="facebook"></a></li>
+                    <li><a href="#" id="draugiem"></a></li>
+                </ul>
+            </div>
+            
+        </div>
+	<header class="entry-header layer" data-depth="0.5">
 		<?php
 			
 				the_title( '<h1 class="entry-title anim-right">', '</h1>' );
@@ -20,15 +31,17 @@
 	
 	
 		
-		<div class="entry-content layer" data-depth="0.3">
-                    <div class="bg cardboard layer anim-left" data-depth="0.04"></div>
-                    <div class="bg stripes layer anim-right" data-depth="0.07"></div>
+		<div class="entry-content layer" data-depth="0.4">
+                    <div class="bg stripes layer" data-depth="0.1">
+                        <div class="anim-right"></div>
+                    </div>
+                    <div class="bg cardboard anim-left"></div>
 			<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'thebox' ) ); ?>
 			<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'thebox' ), 'after' => '</div>' ) ); ?>
 		</div>
         
 <!--        <div id="footer" class="stripes">
-            <button id="continue">Turpinât</button>
+            <button id="continue">Turpinï¿½t</button>
         </div>-->
 
 		

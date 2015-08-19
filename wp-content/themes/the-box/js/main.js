@@ -1,14 +1,22 @@
 $(window).load(function() {
     // Animate loader off screen
-    $(".page_load").fadeOut("slow");;
+    $(".page_load").fadeOut("slow");
 });
 
-window.onload = init;
+$( window ).resize(function() {
+    setButtonMargin();    
+    setSocialMargin();
+});
 
+//window.onload = init;
+$( document ).ready(function() {
+  init();
+});
+window.parallax = null;
 var contents = [{
     "type": "div",
     "id": "bg1",
-    "class": "",
+    "class": "anim-up",
     "parent": "background",
     "style": "position: absolute; width: 110%; height: 100%; left: -5%; top: -5%; background-size: cover",
     "text": ""
@@ -17,7 +25,7 @@ var contents = [{
     "id": "mid1",
     "class": "anim-left",
     "parent": "middle",
-    "style": "position: absolute; top: 30%; width: 110%; margin-left: -5%; height: 25%;",
+    "style": "position: absolute; top: 25%; width: 110%; margin-left: -5%; height: 30%;",
     "text": ""
 }, {
     "type": "div",
@@ -31,26 +39,28 @@ var contents = [{
     "id": "fore1",
     "class": "anim-left",
     "parent": "foretext",
-    "style": "width: 100%; margin: auto; top: 35%; text-align: center; font-family: palatino; font-size: 5vw; color: #E3364D;",
+    "style": "width: 100%; margin: auto; top: 35vmin; text-align: center; font-family: palatino; font-size: 7vmin; color: #AB182B; font-weight: normal;",
     "text": "RĪGAS STRADIŅA UNIVERSITĀTES"
 }, {
     "type": "p",
     "id": "fore2",
     "class": "anim-left",
     "parent": "foretext",
-    "style": "width: 100%; margin: auto; top: 47%; text-align: center; font-family: palatino; font-size: 3vmin; color: #403924;",
+    "style": "width: 100%; margin: auto; top: 47%; text-align: center; font-family: palatino; font-size: 3vmin; color: #575756;",
     "text": "VĒSTURES VIRTUĀLĀ EKSPOZĪCIJA"
 }, {
     "type": "p",
     "id": "fore3",
     "class": "layer anim-right",
     "parent": "mid2",
-    "style": "position: relative; margin-left: 20%; text-align: center; width: 50%; font-size: 2.7vmin; color: #F3F0F5;",
+    "style": "position: relative; margin-left: 20%; text-align: center; width: 50%; font-family: baskerville; font-size: 2vmin; color: #F3F0F5; line-height: 150%; font-weight: normal;",
     "text": "Virtuālais muzejs, izmantojot RSU muzejā sakopotos materiālus," + String.fromCharCode(13) + " palīdzēs jums iepazīties ar to, kā noritējusi mūsu augstskolas" + String.fromCharCode(13) + " attīstība dažādos vēsturiskajos laikposmos."
 }];
 
 
 function init() {
+    setButtonMargin();
+    setSocialMargin();
 
     for (var i = 0; i < contents.length; i++) {
         var elem = document.createElement(contents[i].type);
@@ -61,11 +71,13 @@ function init() {
         elem.style.cssText = contents[i].style;
     }
 
+
+    var scene = document.getElementsByClassName("scene");
+    parallax = new Parallax(scene);
+
     $(document).ready(function() {
         $('#fullpage').fullpage({
             scrollingSpeed: 0,
-//            loopBottom: true,
-//            loopTop: true,
             keyboardScrolling: false
         });
         $.fn.fullpage.setMouseWheelScrolling(false);
@@ -124,75 +136,70 @@ function init() {
     e.preventDefault(); // prevent the default action (scroll / move caret)
     });
 
-    var scene = document.getElementsByClassName("scene");
-    var parallax = new Parallax(scene);
 }
 
 function transition_out() {
-    var up = document.getElementById("background");
-    var newUp = up.cloneNode(true);
-    newUp.className = up.className.slice(0, -4);
-    up.parentNode.replaceChild(newUp, up);
-
     var outroR = document.getElementsByClassName("anim-right");
     var outroL = document.getElementsByClassName("anim-left");
+    var outroU = document.getElementsByClassName("anim-up");
     for (var j = 0; j < 4; j++) {
         for (var i = 0; i < outroR.length; i++) {
             var newone = outroR[i].cloneNode(true);
-            if (outroR[i].className !== "") {
-                newone.className = outroR[i].className + "-rev";
-                outroR[i].parentNode.replaceChild(newone, outroR[i]);
-            }
+            newone.className = outroR[i].className + "-rev";
+            outroR[i].parentNode.replaceChild(newone, outroR[i]);            
+        }        
+        for (var k = 0; k < outroL.length; k++) {
+            var newone = outroL[k].cloneNode(true);
+            newone.className = outroL[k].className + "-rev";
+            outroL[k].parentNode.replaceChild(newone, outroL[k]);            
+        }
+        for (var l = 0; l < outroU.length; l++){
+            var newone = outroU[l].cloneNode(true);
+            newone.className = outroU[l].className + "-rev";
+            outroU[l].parentNode.replaceChild(newone, outroU[l]);
         }
     }
-    for (var j = 0; j < 4; j++) {
-        for (var i = 0; i < outroL.length; i++) {
-            var newone = outroL[i].cloneNode(true);
-            if (outroL[i].className !== "") {
-                newone.className = outroL[i].className + "-rev";
-                outroL[i].parentNode.replaceChild(newone, outroL[i]);
-            }
-        }
-    }
+    
 }
 
 function transition_in() {
-    var up = document.getElementById("background");
-    var newUp = up.cloneNode(true);
-    newUp.className = up.className + "-rev";
-    up.parentNode.replaceChild(newUp, up);
-
     var introR = document.getElementsByClassName("anim-right-rev");
     var introL = document.getElementsByClassName("anim-left-rev");
+    var introU = document.getElementsByClassName("anim-up-rev");
     for (var j = 0; j < 5; j++) {
         for (var i = 0; i < introR.length; i++) {
             var newone = introR[i].cloneNode(true);
-            if (introR[i].className !== "") {
                 newone.className = introR[i].className.slice(0, -4);
                 introR[i].parentNode.replaceChild(newone, introR[i]);
-                //            introR[i].className = "anim-right";
-
-            }
         }
-    }
-    for (var j = 0; j < 5; j++) {
-        for (var i = 0; i < introL.length; i++) {
-            var newone = introL[i].cloneNode(true);
-            if (introL[i].className !== "") {
-                newone.className = introL[i].className.slice(0, -4);
-                introL[i].parentNode.replaceChild(newone, introL[i]);
-            }
+        for (var k = 0; k < introL.length; i++) {
+            var newone = introL[k].cloneNode(true);
+                newone.className = introL[k].className.slice(0, -4);
+                introL[k].parentNode.replaceChild(newone, introL[k]);            
+        }
+        for (var l = 0; l < introU.length; l++){
+            var newone = introU[l].cloneNode(true);
+            newone.className = introU[l].className.slice(0, -4);
+            introU[l].parentNode.replaceChild(newone, introU[l]);
         }
     }
 }
 
-function removeElems() {
-    for (var i = 0; i < contents.length; i++) {
-        var elem = document.getElementById(contents[i].id);
-        var newone = elem.cloneNode(true);
-        if (elem.className !== "") {
-            newone.className = elem.className + "-rev";
-            elem.parentNode.replaceChild(newone, elem);
+function setButtonMargin(){
+    var btnOffset = $('#continue').height();
+    btnOffset/=-2;
+  $('#continue').css('top', btnOffset);
+}
+
+function setSocialMargin(){
+    var ulOffset = $('.social').height();
+    var headbar = $('#head_image_bot div').height();
+    if (headbar === 0)
+        {
+            headbar = window.innerHeight / 100 * 1.04;
         }
-    }
+    ulOffset /=-2;
+    ulOffset += headbar/2;
+    console.log(headbar);
+    $('.social').css('margin-top', ulOffset);
 }

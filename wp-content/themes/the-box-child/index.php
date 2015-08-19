@@ -16,9 +16,9 @@ get_header(); ?>
 		<div id="primary" class="content-area">
 			<div id="fullpage" class="site-content scene" role="main">
                             <div id="intro" class="section">
-                                <div id ="background" class="layer anim-up-rev" data-depth="0.3"></div>
-                                <div id="middle" class="layer" data-depth="0.5"></div>
-                                <div id="foreground" class="layer" data-depth="0.6"><div id="foretext"></div></div>
+                                <div id ="background" class="layer" data-depth="0.2"></div>
+                                <div id="middle" class="layer" data-depth="0.4"></div>
+                                <div id="foreground" class="layer" data-depth="0.5"><div id="foretext"></div></div>
                             </div>
                                     <?php while ( have_posts() ) : the_post(); ?>
                                         <?php 

@@ -38,7 +38,7 @@
 	<header id="masthead" class="site-header clearfix" role="banner">
 		<div class="top_bar">
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-				<img src="<?php echo get_template_directory_uri(); ?>/images/logo.jpg" alt="RSU muzejs" />
+				<img src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="RSU muzejs" />
 			</a>
 		</div>
 </header>

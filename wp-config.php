@@ -32,7 +32,6 @@ if("http://$_SERVER[HTTP_HOST]" == 'http://localhost'){
 	define('DB_COLLATE', '');
 }
 
-
 /**#@+
  * Authentication Unique Keys and Salts.
  *
