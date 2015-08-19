@@ -13,7 +13,6 @@ $(document).ready(function() {
 });
 
 window.parallax = null;
-var slideIndex = 0;
 
 var contents = [{
     "type": "div",
@@ -89,14 +88,12 @@ function init() {
     $(document).on('click', '#bigmore', function() {
         //        transition_out();
         $.fn.fullpage.moveSectionDown();
-        slideIndex++;
         checkContinue();
     });
 
     $(document).on('click', '#continue', function() {
         //        transition_out();
         $.fn.fullpage.moveSectionDown();
-        slideIndex++;
         checkContinue();
         $(".main_text_single:first").bind('oanimationend animationend webkitAnimationEnd', function() {
 
@@ -108,8 +105,6 @@ function init() {
         if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
             //            transition_out();
             $.fn.fullpage.moveSectionUp();
-            if (slideIndex <= 0) slideIndex = 0;
-            else slideIndex--;
             $(".main_text_single:first").bind('oanimationend animationend webkitAnimationEnd', function() {
 
                 //                transition_in();
@@ -117,7 +112,6 @@ function init() {
         } else {
             //            transition_out();
             $.fn.fullpage.moveSectionDown();
-            slideIndex++;
             $(".main_text_single:first").bind('oanimationend animationend webkitAnimationEnd', function() {
 
                 //                transition_in();
@@ -133,8 +127,6 @@ function init() {
             case 38: // up
                 //            transition_out();
                 $.fn.fullpage.moveSectionUp();
-                if (slideIndex <= 0) slideIndex = 0;
-                else slideIndex--;
                 $(".main_text_single:first").bind('oanimationend animationend webkitAnimationEnd', function() {
 
                     //                transition_in();
@@ -143,7 +135,6 @@ function init() {
             case 40: // down
                 //            transition_out();
                 $.fn.fullpage.moveSectionDown();
-                slideIndex++;
                 $(".main_text_single:first").bind('oanimationend animationend webkitAnimationEnd', function() {
 
                     //                transition_in();
@@ -227,7 +218,7 @@ function setSocialMargin() {
 
 //pārbauda, vai vajag paslēpt "turpināt" pogu
 function checkContinue(){
-    if(slideIndex===0){
+    if($('.active').prevAll().length===0){
         $('#continue').css('display', 'none');
     }
     else $('#continue').css('display', 'block');
