@@ -59,6 +59,11 @@ header.site-header{
         margin: 0;
 }
 
+#header_logo{
+    height:5vh;
+    margin: 1vh;
+}
+
 div.top_bar{
     /*display:none;*/
     position: absolute;
@@ -282,8 +287,8 @@ ul.social{
 
 img.alignleft{
     position: absolute;
-    width: auto;
-    height: 50vh;
+    width: 20vw;
+    height: auto;
     left: -10% !important;
     top: -10vh !important;
 }
@@ -345,6 +350,24 @@ p.citation{
 }
 #continue:hover{
     background-image: url(images/ui/cont_hover.png);
+    cursor: pointer;
+}
+
+#bigmore{
+    position: relative;
+    display: block;
+    margin: auto;
+    background-image: url(images/ui/readmore_big_idle.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 6.5vh;
+    width: 17vw;
+    top: -25vh;
+}
+
+#bigmore:hover{
+    background-image: url(images/ui/readmore_big_hover.png);
+    cursor: pointer;
 }
 
 .bg{
@@ -387,22 +410,22 @@ p.citation{
 }
 }
 
-.anim-left{
+/*.anim-left{
     animation-name: left;
     animation-duration: 1.5s;
     animation-fill-mode: forwards;
-/*    -webkit-animation-timing-function: ease-out;
+    -webkit-animation-timing-function: ease-out;
     -moz-animation-timing-function: ease-out;
-    animation-timing-function: ease-out;*/
+    animation-timing-function: ease-out;
 }
 
 .anim-right{
     animation-name: right;
     animation-duration: 1.5s;
     animation-fill-mode: forwards;
-/*    -webkit-animation-timing-function: ease-out;
+    -webkit-animation-timing-function: ease-out;
     -moz-animation-timing-function: ease-out;
-    animation-timing-function: ease-out;*/
+    animation-timing-function: ease-out;
 }
 
 .anim-up{
@@ -420,7 +443,7 @@ p.citation{
     -webkit-animation-timing-function: linear;
     -moz-animation-timing-function: linear;
     animation-timing-function: linear;
-    /*animation-fill-mode: forwards;*/
+    animation-fill-mode: forwards;
 }
 
 .anim-left-rev{
@@ -433,7 +456,7 @@ p.citation{
     -webkit-animation-timing-function: ease-in;
     -moz-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
-    /*animation-fill-mode: forwards;*/
+    animation-fill-mode: forwards;
 }
 
 .anim-right-rev{
@@ -446,9 +469,9 @@ p.citation{
     -webkit-animation-timing-function: ease-in;
     -moz-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
-        /*animation-fill-mode: forwards;*/
+        animation-fill-mode: forwards;
 
-}
+}*/
 
 /*.fast{
     animation-duration: 0.5s !important;

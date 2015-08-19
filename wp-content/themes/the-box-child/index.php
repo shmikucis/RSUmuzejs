@@ -19,6 +19,7 @@ get_header(); ?>
                                 <div id ="background" class="layer" data-depth="0.2"></div>
                                 <div id="middle" class="layer" data-depth="0.4"></div>
                                 <div id="foreground" class="layer" data-depth="0.5"><div id="foretext"></div></div>
+                                <div id="bigmore"></div>
                             </div>
                                     <?php while ( have_posts() ) : the_post(); ?>
                                         <?php 
