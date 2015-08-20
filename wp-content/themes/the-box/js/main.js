@@ -84,7 +84,7 @@ function init() {
         $('#fullpage').fullpage({
             scrollingSpeed: 0,
             keyboardScrolling: false,
-            anchors:['main', 'main-2', 'dzimta-intro', 'dzimta-stradins'],
+            anchors:['main', 'main-2', 'menu-main', 'menu-origin', 'family-intro', 'dzimta-stradins'],
             afterLoad: function(anchorLink, index){
             checkContinue();
             }
@@ -241,7 +241,8 @@ function setCardboardHeight(){
 
 //pārbauda, vai vajag paslēpt "turpināt" pogu
 function checkContinue(){
-    if($('.active').prevAll().length===0){
+    var index =$('.active').prevAll().length;
+    if(index===0 || index ===2 || index ===3){
         $('#continue').css('display', 'none');
     }
     else $('#continue').css('display', 'block');

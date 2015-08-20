@@ -52,7 +52,10 @@ body{
 header.site-header{
 	width: 100vw;
 	height: 7vh;
-	background-image: url(images/ui/header_pattern.png);
+	background: linear-gradient(
+      rgba(102, 0, 0, 0.85), 
+      rgba(102, 0, 0, 0.85)
+    ),url(images/cardboard.jpg);
         background-size: cover;
         position: absolute;
         z-index: 3;
@@ -185,8 +188,13 @@ p{
     height: 17%;    
 }
 #head_image div{
-    background-image: url(images/head1.jpg);
-    background-position: center;    
+    /*background-image: url(images/family_header.jpg);*/
+    background: linear-gradient(
+      rgba(186, 36, 49, 0.35), 
+      rgba(186, 36, 49, 0.35)
+    ), url(images/family_header.jpg);
+    background-position: center;   
+    background-size: cover;
     height: 100%;
     /*z-index: -1;*/
 }
@@ -200,13 +208,25 @@ p{
 
 #head_image_bot div{
     position: relative;
-    background-color: darkred;
+    background: linear-gradient(
+      rgba(102, 0, 0, 0.85), 
+      rgba(102, 0, 0, 0.85)
+    ),url(images/cardboard.jpg);
+    background-size: cover;
     height: 25%;
+}
+
+ul{
+    list-style: none;
+}
+
+ul li{
+    display: inline-block;
+    position: relative;
 }
 
 ul.social{
     float: right;
-    list-style: none;
     height: 4.5vh;
     width: auto;
     margin-bottom: 0;
@@ -214,14 +234,13 @@ ul.social{
 }
 
 .social li{
-    display: inline-block;
-    position: relative;
     height: 4.8vh;
-    width: 4.125vh;    
+    width: 4.125vh; 
+    z-index: 3;
 }
 
 .social li a{
-    display: inline-block;
+    display: inherit;
     position: relative;
     height: 100%;
     width: 100%;
@@ -250,19 +269,56 @@ ul.social{
     background-image: url(images/ui/draugiem_hover.png);
 }
 
+ul.menu{
+    width: 100vw;
+    margin-left: -20vw;
+    margin-top: -5%;
+    padding: 0;    
+}
+
+ul.menu li{
+    width: 10.5vw;
+    padding: 0 2vw 0 2vw;
+}
+
+ul.menu a{
+    height: auto;
+    width: 10.5vw;
+    text-decoration: none;   
+}
+
+ul.menu a:hover p{
+    color: #B92431;
+}
+
+ul.menu img{
+    height: auto;
+    width: 10.5vw;
+}
+
+ul.menu p{
+    width: 70%;
+    font-family: oswald;
+    font-size: 1vmax;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #000000;
+    margin: auto;
+    padding-top: 10%;
+}
+
 .entry-header{   
     float: none;
     position: relative !important;
     width: 100%;    
+    text-align: center;
 }
 
 .entry-title{
+    display: inline-block;
     position: relative;
-    width: 25%;
-    margin: auto;
     text-transform: uppercase;
     font-weight: normal;
-    text-align: center;
     top: 20%;
     font-family: palatino;
     font-size: 3.2vmin;
@@ -271,14 +327,16 @@ ul.social{
     border-width: thin;
     border-color: rgb(224,224,224);
     z-index: 2;
+    padding: 0 3% 0 3%;
 }
 
 .entry-content{
-    position: relative !important;
+    /*position: relative !important;*/
     width: 60%;
-    margin: auto;
+    margin-left: 20%;
+    /*margin: auto;*/
     text-align: center;
-    top: 10% !important;
+    top: 35% !important;
     font-family: baskerville;
     color: #575756;
     /*ja kartons k� bg*/
@@ -304,7 +362,7 @@ p.main_text_single{
 
 p.author_text_single{
     padding-top: 4%;
-    font-size: 1.5vmin;
+    font-size: 0.8vmax;
 }
 
 p.main_text_right{
@@ -386,13 +444,14 @@ p.citation{
     /*background-color: rgb(244,244,244);*/
     background-image: url(images/cardboard.jpg);
     background-position: center;
+    background-size: cover;
 }
 
 .bg.stripes{    
-    height: 27vh;
+    height: 30vh;
     width: 120vw;
-    top: -20% !important;
-    left: -25vw !important;
+    top: 30% !important;
+    /*left: -25vw !important;*/
     /*z-index: -1;*/
 }
 

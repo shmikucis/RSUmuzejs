@@ -29,12 +29,12 @@
 
 	</header>
 	
-	
-		
-		<div class="entry-content layer" data-depth="0.4">
-                    <div class="bg stripes layer" data-depth="0.1">
+	<div class="bg stripes layer" data-depth="0.2">
                         <div class="anim-right"></div>
                     </div>
+		
+		<div class="entry-content layer" data-depth="0.4">
+                    
                     <div class="bg cardboard anim-left">
                         <img src="<?php echo get_stylesheet_directory_uri();?>/images/ui/citation.png" align="middle" class="citation_logo"/>
                     </div>

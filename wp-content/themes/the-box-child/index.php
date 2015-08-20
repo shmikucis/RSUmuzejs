@@ -18,7 +18,9 @@ get_header(); ?>
                             <div id="intro" class="section">
                                 <div id ="background" class="layer" data-depth="0.2"></div>
                                 <div id="middle" class="layer" data-depth="0.4"></div>
-                                <div id="foreground" class="layer" data-depth="0.5"><div id="foretext"></div></div>
+                                <div id="foreground" class="layer" data-depth="0.5">
+                                    <div id="foretext"></div>                                    
+                                </div>
                                 <div id="bigmore"></div>
                             </div>
                                     <?php while ( have_posts() ) : the_post(); ?>
@@ -26,9 +28,15 @@ get_header(); ?>
                                         $post_id = get_the_ID(); 
                                         $post_categories = wp_get_post_categories( $post_id );
                                         $cat = get_category( $post_categories[0] );
-                                        $parent = get_category ($cat->parent);                                        
+                                        if ($cat->parent){
+                                        $parent = get_category ($cat->parent);
+                                        get_template_part( $parent->slug, $cat->slug );
+                                        }
+                                        else{
+                                            get_template_part( $cat->slug);
+                                        }
                                         ?> 
-					<?php get_template_part( $parent->slug, $cat->slug ); ?>
+					<?php  ?>
                                     <?php endwhile; // end of the loop. ?>
                            
 
