@@ -4,8 +4,10 @@ $(window).load(function() {
 });
 
 $(window).resize(function() {
-    setButtonMargin();
+////    setButtonMargin();
     setSocialMargin();
+//    setCitationLogoMargin();
+    setCardboardHeight();
 });
 
 $(document).ready(function() {
@@ -60,9 +62,10 @@ var contents = [{
 
 
 function init() {
-    setButtonMargin();
+//    setButtonMargin();
     setSocialMargin();
-    checkContinue();
+    setCardboardHeight();
+//    setCitationLogoMargin();
 
     for (var i = 0; i < contents.length; i++) {
         var elem = document.createElement(contents[i].type);
@@ -80,9 +83,17 @@ function init() {
     $(document).ready(function() {
         $('#fullpage').fullpage({
             scrollingSpeed: 0,
-            keyboardScrolling: false
+            keyboardScrolling: false,
+            anchors:['main', 'main-2', 'dzimta-intro', 'dzimta-stradins'],
+            afterLoad: function(anchorLink, index){
+            checkContinue();
+            }
+
         });
         $.fn.fullpage.setMouseWheelScrolling(false);
+        
+        
+        
     });
     
     $(document).on('click', '#bigmore', function() {
@@ -147,7 +158,7 @@ function init() {
         checkContinue();
         e.preventDefault(); // prevent the default action (scroll / move caret)
     });
-
+    
 }
 
 function transition_out() {
@@ -214,6 +225,18 @@ function setSocialMargin() {
     ulOffset /= -2;
     ulOffset += headbar / 2;
     $('.social').css('margin-top', ulOffset);
+}
+
+function setCitationLogoMargin(){
+    var offset = $('.citation_logo').height();
+    offset /= -2;
+    $('.citation_logo').css('top', offset);
+}
+
+//uzstāda kartonīgās teksta fona faktūras augstumu proporcionālu ekrāna izmēram
+function setCardboardHeight(){
+    var cbHeight = window.innerHeight / 2.3;
+    $('.bg.cardboard').css('height', cbHeight);
 }
 
 //pārbauda, vai vajag paslēpt "turpināt" pogu

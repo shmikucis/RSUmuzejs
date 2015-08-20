@@ -21,12 +21,7 @@
             </div>
             
         </div>
-	<header class="entry-header layer" data-depth="0.5">
-		<?php
-			
-				the_title( '<h1 class="entry-title anim-right">', '</h1>' );
-		?>
-
+    <header class="entry-header layer" data-depth="0.4">
 	</header>
 	
 	
@@ -35,7 +30,7 @@
                     <div class="bg stripes layer" data-depth="0.1">
                         <div class="anim-right"></div>
                     </div>
-                    <div class="bg cardboard anim-left">
+                    <div class="bg cardboard narrow anim-left">
                         <img src="<?php echo get_stylesheet_directory_uri();?>/images/ui/citation.png" align="middle" class="citation_logo"/>
                     </div>
 			<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'thebox' ) ); ?>

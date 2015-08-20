@@ -210,14 +210,14 @@ ul.social{
     height: 4.5vh;
     width: auto;
     margin-bottom: 0;
-    padding-right: 2vmin;
+    padding-right: 2vmin;    
 }
 
 .social li{
     display: inline-block;
     position: relative;
     height: 4.8vh;
-    width: 4.125vh;
+    width: 4.125vh;    
 }
 
 .social li a{
@@ -294,9 +294,10 @@ img.alignleft{
 }
 
 p.main_text_single{
-    width: 100%;
+    width: 75%;
     margin: auto;
-    font-size: 2vmin;
+    padding-top: 3%;
+    font-size: 1vmax;
     font-weight: normal;
     line-height: 150%;
 }
@@ -307,9 +308,9 @@ p.author_text_single{
 }
 
 p.main_text_right{
-    width: 60%;
+    width: 50%;
     text-align: left;
-    font-size: 2vmin;
+    font-size: 1vmax;
     line-height: 150%;
     left: 55%;
 }
@@ -346,6 +347,7 @@ p.citation{
     background-repeat: no-repeat;
     height: 5vh;
     width: 12.5vw;
+    transform: translate(5%, -50%);
     z-index: 999;
 }
 #continue:hover{
@@ -374,16 +376,16 @@ p.citation{
     position: absolute;
 }
 
-.bg.cardboard{    
-    height: 150%;    
-    top: -15% !important;
-    left: -10% !important;   
+.bg.cardboard{     
+    top: -15% !important;  
+    left: 2% !important;
 }
 
 .cardboard{
-    width: 120%;
+    width: 96%;
     /*background-color: rgb(244,244,244);*/
     background-image: url(images/cardboard.jpg);
+    background-position: center;
 }
 
 .bg.stripes{    
@@ -399,6 +401,23 @@ p.citation{
     width: 100%;
     background-image: url(images/ui/line_pattern.png);
     /*z-index: -1;*/
+}
+
+.narrow{
+    width: 60% !important;
+}
+
+.cardboard.narrow{
+    width: 80%!important;
+    left: 10% !important;
+}
+
+.citation_logo{
+    position: relative;
+    height: auto;
+    width: 2.1vw;    
+    vertical-align: middle;
+    transform: translateY(-50%);
 }
 
 @media only screen and (orientation: portrait) {
