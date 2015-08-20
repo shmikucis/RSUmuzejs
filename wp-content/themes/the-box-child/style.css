@@ -307,6 +307,37 @@ ul.menu p{
     padding-top: 10%;
 }
 
+#m_origin:hover img{
+    content: url(images/menu/origin_hover.png);
+}
+
+#m_evolution:hover img{
+    content: url(images/menu/evolution_hover.png);
+}
+
+#m_structure:hover img{
+    content: url(images/menu/structure_hover.png);
+}
+
+#m_science:hover img{
+    content: url(images/menu/science_hover.png);
+}
+
+#m_people:hover img{
+    content: url(images/menu/people_hover.png);
+}
+
+#m_extracurricular:hover img{
+    content: url(images/menu/extracurricular_hover.png);
+}
+
+#m_family:hover img{
+    content: url(images/menu/family_hover.png);
+}
+
+#m_growth:hover img{
+    content: url(images/menu/growth_hover.png);
+}
 .entry-header{   
     float: none;
     position: relative !important;

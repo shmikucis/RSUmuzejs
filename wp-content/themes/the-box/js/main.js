@@ -247,3 +247,4 @@ function checkContinue(){
     }
     else $('#continue').css('display', 'block');
 }
+
