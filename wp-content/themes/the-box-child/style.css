@@ -9,7 +9,7 @@ Version: 1.4.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: thebox-child
-Tags: two-columns, right-sidebar, fixed-layout, responsive-layout, custom-header, custom-background, custom-menu, custom-colors, sticky-post, featured-images, post-formats, full-width-template, translation-ready
+Tags: 
 
 FontAwesome License: SIL Open Font License - http://scripts.sil.org/OFL
 This Theme is licensed under the GPL.
@@ -235,7 +235,9 @@ ul.social{
 
 .social li{
     height: 4.8vh;
+    min-height: 30px;
     width: 4.125vh; 
+    min-width: 26px;
     z-index: 3;
 }
 
@@ -273,11 +275,12 @@ ul.menu{
     width: 100vw;
     margin-left: -20vw;
     margin-top: -5%;
-    padding: 0;    
+    padding: 0;
 }
 
 ul.menu li{
     width: 10.5vw;
+    min-width: 106px;
     padding: 0 2vw 0 2vw;
 }
 
@@ -383,7 +386,7 @@ img.alignleft{
 }
 
 p.main_text_single{
-    width: 75%;
+    width: 80%;
     margin: auto;
     padding-top: 3%;
     font-size: 1vmax;
@@ -435,7 +438,9 @@ p.citation{
     background-size: contain;
     background-repeat: no-repeat;
     height: 5vh;
+    min-height: 30px;
     width: 12.5vw;
+    min-width: 120px;
     transform: translate(5%, -50%);
     z-index: 999;
 }
@@ -452,7 +457,9 @@ p.citation{
     background-size: contain;
     background-repeat: no-repeat;
     height: 6.5vh;
+    min-height: 50px;
     width: 17vw;
+    min-width: 200px;
     top: -25vh;
 }
 
@@ -466,12 +473,12 @@ p.citation{
 }
 
 .bg.cardboard{     
-    top: -15% !important;  
-    left: 2% !important;
+    top: -3vh !important;  
+    /*left: 2% !important;*/
 }
 
 .cardboard{
-    width: 96%;
+    width: 100%;
     /*background-color: rgb(244,244,244);*/
     background-image: url(images/cardboard.jpg);
     background-position: center;
@@ -505,11 +512,12 @@ p.citation{
 .citation_logo{
     position: relative;
     height: auto;
-    width: 2.1vw;    
+    width: 2.1vw; 
+    min-width: 20px;
     vertical-align: middle;
     transform: translateY(-50%);
 }
-
+/*
 @media only screen and (orientation: portrait) {
     .bg.stripes{    
     height: 40vh;    
@@ -517,7 +525,7 @@ p.citation{
     left: -25vw !important;
     z-index: -1;
 }
-}
+}*/
 
 /*.anim-left{
     animation-name: left;
