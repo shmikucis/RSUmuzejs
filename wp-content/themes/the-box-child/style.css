@@ -378,42 +378,94 @@ ul.menu p{
 }
 
 img.alignleft{
-    position: absolute;
-    width: 20vw;
+    position: relative;
+    margin-left: -85%;
+    transform: translateY(-50%);
+}
+
+img.alignright{
+    position: relative;
+    margin-left: 105% !important;
+    transform: translateY(-50%);
+}
+
+img.narrow{
+    width: 20vw;  
+    margin-top: 30%;
     height: auto;
-    left: -10% !important;
-    top: -10vh !important;
+}
+
+img.wide{
+    width: 35vw;
+    margin-top: 20%;
+    height: auto;
+}
+
+img.vwide{
+    width: 45vw;
+    margin-top: 20%;
+    margin-left: -40%;
+    height: auto;
 }
 
 p.main_text_single{
     width: 80%;
     margin: auto;
     padding-top: 3%;
-    font-size: 1vmax;
+    font-size: 0.9vmax;
     font-weight: normal;
     line-height: 150%;
 }
 
-p.author_text_single{
-    padding-top: 4%;
-    font-size: 0.8vmax;
+p.text_right{
+    width: 85%;
+    text-align: left;
+    font-size: 0.9vmax;
+    line-height: 150%;
+    left: 30%;
+    bottom: -12vh;
+    transform: translateY(-100%);
 }
 
-p.main_text_right{
-    width: 50%;
+p.text_left{
+    width: 85%;
     text-align: left;
-    font-size: 1vmax;
+    font-size: 0.9vmax;
     line-height: 150%;
+    left: -10%;
+    bottom: -12vh;
+    transform: translateY(-100%);
+}
+
+p.narrow.text_right{
+    width: 55%;
     left: 55%;
 }
 
-/*p.author_text_right{
-    float: right;
-}*/
+p.vnarrow.text_right{
+    width: 25%;
+    left: 90%;
+    font-size: 1.1vmax;
+    bottom: -20vh;
+}
+
+p.narrow.text_left{
+    width: 55%;
+}
 
 p.citation{
     position: relative;
     top: 35%;
+}
+
+p.author_text_single{
+    padding-top: 4%;
+    font-size: 0.8vmax !important;
+}
+
+p.vnarrow.author_text_single{
+    transform: translateY(-150%);
+    font-size: 0.7vmax !important;
 }
 
 #footer{
@@ -474,6 +526,8 @@ p.citation{
 
 .bg.cardboard{     
     top: -3vh !important;  
+    height: 18vw;
+    padding-bottom: 30px;
     /*left: 2% !important;*/
 }
 
@@ -500,8 +554,8 @@ p.citation{
     /*z-index: -1;*/
 }
 
-.narrow{
-    width: 60% !important;
+p.narrow{
+    width: 60%;
 }
 
 .cardboard.narrow{

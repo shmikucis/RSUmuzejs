@@ -84,7 +84,11 @@ function init() {
         $('#fullpage').fullpage({
             scrollingSpeed: 0,
             keyboardScrolling: false,
-            anchors:['main', 'main-2', 'menu-main', 'menu-origin', 'family-intro', 'dzimta-stradins'],
+            anchors:[
+                'main', 'main-2',
+                'menu-main', 'menu-origin',
+                'family-intro', 'family-stradins', 'family-items', 'family-humour', 'family-video', 'family-generations', 'family-generations-2'
+            ],
             afterLoad: function(anchorLink, index){
             checkContinue();
             }
@@ -235,8 +239,8 @@ function setCitationLogoMargin(){
 
 //uzstāda kartonīgās teksta fona faktūras augstumu proporcionālu ekrāna izmēram
 function setCardboardHeight(){
-    var cbHeight = window.innerHeight / 2.3;
-    $('.bg.cardboard').css('height', cbHeight);
+//    var cbHeight = window.innerHeight / 2.3;
+//    $('.bg.cardboard').css('height', cbHeight);
 }
 
 //pārbauda, vai vajag paslēpt "turpināt" pogu
