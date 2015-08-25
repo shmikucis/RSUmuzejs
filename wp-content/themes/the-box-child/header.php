@@ -45,5 +45,5 @@
 		
 <?php
 	global $dynamicContent;
-	// $dynamicContent -> getMenu();
+	$dynamicContent -> echoJS();
 ?>

@@ -32,7 +32,17 @@
 	    			)
 	    		);
 	    	}
-	    	var_dump($list);
+	    	// var_dump($list);
+	    	return $list;
+	    }
+
+	    public function echoJS(){
+	    	wp_enqueue_script( 'classJS', plugins_url( 'js/class.js' , __FILE__ ) );
+	        wp_enqueue_script( 'dynamicContent', plugins_url( 'js/dynamicContent.js' , __FILE__ ) );
+
+	    	echo '<script>
+	    		var NAVIGATION = '.json_encode($this -> getMenu()).';
+	    	</script>';
 	    }
 	}
 
