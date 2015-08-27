@@ -14,7 +14,9 @@ $(document).ready(function() {
     init();
 });
 
+//globālie mainīgie
 window.parallax = null;
+window.scrollEnabled = false;
 
 var contents = [{
     "type": "div",
@@ -80,7 +82,7 @@ function init() {
     var scene = document.getElementsByClassName("scene");
     parallax = new Parallax(scene);
 
-    $(document).ready(function() {
+    $(document).ready(function() { 
         $('#fullpage').fullpage({
             scrollingSpeed: 0,
             keyboardScrolling: false,
@@ -96,9 +98,19 @@ function init() {
         });
         $.fn.fullpage.setMouseWheelScrolling(false);
         
-        
+        //colorbox config
+        $(document).bind('cbox_load', function(){
+            disablePageScroll();
+//            $('#cboxLoadedContent').addClass('nano');
+//            $('#cboxLoadedContent').nanoScroller({ contentClass: 'popup' });
+        });
+        $(document).bind('cbox_closed', function(){
+            enablePageScroll();
+        });
+        $('a.readmore').colorbox({inline:true});
         
     });
+    
     
     $(document).on('click', '#bigmore', function() {
         //        transition_out();
@@ -115,7 +127,39 @@ function init() {
             //            transition_in();
         });
     });
+    
+    $(document).keydown(function(e) {
+        switch (e.which) {
+            case 38: // up
+                //            transition_out();
+                if(scrollEnabled){
+                $.fn.fullpage.moveSectionUp();
+                $(".main_text_single:first").bind('oanimationend animationend webkitAnimationEnd', function() {
 
+                    //                transition_in();
+                });}
+                break;
+            case 40: // down
+                //            transition_out();
+                if(scrollEnabled){
+                $.fn.fullpage.moveSectionDown();
+                $(".main_text_single:first").bind('oanimationend animationend webkitAnimationEnd', function() {
+
+                    //                transition_in();
+                });}
+                break;
+
+            default:
+                return; // exit this handler for other keys
+        }
+        checkContinue();
+        e.preventDefault(); // prevent the default action (scroll / move caret)
+    });
+    
+    enablePageScroll();    
+}
+
+function enablePageScroll(){    
     $(window).bind('mousewheel DOMMouseScroll', function(event) {
         if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
             //            transition_out();
@@ -137,32 +181,12 @@ function init() {
         event.stopPropagation();
     });
 
-    $(document).keydown(function(e) {
-        switch (e.which) {
-            case 38: // up
-                //            transition_out();
-                $.fn.fullpage.moveSectionUp();
-                $(".main_text_single:first").bind('oanimationend animationend webkitAnimationEnd', function() {
+    scrollEnabled = true;
+}
 
-                    //                transition_in();
-                });
-                break;
-            case 40: // down
-                //            transition_out();
-                $.fn.fullpage.moveSectionDown();
-                $(".main_text_single:first").bind('oanimationend animationend webkitAnimationEnd', function() {
-
-                    //                transition_in();
-                });
-                break;
-
-            default:
-                return; // exit this handler for other keys
-        }
-        checkContinue();
-        e.preventDefault(); // prevent the default action (scroll / move caret)
-    });
-    
+function disablePageScroll(){
+    $(window).unbind('mousewheel DOMMouseScroll');
+    scrollEnabled = false;
 }
 
 function transition_out() {

@@ -11,6 +11,7 @@
 <!DOCTYPE html>
 <html lang="lv" <?php // language_attributes(); ?>>
 <head>
+<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.ico" />
 <!--<meta charset="<?php // bloginfo( 'charset' ); ?>">-->
 <meta charset="utf-8" />
 <!--<meta charset="windows-1257"/>-->
@@ -18,6 +19,8 @@
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/main.js" charset="utf-8"></script>
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/parallax.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/jquery.fullPage.js"></script>
+<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/jquery.colorbox.js"></script>
+<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/jquery.nanoscroller.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">	
@@ -31,7 +34,13 @@
 <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-<div class="page_load"></div>
+<div class="page_load"><div class="loading">
+  <div class="loading-bar"></div>
+  <div class="loading-bar"></div>
+  <div class="loading-bar"></div>
+  <div class="loading-bar"></div>
+</div></div>
+
 <div id="page">
 
 	<?php do_action( 'before' ); ?>
