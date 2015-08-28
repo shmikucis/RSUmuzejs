@@ -25,8 +25,9 @@
                     <div id="intro_content" class="layer" data-depth="0.02">
 			<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'thebox' ) ); ?>
 			<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'thebox' ), 'after' => '</div>' ) ); ?>
+                        <div id="bigmore"></div>
                     </div>
-                    <div id="bigmore"></div>
+                    
 		</div>
                                 <!--</div>-->
         

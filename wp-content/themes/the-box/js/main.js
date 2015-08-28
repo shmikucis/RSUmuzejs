@@ -25,7 +25,10 @@ function init() {
 //    setCitationLogoMargin();
 
     var scene = document.getElementsByClassName("scene");
-    parallax = new Parallax(scene);
+    parallax = new Parallax(scene,{        
+        scalarX: 10,
+        scalarY: 7
+    });
 
     $(document).ready(function() { 
         $('#fullpage').fullpage({
@@ -46,16 +49,19 @@ function init() {
         //colorbox config
         $(document).bind('cbox_load', function(){
             disablePageScroll();
-//            $('#cboxLoadedContent').addClass('nano');
-//            $('#cboxLoadedContent').nanoScroller({ contentClass: 'popup' });
+        });
+        $(document).bind('cbox_complete', function(){
+                $("#cboxLoadedContent").niceScroll({
+                    cursoropacitymin: 1
+                });
         });
         $(document).bind('cbox_closed', function(){
             enablePageScroll();
         });
         $('a.readmore').colorbox({inline:true});
         
+//        $("#cboxLoadedContent").niceScroll();
     });
-    
     
     $(document).on('click', '#bigmore', function() {
         //        transition_out();
@@ -215,7 +221,7 @@ function setCardboardHeight(){
 //pārbauda, vai vajag paslēpt "turpināt" pogu
 function checkContinue(){
     var index =$('.active').prevAll().length;
-    if(index===0 || index ===2 || index ===3){
+    if(index===0 || index ===2 || index ===3 || index === 10){
         $('#continue').css('display', 'none');
     }
     else $('#continue').css('display', 'block');
