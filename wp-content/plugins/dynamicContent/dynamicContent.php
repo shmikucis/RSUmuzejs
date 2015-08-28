@@ -26,7 +26,7 @@
 	    				, 'post_name' => $post -> post_name
 	    				, 'post_content' => $post -> post_content
 	    				, 'menu_item_id' => $item -> ID
-	    				, 'menu_item_parent' => $item -> menu_item_parent
+	    				, 'menu_item_parent' => intval($item -> menu_item_parent)
 	    				, 'menu_order' => $item -> menu_order
 	    				
 	    			)
@@ -40,7 +40,10 @@
 	    	wp_enqueue_script( 'classJS', plugins_url( 'js/class.js' , __FILE__ ) );
 	        wp_enqueue_script( 'dynamicContent', plugins_url( 'js/dynamicContent.js' , __FILE__ ) );
 
+
 	    	echo '<script>
+	    		var URLS = {};
+	    		URLS.site = "'.get_option('siteurl').'/";
 	    		var NAVIGATION = '.json_encode($this -> getMenu()).';
 	    	</script>';
 	    }
