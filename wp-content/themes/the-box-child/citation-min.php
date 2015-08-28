@@ -5,7 +5,7 @@
  * @since The Box 1.0
  */
 ?>
-
+<?php remove_filter ('the_content', 'wpautop'); ?>
 <article id="post-<?php the_ID(); ?>" class="section">
  
         <div id="head_image" class="layer" data-depth="0.1">
