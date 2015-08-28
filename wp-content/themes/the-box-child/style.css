@@ -171,10 +171,6 @@ div#fullpage.content-area{
 	padding: 0px;
 }
 
-footer{
-	display: none;
-}
-
 body{
     margin: 0px;
     padding: 0px;
@@ -197,55 +193,6 @@ p{
     width: 100%;
     height: 93vh;
     /*overflow: hidden;*/
-}
-
-#intro{
-    position: relative;
-    z-index: 999;
-}
-
-#foreground
-{
-    width: 100%;
-    top: 32% !important;
-}
-
-#foreground div{
-    width: 90%;
-    text-align: center;
-    position: relative !important;
-    margin: auto;
-}
-
-#middle
-{
-    position: relative;
-    height: 100%;
-    width: 110%;
-}
-
-#background
-{
-    position: relative;
-    width: 110%;
-    height: 100%;
-    left: -5%;
-}
-
-#bg1{
-    background: url(images/AI_Image.jpg) no-repeat center center;
-}
-
-#mid1{
-    background-image: url(images/ui/line_pattern.png);
-    opacity: 0.9;
-}
-
-#fore3{
-    width: 50% !important;
-    margin-top: 10px;
-    font-family: baskerville;
-    font-size: 3vmin;
 }
 
 .layer{
@@ -540,6 +487,7 @@ p.vnarrow.author_text_single{
     font-size: 0.7vmax !important;
 }
 
+/*Fūteris*/
 #footer{
     position: absolute;
     width: 100%;
@@ -563,9 +511,9 @@ p.vnarrow.author_text_single{
     background-repeat: no-repeat;
     height: 5vh;
     min-height: 30px;
-    width: 12.5vw;
+    width: 9vw;
     min-width: 120px;
-    transform: translate(5%, -50%);
+    transform: translateY(-50%);
     z-index: 999;
 }
 #continue:hover{
@@ -573,6 +521,13 @@ p.vnarrow.author_text_single{
     cursor: pointer;
 }
 
+#footer .social{
+    float: none;
+    padding: 0;
+    margin: 0;
+    transform: translateY(-50%);
+}
+/*Fūteris beidzas*/
 .readmore{
     position: relative;
     display: block;
@@ -599,33 +554,14 @@ p.vnarrow.author_text_single{
     margin-top: 3%;
 }
 
-#bigmore{
-    position: relative;
-    display: block;
-    margin: auto;
-    background-image: url(images/ui/readmore_big_idle.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    height: 6.5vh;
-    min-height: 50px;
-    width: 17vw;
-    min-width: 200px;
-    top: -25vh;
-}
-
-#bigmore:hover{
-    background-image: url(images/ui/readmore_big_hover.png);
-    cursor: pointer;
-}
-
 .bg{
     position: absolute;
 }
 
 .bg.cardboard{     
     top: -3vh !important;  
-    height: 18vw;
-    padding-bottom: 30px;
+    padding-bottom: 7%;
+    /*height: 18vw;*/
     /*left: 2% !important;*/
 }
 
@@ -749,6 +685,121 @@ p.narrow{
     margin-bottom: 3vh;
     overflow-y: auto !important;
 }
+
+/*Popup beigas*/
+
+/*Titullapa*/
+#intro{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    z-index: 999;
+}
+
+#background
+{
+    position: absolute;
+    width: 110vw;
+    height: 100vh;
+    left: -5% !important;
+}
+
+#bg1{
+    background: url(images/AI_Image.jpg) no-repeat center center;
+    background-size: cover;
+    position: absolute;
+    width: 110%;
+    height: 100%;
+    left: -5%;
+    top: -5%; 
+}
+
+#intro_content{
+    position: relative !important;
+    width: 100%;
+    margin-top: 22vh;
+    height: 40vh;
+}
+
+#mid1{
+    position: relative !important;
+    text-align: center;
+    background-image: url(images/ui/line_pattern.png);
+    opacity: 0.9;
+    width: 120%;
+    margin-left: -10%;
+    /*height: 60%;*/
+    padding-top: 2.5%;
+    padding-bottom: 2.5%;
+}
+
+#mid2{
+    position: relative !important;
+    text-align: center;
+    width: 120%;
+    margin-left: -10%;
+    /*height: 40%;*/
+    background-color: #B92432;
+    opacity: 0.9;    
+    padding-top: 1%;
+    padding-bottom: 2.5%;
+}
+
+#fore1{
+    position: relative;
+    text-align: center;
+    font-family: palatino;
+    font-size: 3.8vmax;
+    color: #AB182B;
+    font-weight: normal;
+}
+
+#fore2{
+    position: relative;
+    width: 26%;
+    margin: auto;
+    text-align: center;
+    font-family: palatino;
+    font-size: 1.7vmax;
+    color: #575756;
+    padding-left: 1%;
+    padding-right: 1%;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-top-color: rgba(73, 14, 20, 0.3);
+}
+
+#fore3{
+    position: relative !important;
+    width: 40vw !important;
+    margin: auto;
+    font-family: baskerville;
+    font-size: 0.9vmax;
+    text-align: center;
+    color: #F3F0F5;
+    line-height: 150%;
+    font-weight: normal;
+}
+
+#bigmore{
+    position: relative;
+    display: block;
+    margin: auto;
+    background-image: url(images/ui/readmore_big_idle.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 6.5vh;
+    min-height: 50px;
+    width: 15vw;
+    min-width: 200px;
+    margin-top: 3%;
+}
+
+#bigmore:hover{
+    background-image: url(images/ui/readmore_big_hover.png);
+    cursor: pointer;
+}
+/*Titullapas beigas*/
 /*
 @media only screen and (orientation: portrait) {
     .bg.stripes{    

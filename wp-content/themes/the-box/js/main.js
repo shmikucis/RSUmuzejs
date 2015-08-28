@@ -18,66 +18,11 @@ $(document).ready(function() {
 window.parallax = null;
 window.scrollEnabled = false;
 
-var contents = [{
-    "type": "div",
-    "id": "bg1",
-    "class": "anim-up",
-    "parent": "background",
-    "style": "position: absolute; width: 110%; height: 100%; left: -5%; top: -5%; background-size: cover",
-    "text": ""
-}, {
-    "type": "div",
-    "id": "mid1",
-    "class": "anim-left",
-    "parent": "middle",
-    "style": "position: absolute; top: 25%; width: 110%; margin-left: -5%; height: 30%;",
-    "text": ""
-}, {
-    "type": "div",
-    "id": "mid2",
-    "class": "anim-right",
-    "parent": "middle",
-    "style": "position: absolute; top: 55%; width: 110%; margin-left: -5%; height: 15%; background-color: #B92432; opacity: 0.9;",
-    "text": ""
-}, {
-    "type": "h1",
-    "id": "fore1",
-    "class": "anim-left",
-    "parent": "foretext",
-    "style": "width: 100%; margin: auto; top: 35vmin; text-align: center; font-family: palatino; font-size: 7vmin; color: #AB182B; font-weight: normal;",
-    "text": "RĪGAS STRADIŅA UNIVERSITĀTES"
-}, {
-    "type": "p",
-    "id": "fore2",
-    "class": "anim-left",
-    "parent": "foretext",
-    "style": "width: 100%; margin: auto; top: 47%; text-align: center; font-family: palatino; font-size: 3vmin; color: #575756;",
-    "text": "VĒSTURES VIRTUĀLĀ EKSPOZĪCIJA"
-}, {
-    "type": "p",
-    "id": "fore3",
-    "class": "layer anim-right",
-    "parent": "mid2",
-    "style": "position: relative; margin-left: 20%; text-align: center; width: 50%; font-family: baskerville; font-size: 2vmin; color: #F3F0F5; line-height: 150%; font-weight: normal;",
-    "text": "Virtuālais muzejs, izmantojot RSU muzejā sakopotos materiālus," + String.fromCharCode(13) + " palīdzēs jums iepazīties ar to, kā noritējusi mūsu augstskolas" + String.fromCharCode(13) + " attīstība dažādos vēsturiskajos laikposmos."
-}];
-
-
 function init() {
 //    setButtonMargin();
     setSocialMargin();
     setCardboardHeight();
 //    setCitationLogoMargin();
-
-    for (var i = 0; i < contents.length; i++) {
-        var elem = document.createElement(contents[i].type);
-        elem.id = contents[i].id;
-        elem.className = contents[i].class;
-        document.getElementById(contents[i].parent).appendChild(elem);
-        elem.textContent = contents[i].text;
-        elem.style.cssText = contents[i].style;
-    }
-
 
     var scene = document.getElementsByClassName("scene");
     parallax = new Parallax(scene);
@@ -245,14 +190,14 @@ function setButtonMargin() {
 
 //pielabo soctīklu pogu pozīcijas, lai tie būtu līnijas vidū
 function setSocialMargin() {
-    var ulOffset = $('.social').height();
+    var ulOffset = $('#head_image_bot .social').height();
     var headbar = $('#head_image_bot div').height();
     if (headbar === 0) {
         headbar = window.innerHeight / 100 * 1.04;
     }
     ulOffset /= -2;
     ulOffset += headbar / 2;
-    $('.social').css('margin-top', ulOffset);
+    $('#head_image_bot .social').css('margin-top', ulOffset);
 }
 
 function setCitationLogoMargin(){
@@ -274,5 +219,10 @@ function checkContinue(){
         $('#continue').css('display', 'none');
     }
     else $('#continue').css('display', 'block');
+    
+    if(index!==0){
+        $('#footer .social').css('display', 'none');
+    }
+    else $('#footer .social').css('display', 'block');
 }
 

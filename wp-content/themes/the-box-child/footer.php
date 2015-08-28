@@ -11,6 +11,11 @@
 		
 	<div id="footer">
             <div id="continue"></div>
+            <ul class="social">
+                    <li><a href="#" id="twitter"></a></li>
+                    <li><a href="#" id="facebook"></a></li>
+                    <li><a href="#" id="draugiem"></a></li>
+            </ul>
         </div>
 
 <?php wp_footer(); ?>
