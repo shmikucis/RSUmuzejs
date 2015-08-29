@@ -393,35 +393,48 @@ ul.menu p{
 
 
 
-img.alignleft{
+.alignleft{
     position: relative;
-    margin-left: -85%;
+    left: -55%;
     transform: translateY(-50%);
     /*z-index:-2;*/
 }
 
-img.alignright{
-    position: relative;
-    margin-left: 105% !important;
+.alignright{
+    position: absolute;
+    margin-left: 70vh !important;
     transform: translateY(-50%);
+}
+
+div.narrow{
+    margin-top: 30%;
+}
+
+div.wide{
+    margin-top: 10vh;
+}
+
+div.vwide{
+    margin-top: 20%;
+    left: -20%;
 }
 
 img.narrow{
     width: 20vw;  
-    margin-top: 30%;
+    /*margin-top: 30%;*/
     height: auto;
 }
 
 img.wide{
-    width: 35vw;
-    margin-top: 20%;
+    width: 30vw;
+    /*margin-top: 20%;*/
     height: auto;
 }
 
 img.vwide{
     width: 45vw;
-    margin-top: 20%;
-    margin-left: -40%;
+/*    margin-top: 20%;
+    margin-left: -40%;*/
     height: auto;
 }
 
@@ -526,21 +539,6 @@ p.vnarrow.author_text_single{
     transform: translateY(-50%);
 }
 /*Fūteris beidzas*/
-.readmore{
-    position: absolute;
-    display: block;
-    background-image: url(images/ui/readmore_idle.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    height: 5vh;
-    min-height: 30px;
-    width: 1vw;
-    min-width: 120px;
-}
-.readmore:hover{
-    background-image: url(images/ui/readmore_hover.png);
-    cursor: pointer;
-}
 
 .right{
     margin-top: 3%;
@@ -591,6 +589,7 @@ p.narrow{
 }
 
 .cardboard.narrow{
+    margin: 0;
     width: 80%!important;
     left: 10% !important;
 }
@@ -603,6 +602,113 @@ p.narrow{
     vertical-align: middle;
     transform: translateY(-50%);
 }
+/*Ikonas un pogas*/
+.readmore{
+    position: absolute;
+    display: block;
+    background-image: url(images/ui/readmore_idle.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 5vh;
+    min-height: 30px;
+    width: 1vw;
+    min-width: 120px;
+}
+.readmore:hover{
+    background-image: url(images/ui/readmore_hover.png);
+    cursor: pointer;
+}
+
+a.obj_icon{
+    position: absolute;
+    width: 4.5vw;
+    min-width: 43px;
+    height: 8.4vh;
+    min-height: 50px;
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-position: center;    
+    text-decoration: none;
+    overflow: hidden;
+}
+a.obj_icon:hover{
+    overflow: visible;}
+a.obj_icon[data-title]:after{
+    position: absolute;
+    content: attr(data-title);
+    background-image: url('images/cardboard.jpg');
+    display: none;
+    font-family: oswald;
+    font-size: 1vmax;
+    text-transform: uppercase;
+    margin-top: 50%;
+    margin-left: 100%;
+    min-width: 300%;
+    max-width: 400%;
+    color: #000000;
+    transform: translateY(-50%);
+}
+a.obj_icon[data-title]:hover:after{
+    display: block;
+}
+
+.icon_midleft{
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.icon_midright{
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.icon_topmid{
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.icon_botleft{
+    top:75%;
+    transform: translate(-50%, -50%);
+}
+.icon_belowtopright{
+    left: 100%;
+    top: 25%;
+    transform: translate(-50%, -50%);
+}
+
+a.closer{
+    background-image: url('images/ui/closer_idle.png');    
+}
+a.closer:hover{
+    background-image: url('images/ui/closer_hover.png');
+}
+
+a.gallery{
+    background-image: url('images/ui/gallery_idle.png');    
+}
+a.gallery:hover{
+    background-image: url('images/ui/gallery_hover.png');
+}
+
+a.objects{
+    background-image: url('images/ui/objects_idle.png');    
+}
+a.objects:hover{
+    background-image: url('images/ui/objects_hover.png');
+}
+
+a.crescent{
+    background-image: url('images/ui/crescent_idle.png');    
+}
+a.crescent:hover{
+    background-image: url('images/ui/crescent_hover.png');
+}
+
+a.audio{
+    background-image: url('images/ui/audio_idle.png');    
+}
+a.audio:hover{
+    background-image: url('images/ui/audio_hover.png');
+}
+/*Ikonas un pogas beidzas*/
 
 /*Popup*/
 .popup{
@@ -617,23 +723,30 @@ p.narrow{
     color: #575756;
     max-height: 80%;
     /*padding-top: 8vh;*/
-    padding-bottom: 5vh;
+    padding-bottom: 10%;
 }
 
 .popup p{
     margin-bottom: 0.7em;
 }
 
-#colorbox{
+#cboxOverlay{
+    top: 7vh;
+    background: #1D1D1B;
+    opacity: 1 !important;
+}
+
+.text_popup#colorbox{
     top: 16vh !important;
     width: 50vw !important;
     left: 25vw !important;
+    /*height: auto !important;*/
     /*min-height: 45vh;*/
     max-height: 65vh;
     overflow: visible !important;
 }
 
-#colorbox:before{
+.text_popup#colorbox:before{
     position: absolute;
     content: "";
     background-image: url('images/ui/citation.png');    
@@ -649,19 +762,15 @@ p.narrow{
     z-index: 123525;
 }
 
-#cboxWrapper{
+.text_popup#cboxWrapper{
     max-width: 50vw;    
-    /*min-height: 45vh;*/
+    /*height: auto !important;*/
+    width: auto !important;
     max-height: 65vh;
 }
 
-#cboxOverlay{
-    top: 7vh;
-    background: #1D1D1B;
-    opacity: 1 !important;
-}
 
-#cboxContent{
+.text_popup#cboxContent{
     /*position: absolute !important;*/
     width: 50vw !important;
     float: none !important; 
@@ -674,7 +783,7 @@ p.narrow{
     overflow: hidden !important;
 }
 
-#cboxLoadedContent{
+.text_popup#cboxLoadedContent{
     width: 46vw !important;  
     margin: auto;    
     height: auto !important;
@@ -682,7 +791,7 @@ p.narrow{
     margin-bottom: 0;
     margin-top: 8vh;
     margin-bottom: 3vh;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 #cboxClose{
@@ -837,6 +946,14 @@ p.narrow{
     }
     #fore3{
         font-size: 9pt;
+    }
+    
+    ul.menu p{
+        font-size: 7.5pt;
+    }
+    
+    a.obj_icon{
+        font-size:7.5pt;
     }
 }
  

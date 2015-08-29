@@ -50,17 +50,26 @@ function init() {
         $(document).bind('cbox_load', function(){
             disablePageScroll();
         });
+        
+        $(document).bind('cbox_closed', function(){
+            enablePageScroll();
+        });
+        
+        $('a.readmore').colorbox({inline:true});       
+    });
+    
+    $(document).on('click', '.readmore', function(){
+        
         $(document).bind('cbox_complete', function(){
+                $("#colorbox").addClass("text_popup");
+                $("#cboxWrapper").addClass("text_popup");
+                $("#cboxContent").addClass("text_popup");
+                $("#cboxLoadedContent").addClass("text_popup");
                 $("#cboxLoadedContent").niceScroll({
                     cursoropacitymin: 1
                 });
         });
-        $(document).bind('cbox_closed', function(){
-            enablePageScroll();
-        });
-        $('a.readmore').colorbox({inline:true});
         
-//        $("#cboxLoadedContent").niceScroll();
     });
     
     $(document).on('click', '#bigmore', function() {
