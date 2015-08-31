@@ -634,6 +634,7 @@ a.obj_icon{
     background-position: center;    
     text-decoration: none;
     overflow: hidden;
+    z-index:999;
 }
 a.obj_icon:hover{
     overflow: visible;}
@@ -662,6 +663,7 @@ a.obj_icon[data-title]:hover:after{
 }
 .icon_midright{
     top: 50%;
+    left: 100%;
     transform: translate(-50%, -50%);
 }
 .icon_topmid{
@@ -676,6 +678,15 @@ a.obj_icon[data-title]:hover:after{
     left: 100%;
     top: 25%;
     transform: translate(-50%, -50%);
+}
+
+.global_midright{
+    top: 10vh;
+    left: 40vw;
+}
+.global_botleft{
+    top: 20vh;
+   left: 25vw;
 }
 
 a.closer{
@@ -849,8 +860,8 @@ a.audio:hover{
     padding-top: 10px;
     padding-bottom: 10px;
     width: 70vw;
-    left: -15vw;
-    transform: translateY(150%);
+    left: 50%;
+    transform: translate(-50%,150%);
 }
 
 #cboxClose{
