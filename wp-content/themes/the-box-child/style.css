@@ -94,6 +94,10 @@ This Theme is licensed under the GPL.
     background-color: white !important;
 }
 
+.nicescroll-rails-hr{
+    display: none !important;
+}
+
 .nicescroll-cursors{
     background-color: #660000 !important;
     width: 1vw !important;    
@@ -721,9 +725,9 @@ a.audio:hover{
     /*text-justify: distribute;*/
     margin-left: 3vw;
     color: #575756;
-    max-height: 80%;
+    /*max-height: 80%;*/
     /*padding-top: 8vh;*/
-    padding-bottom: 10%;
+    /*padding-bottom: 10%;*/
 }
 
 .popup p{
@@ -740,7 +744,7 @@ a.audio:hover{
     top: 16vh !important;
     width: 50vw !important;
     left: 25vw !important;
-    /*height: auto !important;*/
+    height: auto !important;
     /*min-height: 45vh;*/
     max-height: 65vh;
     overflow: visible !important;
@@ -762,15 +766,15 @@ a.audio:hover{
     z-index: 123525;
 }
 
-.text_popup#cboxWrapper{
+.text_popup#colorbox #cboxWrapper{
     max-width: 50vw;    
-    /*height: auto !important;*/
+    height: auto !important;
     width: auto !important;
     max-height: 65vh;
 }
 
 
-.text_popup#cboxContent{
+.text_popup#colorbox #cboxContent{
     /*position: absolute !important;*/
     width: 50vw !important;
     float: none !important; 
@@ -781,17 +785,72 @@ a.audio:hover{
     height: auto !important;
     max-height: 65vh !important;    
     overflow: hidden !important;
+    /*padding-bottom: 3vh;*/
 }
 
-.text_popup#cboxLoadedContent{
+.text_popup#colorbox #cboxLoadedContent{
+    position: relative !important;
     width: 46vw !important;  
     margin: auto;    
-    height: auto !important;
-    max-height: 54vh;
-    margin-bottom: 0;
-    margin-top: 8vh;
+    /*height: auto !important;*/
+    max-height: 40vh;
+    /*margin-bottom: 0;*/
+    margin-top: 8%;
     margin-bottom: 3vh;
+    padding-bottom: 3vh;
     overflow-x: hidden;
+}
+
+.pic_popup#colorbox{
+    top: 16vh !important;
+    height: 35vmax !important;
+    width: auto !important;
+    margin: auto;
+    overflow: visible !important;
+}
+
+.pic_popup#colorbox #cboxWrapper{
+    height: 35vmax !important;
+    width: auto !important;
+    overflow: visible !important;
+}
+
+
+.pic_popup#colorbox #cboxContent{
+    width: auto !important;
+    /*float: none !important;*/
+    height: 35vmax !important;  
+    overflow: visible !important;
+}
+
+.pic_popup#colorbox #cboxLoadedContent{
+    width: auto !important;  
+    margin: auto;    
+    height: 35vmax !important;
+    margin-bottom: 0;
+    overflow: hidden !important;
+}
+
+.cboxPhoto{
+    height:35vmax !important;
+    width: auto !important;
+    margin: 0;
+    /*float: none;*/
+}
+
+.pic_popup#colorbox #cboxTitle{
+    position: absolute;
+    background-image: url(images/cardboard.jpg);
+    background-position: center;
+    background-size: cover;
+    font-family: baskerville;
+    font-size: 0.9vmax;
+    bottom: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 70vw;
+    left: -15vw;
+    transform: translateY(150%);
 }
 
 #cboxClose{

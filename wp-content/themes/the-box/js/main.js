@@ -4,10 +4,8 @@ $(window).load(function() {
 });
 
 $(window).resize(function() {
-////    setButtonMargin();
     setSocialMargin();
-//    setCitationLogoMargin();
-    setCardboardHeight();
+    $.colorbox.resize();
 });
 
 $(document).ready(function() {
@@ -19,10 +17,7 @@ window.parallax = null;
 window.scrollEnabled = false;
 
 function init() {
-//    setButtonMargin();
     setSocialMargin();
-    setCardboardHeight();
-//    setCitationLogoMargin();
 
     var scene = document.getElementsByClassName("scene");
     parallax = new Parallax(scene,{        
@@ -53,23 +48,24 @@ function init() {
         
         $(document).bind('cbox_closed', function(){
             enablePageScroll();
+            resetPopupClass();
         });
         
-        $('a.readmore').colorbox({inline:true});       
+        $('a.readmore').colorbox({inline:true, scrolling: false}); 
+        $('a.pic_single').colorbox({photo:true});
     });
     
     $(document).on('click', '.readmore', function(){
-        
+        $("#colorbox").addClass("text_popup");
         $(document).bind('cbox_complete', function(){
-                $("#colorbox").addClass("text_popup");
-                $("#cboxWrapper").addClass("text_popup");
-                $("#cboxContent").addClass("text_popup");
-                $("#cboxLoadedContent").addClass("text_popup");
                 $("#cboxLoadedContent").niceScroll({
                     cursoropacitymin: 1
                 });
-        });
-        
+        });        
+    });
+    
+     $(document).on('click', '.pic_single', function(){ 
+         $("#colorbox").addClass("pic_popup");    
     });
     
     $(document).on('click', '#bigmore', function() {
@@ -149,6 +145,13 @@ function disablePageScroll(){
     scrollEnabled = false;
 }
 
+function resetPopupClass(){
+    $("#colorbox").removeAttr('class');
+    $("#cboxWrapper").removeAttr('class');
+    $("#cboxContent").removeAttr('class');
+    $("#cboxLoadedContent").removeAttr('class');
+}
+
 function transition_out() {
     var outroR = document.getElementsByClassName("anim-right");
     var outroL = document.getElementsByClassName("anim-left");
@@ -196,13 +199,6 @@ function transition_in() {
     }
 }
 
-//pielabo "Turpināt" pogas pozīciju, lai vertikāli būtu līnijas vidū
-function setButtonMargin() {
-    var btnOffset = $('#continue').height();
-    btnOffset /= -2;
-    $('#continue').css('top', btnOffset);
-}
-
 //pielabo soctīklu pogu pozīcijas, lai tie būtu līnijas vidū
 function setSocialMargin() {
     var ulOffset = $('#head_image_bot .social').height();
@@ -213,18 +209,6 @@ function setSocialMargin() {
     ulOffset /= -2;
     ulOffset += headbar / 2;
     $('#head_image_bot .social').css('margin-top', ulOffset);
-}
-
-function setCitationLogoMargin(){
-    var offset = $('.citation_logo').height();
-    offset /= -2;
-    $('.citation_logo').css('top', offset);
-}
-
-//uzstāda kartonīgās teksta fona faktūras augstumu proporcionālu ekrāna izmēram
-function setCardboardHeight(){
-//    var cbHeight = window.innerHeight / 2.3;
-//    $('.bg.cardboard').css('height', cbHeight);
 }
 
 //pārbauda, vai vajag paslēpt "turpināt" pogu
