@@ -17,6 +17,7 @@ This Theme is licensed under the GPL.
 @import "jquery.fullPage.css";
 @import "colorbox.css";
 @import "nanoscroller.css";
+@import "lightgallery.min.css";
 
 @font-face {
     font-family: pagella;
@@ -494,12 +495,12 @@ p.citation{
 
 p.author_text_single{
     padding-top: 4%;
-    font-size: 0.8vmax !important;
+    font-size: 0.8vmax;
 }
 
 p.vnarrow.author_text_single{
     transform: translateY(-200%);
-    font-size: 0.7vmax !important;
+    font-size: 0.7vmax;
 }
 
 /*Fūteris*/
@@ -848,6 +849,12 @@ a.audio:hover{
     margin: 0;
     /*float: none;*/
 }
+.gallery_div a img{
+    float: left;
+    margin-left:-9999px;
+    width: 1px;
+    height: 1px;
+}
 
 .pic_popup#colorbox #cboxTitle{
     position: absolute;
@@ -862,6 +869,10 @@ a.audio:hover{
     width: 70vw;
     left: 50%;
     transform: translate(-50%,150%);
+}
+
+.family #cboxTitle{
+    display: none;
 }
 
 #cboxClose{
@@ -1024,6 +1035,13 @@ a.audio:hover{
     
     a.obj_icon{
         font-size:7.5pt;
+    }
+    
+    .author_text_single{
+        font-size: 6pt !important;
+    }
+    p.vnarrow.text_right{
+        font-size: 9pt;
     }
 }
  

@@ -26,6 +26,12 @@ function init() {
     });
 
     $(document).ready(function() { 
+        var scene = document.getElementsByClassName("scene");
+    parallax = new Parallax(scene,{        
+        scalarX: 10,
+        scalarY: 7
+    });
+        
         $('#fullpage').fullpage({
             scrollingSpeed: 0,
             keyboardScrolling: false,
@@ -67,6 +73,16 @@ function init() {
      $(document).on('click', '.pic_single', function(){ 
          $("#colorbox").addClass("pic_popup");    
     });
+    
+    $(document).on('click', '.pic_gallery', function(){
+        var id = $(this).attr('data-gallery');
+        $(id).lightGallery({
+            thumbnail:true,
+            closable: false
+        });
+        $(id+' a').first().trigger('click');
+    });
+    
     
     $(document).on('click', '#bigmore', function() {
         //        transition_out();
