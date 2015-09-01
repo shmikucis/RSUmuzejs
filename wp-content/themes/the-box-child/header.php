@@ -55,5 +55,5 @@
 		
 <?php
 	global $dynamicContent;
-	$dynamicContent -> echoJS();
+	// $dynamicContent -> echoJS();
 ?>
