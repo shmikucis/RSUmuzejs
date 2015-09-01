@@ -17,6 +17,7 @@ This Theme is licensed under the GPL.
 @import "jquery.fullPage.css";
 @import "colorbox.css";
 @import "nanoscroller.css";
+@import "lightgallery.min.css";
 
 @font-face {
     font-family: pagella;
@@ -88,32 +89,29 @@ This Theme is licensed under the GPL.
 /*Loading end*/
 
 /*Scrollbar*/
-/*::-webkit-scrollbar {
-    width: 12px;
+.nicescroll-rails{
+    width: 1vw !important;
+    max-width: 20px !important;
+    background-color: white !important;
 }
- 
- Track 
-::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
+
+.nicescroll-rails-hr{
+    display: none !important;
 }
- 
- Handle 
-::-webkit-scrollbar-thumb {
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-    background: rgba(255,0,0,0.8); 
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+
+.nicescroll-cursors{
+    background-color: #660000 !important;
+    width: 1vw !important;    
+    max-width: 20px !important;
+    border-style: none !important;
+    border-radius: 0 !important;
 }
-::-webkit-scrollbar-thumb:window-inactive {
-	background: rgba(255,0,0,0.4); 
-}*/
 /*Scrollbar end*/
 
 html{
 	height: 100vh;
 	width: 100%;
+        min-width: 900px;
 }
 
 body{
@@ -171,10 +169,6 @@ div#fullpage.content-area{
 	padding: 0px;
 }
 
-footer{
-	display: none;
-}
-
 body{
     margin: 0px;
     padding: 0px;
@@ -199,55 +193,6 @@ p{
     /*overflow: hidden;*/
 }
 
-#intro{
-    position: relative;
-    z-index: 999;
-}
-
-#foreground
-{
-    width: 100%;
-    top: 32% !important;
-}
-
-#foreground div{
-    width: 90%;
-    text-align: center;
-    position: relative !important;
-    margin: auto;
-}
-
-#middle
-{
-    position: relative;
-    height: 100%;
-    width: 110%;
-}
-
-#background
-{
-    position: relative;
-    width: 110%;
-    height: 100%;
-    left: -5%;
-}
-
-#bg1{
-    background: url(images/AI_Image.jpg) no-repeat center center;
-}
-
-#mid1{
-    background-image: url(images/ui/line_pattern.png);
-    opacity: 0.9;
-}
-
-#fore3{
-    width: 50% !important;
-    margin-top: 10px;
-    font-family: baskerville;
-    font-size: 3vmin;
-}
-
 .layer{
     margin: 0px;
     padding: 0px;
@@ -258,6 +203,7 @@ p{
     width: 110%;
     left: -5% !important;
     height: 17%;    
+    z-index: 2;
 }
 #head_image div{
     /*background-image: url(images/family_header.jpg);*/
@@ -276,6 +222,7 @@ p{
     top:-3%;
     background-color: white;
     height: 4%;
+    z-index: 2;
 }
 
 #head_image_bot div{
@@ -427,7 +374,7 @@ ul.menu p{
     font-weight: normal;
     top: 20%;
     font-family: palatino;
-    font-size: 3.2vmin;
+    font-size: 1.6vmax;
     color: #575756;
     border-style: solid;
     border-width: thin;
@@ -449,39 +396,55 @@ ul.menu p{
     /*padding: 30px 0px 30px 0px;*/
 }
 
-img.alignleft{
+
+
+.alignleft{
     position: relative;
-    margin-left: -85%;
+    left: -55%;
+    transform: translateY(-50%);
+    /*z-index:-2;*/
+}
+
+.alignright{
+    position: absolute;
+    margin-left: 70vh !important;
     transform: translateY(-50%);
 }
 
-img.alignright{
-    position: relative;
-    margin-left: 105% !important;
-    transform: translateY(-50%);
+div.narrow{
+    margin-top: 30%;
+}
+
+div.wide{
+    margin-top: 10vh;
+}
+
+div.vwide{
+    margin-top: 20%;
+    left: -20%;
 }
 
 img.narrow{
     width: 20vw;  
-    margin-top: 30%;
+    /*margin-top: 30%;*/
     height: auto;
 }
 
 img.wide{
-    width: 35vw;
-    margin-top: 20%;
+    width: 30vw;
+    /*margin-top: 20%;*/
     height: auto;
 }
 
 img.vwide{
     width: 45vw;
-    margin-top: 20%;
-    margin-left: -40%;
+/*    margin-top: 20%;
+    margin-left: -40%;*/
     height: auto;
 }
 
 p.main_text_single{
-    width: 80%;
+    width: 85%;
     margin: auto;
     padding-top: 3%;
     font-size: 0.9vmax;
@@ -532,14 +495,15 @@ p.citation{
 
 p.author_text_single{
     padding-top: 4%;
-    font-size: 0.8vmax !important;
+    font-size: 0.8vmax;
 }
 
 p.vnarrow.author_text_single{
-    transform: translateY(-150%);
-    font-size: 0.7vmax !important;
+    transform: translateY(-200%);
+    font-size: 0.7vmax;
 }
 
+/*Fūteris*/
 #footer{
     position: absolute;
     width: 100%;
@@ -563,9 +527,9 @@ p.vnarrow.author_text_single{
     background-repeat: no-repeat;
     height: 5vh;
     min-height: 30px;
-    width: 12.5vw;
+    width: 9vw;
     min-width: 120px;
-    transform: translate(5%, -50%);
+    transform: translateY(-50%);
     z-index: 999;
 }
 #continue:hover{
@@ -573,21 +537,13 @@ p.vnarrow.author_text_single{
     cursor: pointer;
 }
 
-.readmore{
-    position: relative;
-    display: block;
-    background-image: url(images/ui/readmore_idle.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    height: 5vh;
-    min-height: 30px;
-    width: 1vw;
-    min-width: 120px;
+#footer .social{
+    float: none;
+    padding: 0;
+    margin: 0;
+    transform: translateY(-50%);
 }
-.readmore:hover{
-    background-image: url(images/ui/readmore_hover.png);
-    cursor: pointer;
-}
+/*Fūteris beidzas*/
 
 .right{
     margin-top: 3%;
@@ -599,33 +555,14 @@ p.vnarrow.author_text_single{
     margin-top: 3%;
 }
 
-#bigmore{
-    position: relative;
-    display: block;
-    margin: auto;
-    background-image: url(images/ui/readmore_big_idle.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    height: 6.5vh;
-    min-height: 50px;
-    width: 17vw;
-    min-width: 200px;
-    top: -25vh;
-}
-
-#bigmore:hover{
-    background-image: url(images/ui/readmore_big_hover.png);
-    cursor: pointer;
-}
-
 .bg{
     position: absolute;
 }
 
 .bg.cardboard{     
     top: -3vh !important;  
-    height: 18vw;
-    padding-bottom: 30px;
+    padding-bottom: 7%;
+    /*height: 18vw;*/
     /*left: 2% !important;*/
 }
 
@@ -657,6 +594,7 @@ p.narrow{
 }
 
 .cardboard.narrow{
+    margin: 0;
     width: 80%!important;
     left: 10% !important;
 }
@@ -669,6 +607,124 @@ p.narrow{
     vertical-align: middle;
     transform: translateY(-50%);
 }
+/*Ikonas un pogas*/
+.readmore{
+    position: absolute;
+    display: block;
+    background-image: url(images/ui/readmore_idle.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 5vh;
+    min-height: 30px;
+    width: 1vw;
+    min-width: 120px;
+}
+.readmore:hover{
+    background-image: url(images/ui/readmore_hover.png);
+    cursor: pointer;
+}
+
+a.obj_icon{
+    position: absolute;
+    width: 4.5vw;
+    min-width: 43px;
+    height: 8.4vh;
+    min-height: 50px;
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-position: center;    
+    text-decoration: none;
+    overflow: hidden;
+    z-index:999;
+}
+a.obj_icon:hover{
+    overflow: visible;}
+a.obj_icon[data-title]:after{
+    position: absolute;
+    content: attr(data-title);
+    background-image: url('images/cardboard.jpg');
+    display: none;
+    font-family: oswald;
+    font-size: 1vmax;
+    text-transform: uppercase;
+    margin-top: 50%;
+    margin-left: 100%;
+    min-width: 300%;
+    max-width: 400%;
+    color: #000000;
+    transform: translateY(-50%);
+}
+a.obj_icon[data-title]:hover:after{
+    display: block;
+}
+
+.icon_midleft{
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.icon_midright{
+    top: 50%;
+    left: 100%;
+    transform: translate(-50%, -50%);
+}
+.icon_topmid{
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.icon_botleft{
+    top:75%;
+    transform: translate(-50%, -50%);
+}
+.icon_belowtopright{
+    left: 100%;
+    top: 25%;
+    transform: translate(-50%, -50%);
+}
+
+.global_midright{
+    top: 10vh;
+    left: 40vw;
+}
+.global_botleft{
+    top: 20vh;
+   left: 25vw;
+}
+
+a.closer{
+    background-image: url('images/ui/closer_idle.png');    
+}
+a.closer:hover{
+    background-image: url('images/ui/closer_hover.png');
+}
+
+a.gallery{
+    background-image: url('images/ui/gallery_idle.png');    
+}
+a.gallery:hover{
+    background-image: url('images/ui/gallery_hover.png');
+}
+
+a.objects{
+    background-image: url('images/ui/objects_idle.png');    
+}
+a.objects:hover{
+    background-image: url('images/ui/objects_hover.png');
+}
+
+a.crescent{
+    background-image: url('images/ui/crescent_idle.png');    
+}
+a.crescent:hover{
+    background-image: url('images/ui/crescent_hover.png');
+}
+
+a.audio{
+    background-image: url('images/ui/audio_idle.png');    
+}
+a.audio:hover{
+    background-image: url('images/ui/audio_hover.png');
+}
+/*Ikonas un pogas beidzas*/
 
 /*Popup*/
 .popup{
@@ -677,28 +733,36 @@ p.narrow{
     font-size: 0.9vmax;
     width: 40vw;
     text-align: justify;
+    line-height: 150%;
     /*text-justify: distribute;*/
     margin-left: 3vw;
     color: #575756;
-    max-height: 80%;
+    /*max-height: 80%;*/
     /*padding-top: 8vh;*/
-    padding-bottom: 20vh;
+    /*padding-bottom: 10%;*/
 }
 
 .popup p{
     margin-bottom: 0.7em;
 }
 
-#colorbox{
+#cboxOverlay{
+    top: 7vh;
+    background: #1D1D1B;
+    opacity: 1 !important;
+}
+
+.text_popup#colorbox{
     top: 16vh !important;
     width: 50vw !important;
     left: 25vw !important;
-    min-height: 45vh;
+    height: auto !important;
+    /*min-height: 45vh;*/
     max-height: 65vh;
     overflow: visible !important;
 }
 
-#colorbox:before{
+.text_popup#colorbox:before{
     position: absolute;
     content: "";
     background-image: url('images/ui/citation.png');    
@@ -714,41 +778,225 @@ p.narrow{
     z-index: 123525;
 }
 
-#cboxWrapper{
+.text_popup#colorbox #cboxWrapper{
     max-width: 50vw;    
-    min-height: 45vh;
+    height: auto !important;
+    width: auto !important;
     max-height: 65vh;
 }
 
-#cboxOverlay{
-    top: 7vh;
-    background: #1D1D1B;
-    opacity: 1 !important;
-}
 
-#cboxContent{
+.text_popup#colorbox #cboxContent{
     /*position: absolute !important;*/
     width: 50vw !important;
     float: none !important; 
     background-image: url(images/cardboard.jpg);
     background-position: center;
     background-size: cover;
-    min-height: 45vh !important;
+    /*min-height: 45vh !important;*/
     height: auto !important;
     max-height: 65vh !important;    
     overflow: hidden !important;
+    /*padding-bottom: 3vh;*/
 }
 
-#cboxLoadedContent{
+.text_popup#colorbox #cboxLoadedContent{
+    position: relative !important;
     width: 46vw !important;  
     margin: auto;    
-    height: auto !important;
-    max-height: 54vh;
-    margin-bottom: 0;
-    margin-top: 8vh;
+    /*height: auto !important;*/
+    max-height: 40vh;
+    /*margin-bottom: 0;*/
+    margin-top: 8%;
     margin-bottom: 3vh;
-    overflow-y: auto !important;
+    padding-bottom: 3vh;
+    overflow-x: hidden;
 }
+
+.pic_popup#colorbox{
+    top: 16vh !important;
+    height: 35vmax !important;
+    width: auto !important;
+    margin: auto;
+    overflow: visible !important;
+}
+
+.pic_popup#colorbox #cboxWrapper{
+    height: 35vmax !important;
+    width: auto !important;
+    overflow: visible !important;
+}
+
+
+.pic_popup#colorbox #cboxContent{
+    width: auto !important;
+    /*float: none !important;*/
+    height: 35vmax !important;  
+    overflow: visible !important;
+}
+
+.pic_popup#colorbox #cboxLoadedContent{
+    width: auto !important;  
+    margin: auto;    
+    height: 35vmax !important;
+    margin-bottom: 0;
+    overflow: hidden !important;
+}
+
+.cboxPhoto{
+    height:35vmax !important;
+    width: auto !important;
+    margin: 0;
+    /*float: none;*/
+}
+.gallery_div a img{
+    float: left;
+    margin-left:-9999px;
+    width: 1px;
+    height: 1px;
+}
+
+.pic_popup#colorbox #cboxTitle{
+    position: absolute;
+    background-image: url(images/cardboard.jpg);
+    background-position: center;
+    background-size: cover;
+    font-family: baskerville;
+    font-size: 0.9vmax;
+    bottom: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 70vw;
+    left: 50%;
+    transform: translate(-50%,150%);
+}
+
+.family #cboxTitle{
+    display: none;
+}
+
+#cboxClose{
+    background-image: url('images/ui/popup_close.png');
+    height: 42px;
+    width: 42px;
+    top: 0;
+    transform: scale(0.5,0.5);
+}
+
+/*Popup beigas*/
+
+/*Titullapa*/
+#intro{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    z-index: 999;
+}
+
+#background
+{
+    position: absolute;
+    width: 110vw;
+    height: 100vh;
+    left: -5% !important;
+}
+
+#bg1{
+    background: url(images/AI_Image.jpg) no-repeat center center;
+    background-size: cover;
+    position: absolute;
+    width: 110%;
+    height: 100%;
+    left: -5%;
+    top: -5%; 
+}
+
+#intro_content{
+    position: relative !important;
+    width: 100%;
+    margin-top: 22vh;
+    height: 40vh;
+}
+
+#mid1{
+    position: relative !important;
+    text-align: center;
+    background-image: url(images/ui/line_pattern.png);
+    opacity: 0.9;
+    width: 120%;
+    margin-left: -10%;
+    /*height: 60%;*/
+    padding-top: 2.5%;
+    padding-bottom: 2.5%;
+}
+
+#mid2{
+    position: relative !important;
+    text-align: center;
+    width: 120%;
+    margin-left: -10%;
+    /*height: 40%;*/
+    background-color: #B92432;
+    opacity: 0.9;    
+    padding-top: 1%;
+    padding-bottom: 2.5%;
+}
+
+#fore1{
+    position: relative;
+    text-align: center;
+    font-family: palatino;
+    font-size: 3.8vmax;
+    color: #AB182B;
+    font-weight: normal;
+}
+
+#fore2{
+    position: relative;
+    width: 26%;
+    margin: auto;
+    text-align: center;
+    font-family: palatino;
+    font-size: 1.7vmax;
+    color: #575756;
+    padding-left: 1%;
+    padding-right: 1%;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-top-color: rgba(73, 14, 20, 0.3);
+}
+
+#fore3{
+    position: relative !important;
+    width: 40vw !important;
+    margin: auto;
+    font-family: baskerville;
+    font-size: 0.9vmax;
+    text-align: center;
+    color: #F3F0F5;
+    line-height: 150%;
+    font-weight: normal;
+}
+
+#bigmore{
+    position: relative;
+    display: block;
+    margin: auto;
+    background-image: url(images/ui/readmore_big_idle.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 6.5vh;
+    min-height: 50px;
+    width: 15vw;
+    min-width: 200px;
+    margin-top: 3%;
+}
+
+#bigmore:hover{
+    background-image: url(images/ui/readmore_big_hover.png);
+    cursor: pointer;
+}
+/*Titullapas beigas*/
 /*
 @media only screen and (orientation: portrait) {
     .bg.stripes{    
@@ -758,11 +1006,44 @@ p.narrow{
     z-index: -1;
 }
 }*/
-/*@media screen and (max-width: 600px) {
-    p.text_right {
-        font-size: 18pt;
+@media screen and (max-width: 950px) {
+    .entry-title{
+        font-size: 14pt;
     }
-}*/
+    p.citation{
+        font-size: 9pt;
+    }
+    
+    .popup{
+        font-size: 9pt;
+    }
+    
+    #fore1{
+        font-size: 30pt;
+    }
+    #fore2{
+        width: 40%;
+        font-size: 15pt;
+    }
+    #fore3{
+        font-size: 9pt;
+    }
+    
+    ul.menu p{
+        font-size: 7.5pt;
+    }
+    
+    a.obj_icon{
+        font-size:7.5pt;
+    }
+    
+    .author_text_single{
+        font-size: 6pt !important;
+    }
+    p.vnarrow.text_right{
+        font-size: 9pt;
+    }
+}
  
 /*.anim-left{
     animation-name: left;

@@ -17,10 +17,11 @@
 <!--<meta charset="windows-1257"/>-->
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/main.js" charset="utf-8"></script>
-<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/parallax.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/jquery.fullPage.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/jquery.colorbox.js"></script>
-<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/jquery.nanoscroller.js"></script>
+<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/jquery.nicescroll.js"></script>
+<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/lightgallery.js"></script>
+<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/lg-thumbnail.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">	

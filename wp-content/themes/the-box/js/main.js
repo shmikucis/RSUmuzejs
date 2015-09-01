@@ -4,10 +4,8 @@ $(window).load(function() {
 });
 
 $(window).resize(function() {
-////    setButtonMargin();
     setSocialMargin();
-//    setCitationLogoMargin();
-    setCardboardHeight();
+    $.colorbox.resize();
 });
 
 $(document).ready(function() {
@@ -18,71 +16,22 @@ $(document).ready(function() {
 window.parallax = null;
 window.scrollEnabled = false;
 
-var contents = [{
-    "type": "div",
-    "id": "bg1",
-    "class": "anim-up",
-    "parent": "background",
-    "style": "position: absolute; width: 110%; height: 100%; left: -5%; top: -5%; background-size: cover",
-    "text": ""
-}, {
-    "type": "div",
-    "id": "mid1",
-    "class": "anim-left",
-    "parent": "middle",
-    "style": "position: absolute; top: 25%; width: 110%; margin-left: -5%; height: 30%;",
-    "text": ""
-}, {
-    "type": "div",
-    "id": "mid2",
-    "class": "anim-right",
-    "parent": "middle",
-    "style": "position: absolute; top: 55%; width: 110%; margin-left: -5%; height: 15%; background-color: #B92432; opacity: 0.9;",
-    "text": ""
-}, {
-    "type": "h1",
-    "id": "fore1",
-    "class": "anim-left",
-    "parent": "foretext",
-    "style": "width: 100%; margin: auto; top: 35vmin; text-align: center; font-family: palatino; font-size: 7vmin; color: #AB182B; font-weight: normal;",
-    "text": "RĪGAS STRADIŅA UNIVERSITĀTES"
-}, {
-    "type": "p",
-    "id": "fore2",
-    "class": "anim-left",
-    "parent": "foretext",
-    "style": "width: 100%; margin: auto; top: 47%; text-align: center; font-family: palatino; font-size: 3vmin; color: #575756;",
-    "text": "VĒSTURES VIRTUĀLĀ EKSPOZĪCIJA"
-}, {
-    "type": "p",
-    "id": "fore3",
-    "class": "layer anim-right",
-    "parent": "mid2",
-    "style": "position: relative; margin-left: 20%; text-align: center; width: 50%; font-family: baskerville; font-size: 2vmin; color: #F3F0F5; line-height: 150%; font-weight: normal;",
-    "text": "Virtuālais muzejs, izmantojot RSU muzejā sakopotos materiālus," + String.fromCharCode(13) + " palīdzēs jums iepazīties ar to, kā noritējusi mūsu augstskolas" + String.fromCharCode(13) + " attīstība dažādos vēsturiskajos laikposmos."
-}];
-
-
 function init() {
-//    setButtonMargin();
     setSocialMargin();
-    setCardboardHeight();
-//    setCitationLogoMargin();
-
-    for (var i = 0; i < contents.length; i++) {
-        var elem = document.createElement(contents[i].type);
-        elem.id = contents[i].id;
-        elem.className = contents[i].class;
-        document.getElementById(contents[i].parent).appendChild(elem);
-        elem.textContent = contents[i].text;
-        elem.style.cssText = contents[i].style;
-    }
-
 
     var scene = document.getElementsByClassName("scene");
-    parallax = new Parallax(scene);
+    parallax = new Parallax(scene,{        
+        scalarX: 10,
+        scalarY: 7
+    });
 
     $(document).ready(function() { 
+        var scene = document.getElementsByClassName("scene");
+    parallax = new Parallax(scene,{        
+        scalarX: 10,
+        scalarY: 7
+    });
+        
         $('#fullpage').fullpage({
             scrollingSpeed: 0,
             keyboardScrolling: false,
@@ -101,14 +50,37 @@ function init() {
         //colorbox config
         $(document).bind('cbox_load', function(){
             disablePageScroll();
-//            $('#cboxLoadedContent').addClass('nano');
-//            $('#cboxLoadedContent').nanoScroller({ contentClass: 'popup' });
         });
+        
         $(document).bind('cbox_closed', function(){
             enablePageScroll();
+            resetPopupClass();
         });
-        $('a.readmore').colorbox({inline:true});
         
+        $('a.readmore').colorbox({inline:true, scrolling: false}); 
+        $('a.pic_single').colorbox({photo:true});
+    });
+    
+    $(document).on('click', '.readmore', function(){
+        $("#colorbox").addClass("text_popup");
+        $(document).bind('cbox_complete', function(){
+                $("#cboxLoadedContent").niceScroll({
+                    cursoropacitymin: 1
+                });
+        });        
+    });
+    
+     $(document).on('click', '.pic_single', function(){ 
+         $("#colorbox").addClass("pic_popup");    
+    });
+    
+    $(document).on('click', '.pic_gallery', function(){
+        var id = $(this).attr('data-gallery');
+        $(id).lightGallery({
+            thumbnail:true,
+            closable: false
+        });
+        $(id+' a').first().trigger('click');
     });
     
     
@@ -189,6 +161,13 @@ function disablePageScroll(){
     scrollEnabled = false;
 }
 
+function resetPopupClass(){
+    $("#colorbox").removeAttr('class');
+    $("#cboxWrapper").removeAttr('class');
+    $("#cboxContent").removeAttr('class');
+    $("#cboxLoadedContent").removeAttr('class');
+}
+
 function transition_out() {
     var outroR = document.getElementsByClassName("anim-right");
     var outroL = document.getElementsByClassName("anim-left");
@@ -236,43 +215,29 @@ function transition_in() {
     }
 }
 
-//pielabo "Turpināt" pogas pozīciju, lai vertikāli būtu līnijas vidū
-function setButtonMargin() {
-    var btnOffset = $('#continue').height();
-    btnOffset /= -2;
-    $('#continue').css('top', btnOffset);
-}
-
 //pielabo soctīklu pogu pozīcijas, lai tie būtu līnijas vidū
 function setSocialMargin() {
-    var ulOffset = $('.social').height();
+    var ulOffset = $('#head_image_bot .social').height();
     var headbar = $('#head_image_bot div').height();
     if (headbar === 0) {
         headbar = window.innerHeight / 100 * 1.04;
     }
     ulOffset /= -2;
     ulOffset += headbar / 2;
-    $('.social').css('margin-top', ulOffset);
-}
-
-function setCitationLogoMargin(){
-    var offset = $('.citation_logo').height();
-    offset /= -2;
-    $('.citation_logo').css('top', offset);
-}
-
-//uzstāda kartonīgās teksta fona faktūras augstumu proporcionālu ekrāna izmēram
-function setCardboardHeight(){
-//    var cbHeight = window.innerHeight / 2.3;
-//    $('.bg.cardboard').css('height', cbHeight);
+    $('#head_image_bot .social').css('margin-top', ulOffset);
 }
 
 //pārbauda, vai vajag paslēpt "turpināt" pogu
 function checkContinue(){
     var index =$('.active').prevAll().length;
-    if(index===0 || index ===2 || index ===3){
+    if(index===0 || index ===2 || index ===3 || index === 10){
         $('#continue').css('display', 'none');
     }
     else $('#continue').css('display', 'block');
+    
+    if(index!==0){
+        $('#footer .social').css('display', 'none');
+    }
+    else $('#footer .social').css('display', 'block');
 }
 

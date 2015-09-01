@@ -455,7 +455,7 @@
 			}).show();
 
 			if (settings.get('closeButton')) {
-				$close.html(settings.get('close')).appendTo($content);
+				$close.html(settings.get('close')).appendTo($overlay);
 			} else {
 				$close.appendTo('<div/>'); // replace with .detach() when dropping jQuery < 1.4
 			}

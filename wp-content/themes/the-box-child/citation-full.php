@@ -21,7 +21,7 @@
             </div>
             
         </div>
-	<header class="entry-header layer" data-depth="0.5">
+	<header class="entry-header layer" data-depth="0.45">
 		<?php
 			
 				the_title( '<h1 class="entry-title anim-right">', '</h1>' );
@@ -37,11 +37,11 @@
                     
                     <div class="bg cardboard anim-left">
                         <img src="<?php echo get_stylesheet_directory_uri();?>/images/ui/citation.png" align="middle" class="citation_logo"/>
-                    </div>
+                    
 			<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'thebox' ) ); ?>
 			<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'thebox' ), 'after' => '</div>' ) ); ?>
 		</div>
-        
+        </div>
 <!--        <div id="footer" class="stripes">
             <button id="continue">Turpin�t</button>
         </div>-->
