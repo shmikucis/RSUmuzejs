@@ -28,8 +28,12 @@ This Theme is licensed under the GPL.
     src: url(fonts/LibreBaskerville-Regular.otf);
 }
 @font-face{
-    font-family: oswald;
+    font-family: oswald-medium;
     src: url(fonts/Oswald-Medium.ttf);
+}
+@font-face{
+    font-family: oswald-light;
+    src: url(fonts/Oswald-Light.ttf);
 }
 
 /*Loading*/
@@ -118,7 +122,9 @@ body{
     margin: 0px;
     padding: 0px;
 }
-
+a{
+    outline: 0;
+}
 header.site-header{
 	width: 100vw;
 	height: 7vh;
@@ -320,7 +326,7 @@ ul.menu img{
 
 ul.menu p{
     width: 70%;
-    font-family: oswald;
+    font-family: oswald-light;
     font-size: 1vmax;
     text-transform: uppercase;
     text-decoration: none;
@@ -407,7 +413,7 @@ ul.menu p{
 
 .alignright{
     position: absolute;
-    margin-left: 70vh !important;
+    margin-left: 40vw !important;
     transform: translateY(-50%);
 }
 
@@ -635,27 +641,32 @@ a.obj_icon{
     background-position: center;    
     text-decoration: none;
     overflow: hidden;
-    z-index:999;
+    z-index:9999;
 }
 a.obj_icon:hover{
     overflow: visible;}
 a.obj_icon[data-title]:after{
-    position: absolute;
+    position: absolute;    
     content: attr(data-title);
     background-image: url('images/cardboard.jpg');
     display: none;
-    font-family: oswald;
+    font-family: oswald-medium;
     font-size: 1vmax;
     text-transform: uppercase;
-    margin-top: 50%;
-    margin-left: 100%;
-    min-width: 300%;
-    max-width: 400%;
-    color: #000000;
-    transform: translateY(-50%);
+    padding: 10% 20%;
+    margin-top: 20%;
+    margin-left: 50%;
+    /*min-height: 25px;*/
+    /*min-width: 300%;*/
+    width: 400%;
+    /*max-width: 400%;*/
+    color: #575756;
+    z-index: 999;
+    /*transform: translateY(-50%);*/
 }
 a.obj_icon[data-title]:hover:after{
-    display: block;
+    display: inline-block;
+    z-index: 999;
 }
 
 .icon_midleft{
@@ -724,6 +735,13 @@ a.audio{
 a.audio:hover{
     background-image: url('images/ui/audio_hover.png');
 }
+
+a.archive{
+    background-image: url('images/ui/archive_idle.png');    
+}
+a.archive:hover{
+    background-image: url('images/ui/archive_hover.png');
+}
 /*Ikonas un pogas beidzas*/
 
 /*Popup*/
@@ -753,12 +771,12 @@ a.audio:hover{
 }
 
 .text_popup#colorbox{
-    top: 16vh !important;
+    /*top: 16vh !important;*/
     width: 50vw !important;
     left: 25vw !important;
-    height: auto !important;
+    /*height: auto !important;*/
     /*min-height: 45vh;*/
-    max-height: 65vh;
+    max-height: 75vh;
     overflow: visible !important;
 }
 
@@ -782,7 +800,7 @@ a.audio:hover{
     max-width: 50vw;    
     height: auto !important;
     width: auto !important;
-    max-height: 65vh;
+    max-height: 75vh;
 }
 
 
@@ -795,7 +813,7 @@ a.audio:hover{
     background-size: cover;
     /*min-height: 45vh !important;*/
     height: auto !important;
-    max-height: 65vh !important;    
+    max-height: 75vh !important;    
     overflow: hidden !important;
     /*padding-bottom: 3vh;*/
 }
@@ -805,7 +823,7 @@ a.audio:hover{
     width: 46vw !important;  
     margin: auto;    
     /*height: auto !important;*/
-    max-height: 40vh;
+    max-height: 60vh;
     /*margin-bottom: 0;*/
     margin-top: 8%;
     margin-bottom: 3vh;
@@ -815,14 +833,14 @@ a.audio:hover{
 
 .pic_popup#colorbox{
     top: 16vh !important;
-    height: 35vmax !important;
+    height:70vmin !important;
     width: auto !important;
     margin: auto;
     overflow: visible !important;
 }
 
 .pic_popup#colorbox #cboxWrapper{
-    height: 35vmax !important;
+    height:70vmin !important;
     width: auto !important;
     overflow: visible !important;
 }
@@ -831,20 +849,20 @@ a.audio:hover{
 .pic_popup#colorbox #cboxContent{
     width: auto !important;
     /*float: none !important;*/
-    height: 35vmax !important;  
+    height: 80vh !important;  
     overflow: visible !important;
 }
 
 .pic_popup#colorbox #cboxLoadedContent{
     width: auto !important;  
     margin: auto;    
-    height: 35vmax !important;
+    height:70vmin !important;
     margin-bottom: 0;
     overflow: hidden !important;
 }
 
 .cboxPhoto{
-    height:35vmax !important;
+    height:70vmin !important;
     width: auto !important;
     margin: 0;
     /*float: none;*/
@@ -863,12 +881,12 @@ a.audio:hover{
     background-size: cover;
     font-family: baskerville;
     font-size: 0.9vmax;
+    color: #575756;
     bottom: 0;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 10px 25px;
     width: 70vw;
     left: 50%;
-    transform: translate(-50%,150%);
+    transform: translateX(-50%);
 }
 
 .family #cboxTitle{
@@ -997,15 +1015,7 @@ a.audio:hover{
     cursor: pointer;
 }
 /*Titullapas beigas*/
-/*
-@media only screen and (orientation: portrait) {
-    .bg.stripes{    
-    height: 40vh;    
-    top: -20% !important;
-    left: -25vw !important;
-    z-index: -1;
-}
-}*/
+
 @media screen and (max-width: 950px) {
     .entry-title{
         font-size: 14pt;
@@ -1027,6 +1037,7 @@ a.audio:hover{
     }
     #fore3{
         font-size: 9pt;
+        width: 70vw !important;
     }
     
     ul.menu p{
@@ -1034,7 +1045,7 @@ a.audio:hover{
     }
     
     a.obj_icon{
-        font-size:7.5pt;
+        font-size:9pt;
     }
     
     .author_text_single{
@@ -1042,6 +1053,13 @@ a.audio:hover{
     }
     p.vnarrow.text_right{
         font-size: 9pt;
+    }
+    a.obj_icon[data-title]:after{
+        font-size: 9pt;
+        margin-top: 12px;
+    }
+    #cboxTitle{
+        font-size: 9pt !important;
     }
 }
  
