@@ -1,0 +1,209 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: "icons-font";
+  src:url("icons-font.eot");
+  src:url("icons-font.eot?#iefix") format("embedded-opentype"),
+    url("icons-font.woff") format("woff"),
+    url("icons-font.ttf") format("truetype"),
+    url("icons-font.svg#icons-font") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: "icons-font" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  text-rendering: auto;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* Icons v. 1.6 */
+
+.icon-quote-right:before {
+  content: "a";
+}
+.icon-quote-left:before {
+  content: "b";
+}
+.icon-double-arrow-right:before {
+  content: "d";
+}
+.icon-double-arrow-left:before {
+  content: "e";
+}
+.icon-angle-right:before {
+  content: "f";
+}
+.icon-angle-left:before {
+  content: "g";
+}
+.icon-angle-down:before {
+  content: "i";
+}
+.icon-menu:before {
+  content: "j";
+}
+.icon-comment:before {
+  content: "l";
+}
+.icon-comments-alt:before {
+  content: "m";
+}
+.icon-caret-right:before {
+  content: "o";
+}
+.icon-caret-left:before {
+  content: "p";
+}
+.icon-mail:before {
+  content: "q";
+}
+.icon-pin:before {
+  content: "s";
+}
+.icon-image:before {
+  content: "t";
+}
+.icon-video:before {
+  content: "u";
+}
+.icon-link-external:before {
+  content: "r";
+}
+.icon-googleplus:before {
+  content: "w";
+}
+.icon-facebook:before {
+  content: "x";
+}
+.icon-youtube:before {
+  content: "y";
+}
+.icon-pinterest:before {
+  content: "z";
+}
+.icon-search:before {
+  content: "A";
+}
+.icon-twitter:before {
+  content: "B";
+}
+.icon-home:before {
+  content: "C";
+}
+.icon-linkedin:before {
+  content: "D";
+}
+.icon-coffee:before {
+  content: "E";
+}
+.icon-rss:before {
+  content: "M";
+}
+.icon-user:before {
+  content: "v";
+}
+.icon-instagram:before {
+  content: "F";
+}
+.icon-category-alt:before {
+  content: "H";
+}
+.icon-tag-alt:before {
+  content: "I";
+}
+.icon-comment-alt:before {
+  content: "J";
+}
+.icon-comments:before {
+  content: "K";
+}
+.icon-music:before {
+  content: "N";
+}
+.icon-tag:before {
+  content: "O";
+}
+.icon-mail-alt:before {
+  content: "P";
+}
+.icon-link:before {
+  content: "Q";
+}
+.icon-flag:before {
+  content: "k";
+}
+.icon-category:before {
+  content: "L";
+}
+.icon-hearth:before {
+  content: "8";
+}
+.icon-camera:before {
+  content: "U";
+}
+.icon-book:before {
+  content: "V";
+}
+.icon-star-alt:before {
+  content: "G";
+}
+.icon-date:before {
+  content: "Z";
+}
+.icon-heart-alt:before {
+  content: "0";
+}
+.icon-doc-alt:before {
+  content: "1";
+}
+.icon-star:before {
+  content: "c";
+}
+.icon-calendar:before {
+  content: "2";
+}
+.icon-dribbble:before {
+  content: "3";
+}
+.icon-caret-down:before {
+  content: "h";
+}
+.icon-caret-up:before {
+  content: "n";
+}
+.icon-download:before {
+  content: "5";
+}
+.icon-left-circle:before {
+  content: "7";
+}
+.icon-tumblr:before {
+  content: "9";
+}
+.icon-github:before {
+  content: "!";
+}
+.icon-flickr:before {
+  content: "Y";
+}
+.icon-share:before {
+  content: "6";
+}
+.icon-stumbleupon:before {
+  content: "4";
+}
+.icon-medium:before {
+  content: "R";
+}
+.icon-whatsapp:before {
+  content: "S";
+}
