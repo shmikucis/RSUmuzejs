@@ -5,7 +5,8 @@ $(window).load(function() {
 
 $(window).resize(function() {
     setSocialMargin();
-    $.colorbox.resize();
+//    $.colorbox.resize();
+    textPopupVcenter();
 });
 
 $(document).ready(function() {
@@ -64,6 +65,7 @@ function init() {
     $(document).on('click', '.readmore', function(){
         $("#colorbox").addClass("text_popup");
         $(document).bind('cbox_complete', function(){
+                textPopupVcenter();
                 $("#cboxLoadedContent").niceScroll({
                     cursoropacitymin: 1
                 });
@@ -241,3 +243,13 @@ function checkContinue(){
     else $('#footer .social').css('display', 'block');
 }
 
+function textPopupVcenter(){
+    var cbox = $('#colorbox');
+    if (cbox){
+        var cboxHgt = cbox.height();
+        var wHgt = window.innerHeight;
+        var headerOffset = wHgt / 100 * 7;
+        var cboxTop = headerOffset + (wHgt - headerOffset - cboxHgt) / 2;
+        $('#colorbox').css('top', cboxTop);        
+    }
+}
