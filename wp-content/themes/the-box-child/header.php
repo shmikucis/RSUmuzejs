@@ -11,6 +11,7 @@
 <!DOCTYPE html>
 <html lang="lv" <?php // language_attributes(); ?>>
 <head>
+    <title><?php wp_title(); ?></title>
 <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.ico" />
 <!--<meta charset="<?php // bloginfo( 'charset' ); ?>">-->
 <meta charset="utf-8" />
@@ -21,7 +22,7 @@
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/jquery.colorbox.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/jquery.nicescroll.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/lightgallery.js"></script>
-<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/lg-thumbnail.min.js"></script>
+<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/lg-thumbnail.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">	
@@ -51,6 +52,54 @@
 				<img src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="RSU muzejs" id="header_logo"/>
 			</a>
 		</div>
+            <span id="menu_toggle"></span>
+            <div id='cssmenu' style="display: none">
+                <ul>
+                   <li class='has-sub'><a><span>Pirmsākumi</span></a>
+                       <ul>
+                         <li><a href='#'><span>Stradiņa dzimta</span></a></li>
+                         <li><a href='#'><span>RSU studiju virzienu vēsture</span></a></li>
+                       </ul>
+                   </li>
+                   <li class='has-sub'><a><span>Attīstība</span></a>
+                      <ul>
+                         <li><a href='#'><span>Rīgas medicīnas institūts</span></a></li>
+                         <li><a href='#'><span>Latvijas medicīnas akadēmija</span></a></li>
+                         <li><a href='#'><span>Rīgas Stradiņa Universitāte</span></a></li>
+                         <li><a href='#'><span>Rektori</span></a></li>
+                      </ul>
+                   </li>
+                   <li class='has-sub'><a><span>Struktūra</span></a>
+                      <ul>
+                         <li><a href='#'><span>Fakultātes</span></a></li>
+                         <li><a href='#'><span>Institūti un laboratorijas</span></a></li>
+                         <li><a href='#'><span>Administrācija</span></a></li>
+                      </ul>
+                   </li>
+                   <li class='has-sub'><a><span>Zinātne un pedagoģija</span></a>
+                       <ul>
+                         <li><a href='#'><span>Zinātne</span></a></li>
+                         <li><a href='#'><span>Pedagoģija</span></a></li>
+                       </ul>
+                   </li>
+                   <li class='has-sub'><a><span>Personības</span></a>
+                      <ul>
+                         <li><a href='#'><span>Veselības aprūpe</span></a></li>
+                         <li><a href='#'><span>Sociālās zinātnes</span></a></li>
+                         <li><a href='#'><span>Atpazīstamas personības</span></a></li>
+                      </ul>
+                   </li>
+                   <li class='has-sub'><a><span>Ārpus studijām</span></a>
+                      <ul>
+                         <li><a href='#'><span>Okupācijas laikā</span></a></li>
+                         <li><a href='#'><span>Mākslinieciskie kolektīvi</span></a></li>
+                         <li><a href='#'><span>Sabiedriskās aktivitātes</span></a></li>
+                         <li><a href='#'><span>Sports</span></a></li>
+                         <li><a href='#'><span>Tradīcijas</span></a></li>
+                      </ul>
+                   </li>
+                </ul>
+            </div>
 </header>
 		
 <?php

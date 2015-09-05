@@ -17,7 +17,7 @@ This Theme is licensed under the GPL.
 @import "jquery.fullPage.css";
 @import "colorbox.css";
 @import "nanoscroller.css";
-@import "lightgallery.min.css";
+@import "lightgallery.css";
 
 @font-face {
     font-family: pagella;
@@ -147,6 +147,119 @@ div.top_bar{
     /*display:none;*/
     position: absolute;
 }
+
+/*SideMenu*/
+#menu_toggle{
+    float: right;
+    background-image: url('images/ui/menu_toggle.png');
+    background-size: cover;
+    width: 4vh;
+    min-width: 32px;
+    height: 3vh;
+    min-height: 24px;
+    margin-top: 2vh;
+    margin-right: 1vw;
+    cursor: pointer;
+}
+
+#cssmenu,
+#cssmenu ul,
+#cssmenu ul li,
+#cssmenu ul li a {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style: none;
+  line-height: 1;
+  display: block;
+  position: relative;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+#cssmenu {
+    position:absolute;
+  width: 200px;
+  font-family: oswald-medium;
+  text-transform: uppercase;
+  color: #ffffff;
+  right: 0;
+}
+#cssmenu ul ul {
+  display: none;
+}
+.align-right {
+  float: right;
+}
+#cssmenu > ul > li > a {
+  padding: 15px 20px;   
+  cursor: pointer;
+  z-index: 2;
+  font-size: 11pt;
+  text-decoration: none;
+  color: #ffffff;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.35);
+  background-color: #70706F;
+}
+#cssmenu > ul > li > a:after{
+    content: "";
+    background: #1E1E1C;
+    position: absolute;
+    top: 0;
+    left: 5%;
+    height: 1px;
+    width: 90%;
+    opacity: 0.5;
+}
+#cssmenu > ul > li > a:hover {
+  background: #D49539;
+}
+#cssmenu > ul > li.open > a {
+  background: #808081;
+}
+#cssmenu > ul > li.open:before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 15px;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 15px solid black;
+    z-index: 3;
+}
+#cssmenu > ul > li:first-child > a:after,
+#cssmenu > ul > li.last > a {
+  content: '';
+  background: none;
+}
+#cssmenu ul ul li a {
+  cursor: pointer;
+  font-family: oswald-light;
+  text-transform: none;
+  padding: 15px 20px;
+  z-index: 1;
+  text-decoration: none;
+  font-size: 11pt;
+  color: #eeeeee;
+  background: #808081;
+}
+#cssmenu ul ul li a:after{
+    content: "";
+    background: #1E1E1C;
+    position: absolute;
+    top: 0;
+    left: 5%;
+    height: 1px;
+    width: 90%;
+    opacity: 0.5;
+}
+#cssmenu ul ul li:hover > a,
+#cssmenu ul ul li.open > a,
+#cssmenu ul ul li.active > a {
+  background: #D49539;
+}
+/*SideMenu End*/
 
 div#primary.content-area{
 	width: 100vw;
@@ -461,7 +574,8 @@ p.main_text_single{
 p.text_right{
     width: 85%;
     text-align: left;
-    font-size: 0.9vmax;
+    /*font-size: 0.9vmax;*/
+    font-size: 9pt;
     line-height: 150%;
     left: 30%;
     bottom: -12vh;
@@ -1007,7 +1121,7 @@ a.archive:hover{
     min-height: 50px;
     width: 15vw;
     min-width: 200px;
-    margin-top: 3%;
+    margin-top: 8vh;
 }
 
 #bigmore:hover{
@@ -1165,3 +1279,4 @@ a.archive:hover{
         opacity: 1;
     }
 }
+
