@@ -646,7 +646,7 @@
 		$window.unbind('resize.' + prefix);
 
 		// remove the modal so that it doesn't influence the document width/height
-		$box.css({top: -9e4, left: -9e4});
+//		$box.css({top: -9e4, left: -9e4});
 
 		scrollTop = $window.scrollTop();
 		scrollLeft = $window.scrollLeft();
@@ -721,11 +721,11 @@
 				$wrap[0].style.width = (settings.w + loadedWidth + interfaceWidth) + "px";
 				$wrap[0].style.height = (settings.h + loadedHeight + interfaceHeight) + "px";
 
-				if (settings.get('reposition')) {
-					setTimeout(function () {  // small delay before binding onresize due to an IE8 bug.
-						$window.bind('resize.' + prefix, publicMethod.position);
-					}, 1);
-				}
+//				if (settings.get('reposition')) {
+//					setTimeout(function () {  // small delay before binding onresize due to an IE8 bug.
+//						$window.bind('resize.' + prefix, publicMethod.position);
+//					}, 1);
+//				}
 
 				if ($.isFunction(loadedCallback)) {
 					loadedCallback();
@@ -736,43 +736,42 @@
 	};
 
 	publicMethod.resize = function (options) {
-		var scrolltop;
-
-		if (open) {
-			options = options || {};
-
-			if (options.width) {
-				settings.w = setSize(options.width, 'x') - loadedWidth - interfaceWidth;
-			}
-
-			if (options.innerWidth) {
-				settings.w = setSize(options.innerWidth, 'x');
-			}
-
-			$loaded.css({width: settings.w});
-
-			if (options.height) {
-				settings.h = setSize(options.height, 'y') - loadedHeight - interfaceHeight;
-			}
-
-			if (options.innerHeight) {
-				settings.h = setSize(options.innerHeight, 'y');
-			}
-
-			if (!options.innerHeight && !options.height) {
-				scrolltop = $loaded.scrollTop();
-				$loaded.css({height: "auto"});
-				settings.h = $loaded.height();
-			}
-
-			$loaded.css({height: settings.h});
-
-			if(scrolltop) {
-				$loaded.scrollTop(scrolltop);
-			}
-
-			publicMethod.position(settings.get('transition') === "none" ? 0 : settings.get('speed'));
-		}
+//		var scrolltop;
+//
+//		if (open) {
+//			options = options || {};
+//
+//			if (options.width) {
+//				settings.w = setSize(options.width, 'x') - loadedWidth - interfaceWidth;
+//			}
+//
+//			if (options.innerWidth) {
+//				settings.w = setSize(options.innerWidth, 'x');
+//			}
+//
+//			$loaded.css({width: settings.w});
+//
+//			if (options.height) {
+//				settings.h = setSize(options.height, 'y') - loadedHeight - interfaceHeight;
+//			}
+//
+//			if (options.innerHeight) {
+//				settings.h = setSize(options.innerHeight, 'y');
+//			}
+//
+//			if (!options.innerHeight && !options.height) {
+//				scrolltop = $loaded.scrollTop();
+//				settings.h = $loaded.height();
+//			}
+//
+//			
+//
+//			if(scrolltop) {
+//				$loaded.scrollTop(scrolltop);
+//			}
+//
+//			publicMethod.position(settings.get('transition') === "none" ? 0 : settings.get('speed'));
+//		}
 	};
 
 	publicMethod.prep = function (object) {

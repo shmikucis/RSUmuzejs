@@ -8,10 +8,10 @@
 
 <article id="post-<?php the_ID(); ?>" class="section">
  
-        <div id="head_image" class="layer" data-depth="0.1">
+        <div class="head_image layer" data-depth="0.1">
             <div class="anim-up"></div>
         </div>
-        <div id="head_image_bot" class="">
+        <div class="head_image_bot">
             <div>
                 <ul class="social">
                     <li><a href="#" id="twitter"></a></li>

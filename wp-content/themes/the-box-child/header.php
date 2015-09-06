@@ -53,12 +53,12 @@
 			</a>
 		</div>
             <span id="menu_toggle"></span>
-            <div id='cssmenu' style="display: none">
+            <div id='sidemenu' style="display: none">
                 <ul>
                    <li class='has-sub'><a><span>Pirmsākumi</span></a>
                        <ul>
-                         <li><a href='#'><span>Stradiņa dzimta</span></a></li>
-                         <li><a href='#'><span>RSU studiju virzienu vēsture</span></a></li>
+                         <li><a href='#family-intro'><span>Stradiņa dzimta</span></a></li>
+                         <li><a href='#study-intro'><span>RSU studiju virzienu vēsture</span></a></li>
                        </ul>
                    </li>
                    <li class='has-sub'><a><span>Attīstība</span></a>

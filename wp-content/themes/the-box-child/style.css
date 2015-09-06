@@ -16,7 +16,6 @@ This Theme is licensed under the GPL.
 */
 @import "jquery.fullPage.css";
 @import "colorbox.css";
-@import "nanoscroller.css";
 @import "lightgallery.css";
 
 @font-face {
@@ -127,7 +126,9 @@ a{
 }
 header.site-header{
 	width: 100vw;
+        min-height: 47px;
 	height: 7vh;
+        max-height: 112px;
 	background: linear-gradient(
       rgba(102, 0, 0, 0.85), 
       rgba(102, 0, 0, 0.85)
@@ -139,7 +140,9 @@ header.site-header{
 }
 
 #header_logo{
+    min-height: 34px;
     height:5vh;
+    max-height: 80px;
     margin: 1vh;
 }
 
@@ -162,10 +165,10 @@ div.top_bar{
     cursor: pointer;
 }
 
-#cssmenu,
-#cssmenu ul,
-#cssmenu ul li,
-#cssmenu ul li a {
+#sidemenu,
+#sidemenu ul,
+#sidemenu ul li,
+#sidemenu ul li a {
   margin: 0;
   padding: 0;
   border: 0;
@@ -177,7 +180,7 @@ div.top_bar{
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-#cssmenu {
+#sidemenu {
     position:absolute;
   width: 200px;
   font-family: oswald-medium;
@@ -185,13 +188,13 @@ div.top_bar{
   color: #ffffff;
   right: 0;
 }
-#cssmenu ul ul {
+#sidemenu ul ul {
   display: none;
 }
 .align-right {
   float: right;
 }
-#cssmenu > ul > li > a {
+#sidemenu > ul > li > a {
   padding: 15px 20px;   
   cursor: pointer;
   z-index: 2;
@@ -201,7 +204,7 @@ div.top_bar{
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.35);
   background-color: #70706F;
 }
-#cssmenu > ul > li > a:after{
+#sidemenu > ul > li > a:after{
     content: "";
     background: #1E1E1C;
     position: absolute;
@@ -211,13 +214,13 @@ div.top_bar{
     width: 90%;
     opacity: 0.5;
 }
-#cssmenu > ul > li > a:hover {
+#sidemenu > ul > li > a:hover {
   background: #D49539;
 }
-#cssmenu > ul > li.open > a {
+#sidemenu > ul > li.open > a {
   background: #808081;
 }
-#cssmenu > ul > li.open:before {
+#sidemenu > ul > li.open:before {
     content: '';
     position: absolute;
     width: 0;
@@ -228,12 +231,12 @@ div.top_bar{
     border-left: 15px solid black;
     z-index: 3;
 }
-#cssmenu > ul > li:first-child > a:after,
-#cssmenu > ul > li.last > a {
+#sidemenu > ul > li:first-child > a:after,
+#sidemenu > ul > li.last > a {
   content: '';
   background: none;
 }
-#cssmenu ul ul li a {
+#sidemenu ul ul li a {
   cursor: pointer;
   font-family: oswald-light;
   text-transform: none;
@@ -244,7 +247,7 @@ div.top_bar{
   color: #eeeeee;
   background: #808081;
 }
-#cssmenu ul ul li a:after{
+#sidemenu ul ul li a:after{
     content: "";
     background: #1E1E1C;
     position: absolute;
@@ -254,9 +257,9 @@ div.top_bar{
     width: 90%;
     opacity: 0.5;
 }
-#cssmenu ul ul li:hover > a,
-#cssmenu ul ul li.open > a,
-#cssmenu ul ul li.active > a {
+#sidemenu ul ul li:hover > a,
+#sidemenu ul ul li.open > a,
+#sidemenu ul ul li.active > a {
   background: #D49539;
 }
 /*SideMenu End*/
@@ -317,14 +320,16 @@ p{
     padding: 0px;
 }
 
-#head_image{
+.head_image{
     position: relative !important;
     width: 110%;
     left: -5% !important;
+    min-height: 110px;
     height: 17%;    
+    max-height: 210px;
     z-index: 2;
 }
-#head_image div{
+.head_image div{
     /*background-image: url(images/family_header.jpg);*/
     background: linear-gradient(
       rgba(186, 36, 49, 0.35), 
@@ -336,15 +341,17 @@ p{
     /*z-index: -1;*/
 }
 
-#head_image_bot{
+.head_image_bot{
     position:relative;
     top:-3%;
     background-color: white;
+    min-height: 26px;
     height: 4%;
+    max-height: 60px;
     z-index: 2;
 }
 
-#head_image_bot div{
+.head_image_bot div{
     position: relative;
     background: linear-gradient(
       rgba(102, 0, 0, 0.85), 
@@ -629,7 +636,9 @@ p.vnarrow.author_text_single{
     width: 100%;
     margin: auto;
     bottom: 0;
+    min-height: 67px;
     height: 10%;
+    max-height: 160px;
     border-top-color: #EAE3E3;
     border-top-width: thin;
     border-top-style: solid;
@@ -862,16 +871,12 @@ a.archive:hover{
 .popup{
     position: relative;
     font-family: baskerville;
-    font-size: 0.9vmax;
+    font-size: 9pt;
     width: 40vw;
     text-align: justify;
     line-height: 150%;
-    /*text-justify: distribute;*/
-    margin-left: 3vw;
+    margin-left: 5%;
     color: #575756;
-    /*max-height: 80%;*/
-    /*padding-top: 8vh;*/
-    /*padding-bottom: 10%;*/
 }
 
 .popup p{
@@ -885,11 +890,9 @@ a.archive:hover{
 }
 
 .text_popup#colorbox{
-    /*top: 16vh !important;*/
-    width: 50vw !important;
-    left: 25vw !important;
-    /*height: auto !important;*/
-    /*min-height: 45vh;*/
+    right: 0;
+    margin: auto;
+    width: 600px !important;
     max-height: 75vh;
     overflow: visible !important;
 }
@@ -911,16 +914,16 @@ a.archive:hover{
 }
 
 .text_popup#colorbox #cboxWrapper{
-    max-width: 50vw;    
+    max-width: 100%;    
     height: auto !important;
-    width: auto !important;
+    /*width: auto !important;*/
     max-height: 75vh;
 }
 
 
 .text_popup#colorbox #cboxContent{
     /*position: absolute !important;*/
-    width: 50vw !important;
+    width: 100% !important;
     float: none !important; 
     background-image: url(images/cardboard.jpg);
     background-position: center;
@@ -934,9 +937,9 @@ a.archive:hover{
 
 .text_popup#colorbox #cboxLoadedContent{
     position: relative !important;
-    width: 46vw !important;  
+    width: 94% !important;  
     margin: auto;    
-    /*height: auto !important;*/
+    height: auto !important;
     max-height: 60vh;
     /*margin-bottom: 0;*/
     margin-top: 8%;
@@ -982,10 +985,7 @@ a.archive:hover{
     /*float: none;*/
 }
 .gallery_div a img{
-    float: left;
-    margin-left:-9999px;
-    width: 1px;
-    height: 1px;
+    display:none;
 }
 
 .pic_popup#colorbox #cboxTitle{
@@ -1172,111 +1172,28 @@ a.archive:hover{
         font-size: 9pt;
         margin-top: 12px;
     }
+    .text_popup#colorbox{
+        width: 500px !important;
+    }
     #cboxTitle{
         font-size: 9pt !important;
     }
 }
- 
-/*.anim-left{
-    animation-name: left;
-    animation-duration: 1.5s;
-    animation-fill-mode: forwards;
-    -webkit-animation-timing-function: ease-out;
-    -moz-animation-timing-function: ease-out;
-    animation-timing-function: ease-out;
-}
-
-.anim-right{
-    animation-name: right;
-    animation-duration: 1.5s;
-    animation-fill-mode: forwards;
-    -webkit-animation-timing-function: ease-out;
-    -moz-animation-timing-function: ease-out;
-    animation-timing-function: ease-out;
-}
-
-.anim-up{
-    animation-name: up;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-}
-
-.anim-up-rev{
-    animation-name: up;
-    animation-duration: 1s;    
-    -webkit-animation-direction: reverse;
-    -moz-animation-direction: reverse;
-    animation-direction: reverse;
-    -webkit-animation-timing-function: linear;
-    -moz-animation-timing-function: linear;
-    animation-timing-function: linear;
-    animation-fill-mode: forwards;
-}
-
-.anim-left-rev{
-    animation-name: left;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-    -webkit-animation-direction: reverse;
-    -moz-animation-direction: reverse;
-    animation-direction: reverse;
-    -webkit-animation-timing-function: ease-in;
-    -moz-animation-timing-function: ease-in;
-    animation-timing-function: ease-in;
-    animation-fill-mode: forwards;
-}
-
-.anim-right-rev{
-    animation-name: right;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-    -webkit-animation-direction: reverse;
-    -moz-animation-direction: reverse;
-    animation-direction: reverse;
-    -webkit-animation-timing-function: ease-in;
-    -moz-animation-timing-function: ease-in;
-    animation-timing-function: ease-in;
-        animation-fill-mode: forwards;
-
-}*/
-
-/*.fast{
-    animation-duration: 0.5s !important;
-}*/
-
-@keyframes right{
-    from {
-        transform: translateX(200%);
-        /*opacity: 0;*/
+@media screen and (max-width: 620px) {
+    .text_popup#colorbox{
+        width:90vw !important;
     }
-    to {
-        transform: initial;
-            /*translateX(0%);*/
-        /*opacity: initial;*/
+    .popup{
+        width: 76vw !important;
     }
 }
-
-@keyframes left{
-    from {
-        transform: translateX(-200%);
-        /*opacity: 0;*/
-    }
-    to {
-        transform: initial;
-            /*translateX(0%);*/
-        /*opacity: initial;*/
+@media screen and (min-width: 1600px) {
+    .text_popup#colorbox{
+        width:700px !important;
     }
 }
-
-@keyframes up{
-    from{
-        transform: translateY(-100%);
-        opacity: 0;
-    }
-    to{        
-        transform: initial;
-            /*translateY(0%);*/
-        opacity: 1;
+@media screen and (min-width: 2000px) {
+    .text_popup#colorbox{
+        width:1200px !important;
     }
 }
-
