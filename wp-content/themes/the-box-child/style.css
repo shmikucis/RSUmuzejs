@@ -581,7 +581,7 @@ p.main_text_single{
 p.text_right{
     width: 85%;
     text-align: left;
-    /*font-size: 0.9vmax;*/
+    max-height: 15vh;
     font-size: 9pt;
     line-height: 150%;
     left: 30%;
@@ -592,6 +592,7 @@ p.text_right{
 p.text_left{
     width: 85%;
     text-align: left;
+    max-height: 15vh;
     font-size: 0.9vmax;
     line-height: 150%;
     left: -10%;

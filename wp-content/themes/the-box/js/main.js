@@ -100,7 +100,14 @@ function init() {
     });
     
      $(document).on('click', '.pic_single', function(){ 
-         $("#colorbox").addClass("pic_popup");    
+         $("#colorbox").addClass("pic_popup");
+         $(document).bind('cbox_complete', function(){
+                $('#cboxLoadedContent img').attr('zoom','');
+                initZoom();
+        }); 
+        $(document).bind('cbox_cleanup', function(){
+                $('#cboxLoadedContent img').removeAttr('zoom');
+        }); 
     });
     
     $(document).on('click', '.pic_gallery', function(){
@@ -178,7 +185,7 @@ function init() {
     });
     
     
-    enablePageScroll();    
+    enablePageScroll();  
 }
 
 window.enablePageScroll = function(){    
