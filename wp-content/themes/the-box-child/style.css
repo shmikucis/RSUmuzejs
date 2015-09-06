@@ -176,6 +176,7 @@ div.top_bar{
   line-height: 1;
   display: block;
   position: relative;
+  z-index: 3000;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -419,7 +420,6 @@ ul.social{
 ul.menu{
     width: 100vw;
     margin-left: -20vw;
-    margin-top: -5%;
     padding: 0;
 }
 
