@@ -5,12 +5,29 @@ $(window).load(function() {
 
 $(window).resize(function() {
     setSocialMargin();
-//    $.colorbox.resize();
+    galleryInnerResize();
     textPopupVcenter();
 });
 
 $(document).ready(function() {
     init();
+    $('#sidemenu li.has-sub>a').on('click', function(){
+		$(this).removeAttr('href');
+		var element = $(this).parent('li');
+		if (element.hasClass('open')) {
+			element.removeClass('open');
+			element.find('li').removeClass('open');
+			element.find('ul').slideUp();
+		}
+		else {
+			element.addClass('open');
+			element.children('ul').slideDown();
+			element.siblings('li').children('ul').slideUp();
+			element.siblings('li').removeClass('open');
+			element.siblings('li').find('li').removeClass('open');
+			element.siblings('li').find('ul').slideUp();
+		}
+	});
 });
 
 //globālie mainīgie
@@ -19,7 +36,7 @@ window.scrollEnabled = false;
 
 function init() {
     setSocialMargin();
-
+    
     var scene = document.getElementsByClassName("scene");
     parallax = new Parallax(scene,{        
         scalarX: 10,
@@ -28,7 +45,7 @@ function init() {
 
     $(document).ready(function() { 
         var scene = document.getElementsByClassName("scene");
-    parallax = new Parallax(scene,{        
+        parallax = new Parallax(scene,{        
         scalarX: 10,
         scalarY: 7
     });
@@ -47,7 +64,7 @@ function init() {
 
         });
         $.fn.fullpage.setMouseWheelScrolling(false);
-        
+        setHeadFootSize();
         //colorbox config
         $(document).bind('cbox_load', function(){
             disablePageScroll();
@@ -62,6 +79,16 @@ function init() {
         $('a.pic_single').colorbox({photo:true});
     });
     
+    $(document).on('click', '#menu_toggle', function(){
+        if($('#sidemenu').css('display')==='none'){
+            $('#sidemenu').css('top',$('#masthead').height());        
+            $('#sidemenu').slideDown();            
+        }
+        else{
+             $('#sidemenu').slideUp();
+        }
+    });
+    
     $(document).on('click', '.readmore', function(){
         $("#colorbox").addClass("text_popup");
         $(document).bind('cbox_complete', function(){
@@ -73,16 +100,43 @@ function init() {
     });
     
      $(document).on('click', '.pic_single', function(){ 
-         $("#colorbox").addClass("pic_popup");    
+         $("#colorbox").addClass("pic_popup");
+         $(document).bind('cbox_complete', function(){
+                $('#cboxLoadedContent img').attr('zoom','');
+                initZoom();
+        }); 
+        $(document).bind('cbox_cleanup', function(){
+                $('#cboxLoadedContent img').removeAttr('zoom');
+        }); 
     });
     
     $(document).on('click', '.pic_gallery', function(){
         var id = $(this).attr('data-gallery');
         $(id).lightGallery({
+            mode: 'lg-fade',
             thumbnail:true,
-            closable: false
+            closable: false,
+            escKey: true,
+            appendCounterTo: '.lg-inner',
+            download: false,
+            toogleThumb: false,
+            enableDrag: false,
+            mousewheel: false,
+            enableThumbSwipe: false
         });
         $(id+' a').first().trigger('click');
+        
+        $(id).on('onBeforeClose.lg',function(){
+            enablePageScroll();
+        });
+        $('.lg-thumb-outer').niceScroll({
+            cursoropacitymin: 1
+        });
+        $('.lg-sub-html').niceScroll({
+            cursoropacitymin: 1
+        });
+        disablePageScroll();
+        galleryInnerResize();
     });
     
     
@@ -130,10 +184,11 @@ function init() {
         e.preventDefault(); // prevent the default action (scroll / move caret)
     });
     
-    enablePageScroll();    
+    
+    enablePageScroll();  
 }
 
-function enablePageScroll(){    
+window.enablePageScroll = function(){    
     $(window).bind('mousewheel DOMMouseScroll', function(event) {
         if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
             //            transition_out();
@@ -156,7 +211,7 @@ function enablePageScroll(){
     });
 
     scrollEnabled = true;
-}
+};
 
 function disablePageScroll(){
     $(window).unbind('mousewheel DOMMouseScroll');
@@ -219,14 +274,14 @@ function transition_in() {
 
 //pielabo soctīklu pogu pozīcijas, lai tie būtu līnijas vidū
 function setSocialMargin() {
-    var ulOffset = $('#head_image_bot .social').height();
-    var headbar = $('#head_image_bot div').height();
+    var ulOffset = $('.head_image_bot .social').height();
+    var headbar = $('.head_image_bot div').height();
     if (headbar === 0) {
         headbar = window.innerHeight / 100 * 1.04;
     }
     ulOffset /= -2;
     ulOffset += headbar / 2;
-    $('#head_image_bot .social').css('margin-top', ulOffset);
+    $('.head_image_bot .social').css('margin-top', ulOffset);
 }
 
 //pārbauda, vai vajag paslēpt "turpināt" pogu
@@ -248,8 +303,36 @@ function textPopupVcenter(){
     if (cbox){
         var cboxHgt = cbox.height();
         var wHgt = window.innerHeight;
-        var headerOffset = wHgt / 100 * 7;
-        var cboxTop = headerOffset + (wHgt - headerOffset - cboxHgt) / 2;
-        $('#colorbox').css('top', cboxTop);        
+        var headerOffset = $('#masthead').height();
+        if(cboxHgt>wHgt*0.8){
+            var cboxTop = headerOffset + 25;
+        }
+        else{
+            var cboxTop = headerOffset + (wHgt - headerOffset - cboxHgt) / 2;
+        }
+        console.log(cboxTop);
+        $('#cboxOverlay').css('top', headerOffset); 
+        $('#colorbox').css('top', cboxTop);
+        $('.popup').css('width', $('#cboxLoadedContent').width()/10*9);
     }
+}
+
+function galleryInnerResize(){
+    $('.lg-outer').css('top', $('#masthead').height());
+    $('.lg-backdrop').css('top', $('#masthead').height());
+    var min = Math.min(window.innerHeight, window.innerWidth);
+//    var side = min/100 * 37;
+    var side = min/100 * 3 + $('.lg-thumb-outer').width();
+    var container = $('.lg').width();
+    var inner = container - side;
+    $('.lg-inner').css('width', inner);
+}
+
+function setHeadFootSize(){
+    $('#masthead').css('height', $('#masthead').height());
+    $('.top_bar a img').css('height', $('#masthead').height()/7*5);
+    $('.top_bar a img').css('margin', $('#masthead').height()/7);
+    $('#footer').css('height', $('#footer').height());
+    $('.head_image').css('height', $('.head_image').height());
+    $('.head_image_bot').css('height', $('.head_image_bot').height());
 }

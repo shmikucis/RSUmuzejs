@@ -224,18 +224,18 @@
         _this.closeGallery();
 
         // Hide controllers if mouse doesn't move for some period
-        _this.$outer.on('mousemove.lg click.lg touchstart.lg', function() {
-
-            _this.$outer.removeClass('lg-hide-items');
-
-            clearTimeout(_this.hideBartimeout);
-
-            // Timeout will be cleared on each slide movement also
-            _this.hideBartimeout = setTimeout(function() {
-                _this.$outer.addClass('lg-hide-items');
-            }, _this.s.hideBarsDelay);
-
-        });
+//        _this.$outer.on('mousemove.lg click.lg touchstart.lg', function() {
+//
+//            _this.$outer.removeClass('lg-hide-items');
+//
+//            clearTimeout(_this.hideBartimeout);
+//
+//            // Timeout will be cleared on each slide movement also
+//            _this.hideBartimeout = setTimeout(function() {
+//                _this.$outer.addClass('lg-hide-items');
+//            }, _this.s.hideBarsDelay);
+//
+//        });
 
     };
 
@@ -267,14 +267,11 @@
             subHtmlCont = '<div class="lg-sub-html"></div>';
         }
 
-        template = '<div class="lg-outer ' + this.s.addClass + ' ' + this.s.startClass + '">' +
+        template = '<div class="lg-outer ' + this.s.addClass + ' ' + this.s.startClass + '">' + '<button class="lg-close lg-icon"></button>' + 
             '<div class="lg" style="width:' + this.s.width + '; height:' + this.s.height + '">' +
-            '<div class="lg-inner">' + list + '</div>' +
-            '<div class="lg-toolbar group">' +
-            '<span class="lg-close lg-icon"></span>' +
-            '</div>' +
-            controls +
-            subHtmlCont +
+            '<div class="lg-inner">' +  list + controls + subHtmlCont +'</div>' +
+            
+            
             '</div>' +
             '</div>';
 
@@ -297,7 +294,9 @@
         });
 
         // add class lg-current to remove initial transition
-        this.$slide.eq(this.index).addClass('lg-current');
+        this.$slide.eq(this.index).addClass('lg-current');        
+        
+//console.log(this.$slide.eq(this.index));
 
         // add Class for css support and transition mode
         if (this.doCss()) {
@@ -743,17 +742,19 @@
                     this.$slide.eq(index).addClass('lg-next-slide');
                     this.$slide.eq(_prevIndex).addClass('lg-prev-slide');
                 }
-
                 // give 50 ms for browser to add/remove class
                 setTimeout(function() {
+                    $('.lg-current img').removeAttr('zoom');
                     _this.$slide.removeClass('lg-current');
 
                     //_this.$slide.eq(_prevIndex).removeClass('lg-current');
                     _this.$slide.eq(index).addClass('lg-current');
-
+                    $('.lg-current img').attr('zoom','');
                     // reset all transitions
                     _this.$outer.removeClass('lg-no-trans');
-                }, 50);
+                    initZoom();
+                }, 100);
+                
             } else {
 
                 var touchPrev = index - 1;
@@ -775,6 +776,8 @@
                 _this.$slide.eq(touchPrev).addClass('lg-prev-slide');
                 _this.$slide.eq(touchNext).addClass('lg-next-slide');
                 _this.$slide.eq(index).addClass('lg-current');
+                $('.lg-current img').attr('zoom','');
+                initZoom();
             }
 
             if (_this.lGalleryOn) {
@@ -898,7 +901,7 @@
         }
 
         $(window).on('keydown.lg', function(e) {
-            if (_this.s.escKey === true && e.keyCode === 27 && !_this.$outer.hasClass('lg-thumb-open')) {
+            if (_this.s.escKey === true && e.keyCode === 27) {
                 e.preventDefault();
                 _this.destroy();
             }
@@ -1162,7 +1165,7 @@
             });
 
         }
-
+        
     };
 
     Plugin.prototype.destroy = function(d) {
