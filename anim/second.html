@@ -352,51 +352,6 @@ img.emoji {
 
 
 
-<script>
-    function firstPage(){        
-        $('#masthead').addClass('moveDown');
-        $('#footer').addClass('moveUp');
-        $('#mid1').addClass('growUp'); 
-        setTimeout( function(){ $('#mid2').addClass('growDown'); }, 500); 
-        $('#fore1').addClass('fadeInUp'); 
-        setTimeout( function(){ $('#foreLine').addClass('clipCenterV'); }, 600); 
-        setTimeout( function(){ $('#fore2').addClass('growUp fadeInDown2'); }, 800); 
-        $('#fore3').addClass('fadeInDown');  
-        $('#bigmore').addClass('fadeInUp2');     
-
-
-        $('#bigmore').bind('click', function(){
-            setTimeout( function(){ $('#mid1').addClass('shrinkDown'); }, 300);
-            setTimeout( function(){ $('#mid2').addClass('shrinkUp'); }, 300);
-            setTimeout( function(){ $('#fore1').addClass('fadeOutDown'); }, 300);
-            setTimeout( function(){ $('#foreLine').addClass('clipCenterVOut'); }, 100);
-            setTimeout( function(){ $('#fore2').addClass('fadeOutUp2');  }, 0);
-            setTimeout( function(){ $('#fore3').addClass('fadeOutUp');  }, 300);
-            $('#bigmore').addClass('removeZoomIn'); 
-
-            setTimeout( function(){ $('#background').addClass('fadeOut'); }, 500 );
-
-            $($('#footer .social').children()[0]).addClass('fadeOutDown'); 
-            $($('#footer .social').children()[1]).addClass('fadeOutDown'); 
-            $($('#footer .social').children()[2]).addClass('fadeOutDown'); 
-
-            setTimeout(secondPage, 1500);
-        });
-    }
-
-    function secondPage(){
-        $.fn.fullpage.moveSectionDown();
-        checkContinue(); // loads next page
-
-        $('#stripes').addClass('growDown');
-        $('#cardboard').addClass('clipCenterV');
-        setTimeout( function(){ $('#cardboard img').addClass('animMushroom'); }, 450);
-        $('#cardboard p').addClass('cardbordTextfadeInDown');
-        $('#head_image_bot').addClass('moveDown');
-        $('.anim-up').addClass('moveDown');
-        $('#continue').addClass('animMushroom');
-    }
-</script>
 
 
 
@@ -499,13 +454,51 @@ vēsturiskajos laikposmos.
                     
             <p class="main_text_single citation">Rīgas Stradiņa universitātes nosaukuma vēsture ir samērā nesena – tā savu tagadējo vārdu ieguva tikai 1998. gadā. Tomēr pašas augstskolas vēsture ir pietiekami gara, lai RSU varētu uzskatīt par vienu no tradīcijām bagātākajām augstākajām mācību iestādēm Latvijā. Šodien RSU ir moderna, konkurētspējīga augstskola, kurā dominē divi plašāki studiju virzieni – veselības aprūpe un sociālās zinātnes.</p>                   </div>
         </div>
-<!--        <div id="footer" class="stripes">
-            <button id="continue">Turpin�t</button>
-        </div>-->
-
-        
     
+</article>
 
+
+
+
+
+
+<article id="post-48" class="section">
+ 
+        <div id="head_image" class="layer" data-depth="0.1">
+            <div class="anim-up"></div>
+        </div>
+        <div id="head_image_bot" class="">
+            <div>
+                <ul class="social">
+                    <li><a href="#" id="twitter"></a></li>
+                    <li><a href="#" id="facebook"></a></li>
+                    <li><a href="#" id="draugiem"></a></li>
+                </ul>
+            </div>
+            
+        </div>
+    <header class="entry-header layer" data-depth="0.45">
+        <h1 class="entry-title anim-right">Rīgas Stradiņa universitātes vēstures virtuālā ekspozīcija</h1>
+    </header>
+    <div class="bg stripes layer" data-depth="0.2">
+                        <div class="anim-right"></div>
+                    </div>  
+    
+        
+        <div class="entry-content layer" data-depth="0.4">
+                    <ul class="menu">
+            <li><a href="#menu-origin" id="m_origin"><img src="first/images/menu/origin_idle.png"/><p>Pirmsākumi un Stradiņa vārds</p></a></li>
+<li><a href="#" id="m_evolution"><img src="first/images/menu/evolution_idle.png"/><p>Augstskolas
+ attīstība</p></a></li>
+<li><a href="#" id="m_structure"><img src="first/images/menu/structure_idle.png"/><p>Augstskolas
+ struktūra</p></a></li>
+<li><a href="#" id="m_science"><img src="first/images/menu/science_idle.png"/><p>Zinātne un
+ pedagoģija</p></a></li>
+<li><a href="#" id="m_people"><img src="first/images/menu/people_idle.png"/><p>Izcilas
+ personības</p></a></li>
+<li><a href="#" id="m_extracurricular"><img src="first/images/menu/extracurricular_idle.png"/><p>Ārpus </br>
+ studijām</p></a></li>                              </ul>
+        </div>
     
 </article>
 
