@@ -101,6 +101,18 @@
                    </li>
                 </ul>
             </div>
+            <div class="head_image headparallax">
+            <div class="layer" data-depth="0.1"></div>
+        </div>
+        <div class="head_image_bot">
+            <ul class="social">
+                    <li><a href="#" id="twitter"></a></li>
+                    <li><a href="#" id="facebook"></a></li>
+                    <li><a href="#" id="draugiem"></a></li>
+            </ul>
+            <div></div>
+            
+        </div>
 </header>
 		
 <?php
