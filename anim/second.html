@@ -56,302 +56,109 @@ img.emoji {
 
 
 <style>
-    /*#mid1 { -webkit-clip-path: inset(100% 0px 0px 0px); }*/
-    /*#mid2 { -webkit-clip-path: inset(0px 0px 100% 0px); }*/
-    #foreLine {
-        height: 1px;
-        width: 480px;
-        background-color: rgba(73, 14, 20, 0.3);
-        margin: 0 auto;
-        visibility: hidden;
-    }
-    #masthead { visibility: hidden; }
-    #footer { visibility: hidden; }
-    #mid1 { visibility: hidden; }
-    #mid2 { visibility: hidden; }
-    #fore1 { opacity: 0; }
-    #fore2 { visibility: hidden; border: none;}
-    #fore3 { visibility: hidden; }
-    #bigmore { opacity: 0; }
-    /*#footer .social li { visibility: hidden; }*/
+    /*#head_image_bot { 
+        position: static;
+        margin-top: 300px; 
+    }*/
+    #continue { display: block !important;}
+    .hidden { visibility: hidden; }
+    .visible { visibility: visible; }
 
-    .growUp {
-        animation-name: growUp;
+    #post-157 .stripes { visibility: hidden; }
+    #post-157 .menu li { visibility: hidden; }
+    #post-157 .entry-header { visibility: hidden; }    
+
+    .jumpUp {
+        animation-name: jumpUp;
         animation-duration: 500ms;
         animation-fill-mode: both;
+        transition-timing-function: ease-out;
     }
 
-    .growDown {
-        animation-name: growDown;
-        animation-duration: 500ms;
-        /*animation-delay: 500ms;*/
-        animation-fill-mode: both;
+    @keyframes jumpUp {
+        0% { visibility: visible; opacity: 0; transform: translate(0, 200px); }
+        70% { visibility: visible; opacity: 1; transform: translate(0, -20px); }
+        100% { visibility: visible; opacity: 1; transform: translate(0, 0px); }
     }
 
-    .shrinkDown {
-        animation-name: shrinkDown;
-        animation-duration: 500ms;
-        animation-delay: 300ms;
-        animation-fill-mode: both;
-    }
-
-    .shrinkUp {
-        animation-name: shrinkUp;
-        animation-duration: 500ms;
-        animation-delay: 100ms;
-        animation-fill-mode: both;
-    }
-
-    .clipCenterV {
-        animation-name: clipCenterV;
+    .moveUpOut {
+        animation-name: moveUpOut;
         animation-duration: 500ms;
         animation-fill-mode: both;
+        transition-timing-function: ease-out;
     }
 
-    .clipCenterVOut {
-        animation-name: clipCenterVOut;
-        animation-duration: 500ms;
-        animation-fill-mode: both;
+    @keyframes moveUpOut {
+        0% { visibility: visible; opacity: 1; transform: translate(0, 0px); }
+        100% { visibility: visible; opacity: 0; transform: translate(0, -200px); }
     }
-
-    @keyframes growUp {
-        0% { visibility: visible; -webkit-clip-path: inset(100% 0px 0px 0px); }
-        100% { visibility: visible; -webkit-clip-path: inset(0% 0px 0px 0px); }
-    }
-
-    @keyframes growDown {
-        0% { visibility: visible; -webkit-clip-path: inset(0px 0px 100% 0px); }
-        100% { visibility: visible; -webkit-clip-path: inset(0px 0px 0% 0px); }
-    }
-
-    @keyframes shrinkDown {
-        100% { visibility: visible; -webkit-clip-path: inset(100% 0px 0px 0px); }
-        0% { visibility: visible; -webkit-clip-path: inset(0% 0px 0px 0px); }
-    }
-
-    @keyframes shrinkUp {
-        100% { visibility: visible; -webkit-clip-path: inset(0px 0px 100% 0px); }
-        0% { visibility: visible; -webkit-clip-path: inset(0% 0px 0% 0px); }
-    }
-
-    @keyframes clipCenterV {
-        0% { visibility: visible; -webkit-clip-path: inset(0px 50% 0px 50%); }
-        100% { visibility: visible; -webkit-clip-path: inset(0px 0px 0% 0px); }
-    }
-
-    @keyframes clipCenterVOut {
-        100% { visibility: visible; -webkit-clip-path: inset(0px 50% 0px 50%); }
-        0% { visibility: visible; -webkit-clip-path: inset(0px 0px 0% 0px); }
-    }
-
 
     .fadeInUp {
         animation-name: fadeInUp;
-        animation-duration: 600ms;
-        animation-delay: 200ms;
+        animation-duration: 500ms;
         animation-fill-mode: both;
+        transition-timing-function: ease-out;
     }
 
-    .fadeInUp2 {
-        animation-name: fadeInUp;
-        animation-duration: 700ms;
-        animation-delay: 300ms;
-        animation-fill-mode: both;
+    @keyframes fadeInUp {
+        0% { visibility: visible; opacity: 0; transform: translate(0, 30px); }
+        100% { visibility: visible; opacity: 1; transform: translate(0, 0px); }
     }
 
     .fadeInDown {
         animation-name: fadeInDown;
-        animation-duration: 700ms;
-        animation-delay: 700ms;
-        animation-fill-mode: both;
-    }
-
-    .fadeInDown2 {
-        animation-name: fadeInDown2;
-        animation-duration: 400ms;
-        animation-fill-mode: both;
-    }
-
-    .fadeOutDown {
-        animation-name: fadeOutDown;
         animation-duration: 500ms;
         animation-fill-mode: both;
-    }
-
-    .fadeOutUp {
-        animation-name: fadeOutUp;
-        animation-duration: 300ms;
-        animation-fill-mode: both;
-        animation-delay: 0ms;
-    }
-
-    .fadeOutUp2 {
-        animation-name: fadeOutUp2;
-        animation-duration: 300ms;
-        animation-fill-mode: both;
-        animation-delay: 0ms;
-    }
-
-    .removeZoomIn {
-        animation-name: removeZoomIn;
-        animation-duration: 300ms;
-        animation-fill-mode: both;
-        animation-delay: 0ms;
-    }
-
-    @keyframes fadeInUp {
-        0% { opacity: 0; transform: translate(0,100px); }
-        100% { opacity: 1; transform: translate(0,0px); }
+        transition-timing-function: ease-out;
     }
 
     @keyframes fadeInDown {
-        0% { visibility: visible; opacity: 0; transform: translate(0,-100px); }
-        100% { visibility: visible; opacity: 1; transform: translate(0,0px); }
+        0% { visibility: visible; opacity: 0; transform: translate(0, -30px); }
+        100% { visibility: visible; opacity: 1; transform: translate(0, 0px); }
     }
 
-    @keyframes fadeInDown2 {
-        0% { visibility: visible; opacity: 0; transform: translate(0,-10px); }
-        100% { visibility: visible; opacity: 1; transform: translate(0,0px); }
-    }
-
-    @keyframes fadeOutDown {
-        100% { opacity: 0; transform: translate(0,100px); }
-        0% { opacity: 1; transform: translate(0,0px); }
-    }
-
-    @keyframes fadeOutUp {
-        100% { visibility: visible; opacity: 0; transform: translate(0,-100px); }
-        0% { visibility: visible; opacity: 1; transform: translate(0,0px); }
-    }
-
-    @keyframes fadeOutUp2 {
-        100% { visibility: visible; opacity: 0; transform: translate(0,-10px); }
-        0% { visibility: visible; opacity: 1; transform: translate(0,0px); }
-    }
-
-    @keyframes removeZoomIn {
-        0% { opacity: 1; transform: scale(1, 1); }
-        100% { opacity: 0; transform: scale(0, 0); }
-    }
-
-    .fadeOut {
-        animation-name: fadeOut;
-        animation-duration: 1000ms;
-        animation-fill-mode: both;
-        animation-delay: 100ms;
-    }
-    @keyframes fadeOut {
-        0% { opacity: 1; }
-        100% { opacity: 0; }
-    }
-
-    .animMushroom{
-        animation-name: animMushroom;
-        animation-duration: 300ms;
-        animation-fill-mode: both;
-        animation-delay: 0ms;
-        visibility: visible !important;
-    }
-    .animMushroomOut{
-        animation-name: animMushroomOut;
-        animation-duration: 300ms;
-        animation-fill-mode: both;
-        animation-delay: 0ms;
-        visibility: visible !important;
-    }
-    @keyframes animMushroom {
-        0% { transform: scale(0, 0); }
-        90% { transform: scale(1.3, 1.3); }
-        100% { transform: scale(1, 1); }
-    }
-    @keyframes animMushroomOut {
-        100% { transform: scale(0, 0); opacity: 0; }
-        10% { transform: scale(1.3, 1.3); }
-        0% { transform: scale(1, 1); }
-    }
-
-
-    /* SECOND PAGE */
-    #stripes { visibility: hidden; }
-    .entry-content { perspective: 2000px; }
-    #cardboard { visibility: hidden; }
-    #cardboard img { visibility: hidden; }
-    #cardboard p { opacity: 0; }
-    #head_image_bot { visibility: hidden; }
-    /*#head_image_bot ul li { visibility: hidden; }*/
-    .anim-up { visibility: hidden; }
-    #continue { visibility: hidden; }
-
-    .jumpIn {
-        visibility: visible !important;
-        /*transform: rotateX(60deg) translateY(200px);*/
-        animation-name: jumpIn;
-        animation-duration: 500ms;
-        animation-timing-function: ease-in-out;
-        animation-fill-mode: both;
-    }
-    @keyframes jumpIn {
-        0% { opacity: 0.5; transform: rotateX(60deg) translateY(200px) translateZ(0) }
-        70% { opacity: 1; transform: rotateX(0deg) translateY(-70px) translateZ(0) }
-        /*80% { transform: scale(1.2) }*/
-        100% { transform: scale(1) translateY(0px) }
-    }
-
-    .cardbordTextfadeInDown {
-        animation-name: cardbordTextfadeInDown;
-        animation-duration: 300ms;
-        animation-delay: 450ms;
-        animation-fill-mode: both;
-    }
-    @keyframes cardbordTextfadeInDown {
-        0% { opacity: 0; transform: translate(0,-50px); }
-        100% { opacity: 1; transform: translate(0,0px); }
-    }
-
-    .moveUp {
-        visibility: visible !important;
-        animation-name: moveUp;
-        animation-duration: 300ms;
-        animation-delay: 450ms;
-        animation-fill-mode: both;
-        transition-timing-function: ease-out;
-    }
-
-    @keyframes moveUp {
-        0% { transform: translate(0, 150px); }
-        100% { transform: translate(0, 0px); }
-    }
-
-    .moveDown {
-        visibility: visible !important;
-        animation-name: moveDown;
-        animation-duration: 300ms;
-        animation-delay: 450ms;
-        animation-fill-mode: both;
-        transition-timing-function: ease-out;
-    }
-
-    @keyframes moveDown {
-        0% { transform: translate(0, -150px); }
-        100% { transform: translate(0, 0px); }
-    }
-
-    .headImgFadeIn {
-        visibility: visible !important;
-        animation-name: headImgFadeIn;
-        animation-duration: 1000ms;
-        animation-delay: 750ms;
-        animation-fill-mode: both;
-    }
-    @keyframes headImgFadeIn {
-        0% { opacity: 0; }
-        100% { opacity: 1; }
-    }
+    /* 2nd page */
+    #post-23 .stripes { visibility: hidden; }
+    #post-23 .gallery2 { visibility: hidden; }
+    #post-23 .obj_icon { visibility: hidden; }
+    #post-23 .entry-content p { visibility: hidden; }
+    #post-23 .entry-content p a { visibility: hidden; }
 
 </style>
 
 
+<script>
 
+    function firstPage(){
+        setTimeout( function(){ $('#post-157 .stripes').addClass('jumpUp'); }, 0);
+        setTimeout( function(){ $('#post-157 .entry-header').addClass(' jumpUp'); }, 200);
+        setTimeout( function(){ $($('#post-157 .menu').children()[0]).addClass('jumpUp'); }, 400);
+        setTimeout( function(){ $($('#post-157 .menu').children()[1]).addClass('jumpUp'); }, 600);
+
+        $('#continue').bind('click', function(){
+            setTimeout( function(){ $('#post-157 .stripes').addClass('moveUpOut'); }, 500);
+            setTimeout( function(){ $('#post-157 .entry-header').addClass('moveUpOut'); }, 0);
+            setTimeout( function(){ $($('#post-157 .menu').children()[0]).addClass('moveUpOut'); }, 100);
+            setTimeout( function(){ $($('#post-157 .menu').children()[1]).addClass('moveUpOut'); }, 300);
+
+            setTimeout(secondPage, 900);
+        });        
+    }
+
+
+    function secondPage(){
+        $('#post-157').remove();
+
+        setTimeout( function(){ $('#post-23 .stripes').addClass('jumpUp'); }, 0);
+        setTimeout( function(){ $('#post-23 .gallery2').addClass('jumpUp'); }, 100);
+        setTimeout( function(){ $($('#post-23 .obj_icon')[0]).addClass('jumpUp'); }, 200);
+        setTimeout( function(){ $($('#post-23 .obj_icon')[1]).addClass('jumpUp'); }, 400);
+        setTimeout( function(){ $('#post-23 .entry-content p').addClass('fadeInUp'); }, 600);
+        setTimeout( function(){ $('#post-23 .entry-content p a').addClass('fadeInDown'); }, 600);
+
+    }
+
+</script>
 
 
 
@@ -372,61 +179,44 @@ img.emoji {
 
 		<header id="masthead" class="site-header clearfix" role="banner">
     		<div class="top_bar">
-    			<a href="first.html">
+    			<a href="second.html">
     				<img src="first/images/logo.png" alt="RSU muzejs" id="header_logo"/>
     			</a>
     		</div>
+
+
+            <!-- <div id="head_image" class="layer" data-depth="0.1">
+                <div class="anim-up"></div>
+            </div>
+            <div id="head_image_bot" class="">
+                <div>
+                    <ul class="social">
+                        <li><a href="#" id="twitter"></a></li>
+                        <li><a href="#" id="facebook"></a></li>
+                        <li><a href="#" id="draugiem"></a></li>
+                    </ul>
+                </div>
+            </div> -->
+
         </header>
 		
 
 		<div id="primary" class="content-area">
 			<div id="fullpage" class="site-content scene" role="main">
-                            
+                
+
+    
     
 
 <!-- ############################ ARTICLES ####################################### -->
 
 
-    <article id="post-157" class="section">
-
-                            
-                
-	<header class="entry-header main_title layer" data-depth="0.3">
-
-	</header>
-		
-		<div id="intro" class="layer" data-depth="0.05">
-                    
-                    <div id ="background" class="layer" data-depth="0.2">
-                    <div id="bg1"></div>
-                    </div>
-                    <div id="intro_content" class="layer" data-depth="0.02">
-			<div id="mid1" class="layer" data-depth="0.15">
-<p id="fore1">RĪGAS STRADIŅA UNIVERSITĀTES</p>
-<div id="foreLine"></div>
-<p id="fore2">VĒSTURES VIRTUĀLĀ EKSPOZĪCIJA</p></div>
-<div id="mid2" class="layer" data-depth="0.15">
-<p id="fore3" class="layer" data-depth="0.05">
-RSU vēstures virtuālā ekspozīcija, izmantojot RSU muzejā sakopotos materiālus,
-palīdzēs Jums iepazīties ar to, kā noritējusi mūsu augstskolas attīstība dažādos
-vēsturiskajos laikposmos.
-</p>
-</div>			                        <div id="bigmore"></div>
-                    </div>
-                    
-		</div>
-		
-	
-</article>
- 
-					                                                               
- 
-					  
 
 
 
-<article id="post-45" class="section">
- 
+
+<article id="post-157" class="section">
+
         <div id="head_image" class="layer" data-depth="0.1">
             <div class="anim-up"></div>
         </div>
@@ -440,67 +230,57 @@ vēsturiskajos laikposmos.
             </div>
             
         </div>
-    <header class="entry-header layer" data-depth="0.4">
+
+    <header class="entry-header layer" data-depth="0.45">
+        <h1 class="entry-title anim-right">Pirmsākumi un Stradiņa vārds</h1>
     </header>
-    <div id="stripes" class="bg stripes layer" data-depth="0.2">
-                        <div class="anim-right"></div>
+
+    <div class="bg stripes layer" data-depth="0.2">
+        <div class="anim-right"></div>
+    </div>  
+     
+    <div class="entry-content layer" data-depth="0.4">
+                <ul class="menu">
+        <li><a href="#family-intro" id="m_family"><img src="first/images/menu/family_idle.png"/><p>Stradiņu </br>
+        dzimta</p></a></li>
+        <li><a href="#" id="m_growth"><img src="first/images/menu/growth_idle.png"/><p>RSU studiju virzienu vēsture</p></a></li>                                </ul>
+    </div>
+    
+</article>
+
+
+<article id="post-23" class="section">
+
+        <div id="head_image" class="layer" data-depth="0.1">
+            <div class="anim-up"></div>
+        </div>
+        <div id="head_image_bot" class="">
+            <div>
+                <ul class="social">
+                    <li><a href="#" id="twitter"></a></li>
+                    <li><a href="#" id="facebook"></a></li>
+                    <li><a href="#" id="draugiem"></a></li>
+                </ul>
+            </div>
+            
+        </div>
+    
+    <div class="bg stripes layer" data-depth="0.2">
+        <div class="anim-right"></div>
     </div>
         
-        <div class="entry-content layer" data-depth="0.4">
-                    
-                    
-                    <div id="cardboard" class="bg cardboard narrow anim-left">
-                        <img src="first/images/ui/citation.png" align="middle" class="citation_logo"/>
-                    
-            <p class="main_text_single citation">Rīgas Stradiņa universitātes nosaukuma vēsture ir samērā nesena – tā savu tagadējo vārdu ieguva tikai 1998. gadā. Tomēr pašas augstskolas vēsture ir pietiekami gara, lai RSU varētu uzskatīt par vienu no tradīcijām bagātākajām augstākajām mācību iestādēm Latvijā. Šodien RSU ir moderna, konkurētspējīga augstskola, kurā dominē divi plašāki studiju virzieni – veselības aprūpe un sociālās zinātnes.</p>                   </div>
-        </div>
-    
-</article>
-
-
-
-
-
-
-<article id="post-48" class="section">
- 
-        <div id="head_image" class="layer" data-depth="0.1">
-            <div class="anim-up"></div>
-        </div>
-        <div id="head_image_bot" class="">
-            <div>
-                <ul class="social">
-                    <li><a href="#" id="twitter"></a></li>
-                    <li><a href="#" id="facebook"></a></li>
-                    <li><a href="#" id="draugiem"></a></li>
-                </ul>
+    <div class="entry-content layer" data-depth="0.2">                    
+        <div class="layer" data-depth="0.01">
+            <div class="gallery2 narrow alignleft"><a data-gallery="#dzimta-2-gallery" class="gallery obj_icon icon_midleft pic_gallery" data-title="Pauls Stradiņš"></a><img src="first/images/rsc/dzimta/gallery/slide2-photo/Pauls_Stradins.jpg" alt="Pauls_Stradins" class="narrow anim-left" />
             </div>
-            
         </div>
-    <header class="entry-header layer" data-depth="0.45">
-        <h1 class="entry-title anim-right">Rīgas Stradiņa universitātes vēstures virtuālā ekspozīcija</h1>
-    </header>
-    <div class="bg stripes layer" data-depth="0.2">
-                        <div class="anim-right"></div>
-                    </div>  
-    
-        
-        <div class="entry-content layer" data-depth="0.4">
-                    <ul class="menu">
-            <li><a href="#menu-origin" id="m_origin"><img src="first/images/menu/origin_idle.png"/><p>Pirmsākumi un Stradiņa vārds</p></a></li>
-<li><a href="#" id="m_evolution"><img src="first/images/menu/evolution_idle.png"/><p>Augstskolas
- attīstība</p></a></li>
-<li><a href="#" id="m_structure"><img src="first/images/menu/structure_idle.png"/><p>Augstskolas
- struktūra</p></a></li>
-<li><a href="#" id="m_science"><img src="first/images/menu/science_idle.png"/><p>Zinātne un
- pedagoģija</p></a></li>
-<li><a href="#" id="m_people"><img src="first/images/menu/people_idle.png"/><p>Izcilas
- personības</p></a></li>
-<li><a href="#" id="m_extracurricular"><img src="first/images/menu/extracurricular_idle.png"/><p>Ārpus </br>
- studijām</p></a></li>                              </ul>
-        </div>
-    
-</article>
+        <a data-gallery="#dzimta-2-objects" class="objects obj_icon global_botleft pic_gallery" data-title="Prof. P. Stradiņa dokumentu kopijas"></a>
+        <p class="text_right narrow citation anim-right">
+            Rīgas Stradiņa universitāte savā nosaukumā nes Stradiņu vārdu. Šī izvēle nav saistīta tikai ar viena cilvēka personību, bet gan ar visas Stradiņu dzimtas nozīmi Latvijas zinātnē, īpaši medicīnā. Ievērojamākais dzimtas pārstāvis ir latviešu izcilais mediķis profesors Pauls Stradiņš.
+            <a href="#dzimta-2-text" class="readmore right cboxElement"></a> 
+        </p>
+    </div>
+</article>  
 
 
 
@@ -518,11 +298,11 @@ vēsturiskajos laikposmos.
 		
 	<div id="footer">
             <div id="continue"></div>
-            <ul class="social">
+            <!-- <ul class="social">
                     <li><a href="#" id="twitter"></a></li>
                     <li><a href="#" id="facebook"></a></li>
                     <li><a href="#" id="draugiem"></a></li>
-            </ul>
+            </ul> -->
         </div>
 
 <script type='text/javascript' src='first/js/navigation.js'></script>
