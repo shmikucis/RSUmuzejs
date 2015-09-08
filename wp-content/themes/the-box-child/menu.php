@@ -9,7 +9,7 @@
 <article id="post-<?php the_ID(); ?>" class="section">
  
         
-	<header class="entry-header layer" data-depth="0.45">
+	<header class="entry-header layer" data-depth="0">
 		<?php
 			
 				the_title( '<h1 class="entry-title anim-right">', '</h1>' );
@@ -21,7 +21,7 @@
                     </div>  
 	
 		
-		<div class="entry-content layer" data-depth="0.4">
+		<div class="entry-content layer" data-depth="0">
                     <ul class="menu">
 			<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'thebox' ) ); ?>
 			<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'thebox' ), 'after' => '</div>' ) ); ?>

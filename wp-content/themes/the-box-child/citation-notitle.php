@@ -9,13 +9,13 @@
 <article id="post-<?php the_ID(); ?>" class="section">
  
        
-    <header class="entry-header layer" data-depth="0.4">
+    <header class="entry-header">
 	</header>
 	<div class="bg stripes layer" data-depth="0.2">
                         <div class="anim-right"></div>
 	</div>
 		
-		<div class="entry-content layer" data-depth="0.4">
+		<div class="entry-content layer" data-depth="0">
                     
                     
                     <div class="bg cardboard narrow anim-left">

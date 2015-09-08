@@ -491,6 +491,7 @@ ul.menu p{
     position: relative !important;
     width: 100%;    
     text-align: center;
+    top: 22% !important;
 }
 
 .entry-title{
