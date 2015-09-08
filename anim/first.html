@@ -58,13 +58,22 @@ img.emoji {
 <style>
     /*#mid1 { -webkit-clip-path: inset(100% 0px 0px 0px); }*/
     /*#mid2 { -webkit-clip-path: inset(0px 0px 100% 0px); }*/
+    #foreLine {
+        height: 1px;
+        width: 480px;
+        background-color: rgba(73, 14, 20, 0.3);
+        margin: 0 auto;
+        visibility: hidden;
+    }
+    #masthead { visibility: hidden; }
+    #footer { visibility: hidden; }
     #mid1 { visibility: hidden; }
     #mid2 { visibility: hidden; }
     #fore1 { opacity: 0; }
-    #fore2 { opacity: 0; }
-    #fore3 { opacity: 0; }
+    #fore2 { visibility: hidden; border: none;}
+    #fore3 { visibility: hidden; }
     #bigmore { opacity: 0; }
-    #footer .social li { visibility: hidden; }
+    /*#footer .social li { visibility: hidden; }*/
 
     .growUp {
         animation-name: growUp;
@@ -93,6 +102,18 @@ img.emoji {
         animation-fill-mode: both;
     }
 
+    .clipCenterV {
+        animation-name: clipCenterV;
+        animation-duration: 500ms;
+        animation-fill-mode: both;
+    }
+
+    .clipCenterVOut {
+        animation-name: clipCenterVOut;
+        animation-duration: 500ms;
+        animation-fill-mode: both;
+    }
+
     @keyframes growUp {
         0% { visibility: visible; -webkit-clip-path: inset(100% 0px 0px 0px); }
         100% { visibility: visible; -webkit-clip-path: inset(0% 0px 0px 0px); }
@@ -111,6 +132,16 @@ img.emoji {
     @keyframes shrinkUp {
         100% { visibility: visible; -webkit-clip-path: inset(0px 0px 100% 0px); }
         0% { visibility: visible; -webkit-clip-path: inset(0% 0px 0% 0px); }
+    }
+
+    @keyframes clipCenterV {
+        0% { visibility: visible; -webkit-clip-path: inset(0px 50% 0px 50%); }
+        100% { visibility: visible; -webkit-clip-path: inset(0px 0px 0% 0px); }
+    }
+
+    @keyframes clipCenterVOut {
+        100% { visibility: visible; -webkit-clip-path: inset(0px 50% 0px 50%); }
+        0% { visibility: visible; -webkit-clip-path: inset(0px 0px 0% 0px); }
     }
 
 
@@ -135,6 +166,12 @@ img.emoji {
         animation-fill-mode: both;
     }
 
+    .fadeInDown2 {
+        animation-name: fadeInDown2;
+        animation-duration: 400ms;
+        animation-fill-mode: both;
+    }
+
     .fadeOutDown {
         animation-name: fadeOutDown;
         animation-duration: 500ms;
@@ -143,6 +180,13 @@ img.emoji {
 
     .fadeOutUp {
         animation-name: fadeOutUp;
+        animation-duration: 300ms;
+        animation-fill-mode: both;
+        animation-delay: 0ms;
+    }
+
+    .fadeOutUp2 {
+        animation-name: fadeOutUp2;
         animation-duration: 300ms;
         animation-fill-mode: both;
         animation-delay: 0ms;
@@ -161,8 +205,13 @@ img.emoji {
     }
 
     @keyframes fadeInDown {
-        0% { opacity: 0; transform: translate(0,-100px); }
-        100% { opacity: 1; transform: translate(0,0px); }
+        0% { visibility: visible; opacity: 0; transform: translate(0,-100px); }
+        100% { visibility: visible; opacity: 1; transform: translate(0,0px); }
+    }
+
+    @keyframes fadeInDown2 {
+        0% { visibility: visible; opacity: 0; transform: translate(0,-10px); }
+        100% { visibility: visible; opacity: 1; transform: translate(0,0px); }
     }
 
     @keyframes fadeOutDown {
@@ -171,8 +220,13 @@ img.emoji {
     }
 
     @keyframes fadeOutUp {
-        100% { opacity: 0; transform: translate(0,-100px); }
-        0% { opacity: 1; transform: translate(0,0px); }
+        100% { visibility: visible; opacity: 0; transform: translate(0,-100px); }
+        0% { visibility: visible; opacity: 1; transform: translate(0,0px); }
+    }
+
+    @keyframes fadeOutUp2 {
+        100% { visibility: visible; opacity: 0; transform: translate(0,-10px); }
+        0% { visibility: visible; opacity: 1; transform: translate(0,0px); }
     }
 
     @keyframes removeZoomIn {
@@ -224,9 +278,9 @@ img.emoji {
     #cardboard img { visibility: hidden; }
     #cardboard p { opacity: 0; }
     #head_image_bot { visibility: hidden; }
-    #head_image_bot ul li { visibility: hidden; }
+    /*#head_image_bot ul li { visibility: hidden; }*/
     .anim-up { visibility: hidden; }
-    #continue { opacity: 0; }
+    #continue { visibility: hidden; }
 
     .jumpIn {
         visibility: visible !important;
@@ -254,16 +308,30 @@ img.emoji {
         100% { opacity: 1; transform: translate(0,0px); }
     }
 
-    .headerLineDrop {
+    .moveUp {
         visibility: visible !important;
-        animation-name: headerLineDrop;
+        animation-name: moveUp;
         animation-duration: 300ms;
         animation-delay: 450ms;
         animation-fill-mode: both;
         transition-timing-function: ease-out;
     }
 
-    @keyframes headerLineDrop {
+    @keyframes moveUp {
+        0% { transform: translate(0, 150px); }
+        100% { transform: translate(0, 0px); }
+    }
+
+    .moveDown {
+        visibility: visible !important;
+        animation-name: moveDown;
+        animation-duration: 300ms;
+        animation-delay: 450ms;
+        animation-fill-mode: both;
+        transition-timing-function: ease-out;
+    }
+
+    @keyframes moveDown {
         0% { transform: translate(0, -150px); }
         100% { transform: translate(0, 0px); }
     }
@@ -284,6 +352,51 @@ img.emoji {
 
 
 
+<script>
+    function firstPage(){        
+        $('#masthead').addClass('moveDown');
+        $('#footer').addClass('moveUp');
+        $('#mid1').addClass('growUp'); 
+        setTimeout( function(){ $('#mid2').addClass('growDown'); }, 500); 
+        $('#fore1').addClass('fadeInUp'); 
+        setTimeout( function(){ $('#foreLine').addClass('clipCenterV'); }, 600); 
+        setTimeout( function(){ $('#fore2').addClass('growUp fadeInDown2'); }, 800); 
+        $('#fore3').addClass('fadeInDown');  
+        $('#bigmore').addClass('fadeInUp2');     
+
+
+        $('#bigmore').bind('click', function(){
+            setTimeout( function(){ $('#mid1').addClass('shrinkDown'); }, 300);
+            setTimeout( function(){ $('#mid2').addClass('shrinkUp'); }, 300);
+            setTimeout( function(){ $('#fore1').addClass('fadeOutDown'); }, 300);
+            setTimeout( function(){ $('#foreLine').addClass('clipCenterVOut'); }, 100);
+            setTimeout( function(){ $('#fore2').addClass('fadeOutUp2');  }, 0);
+            setTimeout( function(){ $('#fore3').addClass('fadeOutUp');  }, 300);
+            $('#bigmore').addClass('removeZoomIn'); 
+
+            setTimeout( function(){ $('#background').addClass('fadeOut'); }, 500 );
+
+            $($('#footer .social').children()[0]).addClass('fadeOutDown'); 
+            $($('#footer .social').children()[1]).addClass('fadeOutDown'); 
+            $($('#footer .social').children()[2]).addClass('fadeOutDown'); 
+
+            setTimeout(secondPage, 1500);
+        });
+    }
+
+    function secondPage(){
+        $.fn.fullpage.moveSectionDown();
+        checkContinue(); // loads next page
+
+        $('#stripes').addClass('growDown');
+        $('#cardboard').addClass('clipCenterV');
+        setTimeout( function(){ $('#cardboard img').addClass('animMushroom'); }, 450);
+        $('#cardboard p').addClass('cardbordTextfadeInDown');
+        $('#head_image_bot').addClass('moveDown');
+        $('.anim-up').addClass('moveDown');
+        $('#continue').addClass('animMushroom');
+    }
+</script>
 
 
 
@@ -335,6 +448,7 @@ img.emoji {
                     <div id="intro_content" class="layer" data-depth="0.02">
 			<div id="mid1" class="layer" data-depth="0.15">
 <p id="fore1">RĪGAS STRADIŅA UNIVERSITĀTES</p>
+<div id="foreLine"></div>
 <p id="fore2">VĒSTURES VIRTUĀLĀ EKSPOZĪCIJA</p></div>
 <div id="mid2" class="layer" data-depth="0.15">
 <p id="fore3" class="layer" data-depth="0.05">

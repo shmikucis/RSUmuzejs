@@ -2,57 +2,16 @@ $(window).load(function() {
     // Animate loader off screen
     setTimeout(function(){
 
-        $(".page_load").fadeOut("slow", function(){
-            $('#mid1').addClass('growUp'); 
-            setTimeout( function(){ $('#mid2').addClass('growDown'); }, 500); 
-            $('#fore1').addClass('fadeInUp'); 
-            $('#fore2').addClass('fadeInUp2');  
-            $('#fore3').addClass('fadeInDown');  
-            $('#bigmore').addClass('fadeInUp2');   
+        $(".page_load").fadeOut("slow", firstPage);
 
-            setTimeout( function(){ $($('#footer .social').children()[0]).addClass('animMushroom'); }, 500);
-            setTimeout( function(){ $($('#footer .social').children()[1]).addClass('animMushroom'); }, 700);
-            setTimeout( function(){ $($('#footer .social').children()[2]).addClass('animMushroom'); }, 900);
-        });    
-
-
-        $('#bigmore').bind('click', function(){
-            $('#mid1').addClass('shrinkDown'); 
-            $('#mid2').addClass('shrinkUp'); 
-            $('#fore1').addClass('fadeOutDown'); 
-            $('#fore2').addClass('fadeOutDown');  
-            $('#fore3').addClass('fadeOutUp');  
-            $('#bigmore').addClass('removeZoomIn'); 
-            $('#background').addClass('fadeOut'); 
-
-            setTimeout( function(){ $($('#footer .social').children()[0]).addClass('animMushroomOut'); }, 100);
-            setTimeout( function(){ $($('#footer .social').children()[1]).addClass('animMushroomOut'); }, 300);
-            setTimeout( function(){ $($('#footer .social').children()[2]).addClass('animMushroomOut'); }, 500);
-
-            setTimeout(secondPage, 1000);
-        });
-
-    // }, 1000);
+    // }, 1);
     }, 1000);
 
 
-    function secondPage(){
-        $.fn.fullpage.moveSectionDown();
-        checkContinue(); // loads next page
-
-        $('#stripes').addClass('growDown');
-        $('#cardboard').addClass('jumpIn');
-        setTimeout( function(){ $('#cardboard img').addClass('animMushroom'); }, 450);
-        $('#cardboard p').addClass('cardbordTextfadeInDown');
-        $('#head_image_bot').addClass('headerLineDrop');
-        $('.anim-up').addClass('headImgFadeIn');
-        $('#continue').addClass('fadeInUp2');
-        setTimeout( function(){ $($('#head_image_bot ul li').children()[0]).addClass('animMushroom'); }, 800);
-        setTimeout( function(){ $($('#head_image_bot ul li').children()[1]).addClass('animMushroom'); }, 1000);
-        setTimeout( function(){ $($('#head_image_bot ul li').children()[2]).addClass('animMushroom'); }, 1200);
-    }
+    
 
 });
+
 
 $(window).resize(function() {
     setSocialMargin();
