@@ -62,7 +62,8 @@ function init() {
             anchors:[
                 'main', 'main-2',
                 'menu-main', 'menu-origin',
-                'family-intro', 'family-stradins', 'family-items', 'family-humour', 'family-video', 'family-generations', 'family-generations-2'
+                'family-intro', 'family-stradins', 'family-items', 'family-humour', 'family-video', 'family-generations', 'family-generations-2',
+                'study-intro', 'study-medicine', 'study-medicine-2', 'study-social'
             ],
             afterLoad: function(anchorLink, index){
             checkContinue();
@@ -347,6 +348,6 @@ function setHeadFootSize(){
     $('.head_image').css('height', $('.head_image').height());
     $('.head_image_bot').css('height', $('.head_image_bot').height());
     
-    $('.head_image').css('top', $('.site-header').height() - $('.head_image').height()/100*2);
+    $('.head_image').css('top', $('.site-header').height() - $('.head_image').height()/100*1);
     $('.head_image_bot').css('top', $('#masthead').height() - $('.head_image').height()/100*10);
 }
