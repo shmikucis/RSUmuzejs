@@ -21,7 +21,7 @@
             </div>
             
         </div>
-	<header class="entry-header layer" data-depth="0.45">
+	<header class="entry-header">
 		<?php
 			
 				the_title( '<h1 class="entry-title anim-right">', '</h1>' );
