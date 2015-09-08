@@ -101,13 +101,14 @@ function init() {
     
      $(document).on('click', '.pic_single', function(){ 
          $("#colorbox").addClass("pic_popup");
-         $(document).bind('cbox_complete', function(){
-                $('#cboxLoadedContent img').attr('zoom','');
-                initZoom();
-        }); 
-        $(document).bind('cbox_cleanup', function(){
-                $('#cboxLoadedContent img').removeAttr('zoom');
-        }); 
+//         $('#cboxTitle').css('width', $('#cboxTitle').width());
+//         $(document).bind('cbox_complete', function(){
+//                $('#cboxLoadedContent img').attr('zoom','');
+//                initZoom();
+//        }); 
+//        $(document).bind('cbox_cleanup', function(){
+//                $('#cboxLoadedContent img').removeAttr('zoom');
+//        }); 
     });
     
     $(document).on('click', '.pic_gallery', function(){
