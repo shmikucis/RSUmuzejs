@@ -15,7 +15,7 @@ get_header(); ?>
 
 		<div id="primary" class="content-area">
 			<div id="fullpage" class="site-content scene" role="main">
-                <article>            
+                <article class="section" id="post-157">            
                     <?php 
                         // while ( have_posts() ) : the_post(); 
                         //     $post_id = get_the_ID(); 

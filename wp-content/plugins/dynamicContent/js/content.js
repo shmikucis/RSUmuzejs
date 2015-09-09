@@ -19,6 +19,19 @@ var Content = Class.extend({
 			var item = dynamicContent.getItem();	
 		}		
 		this.article.empty();
+		this.article.append('<header class="entry-header main_title layer" data-depth="0.3">'
+		+'</header>'
+		+'<div id="intro" class="layer" data-depth="0.05">'            
+                    +'<div id ="background" class="layer" data-depth="0.2">'
+                    +'<div id="bg1"></div>'
+                    +'</div>'
+                    +'<div id="intro_content" class="layer" data-depth="0.02">'+item.post_content
+			
+			
+                        +'<div id="bigmore"></div>'
+                    +'</div>'
+                    
+		+'</div>');
 		this.article.append(item.post_content);
 		dynamicContent.set(item);
 	}
