@@ -115,7 +115,3 @@
         </div>
 </header>
 		
-<?php
-	global $dynamicContent;
-	// $dynamicContent -> echoJS();
-?>

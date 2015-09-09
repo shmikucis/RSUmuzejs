@@ -5,9 +5,14 @@ var DynamicContent = Class.extend({
 		this.activeMenuItem = item.menu_item_id;
 	}
 
-	// , add: function(nav){
-	// 	this.navigation = nav;
-	// }
+	, set: function(item){
+		if(item){
+			this.activeMenuItem = item.menu_item_id;
+			window.location.href = URLS.site + '#' + item.post_name;
+		} else {
+			console.log('NO ITEM!');
+		}
+	}
 
 	, getItem: function(id){
 		if(!id){
@@ -20,6 +25,12 @@ var DynamicContent = Class.extend({
 	, getNext: function(){
 		var item = this.getItem();
 		var menu_order = item.menu_order+1;
+		return this.getItemByParam('menu_order', menu_order);
+	}
+
+	, getPrev: function(){
+		var item = this.getItem();
+		var menu_order = item.menu_order-1;
 		return this.getItemByParam('menu_order', menu_order);
 	}
 

@@ -1,6 +1,9 @@
 $(window).load(function() {
     // Animate loader off screen
-    $(".page_load").fadeOut("slow");
+    content.draw();
+    $(".page_load").fadeOut("slow", function(){
+
+    });
 });
 
 $(window).resize(function() {
@@ -60,22 +63,22 @@ function init() {
             scrollingSpeed: 0,
             keyboardScrolling: false,
             anchors:[
-                'main', 'main-2',
-                'menu-main', 'menu-origin',
-                'family-intro', 'family-stradins', 'family-items', 'family-humour', 'family-video', 'family-generations', 'family-generations-2',
-                'study-intro', 'study-medicine', 'study-medicine-2', 'study-social'
+                // 'main', 'main-2',
+                // 'menu-main', 'menu-origin',
+                // 'family-intro', 'family-stradins', 'family-items', 'family-humour', 'family-video', 'family-generations', 'family-generations-2',
+                // 'study-intro', 'study-medicine', 'study-medicine-2', 'study-social'
             ],
             afterLoad: function(anchorLink, index){
-            checkContinue();
+                checkContinue();
             }
+        });
 
-        });
-        $.fn.fullpage.setMouseWheelScrolling(false);
-        setHeadFootSize();
-        //colorbox config
-        $(document).bind('cbox_load', function(){
-            disablePageScroll();
-        });
+        // $.fn.fullpage.setMouseWheelScrolling(false);
+        // setHeadFootSize();
+        // //colorbox config
+        // $(document).bind('cbox_load', function(){
+        //     disablePageScroll();
+        // });
         
         $(document).bind('cbox_closed', function(){
             enablePageScroll();
