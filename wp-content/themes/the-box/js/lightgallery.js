@@ -744,15 +744,12 @@
                 }
                 // give 50 ms for browser to add/remove class
                 setTimeout(function() {
-                    $('.lg-current img').removeAttr('zoom');
                     _this.$slide.removeClass('lg-current');
 
                     //_this.$slide.eq(_prevIndex).removeClass('lg-current');
                     _this.$slide.eq(index).addClass('lg-current');
-                    $('.lg-current img').attr('zoom','');
                     // reset all transitions
                     _this.$outer.removeClass('lg-no-trans');
-                    initZoom();
                 }, 100);
                 
             } else {
@@ -776,8 +773,6 @@
                 _this.$slide.eq(touchPrev).addClass('lg-prev-slide');
                 _this.$slide.eq(touchNext).addClass('lg-next-slide');
                 _this.$slide.eq(index).addClass('lg-current');
-                $('.lg-current img').attr('zoom','');
-                initZoom();
             }
 
             if (_this.lGalleryOn) {

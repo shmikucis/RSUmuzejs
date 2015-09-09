@@ -49,7 +49,7 @@
   color: #FFF;
 }
 .lg-actions .lg-next {
-  width: 50%;
+  width: 10%;
   /*min-width: 26px;*/
   height: 100%;
   /*min-height: 26px;*/
@@ -63,7 +63,7 @@
   content: "\e095";
 }*/
 .lg-actions .lg-prev {
-  width: 50%;
+  width: 10%;
   /*min-width: 26px;*/
   height: 100%;
   /*min-height: 26px;*/
@@ -220,7 +220,7 @@
   bottom: -15%;
   color: #575756;
   font-family: baskerville;
-  font-size: 8pt;
+  font-size: 10pt;
   line-height: 1.3;
   left: 0;
   padding: 10px 40px;
@@ -229,8 +229,13 @@
   text-align: center;
   z-index: 1080;
   white-space: normal;
-  max-height: 12%;
+  max-height: 8%;
   overflow: hidden;
+  transition: max-height 1s;
+  transition-timing-function: ease-out;
+}
+.lg-sub-html:hover{
+    max-height:100%;
 }
 .lg-sub-html h4 {
   margin: 0;
@@ -557,16 +562,23 @@ margin-top: 2px;
   transform-origin: 0 0;
 }
 
-#lg-zoom-in:after {
-  content: "\e311";
+#lg-zoom-in{
+    position: absolute;
+    background-image: url(images/ui/zoom-in.png);
+    background-repeat: no-repeat;
+    width: 5%;
+    height: 5%;
+    background-size: contain;
 }
 
 #lg-zoom-out {
-  opacity: 0.5;
-  pointer-events: none;
-}
-#lg-zoom-out:after {
-  content: "\e312";
+    position:absolute;
+  background-image: url(images/ui/zoom-out.png);
+  background-repeat: no-repeat;
+    width: 5%;
+    height: 5%;
+    left: 15%;
+    background-size: contain;
 }
 .lg-zoomed #lg-zoom-out {
   opacity: 1;
@@ -756,12 +768,15 @@ margin-top: 2px;
   width: 80%;
   left: 10%;
   height: 100%;
+  /*z-index: 3;*/
+  overflow: hidden;
 }
 .lg-img-wrap {
     display: inline-block;
     position: absolute;
     width: 100%;
     height: 100%;
+    /*z-index: -2;*/
 }
 .lg-outer .lg-item:before, .lg-outer .lg-img-wrap:before {
   content: "";
@@ -785,7 +800,7 @@ margin-top: 2px;
 }
 .lg-outer .lg-image {
   display: inline-block;
-  vertical-align: middle;
+  /*vertical-align: middle;*/
   max-width: 100%;
   max-height: 100%;
   width: auto !important;
