@@ -765,33 +765,38 @@ a.obj_icon{
     background-size:contain;
     background-position: center;    
     text-decoration: none;
-    overflow: hidden;
+    overflow: visible;
     z-index:9999;
     cursor: pointer;
 }
-a.obj_icon:hover{
-    overflow: visible;}
+/*a.obj_icon:hover{
+    overflow: visible;}*/
 a.obj_icon[data-title]:after{
     position: absolute;    
     content: attr(data-title);
-    background-image: url('images/cardboard.jpg');
+    background-image: url('images/ui/slideout_bg.png');
+    background-size: cover;
+    background-position: left;
     display: none;
+    justify-content:center;
+    align-content:center;
+    flex-direction:column;
     font-family: oswald-medium;
-    font-size: 1vmax;
+    font-size: 9pt;
     text-transform: uppercase;
-    padding: 10% 20%;
-    margin-top: 20%;
-    margin-left: 50%;
-    /*min-height: 25px;*/
-    /*min-width: 300%;*/
-    width: 400%;
-    /*max-width: 400%;*/
+    margin-top: 24%;
+    margin-left: 100%;
+    height: 50%;
+    width: 500%;
     color: #575756;
     z-index: 999;
-    /*transform: translateY(-50%);*/
+}
+a.slideleft.obj_icon[data-title]:after{    
+    background-image: url('images/ui/slideout_bg_flip.png');
+    right: 100%;
 }
 a.obj_icon[data-title]:hover:after{
-    display: inline-block;
+    display: flex;
     z-index: 999;
 }
 
@@ -838,6 +843,10 @@ a.obj_icon[data-title]:hover:after{
 .global_topright{
     top: -10vh !important;
     left: 40vw !important;
+}
+.global_topmid{
+    top: -10vh !important;
+   left: 50% !important;
 }
 
 a.closer{
@@ -1196,7 +1205,6 @@ a.archive:hover{
     }
     a.obj_icon[data-title]:after{
         font-size: 9pt;
-        margin-top: 12px;
     }
     .text_popup#colorbox{
         width: 500px !important;
