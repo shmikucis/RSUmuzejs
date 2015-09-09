@@ -354,8 +354,8 @@ img.emoji {
 
 <script>
     function firstPage(){        
-        $('#masthead').addClass('moveDown');
-        $('#footer').addClass('moveUp');
+        setTimeout( function(){ $('#masthead').addClass('moveDown'); }, 300);
+        setTimeout( function(){ $('#footer').addClass('moveUp'); }, 500);
         $('#mid1').addClass('growUp'); 
         setTimeout( function(){ $('#mid2').addClass('growDown'); }, 500); 
         $('#fore1').addClass('fadeInUp'); 

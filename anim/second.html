@@ -66,7 +66,8 @@ img.emoji {
 
     #post-157 .stripes { visibility: hidden; }
     #post-157 .menu li { visibility: hidden; }
-    #post-157 .entry-header { visibility: hidden; }    
+    /*#post-157 .entry-title { visibility: hidden; }    */
+    #post-157 .entry-title { visibility: hidden; -webkit-clip-path: polygon(5% 10%, 95% 10%, 95% 90%, 5% 90%);  } 
 
     .jumpUp {
         animation-name: jumpUp;
@@ -117,6 +118,22 @@ img.emoji {
         100% { visibility: visible; opacity: 1; transform: translate(0, 0px); }
     }
 
+    .titleBorder {
+        animation-name: titleBorder;
+        animation-duration: 1000ms;
+        animation-fill-mode: both;
+    }
+
+    @keyframes titleBorder {
+        0% { visibility: visible;  -webkit-clip-path: polygon(5% 10%, 95% 10%, 95% 90%, 5% 90%); }
+        1% { visibility: visible;  -webkit-clip-path: polygon(0% 0%, 95% 10%, 95% 90%, 5% 90%); }
+        40% { visibility: visible; -webkit-clip-path: polygon(0% 0%, 100% 0%, 95% 90%, 5% 90%); }
+        50% { visibility: visible; -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 5% 90%); }
+        /*75% { visibility: visible; -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 2% 90%); }*/
+        100% { visibility: visible; -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%); }
+        /*100% { visibility: visible;  -webkit-clip-path: polygon(0% 0%, 98% 2%, 98% 90%, 2% 90%); }*/
+    }
+
     /* 2nd page */
     #post-23 .stripes { visibility: hidden; }
     #post-23 .gallery2 { visibility: hidden; }
@@ -131,13 +148,15 @@ img.emoji {
 
     function firstPage(){
         setTimeout( function(){ $('#post-157 .stripes').addClass('jumpUp'); }, 0);
-        setTimeout( function(){ $('#post-157 .entry-header').addClass(' jumpUp'); }, 200);
+        setTimeout( function(){ $('#post-157 .entry-title').addClass('jumpUp'); }, 200);
+        setTimeout( function(){ $('#post-157 .entry-title').addClass('titleBorder'); }, 700);        
         setTimeout( function(){ $($('#post-157 .menu').children()[0]).addClass('jumpUp'); }, 400);
         setTimeout( function(){ $($('#post-157 .menu').children()[1]).addClass('jumpUp'); }, 600);
 
         $('#continue').bind('click', function(){
             setTimeout( function(){ $('#post-157 .stripes').addClass('moveUpOut'); }, 500);
-            setTimeout( function(){ $('#post-157 .entry-header').addClass('moveUpOut'); }, 0);
+            $('#post-157 .entry-title').removeClass('titleBorder');
+            setTimeout( function(){ $('#post-157 .entry-title').addClass('moveUpOut'); }, 0);
             setTimeout( function(){ $($('#post-157 .menu').children()[0]).addClass('moveUpOut'); }, 100);
             setTimeout( function(){ $($('#post-157 .menu').children()[1]).addClass('moveUpOut'); }, 300);
 
