@@ -86,7 +86,8 @@ function init() {
         $('a.pic_single').colorbox({photo:true});
     });
     
-    $(document).on('click', '#menu_toggle', function(){
+    $(document).on('click', '#menu_toggle', function(event){
+        event.stopPropagation();
         if($('#sidemenu').css('display')==='none'){
             $('#sidemenu').css('top',$('#masthead').height());        
             $('#sidemenu').slideDown();            
@@ -94,6 +95,10 @@ function init() {
         else{
              $('#sidemenu').slideUp();
         }
+    });
+    $(document).click(function(){
+        if ($('#sidemenu').css('display') !== 'none')
+        $("#sidemenu").slideUp();
     });
     
     $(document).on('click', '.readmore', function(){
@@ -108,6 +113,7 @@ function init() {
     
      $(document).on('click', '.pic_single', function(){ 
          $("#colorbox").addClass("pic_popup");
+         $('#cboxOverlay').css('top', $('#masthead').height()-2);
          
             $attr = $(this).attr('title');
                 $(document).bind('cbox_complete', function(){
@@ -336,7 +342,7 @@ function textPopupVcenter(){
         else{
             var cboxTop = headerOffset + (wHgt - headerOffset - cboxHgt) / 2;
         }
-        $('#cboxOverlay').css('top', headerOffset); 
+        $('#cboxOverlay').css('top', headerOffset-2); 
         $('#colorbox').css('top', cboxTop);
         $('.popup').css('width', $('#cboxLoadedContent').width()/10*9);
     }
