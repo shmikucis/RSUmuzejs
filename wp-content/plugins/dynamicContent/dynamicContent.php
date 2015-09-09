@@ -66,6 +66,7 @@
 	    public function echoJS(){
 	    	wp_enqueue_script( 'classJS', plugins_url( 'js/class.js' , __FILE__ ) );
 	        wp_enqueue_script( 'dynamicContent', plugins_url( 'js/dynamicContent.js' , __FILE__ ) );
+	        wp_enqueue_script( 'content', plugins_url( 'js/content.js' , __FILE__ ) );
 
 	        $navigation = $this -> getMenu();
 	        $attachments = $this -> getAttachments($navigation);

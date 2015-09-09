@@ -15,26 +15,29 @@ get_header(); ?>
 
 		<div id="primary" class="content-area">
 			<div id="fullpage" class="site-content scene" role="main">
-                            
-                                    <?php while ( have_posts() ) : the_post(); ?>
-                                        <?php 
-                                        $post_id = get_the_ID(); 
-                                        $post_categories = wp_get_post_categories( $post_id );
-                                        $cat = get_category( $post_categories[0] );
-                                        if ($cat->parent){
-                                        $parent = get_category ($cat->parent);
-                                        get_template_part( $parent->slug, $cat->slug );
-                                        }
-                                        else{
-                                            get_template_part( $cat->slug);
-                                        }
-                                        ?> 
-					<?php  ?>
-                                    <?php endwhile; // end of the loop. ?>
-                           
-
+                <article>            
+                    <?php 
+                        // while ( have_posts() ) : the_post(); 
+                        //     $post_id = get_the_ID(); 
+                        //     $post_categories = wp_get_post_categories( $post_id );
+                        //     $cat = get_category( $post_categories[0] );
+                        //     if ($cat->parent){
+                        //         $parent = get_category ($cat->parent);
+                        //         get_template_part( $parent->slug, $cat->slug );
+                        //     }
+                        //     else{
+                        //         get_template_part( $cat->slug);
+                        //     }
+                        // endwhile; // end of the loop. 
+                    ?>
+                       
+                </article>
 			</div><!-- #content .site-content -->
 		</div><!-- #primary .content-area -->
 
 <?php // get_sidebar(); ?>
+<?php
+    global $dynamicContent;
+    $dynamicContent -> echoJS();
+?>
 <?php get_footer(); ?>
