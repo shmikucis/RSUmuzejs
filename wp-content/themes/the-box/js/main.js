@@ -42,6 +42,12 @@ function init() {
         scalarX: 10,
         scalarY: 7
     });
+    
+    var headparallax = document.getElementsByClassName("headparallax");
+    parallax = new Parallax(headparallax,{        
+        scalarX: 10,
+        scalarY: 7
+    });
 
     $(document).ready(function() { 
         var scene = document.getElementsByClassName("scene");
@@ -56,7 +62,8 @@ function init() {
             anchors:[
                 'main', 'main-2',
                 'menu-main', 'menu-origin',
-                'family-intro', 'family-stradins', 'family-items', 'family-humour', 'family-video', 'family-generations', 'family-generations-2'
+                'family-intro', 'family-stradins', 'family-items', 'family-humour', 'family-video', 'family-generations', 'family-generations-2',
+                'study-intro', 'study-medicine', 'study-medicine-2', 'study-social'
             ],
             afterLoad: function(anchorLink, index){
             checkContinue();
@@ -101,6 +108,17 @@ function init() {
     
      $(document).on('click', '.pic_single', function(){ 
          $("#colorbox").addClass("pic_popup");
+         
+            $attr = $(this).attr('title');
+                $(document).bind('cbox_complete', function(){
+                    
+         if (typeof $attr !== typeof undefined && $attr !== false) {
+                    $('#cboxTitle').css('display', 'block');
+         }
+         else{
+             $('#cboxTitle').css('display', 'none');
+         }
+                }); 
 //         $('#cboxTitle').css('width', $('#cboxTitle').width());
 //         $(document).bind('cbox_complete', function(){
 //                $('#cboxLoadedContent img').attr('zoom','');
@@ -295,8 +313,11 @@ function checkContinue(){
     
     if(index!==0){
         $('#footer .social').css('display', 'none');
+        $('.head_image, .head_image_bot').css('display', 'block');
     }
-    else $('#footer .social').css('display', 'block');
+    else {$('#footer .social').css('display', 'block');
+    $('.head_image, .head_image_bot').css('display', 'none');
+    }
 }
 
 function textPopupVcenter(){
@@ -311,7 +332,6 @@ function textPopupVcenter(){
         else{
             var cboxTop = headerOffset + (wHgt - headerOffset - cboxHgt) / 2;
         }
-        console.log(cboxTop);
         $('#cboxOverlay').css('top', headerOffset); 
         $('#colorbox').css('top', cboxTop);
         $('.popup').css('width', $('#cboxLoadedContent').width()/10*9);
@@ -334,6 +354,10 @@ function setHeadFootSize(){
     $('.top_bar a img').css('height', $('#masthead').height()/7*5);
     $('.top_bar a img').css('margin', $('#masthead').height()/7);
     $('#footer').css('height', $('#footer').height());
+    
     $('.head_image').css('height', $('.head_image').height());
     $('.head_image_bot').css('height', $('.head_image_bot').height());
+    
+    $('.head_image').css('top', $('.site-header').height() - $('.head_image').height()/100*1);
+    $('.head_image_bot').css('top', $('#masthead').height() - $('.head_image').height()/100*10);
 }
