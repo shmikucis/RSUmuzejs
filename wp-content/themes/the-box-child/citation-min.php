@@ -21,12 +21,4 @@
 			<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'thebox' ), 'after' => '</div>' ) ); ?>
 		</div>
         
-<!--        <div id="footer" class="stripes">
-            <button id="continue">Turpin�t</button>
-        </div>-->
-
-		
-	
-
-    
 </article>

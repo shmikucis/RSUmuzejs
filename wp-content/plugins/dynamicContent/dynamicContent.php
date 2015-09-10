@@ -29,6 +29,7 @@
 	    				, 'menu_item_id' => $item -> ID
 	    				, 'menu_item_parent' => intval($item -> menu_item_parent)
 	    				, 'menu_order' => $item -> menu_order
+	    				, 'template' => get_page_template_slug($post -> ID)
 	    				// , 'template' => get_page_template_slug($post -> ID)
 	    				
 	    			)
@@ -74,6 +75,7 @@
 	    	echo '<script>
 	    		var URLS = {};
 	    		URLS.site = "'.get_option('siteurl').'/";
+	    		URLS.stylesheet = "'.get_stylesheet_directory_uri().'";
 	    		var NAVIGATION = '.json_encode($navigation).';
 	    		var ATTACHMENTS = '.json_encode($attachments).';
 	    	</script>';
