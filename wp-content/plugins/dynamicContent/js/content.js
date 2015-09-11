@@ -12,7 +12,7 @@ var Content = Class.extend({
 			} else {
 				self.drawPrev();
 			}
-                        parallax.updateLayers();
+            parallax.updateLayers();
 		});
 	}
 
@@ -27,6 +27,7 @@ var Content = Class.extend({
 		this.article.empty();
 		this.showHeaderImg(item);
 		this.drawTemplate(item);
+		this.animateScene(item, 'in');
 		dynamicContent.set(item);
 	}
 
@@ -54,6 +55,20 @@ var Content = Class.extend({
 		} else {
 			$('.head_image, .head_image_bot').css('display', 'block');
 		}
+	}
+
+	, animateScene: function(item, direction){
+		if(!ANIMATIONS[item.post_name]) return;
+		if(!ANIMATIONS[item.post_name][direction]) return;
+		var anim = ANIMATIONS[item.post_name][direction];
+		for(var i=0, l=anim.length; i<l; i++){
+			this.animateObject(anim[i][0], anim[i][1], anim[i][2]);
+		}
+	}
+
+	, animateObject: function(pointer, animationClass, delay){
+		$(pointer).addClass('hidden');
+		setTimeout(function(){ $(pointer).addClass(animationClass); }, delay);
 	}
 
 	, drawTemplate: function(item){

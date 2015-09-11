@@ -1,0 +1,47 @@
+.moveDown {
+    visibility: visible !important;
+    animation-name: moveDown;
+    animation-duration: 300ms;
+    animation-fill-mode: both;
+    transition-timing-function: ease-out;
+}
+
+@keyframes moveDown {
+    0% { transform: translate(0, -150px); }
+    100% { transform: translate(0, 0px); }
+}
+
+.moveUp {
+    visibility: visible !important;
+    animation-name: moveUp;
+    animation-duration: 300ms;
+    animation-fill-mode: both;
+    transition-timing-function: ease-out;
+}
+
+@keyframes moveUp {
+    0% { transform: translate(0, 150px); }
+    100% { transform: translate(0, 0px); }
+}
+
+.growUp {
+    animation-name: growUp;
+    animation-duration: 500ms;
+    animation-fill-mode: both;
+}
+
+@keyframes growUp {
+    0% { visibility: visible; -webkit-clip-path: inset(100% 0px 0px 0px); }
+    100% { visibility: visible; -webkit-clip-path: inset(0% 0px 0px 0px); }
+}
+
+.growDown {
+    animation-name: growDown;
+    animation-duration: 500ms;
+    animation-fill-mode: both;
+}
+
+@keyframes growDown {
+    0% { visibility: visible; -webkit-clip-path: inset(0px 0px 100% 0px); }
+    100% { visibility: visible; -webkit-clip-path: inset(0px 0px 0% 0px); }
+}

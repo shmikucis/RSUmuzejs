@@ -1107,7 +1107,8 @@ a.archive:hover{
     width: 120%;
     margin-left: -10%;
     /*height: 40%;*/
-    background-color: #B92432;
+    /*background-color: #B92432;*/
+    background-image: url(images/mid2_bg.png);
     opacity: 0.9;    
     padding-top: 1%;
     padding-bottom: 2.5%;
@@ -1248,3 +1249,7 @@ a.archive:hover{
         width:1200px !important;
     }
 }
+
+
+.hidden { visibility: hidden; }
+.visible { visibility: visible; }
