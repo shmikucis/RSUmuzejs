@@ -22,22 +22,25 @@ var ANIMATIONS = {
 			, ['#bigmore', 'fadeInUp2', 300]
 		]
 		, out: [
-			  ['#mid1', 'growUp', 0]
-			, ['#mid2', 'growDown', 500]
-			, ['#fore1', 'fadeInUp', 200]
-			, ['#foreLine', 'clipCenterV', 600]
-			, ['#fore2', 'growUp fadeInDown2', 800]
-			, ['#fore3', 'fadeInDown', 700]
-			, ['#bigmore', 'fadeInUp2', 300]
+			  ['#mid1', 'shrinkDown', 600]
+			, ['#mid2', 'shrinkUp', 400]
+			, ['#fore1', 'fadeOutDown', 300]
+			, ['#foreLine', 'clipCenterVOut', 100]
+			, ['#fore2', 'clipMoveUpOut', 800]
+			, ['#fore3', 'fadeOutUp', 300]
+			, ['#bigmore', 'removeZoomIn', 0]
+			// , ['#background', 'fadeOut', 500]
 		]
 	}
 
 	, 'ievads-2': {
 		in: [
-
+			['article .stripes', 'jumpUp', 500]
+			, ['article .cardboard', 'jumpUp', 700]
 		]
 		, out: [
-
+			['article .stripes', 'jumpDownOut', 300]
+			, ['article .cardboard', 'jumpDownOut', 0]
 		]
 	}
 

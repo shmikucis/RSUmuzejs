@@ -12,7 +12,6 @@ var Content = Class.extend({
 			} else {
 				self.drawPrev();
 			}
-            parallax.updateLayers();
 		});
 	}
 
@@ -23,7 +22,21 @@ var Content = Class.extend({
 		}
 		if(!item){
 			var item = dynamicContent.getItem();	
-		}		
+		}
+		if(this.article.html().trim().length === 0){ // calls first time after page is loaded
+			this.drawIn(item);
+		} else {
+			this.animateScene(dynamicContent.getItem(), 'out');
+			var self = this;
+			setTimeout(function(){
+				self.drawIn(item);
+				parallax.updateLayers();
+			}, 1000);
+		}	
+		
+	}
+
+	, drawIn: function(item){
 		this.article.empty();
 		this.showHeaderImg(item);
 		this.drawTemplate(item);
@@ -42,11 +55,17 @@ var Content = Class.extend({
 	}
 
 	, drawNext: function(){
-		this.draw(dynamicContent.getNext());
+		var nextItem = dynamicContent.getNext();
+		if(nextItem){
+			this.draw(nextItem);	
+		}		
 	}
 
 	, drawPrev: function(){
-		this.draw(dynamicContent.getPrev());
+		var prevItem = dynamicContent.getPrev();
+		if(prevItem) {
+			this.draw(prevItem);
+		}
 	}
 
 	, showHeaderImg: function(item){
