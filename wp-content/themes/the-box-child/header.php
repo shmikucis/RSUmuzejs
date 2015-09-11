@@ -24,6 +24,7 @@
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/lightgallery.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/lg-thumbnail.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/lg-zoom.js"></script>
+<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/imageMapResizer.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">	
@@ -58,8 +59,8 @@
                 <ul>
                    <li class='has-sub'><a><span>Pirmsākumi</span></a>
                        <ul>
-                         <li><a href='#family-intro'><span>Stradiņa dzimta</span></a></li>
-                         <li><a href='#study-intro'><span>RSU studiju virzienu vēsture</span></a></li>
+                         <li><a href='#stradinu-dzimta'><span>Stradiņa dzimta</span></a></li>
+                         <li><a href='medicinas-izglitiba'><span>RSU studiju virzienu vēsture</span></a></li>
                        </ul>
                    </li>
                    <li class='has-sub'><a><span>Attīstība</span></a>

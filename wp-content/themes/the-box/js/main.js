@@ -127,16 +127,25 @@ function init() {
          $("#colorbox").addClass("pic_popup");
          $('#cboxOverlay').css('top', $('#masthead').height()-2);
          
-            $attr = $(this).attr('title');
+            $titleattr = $(this).attr('title');
+            $mapattr = $(this).data('map');
                 $(document).bind('cbox_complete', function(){
                     
-         if (typeof $attr !== typeof undefined && $attr !== false) {
+         if (typeof $titleattr !== typeof undefined && $titleattr !== false) {
                     $('#cboxTitle').css('display', 'block');
          }
          else{
              $('#cboxTitle').css('display', 'none');
          }
+         
+          if (typeof $mapattr !== typeof undefined && $mapattr !== false) {
+                    $('#cboxLoadedContent img').attr('usemap', $mapattr);                    
+                    $($mapattr).imageMapResize();
+                    initTags($mapattr);                     
+         }
                 }); 
+                
+          
 //         $('#cboxTitle').css('width', $('#cboxTitle').width());
 //         $(document).bind('cbox_complete', function(){
 //                $('#cboxLoadedContent img').attr('zoom','');
@@ -382,4 +391,29 @@ function setHeadFootSize(){
     
     $('.head_image').css('top', $('.site-header').height() - $('.head_image').height()/100*1);
     $('.head_image_bot').css('top', $('#masthead').height() - $('.head_image').height()/100*10);
+}
+
+function initTags(mapname){  
+    $('#cboxLoadedContent').append('<div id="pictag"></div>');
+    
+    $(mapname + ' area').each(
+        function() {
+                 $(this).mouseover(function() {                    
+                    var name = $(this).data('name');
+                    var coords = $(this).attr('coords').split(',');
+                    var top = parseInt(coords[3]);
+                    var left = parseInt(coords[0])+(parseInt(coords[2]) - parseInt(coords[0]))/2 + (window.innerWidth - $('#cboxLoadedContent img').width())/2;
+                    
+                    $('#pictag').text(name);
+                    $('#pictag').css('top', top);
+                    $('#pictag').css('left', left);
+                    $('#pictag').show();
+                });
+                
+                $(this).mouseout(function() {
+                    $('#pictag').hide();
+                });
+            }
+    );
+        
 }
