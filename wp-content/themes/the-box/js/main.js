@@ -129,31 +129,33 @@ function init() {
          
             $titleattr = $(this).attr('title');
             $mapattr = $(this).data('map');
-                $(document).bind('cbox_complete', function(){
-                    
-         if (typeof $titleattr !== typeof undefined && $titleattr !== false) {
-                    $('#cboxTitle').css('display', 'block');
-         }
-         else{
-             $('#cboxTitle').css('display', 'none');
-         }
-         
-          if (typeof $mapattr !== typeof undefined && $mapattr !== false) {
-                    $('#cboxLoadedContent img').attr('usemap', $mapattr);                    
-                    $($mapattr).imageMapResize();
-                    initTags($mapattr);                     
-         }
-                }); 
-                
-          
-//         $('#cboxTitle').css('width', $('#cboxTitle').width());
-//         $(document).bind('cbox_complete', function(){
-//                $('#cboxLoadedContent img').attr('zoom','');
-//                initZoom();
-//        }); 
-//        $(document).bind('cbox_cleanup', function(){
-//                $('#cboxLoadedContent img').removeAttr('zoom');
-//        }); 
+            $(document).bind('cbox_complete', function(){
+
+                 if (typeof $titleattr !== typeof undefined && $titleattr !== false) {
+                            $('#cboxTitle').css('display', 'block');
+                 }
+                 else{
+                     $('#cboxTitle').css('display', 'none');
+                 }
+
+                  if (typeof $mapattr !== typeof undefined && $mapattr !== false) {
+                            $('#cboxLoadedContent img').attr('usemap', $mapattr);                    
+                            $($mapattr).imageMapResize();
+                            initTags($mapattr);                     
+                 }
+
+//                  $('#cboxLoadedContent').zoom({ 
+//                on:'click' ,
+//                magnify: 0.8,
+//                onZoomIn: function(){$(this).css({'cursor': 'crosshair'}).show();},
+//                onZoomOut: function(){$(this).css({'cursor': 'zoom-in'}).hide();},
+//                callback: function(){$(this).attr('usemap', '#familymap')}
+//            }); 
+            }); 
+            $(document).bind('cbox_cleanup', function(){
+              $('.zoomImg').trigger('zoom.destroy');
+            });
+ 
     });
     
     $(document).on('click', '.pic_gallery', function(){
@@ -173,18 +175,21 @@ function init() {
         $(id+' a').first().trigger('click');
         
         $(id).on('onBeforeClose.lg',function(){
+            $('.zoomImg').trigger('zoom.destroy');
             enablePageScroll();
         });
-        $(id).on('onAfterSlide.lg',function(){
-//            $('#lg-counter').css('top', ($('.lg-current').height()-$('.lg-current img').height())/2);
-//            $('#lg-counter').appendTo('.lg-current .lg-img-wrap');
+        $(id).on('onSlideItemLoad.lg',function(){
+            $('.lg-current.lg-complete .lg-img-wrap').zoom({ 
+                on:'click' ,
+                magnify: 0.8,
+                onZoomIn: function(){$(this).css('cursor', 'crosshair');},
+                onZoomOut: function(){$(this).css('cursor', 'zoom-in');}
+            });  
         });
         $('.lg-thumb-outer').niceScroll({
             cursoropacitymin: 1
         });
-//        $('.lg-sub-html').niceScroll({
-//            cursoropacitymin: 1
-//        });
+        
         disablePageScroll();
         galleryInnerResize();
     });
@@ -256,8 +261,8 @@ window.enablePageScroll = function(){
             });
         }
         checkContinue();
-        event.preventDefault();
-        event.stopPropagation();
+//        event.preventDefault();
+//        event.stopPropagation();
     });
 
     scrollEnabled = true;
@@ -393,7 +398,8 @@ function setHeadFootSize(){
     $('.head_image_bot').css('top', $('#masthead').height() - $('.head_image').height()/100*10);
 }
 
-function initTags(mapname){  
+function initTags(mapname){
+    if($('#pictag').length<=0)
     $('#cboxLoadedContent').append('<div id="pictag"></div>');
     
     $(mapname + ' area').each(

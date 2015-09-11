@@ -23,7 +23,7 @@
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/jquery.nicescroll.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/lightgallery.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/lg-thumbnail.js"></script>
-<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/lg-zoom.js"></script>
+<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/jquery.zoom.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/imageMapResizer.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="profile" href="http://gmpg.org/xfn/11">

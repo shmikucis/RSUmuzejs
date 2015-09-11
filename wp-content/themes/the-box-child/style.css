@@ -1059,6 +1059,12 @@ a.archive:hover{
     
 }
 
+.zoomImg{
+    cursor: -webkit-zoom-in;
+    cursor: -moz-zoom-in;
+    /*display: none;*/
+}
+
 #cboxClose{
     background-image: url('images/ui/popup_close.png');
     height: 42px;
