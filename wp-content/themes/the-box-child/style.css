@@ -1125,6 +1125,13 @@ a.archive:hover{
     font-weight: normal;
 }
 
+#foreLine {
+    height: 1px;
+    width: 480px;
+    background-color: rgba(73, 14, 20, 0.3);
+    margin: 0 auto;
+}
+
 #fore2{
     position: relative;
     width: 26%;
@@ -1136,9 +1143,9 @@ a.archive:hover{
     color: #575756;
     padding-left: 1%;
     padding-right: 1%;
-    border-top-style: solid;
+    /*border-top-style: solid;
     border-top-width: 1px;
-    border-top-color: rgba(73, 14, 20, 0.3);
+    border-top-color: rgba(73, 14, 20, 0.3);*/
 }
 
 #fore3{

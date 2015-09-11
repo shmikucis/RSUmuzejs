@@ -16,13 +16,19 @@ var ANIMATIONS = {
 			, ['#mid1', 'growUp', 0]
 			, ['#mid2', 'growDown', 500]
 			, ['#fore1', 'fadeInUp', 200]
-			, ['#foreLine', 'clipCenterV', 600]
-			, ['#fore2', 'growUp fadeInDown2', 800]
+			, ['#foreLine', 'clipCenterV', 1000]
+			, ['#fore2', 'clipMoveDown', 1300]
 			, ['#fore3', 'fadeInDown', 700]
 			, ['#bigmore', 'fadeInUp2', 300]
 		]
 		, out: [
-
+			  ['#mid1', 'growUp', 0]
+			, ['#mid2', 'growDown', 500]
+			, ['#fore1', 'fadeInUp', 200]
+			, ['#foreLine', 'clipCenterV', 600]
+			, ['#fore2', 'growUp fadeInDown2', 800]
+			, ['#fore3', 'fadeInDown', 700]
+			, ['#bigmore', 'fadeInUp2', 300]
 		]
 	}
 
