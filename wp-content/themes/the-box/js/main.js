@@ -335,10 +335,10 @@ function checkContinue(){
     
     if(index!==0){
         $('#footer .social').css('display', 'none');
-        $('.head_image, .head_image_bot').css('display', 'block');
+        // $('.head_image, .head_image_bot').css('display', 'block');
     }
     else {$('#footer .social').css('display', 'block');
-    $('.head_image, .head_image_bot').css('display', 'none');
+        // $('.head_image, .head_image_bot').css('display', 'none');
     }
 }
 

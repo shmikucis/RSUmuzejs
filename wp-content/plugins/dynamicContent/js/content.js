@@ -19,8 +19,7 @@ var Content = Class.extend({
 			var item = dynamicContent.getItem();	
 		}		
 		this.article.empty();
-		
-		// this.article.append(item.post_content);
+		this.showHeaderImg(item);
 		this.drawTemplate(item);
 		dynamicContent.set(item);
 	}
@@ -31,6 +30,14 @@ var Content = Class.extend({
 
 	, drawPrev: function(){
 		this.draw(dynamicContent.getPrev());
+	}
+
+	, showHeaderImg: function(item){
+		if(item.post_name == 'titullapa'){
+			$('.head_image, .head_image_bot').css('display', 'none');
+		} else {
+			$('.head_image, .head_image_bot').css('display', 'block');
+		}
 	}
 
 	, drawTemplate: function(item){
