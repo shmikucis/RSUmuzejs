@@ -1042,8 +1042,27 @@ a.archive:hover{
     /* transform: translateX(-50%); */
 }
 
-.family #cboxTitle{
-    display: none;
+#pictag{
+    position: absolute;
+    background-image: url('images/ui/phototag.png');
+    background-size: cover;
+    background-position: top;
+    justify-content:center;
+    align-content:center;
+    flex-direction:column;
+    font-family: oswald-medium;
+    font-size: 9pt;
+    color: #575756;
+    padding: 15px 25px 10px;
+    text-transform: uppercase;
+    transform: translateX(-50%);
+    
+}
+
+.zoomImg{
+    cursor: -webkit-zoom-in;
+    cursor: -moz-zoom-in;
+    /*display: none;*/
 }
 
 #cboxClose{
