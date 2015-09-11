@@ -10,6 +10,7 @@ var Content = Class.extend({
 			} else {
 				self.drawPrev();
 			}
+                        parallax.updateLayers();
 		});
 	}
 

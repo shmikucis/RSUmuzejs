@@ -65,12 +65,12 @@ function init() {
         $('#fullpage').fullpage({
             scrollingSpeed: 0,
             keyboardScrolling: false,
-            anchors:[
-                'main', 'main-2',
-                'menu-main', 'menu-origin',
-                'family-intro', 'family-stradins', 'family-items', 'family-humour', 'family-video', 'family-generations', 'family-generations-2',
-                'study-intro', 'study-medicine', 'study-medicine-2', 'study-social'
-            ],
+//            anchors:[
+//                'main', 'main-2',
+//                'menu-main', 'menu-origin',
+//                'family-intro', 'family-stradins', 'family-items', 'family-humour', 'family-video', 'family-generations', 'family-generations-2',
+//                'study-intro', 'study-medicine', 'study-medicine-2', 'study-social'
+//            ],
             afterLoad: function(anchorLink, index){
                 checkContinue();
             }
