@@ -1,5 +1,7 @@
 var Content = Class.extend({
 	init: function(){
+		this.coolDownTime = 1000; // 1s
+		this.lastTime = new Date().getTime() - this.coolDownTime;
 		this.article = $('article');
 		var self = this;
 		$(window).bind('mousewheel', function(e){
@@ -16,6 +18,9 @@ var Content = Class.extend({
 
 	, draw: function(item){
 		// console.log(item);
+		if(!this.isTime()){
+			return;
+		}
 		if(!item){
 			var item = dynamicContent.getItem();	
 		}		
@@ -23,6 +28,16 @@ var Content = Class.extend({
 		this.showHeaderImg(item);
 		this.drawTemplate(item);
 		dynamicContent.set(item);
+	}
+
+	, isTime: function(){
+		var newTime = new Date().getTime();
+		if(newTime >= this.lastTime + this.coolDownTime){
+			this.lastTime = newTime;
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	, drawNext: function(){

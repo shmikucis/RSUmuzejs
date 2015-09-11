@@ -2,7 +2,7 @@ var DynamicContent = Class.extend({
 	init: function(){
 		this.navigation = NAVIGATION;
 		var item = this.getItemByUrl();
-		this.activeMenuItem = item.menu_item_id;
+		this.activeMenuItem = item.menu_item_id;		
 	}
 
 	, set: function(item){
