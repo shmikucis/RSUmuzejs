@@ -61,7 +61,7 @@ var Content = Class.extend({
 					+'<div class="entry-content layer" data-depth="0">'
                     	+'<div class="bg cardboard anim-left">'
                         	+'<img src="'+URLS.stylesheet+'/images/ui/citation.png" align="middle" class="citation_logo"/>'
-                    		+item.post_content+
+                    		+item.post_content
 						+'</div>'
         			+'</div>'
         		);
@@ -73,7 +73,7 @@ var Content = Class.extend({
                         +'<div class="anim-right"></div>'
                     +'</div>'
 					+'<div class="entry-content layer" data-depth="0">'                    
-						+item.post_content+
+						+item.post_content
 					+'</div>'
 				);
 				break;
@@ -86,7 +86,7 @@ var Content = Class.extend({
                         +'<div class="anim-right"></div>'
                     +'</div>'	
 					+'<div class="entry-content layer" data-depth="0">'                    
-						+item.post_content+
+						+item.post_content
 					+'</div>'
 				);
 				break;
@@ -99,7 +99,7 @@ var Content = Class.extend({
 					+'<div class="entry-content layer" data-depth="0">'
                     	+'<div class="bg cardboard narrow anim-left">'
                         	+'<img src="'+URLS.stylesheet+'/images/ui/citation.png" align="middle" class="citation_logo"/>'
-                    		+item.post_content+
+                    		+item.post_content
 						+'</div>'
         			+'</div>'
         		);
@@ -114,7 +114,7 @@ var Content = Class.extend({
                     +'</div>'  
 					+'<div class="entry-content layer" data-depth="0">'
                     	+'<ul class="menu">'
-						+item.post_content+
+						+item.post_content
                     	+'</ul>'
 					+'</div>'
 				);
