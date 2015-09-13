@@ -30,7 +30,6 @@
 	    				, 'menu_item_parent' => intval($item -> menu_item_parent)
 	    				, 'menu_order' => $item -> menu_order
 	    				, 'template' => get_page_template_slug($post -> ID)
-	    				// , 'template' => get_page_template_slug($post -> ID)
 	    				
 	    			)
 	    		);
@@ -65,7 +64,9 @@
 	    }
 
 	    public function echoJS(){
+	    	wp_enqueue_style( 'dynamicContent', plugins_url('animations.css', __FILE__) ); 
 	    	wp_enqueue_script( 'classJS', plugins_url( 'js/class.js' , __FILE__ ) );
+	    	wp_enqueue_script( 'animations', plugins_url( 'js/animations.js' , __FILE__ ) );
 	        wp_enqueue_script( 'dynamicContent', plugins_url( 'js/dynamicContent.js' , __FILE__ ) );
 	        wp_enqueue_script( 'content', plugins_url( 'js/content.js' , __FILE__ ) );
 
