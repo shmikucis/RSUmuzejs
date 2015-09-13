@@ -78,7 +78,7 @@ var Content = Class.extend({
 					'<header class="entry-header layer" data-depth="0">'
 						+'<h1 class="entry-title anim-right">'+item.post_title+'</h1>'
 					+'</header>'
-					+'<div class="bg stripes layer" data-depth="0.2">'
+					+'<div class="bg stripes">'
                         +'<div class="anim-right"></div>'
                     +'</div>'
 					+'<div class="entry-content layer" data-depth="0">'
@@ -91,8 +91,8 @@ var Content = Class.extend({
 				break;
 			case 'templates/citation-min.php':
 				this.article.append(
-					'<header class="entry-header"></header>'
-					+'<div class="bg stripes layer" data-depth="0.2">'
+					'<header class="entry-header layer"  data-depth="0"></header>'
+					+'<div class="bg stripes">'
                         +'<div class="anim-right"></div>'
                     +'</div>'
 					+'<div class="entry-content layer" data-depth="0">'                    
@@ -105,7 +105,7 @@ var Content = Class.extend({
 					'<header class="entry-header layer" data-depth="0">'
 						+'<h1 class="entry-title anim-right">'+item.post_title+'</h1>'
 					+'</header>'
-					+'<div class="bg stripes layer" data-depth="0.2">'
+					+'<div class="bg stripes">'
                         +'<div class="anim-right"></div>'
                     +'</div>'	
 					+'<div class="entry-content layer" data-depth="0">'                    
@@ -116,7 +116,7 @@ var Content = Class.extend({
 			case 'templates/citation-notitle.php':
 				this.article.append(
 					'<header class="entry-header"></header>'
-					+'<div class="bg stripes layer" data-depth="0.2">'
+					+'<div class="bg stripes">'
                         +'<div class="anim-right"></div>'
 					+'</div>'
 					+'<div class="entry-content layer" data-depth="0">'
@@ -132,7 +132,7 @@ var Content = Class.extend({
 					'<header class="entry-header layer" data-depth="0">'
 						+'<h1 class="entry-title anim-right">'+item.post_title+'</h1>'
 					+'</header>'
-					+'<div class="bg stripes layer" data-depth="0.2">'
+					+'<div class="bg stripes">'
                         +'<div class="anim-right"></div>'
                     +'</div>'  
 					+'<div class="entry-content layer" data-depth="0">'

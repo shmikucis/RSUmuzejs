@@ -51,8 +51,8 @@ function init() {
     
     var headparallax = document.getElementsByClassName("headparallax");
     parallax = new Parallax(headparallax,{        
-        scalarX: 10,
-        scalarY: 7
+        scalarX: 6,
+        scalarY: false
     });
 
     $(document).ready(function() { 
@@ -395,7 +395,9 @@ function setHeadFootSize(){
     $('.head_image_bot').css('height', $('.head_image_bot').height());
     
     $('.head_image').css('top', $('.site-header').height() - $('.head_image').height()/100*1);
-    $('.head_image_bot').css('top', $('#masthead').height() - $('.head_image').height()/100*10);
+    $('.head_image_bot').css('top', $('#masthead').height() - $('.head_image').height()/100*3);
+    
+    window.headTotal = $('#masthead').height() + $('.head_image').height() + $('.head_image_bot').height();
 }
 
 function initTags(mapname){

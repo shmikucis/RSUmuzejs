@@ -344,12 +344,18 @@ p{
 
 .head_image_bot{
     position:relative;
-    top:-3%;
-    background-color: white;
-    min-height: 26px;
-    height: 4%;
+    top:-1%;
+    /*background-color: white;*/
+    min-height: 7px;
+    height: 1%;
     max-height: 60px;
     z-index: 2;
+    background: linear-gradient(
+ rgba(102, 0, 0, 0.85), 
+ rgba(102, 0, 0, 0.85)
+ ),url(images/cardboard.jpg);
+    background-size: cover;
+    /*height: 25%;*/
 }
 
 .head_image_bot div{
@@ -488,7 +494,7 @@ ul.menu p{
 }
 .entry-header{   
     float: none;
-    position: relative !important;
+    position: absolute !important;
     width: 100%;    
     text-align: center;
     top: 22% !important;
@@ -636,6 +642,13 @@ p.vnarrow.author_text_single{
     font-size: 7pt;
 }
 
+.video{
+    width: 100vw;
+    left: -33.3%;
+    margin-top: -17%;
+    position: absolute;
+    height: 66vh;
+}
 /*Fūteris*/
 #footer{
     position: absolute;

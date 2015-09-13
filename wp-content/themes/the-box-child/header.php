@@ -110,9 +110,7 @@
                     <li><a href="#" id="twitter"></a></li>
                     <li><a href="#" id="facebook"></a></li>
                     <li><a href="#" id="draugiem"></a></li>
-            </ul>
-            <div></div>
-            
+            </ul>            
         </div>
 </header>
 		
