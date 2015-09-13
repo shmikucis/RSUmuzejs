@@ -134,7 +134,7 @@ header.site-header{
       rgba(102, 0, 0, 0.85)
     ),url(images/cardboard.jpg);
         background-size: cover;
-        position: absolute;
+        /*position: absolute;*/
         z-index: 3;
         margin: 0;
 }
@@ -267,7 +267,7 @@ div.top_bar{
 
 div#primary.content-area{
 	width: 100vw;
-        top: 5vh;
+        /*top: 5vh;*/
         height: 93vh;
         position: relative;
 }
@@ -642,13 +642,32 @@ p.vnarrow.author_text_single{
     font-size: 7pt;
 }
 
-.video{
+.video-content{
     width: 100vw;
-    left: -33.3%;
-    margin-top: -17%;
     position: absolute;
     height: 66vh;
 }
+.video{
+    width: 100%;
+    /*height: 90%;*/
+}
+.video-content div{
+    background: linear-gradient(
+         rgba(0,0,0, 0.6), 
+         rgba(0,0,0, 0.6)
+         ),url(images/cardboard.jpg);
+    background-size: cover;
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    margin-top:-4px;
+    color: #fff;
+    line-height: 40px;
+    font-family: oswald-medium;
+    font-size: 10pt;
+    text-transform: uppercase;
+}
+
 /*Fūteris*/
 #footer{
     position: absolute;
@@ -764,14 +783,29 @@ p.narrow{
     background-repeat: no-repeat;
     height: 5vh;
     min-height: 30px;
-    width: 1vw;
+    width: 9vw;
     min-width: 120px;
 }
 .readmore:hover{
     background-image: url(images/ui/readmore_hover.png);
     cursor: pointer;
 }
-
+.aboutvid{
+    position: relative;
+    display: inline-block;
+    background-image: url(images/ui/aboutvid_idle.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 2vh;
+    min-height: 20px;
+    width: 6vw;
+    min-width: 100px;
+    vertical-align: middle;
+    transform: translateX(10%);
+}
+.aboutvid:hover{
+    background-image: url(images/ui/aboutvid_hover.png);
+}
 a.obj_icon{
     position: absolute;
     width: 4.5vw;

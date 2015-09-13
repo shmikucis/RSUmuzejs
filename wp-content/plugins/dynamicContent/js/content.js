@@ -176,6 +176,16 @@ var Content = Class.extend({
 					+'</div>'
 				);
 				break;
+                        case 'templates/video.php':
+				this.article.append(
+					'<header class="entry-header layer" data-depth="0">'
+					+'</header>'					
+					+'<div class="video-content">'
+						+item.post_content
+					+'</div>'
+				);
+                        setVideoSize();
+				break;
 			default:
 				this.article.append(content);
 				break;

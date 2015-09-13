@@ -10,6 +10,7 @@ $(window).resize(function() {
     setSocialMargin();
     galleryInnerResize();
     textPopupVcenter();
+    setVideoSize();
 });
 
 $(document).ready(function() {
@@ -78,6 +79,7 @@ function init() {
 
         $.fn.fullpage.setMouseWheelScrolling(false);
         setHeadFootSize();
+        setVideoSize();
         //colorbox config
         $(document).bind('cbox_load', function(){
             disablePageScroll();
@@ -280,53 +282,6 @@ function resetPopupClass(){
     $("#cboxLoadedContent").removeAttr('class');
 }
 
-function transition_out() {
-    var outroR = document.getElementsByClassName("anim-right");
-    var outroL = document.getElementsByClassName("anim-left");
-    var outroU = document.getElementsByClassName("anim-up");
-    for (var j = 0; j < 4; j++) {
-        for (var i = 0; i < outroR.length; i++) {
-            var newone = outroR[i].cloneNode(true);
-            newone.className = outroR[i].className + "-rev";
-            outroR[i].parentNode.replaceChild(newone, outroR[i]);
-        }
-        for (var k = 0; k < outroL.length; k++) {
-            var newone = outroL[k].cloneNode(true);
-            newone.className = outroL[k].className + "-rev";
-            outroL[k].parentNode.replaceChild(newone, outroL[k]);
-        }
-        for (var l = 0; l < outroU.length; l++) {
-            var newone = outroU[l].cloneNode(true);
-            newone.className = outroU[l].className + "-rev";
-            outroU[l].parentNode.replaceChild(newone, outroU[l]);
-        }
-    }
-
-}
-
-function transition_in() {
-    var introR = document.getElementsByClassName("anim-right-rev");
-    var introL = document.getElementsByClassName("anim-left-rev");
-    var introU = document.getElementsByClassName("anim-up-rev");
-    for (var j = 0; j < 5; j++) {
-        for (var i = 0; i < introR.length; i++) {
-            var newone = introR[i].cloneNode(true);
-            newone.className = introR[i].className.slice(0, -4);
-            introR[i].parentNode.replaceChild(newone, introR[i]);
-        }
-        for (var k = 0; k < introL.length; i++) {
-            var newone = introL[k].cloneNode(true);
-            newone.className = introL[k].className.slice(0, -4);
-            introL[k].parentNode.replaceChild(newone, introL[k]);
-        }
-        for (var l = 0; l < introU.length; l++) {
-            var newone = introU[l].cloneNode(true);
-            newone.className = introU[l].className.slice(0, -4);
-            introU[l].parentNode.replaceChild(newone, introU[l]);
-        }
-    }
-}
-
 //pielabo soctīklu pogu pozīcijas, lai tie būtu līnijas vidū
 function setSocialMargin() {
     var ulOffset = $('.head_image_bot .social').height();
@@ -397,7 +352,19 @@ function setHeadFootSize(){
     $('.head_image').css('top', $('.site-header').height() - $('.head_image').height()/100*1);
     $('.head_image_bot').css('top', $('#masthead').height() - $('.head_image').height()/100*3);
     
-    window.headTotal = $('#masthead').height() + $('.head_image').height() + $('.head_image_bot').height();
+    window.headTotal = 
+//            $('#masthead').height() + 
+            $('.head_image').height() + $('.head_image_bot').height();
+}
+
+function setVideoSize(){
+    $('.video-content').css('top', $('.head_image_bot').position().top + $('.head_image_bot').height() - $('#masthead').height());
+    
+    $('.video-content').css('height', window.innerHeight - $('.head_image_bot').position().top - $('#footer').height() - $('.head_image_bot').height());
+   
+    
+    $('.video').css('height', $('.video-content').height()-60);
+//    $('.video-content div').css('height', $('.video-content').height()-40);
 }
 
 function initTags(mapname){
