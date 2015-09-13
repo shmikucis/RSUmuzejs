@@ -31,6 +31,7 @@ var Content = Class.extend({
 			setTimeout(function(){
 				self.drawIn(item);
 				parallax.updateLayers();
+                                updateListeners();
 			}, 1000);
 		}	
 		
@@ -189,10 +190,9 @@ var Content = Class.extend({
 			default:
 				this.article.append(content);
 				break;
-		}
-
+		}            
 	}
-
+        
 });
 
 var content = new Content();

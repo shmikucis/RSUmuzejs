@@ -88,10 +88,8 @@ function init() {
         $(document).bind('cbox_closed', function(){
             enablePageScroll();
             resetPopupClass();
-        });
-        
-        $('a.readmore').colorbox({inline:true, scrolling: false}); 
-        $('a.pic_single').colorbox({photo:true});
+        });      
+        updateListeners();
     });
     
     $(document).on('click', '#menu_toggle', function(event){
@@ -115,7 +113,7 @@ function init() {
         element.slideUp();}
     });
     
-    $(document).on('click', '.readmore', function(){
+    $(document).on('click', '.readmore, .mejs-textform', function(){
         $("#colorbox").addClass("text_popup");
         $(document).bind('cbox_complete', function(){
                 textPopupVcenter();
@@ -145,14 +143,6 @@ function init() {
                             $($mapattr).imageMapResize();
                             initTags($mapattr);                     
                  }
-
-//                  $('#cboxLoadedContent').zoom({ 
-//                on:'click' ,
-//                magnify: 0.8,
-//                onZoomIn: function(){$(this).css({'cursor': 'crosshair'}).show();},
-//                onZoomOut: function(){$(this).css({'cursor': 'zoom-in'}).hide();},
-//                callback: function(){$(this).attr('usemap', '#familymap')}
-//            }); 
             }); 
             $(document).bind('cbox_cleanup', function(){
               $('.zoomImg').trigger('zoom.destroy');
@@ -194,6 +184,38 @@ function init() {
         
         disablePageScroll();
         galleryInnerResize();
+    });
+    
+    $(document).on('click', '.audio', function() {
+        var audio = $('#footer audio');
+        if (audio.length){
+            $('#footer audio').get(0).player.remove();
+            $('#footer audio').get(0).remove();
+        }
+        else {        
+        $('audio').clone().appendTo('#footer');
+        audio = $('#footer audio');
+        audio.mediaelementplayer({
+            audioWidth: window.innerWidth,
+            audioHeight: footHeight*0.7
+        });
+        $('.mejs-container').append('<button id="close">close</button>');
+        $('.mejs-container #close').click(function() {
+             $('#footer audio').get(0).player.remove();
+            $('#footer audio').get(0).remove();
+        });
+        $('.mejs-currenttime-container').appendTo('.mejs-time-rail');
+        $('.mejs-duration-container').appendTo('.mejs-time-rail');
+        $('.mejs-inner').prepend('<p>'+$('#footer audio').data('title')+'</p>');
+        $('.mejs-inner').append('<a href="#audio-text" class="mejs-textform cboxElement">Teksta formā</a>');
+        
+        var pad = ($('.mejs-container').height() -10 - $('.mejs-textform').height())/2;
+        $('.mejs-textform').css('padding', pad + 'px 0px');        
+       
+        updateListeners();
+        
+        audio.trigger("play");
+        }
     });
     
     
@@ -344,7 +366,9 @@ function setHeadFootSize(){
     $('#masthead').css('height', $('#masthead').height());
     $('.top_bar a img').css('height', $('#masthead').height()/7*5);
     $('.top_bar a img').css('margin-top', $('#masthead').height()/7);
-    $('#footer').css('height', $('#footer').height());
+    
+    window.footHeight = $('#footer').height();
+    $('#footer').css('height', footHeight);
     
     $('.head_image').css('height', $('.head_image').height());
     $('.head_image_bot').css('height', $('.head_image_bot').height());
@@ -352,9 +376,8 @@ function setHeadFootSize(){
     $('.head_image').css('top', $('.site-header').height() - $('.head_image').height()/100*1);
     $('.head_image_bot').css('top', $('#masthead').height() - $('.head_image').height()/100*3);
     
-    window.headTotal = 
-//            $('#masthead').height() + 
-            $('.head_image').height() + $('.head_image_bot').height();
+    window.headTotal = $('#masthead').height() + $('.head_image').height() + $('.head_image_bot').height();
+    $('.scene').css('top', $('#masthead').height());
 }
 
 function setVideoSize(){
@@ -391,4 +414,9 @@ function initTags(mapname){
             }
     );
         
+}
+
+function updateListeners(){
+    $('a.readmore, a.mejs-textform').colorbox({inline:true, scrolling: false}); 
+        $('a.pic_single').colorbox({photo:true});
 }

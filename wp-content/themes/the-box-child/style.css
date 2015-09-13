@@ -17,6 +17,7 @@ This Theme is licensed under the GPL.
 @import "jquery.fullPage.css";
 @import "colorbox.css";
 @import "lightgallery.css";
+@import "mediaelementplayer.css";
 
 @font-face {
     font-family: pagella;
@@ -134,7 +135,7 @@ header.site-header{
       rgba(102, 0, 0, 0.85)
     ),url(images/cardboard.jpg);
         background-size: cover;
-        /*position: absolute;*/
+        position: absolute;
         z-index: 3;
         margin: 0;
 }
