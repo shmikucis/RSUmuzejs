@@ -857,30 +857,30 @@ a.obj_icon[data-title]:hover:after{
 
 .icon_midleft{
     top: 50%;
-    transform: translate(-50%, -50%);
+    /*transform: translate(-50%, -50%);*/
 }
 .icon_midright{
     top: 50%;
     left: 100%;
-    transform: translate(-50%, -50%);
+    /*transform: translate(-50%, -50%);*/
 }
 .icon_topmid{
     left: 50%;
-    transform: translate(-50%, -50%);
+    /*transform: translate(-50%, -50%);*/
 }
 .icon_botleft{
     top:75%;
-    transform: translate(-50%, -50%);
+    /*transform: translate(-50%, -50%);*/
 }
 .icon_botmid{
     left: 50%;
     top: 100%;
-    transform: translate(-50%, -50%);
+    /*transform: translate(-50%, -50%);*/
 }
 .icon_belowtopright{
     left: 100%;
     top: 25%;
-    transform: translate(-50%, -50%);
+    /*transform: translate(-50%, -50%);*/
 }
 
 .global_midright{

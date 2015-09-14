@@ -11,6 +11,7 @@ $(window).resize(function() {
     galleryInnerResize();
     textPopupVcenter();
     setVideoSize();
+    setButtonMargin();
 });
 
 $(document).ready(function() {
@@ -362,4 +363,11 @@ function initTags(mapname){
 function updateListeners(){
     $('a.readmore, a.mejs-textform').colorbox({inline:true, scrolling: false}); 
         $('a.pic_single').colorbox({photo:true});
+}
+
+function setButtonMargin(){    
+    $('.icon_midleft, .icon_midright, .icon_topmid, .icon_botleft, .icon_botmid, .icon_belowtopright').css({
+        'margin-left': -$('.obj_icon').width()/2,
+        'margin-top': -$('.obj_icon').height()/2
+            });
 }

@@ -48,13 +48,15 @@ var Content = Class.extend({
 		}
 		if(this.article.html().trim().length === 0){ // calls first time after page is loaded
 			this.drawIn(item);
+                        setButtonMargin();
 		} else {
 			this.animateScene(dynamicContent.getItem(), 'out');
 			var self = this;
 			setTimeout(function(){
 				self.drawIn(item);
 				parallax.updateLayers();
-                updateListeners();
+                                updateListeners();
+                                setButtonMargin();
 			}, 1000);
 		}	
 		
