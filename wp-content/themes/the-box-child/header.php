@@ -60,8 +60,8 @@
                 <ul>
                    <li class='has-sub'><a><span>Pirmsākumi</span></a>
                        <ul>
-                         <li><a href='#stradinu-dzimta'><span>Stradiņa dzimta</span></a></li>
-                         <li><a href='medicinas-izglitiba'><span>RSU studiju virzienu vēsture</span></a></li>
+                         <li><a href='#stradinu-dzimta-1'><span>Stradiņa dzimta</span></a></li>
+                         <li><a href='#studiju-virzieni-1'><span>RSU studiju virzienu vēsture</span></a></li>
                        </ul>
                    </li>
                    <li class='has-sub'><a><span>Attīstība</span></a>
