@@ -4,10 +4,8 @@ var Content = Class.extend({
 		this.lastTime = new Date().getTime() - this.coolDownTime;
 		this.article = $('article');
 		var self = this;
-                console.log(self);
 		$(window).bind('mousewheel', function(e){
 			var direction = e.originalEvent.wheelDelta /120 > 0 ? 'up' : 'down';
-			// console.log(direction);
                         if(scrollEnabled){
                             if(direction === 'down'){
                                     self.drawNext();
