@@ -11,26 +11,26 @@ var ANIMATIONS = {
 
 	'titullapa': {
 		in: [			
-			  ['#masthead', 'moveDown', 300]
-			, ['#footer', 'moveUp', 750]
-			, ['#mid1', 'growUp', 0]
+			  ['#mid1', 'growUp', 0]
 			, ['#mid2', 'growDown', 500]
 			, ['#fore1', 'fadeInUp', 200]
-			, ['#foreLine', 'clipCenterV', 1000]
-			, ['#fore2', 'clipMoveDown', 1300]
-			, ['#fore3', 'fadeInDown', 700]
+			, ['#foreLine', 'clipCenterV', 800]
+			, ['#fore2', 'clipMoveDownLittle', 1100]
+			, ['#fore3', 'fadeInDown', 1200]
 			, ['#bigmore', 'fadeInUp2', 300]
+			, ['#background', 'fadeIn', 0]
 		]
 		, out: [
-			  ['#mid1', 'shrinkDown', 700]
-			, ['#mid2', 'shrinkUp', 500]
+			  ['#mid1', 'shrinkDown', 900]
+			, ['#mid2', 'shrinkUp', 700]
 			, ['#fore1', 'fadeOutDown', 300]
 			, ['#foreLine', 'clipCenterVOut', 100]
-			, ['#fore2', 'clipMoveUpOut', 800]
+			, ['#fore2', 'clipMoveUpLittleOut', 0]
 			, ['#fore3', 'fadeOutUp', 300]
 			, ['#bigmore', 'removeZoomIn', 0]
-			// , ['#background', 'fadeOut', 500]
+			, ['#background', 'fadeOut', 700]
 		]
+		, coolDown: 1700
 	}
 
 	, 'ievads-2': {
