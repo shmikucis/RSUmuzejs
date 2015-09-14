@@ -4,15 +4,40 @@ var Content = Class.extend({
 		this.lastTime = new Date().getTime() - this.coolDownTime;
 		this.article = $('article');
 		var self = this;
+                console.log(self);
 		$(window).bind('mousewheel', function(e){
 			var direction = e.originalEvent.wheelDelta /120 > 0 ? 'up' : 'down';
 			// console.log(direction);
-			if(direction == 'down'){
-				self.drawNext();
-			} else {
-				self.drawPrev();
-			}
+                        if(scrollEnabled){
+                            if(direction === 'down'){
+                                    self.drawNext();
+                            } else {
+                                    self.drawPrev();
+                            }
+                        }
 		});
+                
+                $(document).keydown(function(e) {
+                    if(scrollEnabled){
+                        switch (e.which) {
+                            case 38: // up
+                                //            transition_out();
+
+                                self.drawPrev();
+                                break;
+                            case 40: // down
+                                //            transition_out();
+                                if(scrollEnabled){
+                                self.drawNext();}
+                                break;
+
+                            default:
+                                return; // exit this handler for other keys
+                        }
+                    }
+                    checkContinue();
+                    e.preventDefault(); // prevent the default action (scroll / move caret)
+                });
 	}
 
 	, draw: function(item){
