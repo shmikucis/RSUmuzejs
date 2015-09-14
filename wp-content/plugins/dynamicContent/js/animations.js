@@ -22,8 +22,8 @@ var ANIMATIONS = {
 			, ['#bigmore', 'fadeInUp2', 300]
 		]
 		, out: [
-			  ['#mid1', 'shrinkDown', 600]
-			, ['#mid2', 'shrinkUp', 400]
+			  ['#mid1', 'shrinkDown', 700]
+			, ['#mid2', 'shrinkUp', 500]
 			, ['#fore1', 'fadeOutDown', 300]
 			, ['#foreLine', 'clipCenterVOut', 100]
 			, ['#fore2', 'clipMoveUpOut', 800]
