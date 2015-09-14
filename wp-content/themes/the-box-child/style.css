@@ -534,18 +534,18 @@ ul.menu p{
 
 .alignleft{
     position: relative;
-    left: -55%;
+    left: -30%;
     transform: translateY(-50%);
     /*z-index:-2;*/
 }
 
 .alignright{
     position: absolute;
-    margin-left: 40vw !important;
+    margin-left: 37vw !important;
     transform: translateY(-40%);
 }
 .narrow.alignright{
-    margin-left:50vw !important;
+    margin-left:45vw !important;
 }
 
 div.narrow{
@@ -897,7 +897,7 @@ a.obj_icon[data-title]:hover:after{
 }
 .global_botmid{
     top: 20vh !important;
-   left: 50% !important;
+   left: 30vw !important;
 }
 .global_topright{
     top: -10vh !important;
