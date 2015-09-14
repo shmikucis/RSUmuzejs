@@ -228,15 +228,15 @@ function init() {
         checkContinue();
     });
 
-    $(document).on('click', '#continue', function() {
-        //        transition_out();
-        $.fn.fullpage.moveSectionDown();
-        checkContinue();
-        $(".main_text_single:first").bind('oanimationend animationend webkitAnimationEnd', function() {
+    // $(document).on('click', '#continue', function() {
+    //     //        transition_out();
+    //     $.fn.fullpage.moveSectionDown();
+    //     checkContinue();
+    //     $(".main_text_single:first").bind('oanimationend animationend webkitAnimationEnd', function() {
 
-            //            transition_in();
-        });
-    });
+    //         //            transition_in();
+    //     });
+    // });
     
 }
 
@@ -262,19 +262,19 @@ function setSocialMargin() {
 
 //pārbauda, vai vajag paslēpt "turpināt" pogu
 function checkContinue(){
-    var index =$('.active').prevAll().length;
-    if(index===0 || index ===2 || index ===3 || index === 10){
-        $('#continue').css('display', 'none');
-    }
-    else $('#continue').css('display', 'block');
+    // var index =$('.active').prevAll().length;
+    // if(index===0 || index ===2 || index ===3 || index === 10){
+    //     $('#continue').css('display', 'none');
+    // }
+    // else $('#continue').css('display', 'block');
     
-    if(index!==0){
-        $('#footer .social').css('display', 'none');
-        // $('.head_image, .head_image_bot').css('display', 'block');
-    }
-    else {$('#footer .social').css('display', 'block');
-        // $('.head_image, .head_image_bot').css('display', 'none');
-    }
+    // if(index!==0){
+    //     $('#footer .social').css('display', 'none');
+    //     // $('.head_image, .head_image_bot').css('display', 'block');
+    // }
+    // else {$('#footer .social').css('display', 'block');
+    //     // $('.head_image, .head_image_bot').css('display', 'none');
+    // }
 }
 
 function textPopupVcenter(){

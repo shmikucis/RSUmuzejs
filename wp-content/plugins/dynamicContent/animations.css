@@ -9,6 +9,17 @@
     100% { visibility: visible; transform: translate(0, 0px); }
 }
 
+.moveDownOut {
+    animation-name: moveDownOut;
+    animation-duration: 300ms;
+    animation-fill-mode: both;
+    transition-timing-function: ease-out;
+}
+@keyframes moveDownOut {
+    0% { visibility: visible; transform: translate(0, 0px); }
+    100% { visibility: visible; transform: translate(0, 250px); }
+}
+
 .moveUp {
     animation-name: moveUp;
     animation-duration: 300ms;
@@ -22,13 +33,13 @@
 
 .moveUpOut {
     animation-name: moveUpOut;
-    animation-duration: 300ms;
+    animation-duration: 500ms;
     animation-fill-mode: both;
     transition-timing-function: ease-out;
 }
 @keyframes moveUpOut {
     0% { visibility: visible; transform: translate(0, 0px); }
-    100% { visibility: visible; transform: translate(0, -200px); }
+    100% { visibility: visible; transform: translate(0, -250px); }
 }
 
 .growUp {

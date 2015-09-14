@@ -36,6 +36,15 @@ var Content = Class.extend({
             checkContinue();
             e.preventDefault(); // prevent the default action (scroll / move caret)
         });
+
+        
+        $( "#continue" ).bind( "click", function() {
+		  	self.drawNext();
+		});
+
+        $( "#sidemenu" ).bind( "click", function() {
+			console.log( $(this).hasClass('has-sub') );		
+		});		
 	}
 
 	, draw: function(item){
@@ -73,7 +82,6 @@ var Content = Class.extend({
 
 	, drawIn: function(item){
 		this.article.empty();
-		this.showHeaderImg(item);
 		this.drawTemplate(item);
 		this.animateScene(item, 'in');
 		this.drawExceptionsIn(dynamicContent.getItem(), item);
@@ -103,14 +111,6 @@ var Content = Class.extend({
 		if(prevItem) {
 			this.direction = 'up';
 			this.draw(prevItem);
-		}
-	}
-
-	, showHeaderImg: function(item){
-		if(item.post_name == 'titullapa'){
-			$('.head_image, .head_image_bot').css('display', 'none');
-		} else {
-			$('.head_image, .head_image_bot').css('display', 'block');
 		}
 	}
 
@@ -192,12 +192,34 @@ var Content = Class.extend({
 	}
 
 	, drawExceptionsIn: function(prevItem, nextItem){
-		if(prevItem === nextItem) return;
+		if(prevItem === nextItem) { // calls once right after page is laoded
+			if(prevItem.post_name == 'titullapa'){
+				$('.head_image, .head_image_bot').addClass('hidden');
+				$('#continue').addClass('hidden none');
+				var self = this;
+				$( "#bigmore" ).bind( "click", function() {
+				  	self.drawNext();
+				});
+			} else {
+				$('#footer .social').addClass('hidden');
+			}
+			return;
+		}
+		if(nextItem.post_name == 'titullapa'){
+			this.removeAnimation('#footer .social', 'moveDownOut');
+			this.animateObject('#footer .social', 'moveUp', 100, 'in');
+			var self = this;
+			$( "#bigmore" ).bind( "click", function() {
+			  	self.drawNext();
+			});
+		}
 		if(prevItem.post_name == 'titullapa'){
 			this.removeAnimation('.head_image', 'moveUpOut');
 			this.removeAnimation('.head_image_bot', 'moveUpOut');
+			this.removeAnimation('#continue', 'none moveDownOut');
 			this.animateObject('.head_image', 'moveDown', 100, 'in');			
 			this.animateObject('.head_image_bot', 'moveDown', 100, 'in');
+			this.animateObject('#continue', 'moveUp', 100, 'in');
 		}
 	}
 
@@ -206,8 +228,14 @@ var Content = Class.extend({
 		if(nextItem.post_name == 'titullapa'){
 			this.removeAnimation('.head_image', 'moveDown');
 			this.removeAnimation('.head_image_bot', 'moveDown');
+			this.removeAnimation('#continue', 'moveUp');
 			this.animateObject('.head_image', 'moveUpOut', 100, 'out');
 			this.animateObject('.head_image_bot', 'moveUpOut', 100, 'out');
+			this.animateObject('#continue', 'moveDownOut', 100, 'out');
+		}
+		if(prevItem.post_name == 'titullapa'){
+			this.removeAnimation('#footer .social', 'moveUp');
+			this.animateObject('#footer .social', 'moveDownOut', 100, 'out');
 		}
 	}
 
