@@ -42,8 +42,19 @@ var Content = Class.extend({
 		  	self.drawNext();
 		});
 
-        $( "#sidemenu" ).bind( "click", function() {
-			console.log( $(this).hasClass('has-sub') );		
+        $( "#sidemenu" ).bind( "click", function(e) {
+   			var pointer;
+        	if($(e.target).is('span')){
+        		pointer = $(e.target).parent();
+        	}
+        	else if($(e.target).is('a')){
+        		pointer = $(e.target);
+        	}
+
+        	var href = $(pointer).attr('href').slice(1);
+        	if(href && href !== ''){
+        		self.drawFromUrl(href);
+        	}
 		});		
 	}
 
@@ -114,15 +125,20 @@ var Content = Class.extend({
 		}
 	}
 
+	, drawFromUrl: function(url){
+		var item = dynamicContent.getItemByUrl(url);
+		if(item) {
+			this.direction = 'up';
+			this.draw(item);
+		}
+	}
+
 	, animateScene: function(item, inOut){
 		// animations from config
 		if(ANIMATIONS[item.post_name] && ANIMATIONS[item.post_name][inOut]){
 			if(inOut == 'out' && ANIMATIONS[item.post_name]['in']){ // remove in classes
 				var anim = ANIMATIONS[item.post_name]['in'];
 				for(var i=0, l=anim.length; i<l; i++){
-					// console.log(anim[i][0]);
-					// $(anim[i][0]).removeClass('hidden');
-					// $(anim[i][0]).removeClass(anim[i][1]);
 					this.removeAnimation(anim[i][0], anim[i][1]);
 				}
 			}
