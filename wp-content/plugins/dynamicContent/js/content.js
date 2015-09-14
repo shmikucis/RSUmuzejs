@@ -155,7 +155,7 @@ var Content = Class.extend({
                         +'<div class="anim-right"></div>'
 					+'</div>'
 					+'<div class="entry-content layer" data-depth="0">'
-                    	+'<div class="bg cardboard narrow anim-left">'
+                    	+'<div class="bg cardboard narrow">'
                         	+'<img src="'+URLS.stylesheet+'/images/ui/citation.png" align="middle" class="citation_logo"/>'
                     		+item.post_content
 						+'</div>'

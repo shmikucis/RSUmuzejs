@@ -518,7 +518,7 @@ ul.menu p{
 }
 
 .entry-content{
-    /*position: relative !important;*/
+    position: absolute !important;
     width: 60%;
     margin-left: 20%;
     /*margin: auto;*/
@@ -1186,7 +1186,7 @@ a.archive:hover{
     text-align: center;
     font-family: palatino;
     /*font-size: 3.8vmax;*/
-    width: 100vw;
+    /*width: 100vw;*/
     font-size: 30pt;
     color: #AB182B;
     font-weight: normal;
