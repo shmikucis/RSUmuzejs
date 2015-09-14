@@ -397,9 +397,8 @@ margin-top: 2px;
   background: rgba(186, 36, 49, 0.35);
 }
 .lg-outer .lg-thumb-item img {
-  width: 250%;
-  margin-left: -80%;
-  margin-top: -30%;
+  height: 100%;
+  width: 100%;
   
 }
 .lg-outer.lg-has-thumb .lg-item {

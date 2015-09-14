@@ -423,7 +423,7 @@
         if (this.s.dynamic) {
             subHtml = this.s.dynamicEl[index].subHtml;
         } else {
-            subHtml = this.$items.eq(index).attr('data-sub-html');
+            subHtml = this.$items.eq(index).children( "img" ).attr('alt');
         }
 
         if (typeof subHtml !== 'undefined' && subHtml !== null) {
