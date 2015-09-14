@@ -1073,6 +1073,8 @@ a.archive:hover{
     width: auto !important;
     max-width: 100vw;
     margin: auto;
+    -webkit-cursor: zoom-in;
+    cursor: zoom-in;
 }
 .gallery_div a img{
     display:none;
@@ -1117,7 +1119,7 @@ a.archive:hover{
 .zoomImg{
     cursor: -webkit-zoom-in;
     cursor: -moz-zoom-in;
-    /*display: none;*/
+    z-index: -1;
 }
 
 #cboxClose{
