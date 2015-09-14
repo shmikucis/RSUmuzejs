@@ -404,6 +404,7 @@ ul.social{
 }
 
 #twitter{
+    background-image: url(images/ui/twitter_hover.png);
     background-image: url(images/ui/twitter_idle.png);
 }
 #twitter:hover{
@@ -411,6 +412,7 @@ ul.social{
 }
 
 #facebook{
+    background-image: url(images/ui/fb_hover.png);
     background-image: url(images/ui/fb_idle.png);
 }
 #facebook:hover{
@@ -418,6 +420,7 @@ ul.social{
 }
 
 #draugiem{
+    background-image: url(images/ui/draugiem_hover.png);
     background-image: url(images/ui/draugiem_idle.png);
 }
 #draugiem:hover{
@@ -461,35 +464,66 @@ ul.menu p{
     margin: auto;
     padding-top: 10%;
 }
-
+#m_origin{
+    background-image: url(images/menu/origin_hover.png);
+    background:none;
+}
 #m_origin:hover img{
     content: url(images/menu/origin_hover.png);
 }
 
+#m_evolution{
+    background-image: url(images/menu/evolution_hover.png);
+    background:none;
+}
 #m_evolution:hover img{
     content: url(images/menu/evolution_hover.png);
 }
 
+#m_structure{
+    background-image: url(images/menu/structure_hover.png);
+    background:none;
+}
 #m_structure:hover img{
     content: url(images/menu/structure_hover.png);
 }
 
+#m_science{
+    background-image: url(images/menu/science_hover.png);
+    background:none;
+}
 #m_science:hover img{
     content: url(images/menu/science_hover.png);
 }
 
+#m_people{
+    background-image: url(images/menu/people_hover.png);
+    background:none;
+}
 #m_people:hover img{
     content: url(images/menu/people_hover.png);
 }
 
+#m_extracurricular{
+    background-image: url(images/menu/extracurricular_hover.png);
+    background:none;
+}
 #m_extracurricular:hover img{
     content: url(images/menu/extracurricular_hover.png);
 }
 
+#m_family{
+    background-image: url(images/menu/family_hover.png);
+    background:none;
+}
 #m_family:hover img{
     content: url(images/menu/family_hover.png);
 }
 
+#m_growth{
+    background-image: url(images/menu/growth_hover.png);
+    background:none;
+}
 #m_growth:hover img{
     content: url(images/menu/growth_hover.png);
 }
@@ -693,6 +727,7 @@ p.vnarrow.author_text_single{
     position: relative;
     display: block;
     margin: auto;
+    background-image: url(images/ui/cont_hover.png);
     background-image: url(images/ui/cont_out.png);
     background-size: contain;
     background-repeat: no-repeat;
@@ -782,6 +817,7 @@ p.narrow{
 .readmore{
     position: absolute;
     display: block;
+    background-image: url(images/ui/readmore_hover.png);
     background-image: url(images/ui/readmore_idle.png);
     background-size: contain;
     background-repeat: no-repeat;
@@ -797,6 +833,7 @@ p.narrow{
 .aboutvid{
     position: relative;
     display: inline-block;
+    background-image: url(images/ui/aboutvid_hover.png);
     background-image: url(images/ui/aboutvid_idle.png);
     background-size: contain;
     background-repeat: no-repeat;
@@ -824,8 +861,6 @@ a.obj_icon{
     z-index:9999;
     cursor: pointer;
 }
-/*a.obj_icon:hover{
-    overflow: visible;}*/
 a.obj_icon[data-title]:after{
     position: absolute;    
     content: attr(data-title);
@@ -909,6 +944,7 @@ a.obj_icon[data-title]:hover:after{
 }
 
 a.closer{
+    background-image: url('images/ui/closer_hover.png');
     background-image: url('images/ui/closer_idle.png');    
 }
 a.closer:hover{
@@ -916,6 +952,7 @@ a.closer:hover{
 }
 
 a.gallery{
+    background-image: url('images/ui/gallery_hover.png');
     background-image: url('images/ui/gallery_idle.png');    
 }
 a.gallery:hover{
@@ -923,6 +960,7 @@ a.gallery:hover{
 }
 
 a.objects{
+    background-image: url('images/ui/objects_hover.png');
     background-image: url('images/ui/objects_idle.png');    
 }
 a.objects:hover{
@@ -930,6 +968,7 @@ a.objects:hover{
 }
 
 a.crescent{
+    background-image: url('images/ui/crescent_hover.png');
     background-image: url('images/ui/crescent_idle.png');    
 }
 a.crescent:hover{
@@ -937,6 +976,7 @@ a.crescent:hover{
 }
 
 a.audio{
+    background-image: url('images/ui/audio_hover.png');
     background-image: url('images/ui/audio_idle.png');    
 }
 a.audio:hover{
@@ -944,6 +984,7 @@ a.audio:hover{
 }
 
 a.archive{
+    background-image: url('images/ui/archive_hover.png');
     background-image: url('images/ui/archive_idle.png');    
 }
 a.archive:hover{
@@ -1241,6 +1282,7 @@ a.archive:hover{
     position: relative;
     display: block;
     margin: auto;
+    ackground-image: url(images/ui/readmore_big_hover.png);
     background-image: url(images/ui/readmore_big_idle.png);
     background-size: contain;
     background-repeat: no-repeat;
