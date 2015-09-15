@@ -369,7 +369,31 @@ var Content = Class.extend({
 			default:
 				this.article.append(content);
 				break;
-		}            
+		}     
+
+		var self = this;
+		if($('.entry-content .menu').length > 0) {
+			$('.entry-content .menu').bind('click', function(e){
+				var pointer = $(e.target);
+				if(pointer.is('a')){
+
+				} 
+				else if(pointer.is('li')){
+					pointer = pointer.find('a');
+				}
+				else if(pointer.is('img')){
+					pointer = pointer.parent();
+				}
+				else if(pointer.is('p')){
+					pointer = pointer.parent();
+				}
+
+				var href = $(pointer).attr('href').slice(1);
+	        	if(href && href !== ''){
+	        		self.drawFromUrl(href);
+	        	}
+			})
+		}      
 	}
         
 });

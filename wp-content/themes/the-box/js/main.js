@@ -73,7 +73,7 @@ function init() {
             //                'study-intro', 'study-medicine', 'study-medicine-2', 'study-social'
             //            ],
             afterLoad: function(anchorLink, index) {
-                checkContinue();
+                // checkContinue();
             }
         });
 
@@ -237,7 +237,7 @@ function init() {
     $(document).on('click', '#bigmore', function() {
         //        transition_out();
         $.fn.fullpage.moveSectionDown();
-        checkContinue();
+        // checkContinue();
     });
 
     // $(document).on('click', '#continue', function() {
