@@ -1378,3 +1378,4 @@ a.archive:hover{
 
 .hidden { visibility: hidden; }
 .visible { visibility: visible; }
+.none { display: none !important; }

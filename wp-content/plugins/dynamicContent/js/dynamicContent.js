@@ -58,8 +58,11 @@ var DynamicContent = Class.extend({
 		return this.getItemByParam('ID', id);
 	}
 
-	, getItemByUrl: function(){
-		var url = window.location.href.split('#')[1];
+	, getItemByUrl: function(url){
+		if(!url){			
+			url = window.location.href.split('#')[1];
+		}
+		
         if(url){
             var post_name = url.split('/')[0];
 			return this.getItemByParam('post_name', post_name);
