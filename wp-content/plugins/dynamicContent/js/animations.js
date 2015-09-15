@@ -46,7 +46,10 @@ var ANIMATIONS = {
 	}
 
 	, 'mainmenu': {
-		coolDown: 1500
+		in: [
+			['h1', 'titleBorder', 500]
+		]
+		, coolDown: 1500
 	}
 
 }
