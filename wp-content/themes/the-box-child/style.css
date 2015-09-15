@@ -735,7 +735,6 @@ p.vnarrow.author_text_single{
     min-height: 30px;
     width: 9vw;
     min-width: 120px;
-    transform: translateY(-50%);
     z-index: 999;
 }
 #continue:hover{
@@ -747,14 +746,20 @@ p.vnarrow.author_text_single{
     float: none;
     padding: 0;
     margin: 0;
-    transform: translateY(-50%);
+    top: 0;
+    position: absolute;
+    left: 50%;
+}
+
+#footer .social li{    
+    left: -50%;
 }
 /*Fūteris beidzas*/
 
 .right{
     margin-top: 3%;
-    margin-left: 100%;
-    transform: translateX(-100%);
+/*    margin-left: 100%;
+    transform: translateX(-100%);*/
 }
 
 .left{

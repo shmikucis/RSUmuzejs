@@ -270,23 +270,6 @@ function setSocialMargin() {
     $('.head_image_bot .social').css('margin-top', ulOffset);
 }
 
-//pārbauda, vai vajag paslēpt "turpināt" pogu
-function checkContinue(){
-    // var index =$('.active').prevAll().length;
-    // if(index===0 || index ===2 || index ===3 || index === 10){
-    //     $('#continue').css('display', 'none');
-    // }
-    // else $('#continue').css('display', 'block');
-    
-    // if(index!==0){
-    //     $('#footer .social').css('display', 'none');
-    //     // $('.head_image, .head_image_bot').css('display', 'block');
-    // }
-    // else {$('#footer .social').css('display', 'block');
-    //     // $('.head_image, .head_image_bot').css('display', 'none');
-    // }
-}
-
 function textPopupVcenter() {
     var cbox = $('#colorbox');
     if (cbox) {
@@ -381,8 +364,19 @@ function updateListeners() {
 }
 
 function setButtonMargin() {
+    //objektu ikonas
     $('.icon_midleft, .icon_midright, .icon_topmid, .icon_botleft, .icon_botmid, .icon_belowtopright').css({
         'margin-left': -$('.obj_icon').width() / 2,
         'margin-top': -$('.obj_icon').height() / 2
     });
+    
+    //footera socpogas un "Turpināt"
+    $('#footer .social').css('margin-top', -$('#footer .social li').height()/2);
+    $('#continue').css('margin-top', -$('#continue').height()/2);
+    
+    //"Lasīt vairāk"
+    var readmore = $('.readmore.right');
+    var readparent = readmore.parent();
+    
+    readmore.css('margin-left', readparent.width()-readmore.width());
 }
