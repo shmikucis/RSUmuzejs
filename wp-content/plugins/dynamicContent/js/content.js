@@ -266,10 +266,10 @@ var Content = Class.extend({
 	}	
 
 	, drawTemplate: function(item){
-		if(URLS.site == 'http://rsu.nanolv.lv/'){
-			var re = /http:\/\/localhost\/rsumuzejs-master\//gi;
-			item.post_content = item.post_content.replace(re, URLS.site);
-		}		 
+		// if(URLS.site == 'http://rsu.nanolv.lv/'){
+		// 	var re = /http:\/\/localhost\/rsumuzejs-master\//gi;
+		// 	item.post_content = item.post_content.replace(re, URLS.site);
+		// }		 
 
 		switch(item.template){
 			case 'templates/title.php':
