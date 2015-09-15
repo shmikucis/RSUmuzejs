@@ -6,7 +6,7 @@ var Content = Class.extend({
 		this.direction = 'down'; // up, down
 		var self = this;
 
-		$(window).bind('mousewheel', function(e){
+		$(window).bind('mousewheel DOMmousescroll wheel', function(e){
 			var direction = e.originalEvent.wheelDelta /120 > 0 ? 'up' : 'down';
                 if(scrollEnabled){
                     if(direction === 'down'){
