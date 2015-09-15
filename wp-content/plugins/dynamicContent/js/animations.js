@@ -35,13 +35,18 @@ var ANIMATIONS = {
 
 	, 'ievads-2': {
 		in: [
-			['article .stripes', 'jumpUp', 500]
-			, ['article .cardboard', 'jumpUp', 700]
+			  ['article .cardboard', 'clipCenterV', 300]
+			, ['article .cardboard img', 'animMushroom', 450]
+			, ['article .cardboard p', 'cardbordTextfadeInDown', 600]
 		]
 		, out: [
-			['article .stripes', 'jumpDownOut', 300]
-			, ['article .cardboard', 'jumpDownOut', 0]
+			['article .cardboard', 'clipCenterV', 0]
 		]
+		, coolDown: 500
+	}
+
+	, 'mainmenu': {
+		coolDown: 1500
 	}
 
 }
