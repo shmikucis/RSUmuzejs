@@ -297,7 +297,7 @@ var Content = Class.extend({
                     +'</div>'
 					+'<div class="entry-content layer" data-depth="0">'
                     	+'<div class="bg cardboard anim-left">'
-                        	+'<img src="'+URLS.stylesheet+'/images/ui/citation.png" align="middle" class="citation_logo"/>'
+                        	+'<div class="citation_logo"/>'
                     		+item.post_content
 						+'</div>'
         			+'</div>'
@@ -335,7 +335,7 @@ var Content = Class.extend({
 					+'</div>'
 					+'<div class="entry-content layer" data-depth="0">'
                     	+'<div class="bg cardboard narrow">'
-                        	+'<img src="'+URLS.stylesheet+'/images/ui/citation.png" align="middle" class="citation_logo"/>'
+                        	+'<div class="citation_logo"/>'
                     		+item.post_content
 						+'</div>'
         			+'</div>'

@@ -379,4 +379,10 @@ function setButtonMargin() {
     var readparent = readmore.parent();
     
     readmore.css('margin-left', readparent.width()-readmore.width());
+    
+    //citāta pēdiņas
+    $('.citation_logo').css({
+        'margin-top': -$('.citation_logo').height()/2,
+        'margin-left': $('.citation_logo').parent().width()/2-$('.citation_logo').width()/2
+    });
 }

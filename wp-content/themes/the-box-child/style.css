@@ -811,12 +811,14 @@ p.narrow{
 }
 
 .citation_logo{
+    background-image: url('images/ui/citation.png');
+    background-size:contain;
+    background-repeat: no-repeat;
     position: relative;
-    height: auto;
+    height: 4vh;
     width: 2.1vw; 
     min-width: 20px;
     vertical-align: middle;
-    transform: translateY(-50%);
 }
 /*Ikonas un pogas*/
 .readmore{
