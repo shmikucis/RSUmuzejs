@@ -36,7 +36,7 @@ var ANIMATIONS = {
 	, 'ievads-2': {
 		in: [
 			  ['article .cardboard', 'clipCenterV', 300]
-			, ['article .cardboard img', 'animMushroom', 450]
+			, ['article .citation_logo', 'animMushroom', 450]
 			, ['article .cardboard p', 'cardbordTextfadeInDown', 600]
 		]
 		, out: [
