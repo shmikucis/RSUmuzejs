@@ -94,6 +94,7 @@ var Content = Class.extend({
 	, drawIn: function(item){
 		this.article.empty();
 		this.drawTemplate(item);
+		this.drawAttachments(item);
 		this.animateScene(item, 'in');
 		this.drawExceptionsIn(dynamicContent.getItem(), item);
 		dynamicContent.set(item);
@@ -266,11 +267,6 @@ var Content = Class.extend({
 	}	
 
 	, drawTemplate: function(item){
-		// if(URLS.site == 'http://rsu.nanolv.lv/'){
-		// 	var re = /http:\/\/localhost\/rsumuzejs-master\//gi;
-		// 	item.post_content = item.post_content.replace(re, URLS.site);
-		// }		 
-
 		switch(item.template){
 			case 'templates/title.php':
 				this.article.append(
@@ -399,6 +395,33 @@ var Content = Class.extend({
 	, drawAttachments: function(item){
 		var attachments = dynamicContent.getAttacments(item.ID);
 		if(!attachments) return;
+		console.log(item, attachments);
+		for(var i=0, l=attachments.length; i<l; i++){
+			var attachment = attachments[i];
+			switch(attachment.template){
+				case 'templates/popup-text.php':
+					this.article.append(
+						'<div style="display:none">'
+						+ '<div id="'+attachment.post_name+'" class="popup">'
+						+ attachment.post_content
+						+ '</div>'
+						+ '</div>'
+					);
+					break;
+				case 'templates/popup-gallery.php':
+					var html = '<div id="'+attachment.post_name+'" class="gallery_div" style="display:none">';
+					for(var j=0, l2=attachment.images.length; j<l2; j++){
+						var image = attachment.images[j];
+						html += '<a href="'+image.url+'">'
+							+'<img src="'+image.url.substring(0, image.url.length-4)+'-150x150.jpg"' 
+							+'alt="'+image.description+'" />'
+							+'</a>';
+					}
+					html += '</div>';
+					this.article.append(html);
+					break;
+			}
+		}
 	}
         
 });

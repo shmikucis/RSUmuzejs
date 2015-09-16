@@ -56,6 +56,7 @@
     						, 'post_title' => $child -> post_title
     						, 'post_name' => $child -> post_name
     						, 'post_content' => $child -> post_content
+    						, 'template' => $template
     					));	
     				}
 	    			if($template == 'templates/popup-gallery.php'){
@@ -71,13 +72,12 @@
 	    					));
 	    				}
 	    				
-	    				// wp_get_attachment(
+	    				// var_dump($image);
 	    				array_push($attachments, array(
     						'ID' => $child -> ID
     						, 'parentID' => $post -> ID
     						, 'post_name' => $child -> post_name
-    						// , 'gallery' => $gallery
-    						// , 'tmp' => get_post( $gallery['ids'][0] )
+    						, 'template' => $template
     						, 'images' => $images
     					));
 	    			}
