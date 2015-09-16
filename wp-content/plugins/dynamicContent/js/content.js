@@ -395,6 +395,11 @@ var Content = Class.extend({
 			})
 		}      
 	}
+
+	, drawAttachments: function(item){
+		var attachments = dynamicContent.getAttacments(item.ID);
+		if(!attachments) return;
+	}
         
 });
 

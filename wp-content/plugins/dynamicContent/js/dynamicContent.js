@@ -79,6 +79,16 @@ var DynamicContent = Class.extend({
 		}
 		return false;
 	}
+
+	, getAttacments: function(itemID){
+		var list = [];
+		for(var i=0, l=ATTACHMENTS.length; i<l; i++){
+			if(ATTACHMENTS[i].parentID === itemID){
+				list.push(ATTACHMENTS[i]);
+			}
+		}
+		return list;
+	}
 })
 
 var dynamicContent = new DynamicContent();

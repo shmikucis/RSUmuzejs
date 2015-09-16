@@ -115,6 +115,7 @@ function init() {
         }
     });
 
+    // click on read more button
     $(document).on('click', '.readmore, .mejs-textform', function() {
         $("#colorbox").addClass("text_popup");
         $(document).bind('cbox_complete', function() {
@@ -125,6 +126,7 @@ function init() {
         });
     });
 
+    // click on single image icon
     $(document).on('click', '.pic_single', function() {
         $("#colorbox").addClass("pic_popup");
         $('#cboxOverlay').css('top', $('#masthead').height() - 2);
@@ -162,6 +164,7 @@ function init() {
 
     });
 
+    // click on gallery icon
     $(document).on('click', '.pic_gallery', function() {
         var id = $(this).attr('data-gallery');
         $(id).lightGallery({

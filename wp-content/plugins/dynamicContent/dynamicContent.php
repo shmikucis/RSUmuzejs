@@ -41,20 +41,45 @@
 	    public function getAttachments($list){
 	    	$attachments = array();
 	    	$my_wp_query = new WP_Query();
-	    	// TODO put query in for loop and search for children with depth 1 and post ID
-	    	$all_wp_pages = $my_wp_query->query(array('post_type' => 'page', 'depth' => 1));
-
 	    	foreach($list as $post){
-	    		$children = get_page_children( $post -> ID, $all_wp_pages );
+	    		// TODO put query in for loop and search for children with depth 1 and post ID
+	    		// $all_wp_pages = $my_wp_query->query(array('post_type' => 'page', 'depth' => 1, 'child_of' => $post -> ID));
+	    		// $children = get_page_children( $post -> ID, $all_wp_pages );
+
+	    		$children = get_posts(array('post_parent' => $post->ID, 'post_type' => 'page'));
 	    		foreach($children as $child){
 	    			$template = get_page_template_slug($child -> ID);
-	    			if($template == 'page-gallery.php'){
-	    				array_push($attachments,
-	    					array(
-	    						'ID' => $child -> ID
-	    						, 'parentID' => $post -> ID
-	    					)
-	    				);
+	    			if($template == 'templates/popup-text.php'){
+    					array_push($attachments, array(
+    						'ID' => $child -> ID
+    						, 'parentID' => $post -> ID
+    						, 'post_title' => $child -> post_title
+    						, 'post_name' => $child -> post_name
+    						, 'post_content' => $child -> post_content
+    					));	
+    				}
+	    			if($template == 'templates/popup-gallery.php'){
+	    				$gallery = get_post_gallery($child -> ID, false);
+	    				$gallery['ids'] = explode(',', $gallery['ids']);
+	    				$images = array();
+	    				foreach($gallery['ids'] as $imageID){
+	    					$image = get_post($imageID);
+	    					array_push($images, array(
+	    						'ID' => $image -> ID
+	    						, 'url' => $image -> guid
+	    						, 'description' => $image -> post_content
+	    					));
+	    				}
+	    				
+	    				// wp_get_attachment(
+	    				array_push($attachments, array(
+    						'ID' => $child -> ID
+    						, 'parentID' => $post -> ID
+    						, 'post_name' => $child -> post_name
+    						// , 'gallery' => $gallery
+    						// , 'tmp' => get_post( $gallery['ids'][0] )
+    						, 'images' => $images
+    					));
 	    			}
 	    		}
 	    	}
