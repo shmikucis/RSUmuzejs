@@ -395,7 +395,7 @@ var Content = Class.extend({
 	, drawAttachments: function(item){
 		var attachments = dynamicContent.getAttacments(item.ID);
 		if(!attachments) return;
-		console.log(item, attachments);
+		// console.log(item, attachments);
 		for(var i=0, l=attachments.length; i<l; i++){
 			var attachment = attachments[i];
 			switch(attachment.template){
