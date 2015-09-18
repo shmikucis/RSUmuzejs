@@ -142,7 +142,7 @@ function init() {
             }
             $('#cboxLoadedContent').zoom({
                 on: 'click',
-                magnify: 0.8,
+//                magnify: 0.8,
                 onZoomIn: function() {
                     $(this).css({'cursor': 'crosshair', 'z-index':'1'});
                 },
@@ -187,7 +187,7 @@ function init() {
         $(id).on('onSlideItemLoad.lg', function() {
             $('.lg-current.lg-complete .lg-img-wrap').zoom({
                 on: 'click',
-                magnify: 0.8,
+//                magnify: 0.8,
                 onZoomIn: function() {
                     $(this).css({'cursor': 'crosshair', 'z-index':'1'});
                 },

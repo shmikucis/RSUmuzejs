@@ -220,6 +220,9 @@ var Content = Class.extend({
 			} else {
 				$('#footer .social').addClass('hidden');
 			}
+                        if(nextItem.template === 'templates/video.php'){
+                            $('ul.social').addClass('hidden');
+                        }
 			return;
 		}
 		if(nextItem.post_name == 'titullapa'){
@@ -238,6 +241,12 @@ var Content = Class.extend({
 			this.animateObject('.head_image_bot', 'moveDown', 100, 'in');
 			this.animateObject('#continue', 'moveUp', 100, 'in');
 		}
+                if(nextItem.template === 'templates/video.php'){
+                    $('ul.social').addClass('hidden');
+                }
+                else{
+                    $('ul.social').removeClass('hidden');
+                }
 	}
 
 	, drawExceptionsOut: function(prevItem, nextItem){
@@ -272,11 +281,11 @@ var Content = Class.extend({
 				this.article.append(
 					'<header class="entry-header main_title layer" data-depth="0.3">'
 					+'</header>'
-					+'<div id="intro" class="layer" data-depth="0.05">'            
+					+'<div id="intro" class="layer" data-depth="0">'            
 			            +'<div id ="background" class="layer" data-depth="0.2">'
 			            	+'<div id="bg1"></div>'
 			            +'</div>'
-			            +'<div id="intro_content" class="layer" data-depth="0.02">'
+			            +'<div id="intro_content" class="layer" data-depth="0">'
 			            	+item.post_content
 			                +'<div id="bigmore"></div>'
 			            +'</div>'        
@@ -360,7 +369,7 @@ var Content = Class.extend({
 						+item.post_content
 					+'</div>'
 				);
-                        setVideoSize();
+                                setVideoSize();
 				break;
 			default:
 				this.article.append(content);
