@@ -154,7 +154,6 @@ function init() {
                 initTags($mapattr);
             }
 
-
         });
         $(document).bind('cbox_cleanup', function() {
             $('.zoomImg').trigger('zoom.destroy');
@@ -240,14 +239,6 @@ function init() {
         // checkContinue();
     });
 
-    // $(document).on('click', '#continue', function() {
-    //     //        transition_out();
-    //     $.fn.fullpage.moveSectionDown();
-    //     checkContinue();
-    //     $(".main_text_single:first").bind('oanimationend animationend webkitAnimationEnd', function() {
-    //         //            transition_in();
-    //     });
-    // });
 }
 
 
