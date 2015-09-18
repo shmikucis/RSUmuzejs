@@ -265,7 +265,7 @@
     background-repeat: no-repeat;
     background-size: contain;
     transform: translateY(-50%);
-    line-height: 3.5;
+    line-height: 3.5em;
 }
 #lg-counter-all{
     font-size: 10pt;
