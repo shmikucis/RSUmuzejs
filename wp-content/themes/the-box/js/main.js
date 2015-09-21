@@ -311,9 +311,13 @@ function setHeadFootSize() {
 }
 
 function setVideoSize() {
-    $('.video-content').css('top', $('.head_image_bot').position().top + $('.head_image_bot').height() - $('#masthead').height());
+//    $('.video-content').css('top', $('.head_image_bot').position().top + $('.head_image_bot').height() - $('#masthead').height());
+//
+//    $('.video-content').css('height', window.innerHeight - $('.head_image_bot').position().top - $('#footer').height() - $('.head_image_bot').height());
 
-    $('.video-content').css('height', window.innerHeight - $('.head_image_bot').position().top - $('#footer').height() - $('.head_image_bot').height());
+//    $('.video-content').css('top', $('#masthead').height());
+
+    $('.video-content').css('height', window.innerHeight - $('#footer').height() - $('#masthead').height());
 
 
     $('.video').css('height', $('.video-content').height() - 60);

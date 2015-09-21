@@ -222,6 +222,7 @@ var Content = Class.extend({
 			}
                         if(nextItem.template === 'templates/video.php'){
                             $('ul.social').addClass('hidden');
+                            $('.head_image, .head_image_bot').addClass('hidden');
                         }
 			return;
 		}
@@ -241,11 +242,16 @@ var Content = Class.extend({
 			this.animateObject('.head_image_bot', 'moveDown', 100, 'in');
 			this.animateObject('#continue', 'moveUp', 100, 'in');
 		}
-                if(nextItem.template === 'templates/video.php'){
-                    $('ul.social').addClass('hidden');
+                if(prevItem.template === 'templates/video.php'){
+                    this.removeAnimation('.head_image', 'moveUpOut');
+                    this.removeAnimation('.head_image_bot', 'moveUpOut');
+                    this.animateObject('.head_image', 'moveDown', 100, 'in');			
+                    this.animateObject('.head_image_bot', 'moveDown', 100, 'in');
+                    $('ul.social').removeClass('hidden');
                 }
                 else{
-                    $('ul.social').removeClass('hidden');
+//                    $('.head_image, .head_image_bot').removeClass('hidden');
+//                    $('ul.social').removeClass('hidden');
                 }
 	}
 
@@ -263,6 +269,14 @@ var Content = Class.extend({
 			this.removeAnimation('#footer .social', 'moveUp');
 			this.animateObject('#footer .social', 'moveDownOut', 100, 'out');
 		}
+                if(nextItem.template === 'templates/video.php'){
+                    this.removeAnimation('.head_image', 'moveDown');
+                    this.removeAnimation('.head_image_bot', 'moveDown');
+                    this.animateObject('.head_image', 'moveUpOut', 100, 'out');
+                    this.animateObject('.head_image_bot', 'moveUpOut', 100, 'out');
+                    
+                    $('ul.social').addClass('hidden');
+                }
 	}
 
 	, animateObject: function(pointer, animationClass, delay, inOut){

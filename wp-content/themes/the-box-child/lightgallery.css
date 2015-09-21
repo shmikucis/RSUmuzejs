@@ -229,7 +229,7 @@
   text-align: center;
   z-index: 1080;
   white-space: normal;
-  max-height: 8%;
+  max-height: 12%;
   overflow: hidden;
   transition: max-height 1s;
   transition-timing-function: ease-out;

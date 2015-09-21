@@ -1150,17 +1150,6 @@ a.archive{
         font-size: 7.5pt;
     }
     
-    a.obj_icon{
-        font-size:9pt;
-        height: 50px;
-        width: 43px;
-        background-size: 86px 50px;
-        background-position-x: 0px;
-    }
-    a.obj_icon:hover{
-        background-position-x: -43px;
-    }
-    
     .author_text_single{
         font-size: 6pt !important;
     }
@@ -1176,6 +1165,16 @@ a.archive{
     #cboxTitle{
         font-size: 9pt !important;
     }
+    a.obj_icon{
+        font-size:9pt;
+        height: 50px;
+        width: 43px;
+        background-size: 86px 50px;
+        background-position-x: 0px;
+    }
+    a.obj_icon:hover{
+        background-position-x: -43px;
+    }    
     #continue, .readmore{
         width: 120px;
         height: 30px;
@@ -1215,9 +1214,61 @@ a.archive{
         background-position-y: -50px;
     }
 }
-
 @media screen and (min-width:950px){
-    #continue,.readmore{
+   a.obj_icon{
+        font-size:9pt;
+        height: 50px;
+        width: 43px;
+        background-size: 86px 50px;
+        background-position-x: 0px;
+    }
+    a.obj_icon:hover{
+        background-position-x: -43px;
+    }    
+    #continue, .readmore{
+        width: 120px;
+        height: 30px;
+        background-size: 120px 60px;
+        background-position-y: 0px;
+    }
+    #continue:hover, .readmore:hover{
+        background-position-y: -30px;
+    }
+    .aboutvid{
+        width: 100px;
+        height: 20px;
+        background-size: 100px 40px;
+        background-position-y:0px;
+    }
+    .aboutvid:hover{
+        background-position-y: -20px;
+    }
+    .social li{
+        width: 26px;
+        height: 30px;
+    }
+    .social li a{        
+        background-size: 52px 30px;   
+        background-position-x: 0px;
+    }
+    .social li a:hover{
+        background-position-x: -26px;
+    }
+    #bigmore{
+        width: 200px;
+        height: 50px;
+        background-size: 200px 100px;
+        background-position-y: 0px;
+    }
+    #bigmore:hover{
+        background-position-y: -50px;
+    }
+}
+@media screen and (min-width: 1600px) {
+    .text_popup#colorbox{
+        width:700px !important;
+    }
+     #continue,.readmore{
         width: 160px;
         height: 40px;
         background-size: 160px 80px;
@@ -1265,9 +1316,10 @@ a.archive{
         background-position-y: -55px;
     }
 }
-@media screen and (min-width: 1600px) {
+
+@media screen and (min-width: 2000px) {
     .text_popup#colorbox{
-        width:700px !important;
+        width:1200px !important;
     }
     #continue, .readmore{
         width: 240px;
@@ -1317,10 +1369,8 @@ a.archive{
         background-position-y: -84px;
     }
 }
-@media screen and (min-width: 2000px) {
-    .text_popup#colorbox{
-        width:1200px !important;
-    }
+
+@media screen and (min-width: 2400px){
     #continue, .readmore{
         width: 320px;
         height: 80px;
