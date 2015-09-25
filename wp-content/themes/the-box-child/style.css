@@ -314,7 +314,7 @@ p{
 }
 
 .head_image{
-    position: relative !important;
+    position: absolute !important;
     width: 110%;
     left: -5% !important;
     min-height: 110px;
@@ -329,7 +329,8 @@ p{
     ), url(images/family_header.jpg);
     background-position: center;   
     background-size: cover;
-    height: 100%;
+    top: -25% !important;
+    height: 150%;
 }
 
 .head_image_bot{
@@ -371,7 +372,7 @@ ul.social{
     height: 4.5vh;
     width: auto;
     margin-bottom: 0;
-    padding-right: 2vmin;    
+    padding-right: 2vw;    
 }
 
 .social li{
@@ -456,7 +457,7 @@ ul.menu p{
     font-weight: normal;
     top: 20%;
     font-family: palatino;
-    font-size: 1.6vmax;
+    font-size: 14pt;
     color: #575756;
     border-style: solid;
     border-width: thin;

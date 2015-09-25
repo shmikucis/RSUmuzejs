@@ -7,6 +7,7 @@ $(window).load(function() {
 });
 
 $(window).resize(function() {
+    $('.head_image').css('clip', 'rect(0px,' + $('.head_image').width() + 'px,' + $('.head_image').height() + 'px, 0px)');
     setSocialMargin();
     galleryInnerResize();
     textPopupVcenter();
@@ -44,16 +45,10 @@ window.scrollEnabled = true;
 function init() {
     setSocialMargin();
 
-    var scene = document.getElementsByClassName("scene");
-    parallax = new Parallax(scene, {
-        scalarX: 10,
-        scalarY: 7
-    });
-
     var headparallax = document.getElementsByClassName("headparallax");
-    parallax = new Parallax(headparallax, {
-        scalarX: 6,
-        scalarY: false
+    var headmotion = new Parallax(headparallax, {
+//        scalarX: 6,
+        scalarY: 50
     });
 
     $(document).ready(function() {
@@ -252,15 +247,10 @@ function resetPopupClass() {
     $("#cboxLoadedContent").removeAttr('class');
 }
 
-//pielabo soctīklu pogu pozīcijas, lai tie būtu līnijas vidū
+//pielabo soctīklu pogu pozīcijas, lai tās būtu līnijas vidū
 function setSocialMargin() {
-    var ulOffset = $('.head_image_bot .social').height();
-    var headbar = $('.head_image_bot div').height();
-    if (headbar === 0) {
-        headbar = window.innerHeight / 100 * 1.04;
-    }
+    var ulOffset = $('.head_image_bot .social li').height() - $('.head_image_bot').height();
     ulOffset /= -2;
-    ulOffset += headbar / 2;
     $('.head_image_bot .social').css('margin-top', ulOffset);
 }
 
@@ -296,6 +286,7 @@ function setHeadFootSize() {
     $('#masthead').css('height', $('#masthead').height());
     $('.top_bar a img').css('height', $('#masthead').height() / 7 * 5);
     $('.top_bar a img').css('margin-top', $('#masthead').height() / 7);
+    $('#menu_toggle').css('margin-top', ($('#masthead').height()-$('#menu_toggle').height())/2);
 
     window.footHeight = $('#footer').height();
     $('#footer').css('height', footHeight);
@@ -304,7 +295,9 @@ function setHeadFootSize() {
     $('.head_image_bot').css('height', $('.head_image_bot').height());
 
     $('.head_image').css('top', $('.site-header').height() - $('.head_image').height() / 100 * 1);
-    $('.head_image_bot').css('top', $('#masthead').height() - $('.head_image').height() / 100 * 3);
+    $('.head_image_bot').css('top', $('#masthead').height() + $('.head_image').height() - $('.head_image').height() / 100 * 3);
+    
+    $('.head_image').css('clip', 'rect(0px,' + $('.head_image').width() + 'px,' + $('.head_image').height() + 'px, 0px)');
 
     window.headTotal = $('#masthead').height() + $('.head_image').height() + $('.head_image_bot').height();
     $('.scene').css('top', $('#masthead').height());

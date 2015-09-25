@@ -106,7 +106,7 @@ else
                 </ul>
             </div>
             <div class="head_image headparallax">
-            <div class="layer" data-depth="0.1"></div>
+            <div class="layer" data-depth="0.2"></div>
         </div>
         <div class="head_image_bot">
             <ul class="social">
