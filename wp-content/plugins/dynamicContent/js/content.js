@@ -88,7 +88,7 @@ var Content = Class.extend({
                 setButtonMargin();
 			}, coolDownTime);
 		}	
-		
+		$visitedMaps = [];
 	}
 
 	, drawIn: function(item){

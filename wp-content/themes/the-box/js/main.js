@@ -147,8 +147,14 @@ function init() {
             });            
             if (typeof $mapattr !== typeof undefined && $mapattr !== false) {
                 $('#cboxLoadedContent img').attr('usemap', $mapattr);
-                window.resizevar = $($mapattr).imageMapResize();
                 initTags($mapattr);
+                if ($.inArray($mapattr, $visitedMaps)===-1){
+                
+//                window.resizevar = $($mapattr).imageMapResize();
+                imageMapResize($mapattr);
+                
+                $visitedMaps.push($mapattr);
+                }
             }
 
         });
@@ -323,7 +329,7 @@ function setVideoSize() {
 function initTags(mapname) {
     if ($('#pictag').length <= 0)
         $('#cboxLoadedContent').append('<div id="pictag"></div>');
-//    $('#pictag').hide();
+    $('#pictag').hide();
 
     $(mapname + ' area').each(
         function() {
