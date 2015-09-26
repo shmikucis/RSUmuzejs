@@ -147,13 +147,14 @@ function init() {
             });            
             if (typeof $mapattr !== typeof undefined && $mapattr !== false) {
                 $('#cboxLoadedContent img').attr('usemap', $mapattr);
-                $($mapattr).imageMapResize();
+                window.resizevar = $($mapattr).imageMapResize();
                 initTags($mapattr);
             }
 
         });
         $(document).bind('cbox_cleanup', function() {
             $('.zoomImg').trigger('zoom.destroy');
+//            window.removeEventListener("resize", debounce);
         });
 
     });

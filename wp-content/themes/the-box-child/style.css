@@ -817,9 +817,6 @@ a.crescent{
 a.audio{
     background-image: url('images/ui/audio.png'); 
 }
-a.audio:hover{
-    background-image: url('images/ui/audio_hover.png');
-}
 
 a.archive{    
     background-image: url('images/ui/archive.png');

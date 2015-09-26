@@ -60,7 +60,11 @@
             function debounce() {
                 clearTimeout(timer);
                 timer = setTimeout(resizeMap, 250);
-            }
+                $(document).bind('cbox_cleanup', function() {
+            $('.zoomImg').trigger('zoom.destroy');
+            window.removeEventListener("resize", debounce);
+        });
+            };
             if (window.addEventListener) { window.addEventListener('resize', debounce, false); }
             else if (window.attachEvent) { window.attachEvent('onresize', debounce); }
         }

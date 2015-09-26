@@ -251,8 +251,9 @@
   color: #BA2431;
     position: relative;
     display: table;
+    font-family: baskerville;
     font-size: 12pt;
-     vertical-align: middle; 
+    vertical-align: middle; 
     text-align: center;
     margin: auto;
     width: 4.5vw;
