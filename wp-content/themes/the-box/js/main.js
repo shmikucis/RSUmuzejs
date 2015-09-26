@@ -281,6 +281,8 @@ function galleryInnerResize() {
     var container = $('.lg').width();
     var inner = container - side;
     $('.lg-inner').css('width', inner);
+    
+    $('#lg-counter').css('line-height', $('#lg-counter').height());
 }
 
 function setHeadFootSize() {
@@ -305,13 +307,13 @@ function setHeadFootSize() {
 }
 
 function setVideoSize() {
-//    $('.video-content').css('top', $('.head_image_bot').position().top + $('.head_image_bot').height() - $('#masthead').height());
-//
-//    $('.video-content').css('height', window.innerHeight - $('.head_image_bot').position().top - $('#footer').height() - $('.head_image_bot').height());
+    $('.video-content').css('top', $('.head_image_bot').position().top + $('.head_image_bot').height() - $('#masthead').height());
 
-//    $('.video-content').css('top', $('#masthead').height());
+    $('.video-content').css('height', window.innerHeight - $('.head_image_bot').position().top - $('#footer').height() - $('.head_image_bot').height());
 
-    $('.video-content').css('height', window.innerHeight - $('#footer').height() - $('#masthead').height());
+    $('.video-content').css('top', $('.head_image').height());
+
+//    $('.video-content').css('height', window.innerHeight - $('#footer').height() - $('#masthead').height());
 
 
     $('.video').css('height', $('.video-content').height() - 60);
@@ -321,7 +323,7 @@ function setVideoSize() {
 function initTags(mapname) {
     if ($('#pictag').length <= 0)
         $('#cboxLoadedContent').append('<div id="pictag"></div>');
-    $('#pictag').hide();
+//    $('#pictag').hide();
 
     $(mapname + ' area').each(
         function() {
@@ -338,7 +340,7 @@ function initTags(mapname) {
             });
 
             $(this).mouseout(function() {
-                $('#pictag').hide();
+//                $('#pictag').hide();
             });
         }
     );
