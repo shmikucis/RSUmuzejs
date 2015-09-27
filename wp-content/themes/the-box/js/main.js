@@ -135,16 +135,10 @@ function init() {
             } else {
                 $('#cboxTitle').css('display', 'none');
             }
-            $('#cboxLoadedContent').zoom({
-                on: 'click',
-//                magnify: 0.8,
-                onZoomIn: function() {
-                    $(this).css({'cursor': 'crosshair', 'z-index':'1'});
-                },
-                onZoomOut: function() {
-                    $(this).css({'cursor': 'zoom-in', 'z-index':'-1'});
-                }
-            });            
+            $('#cboxLoadedContent img').uberZoom({
+                            navigator : true,
+                            navigatorImagePreview : true
+                        });  
             if (typeof $mapattr !== typeof undefined && $mapattr !== false) {
                 $('#cboxLoadedContent img').attr('usemap', $mapattr);
                 initTags($mapattr);
@@ -159,7 +153,7 @@ function init() {
 
         });
         $(document).bind('cbox_cleanup', function() {
-            $('.zoomImg').trigger('zoom.destroy');
+//            $('.zoomImg').trigger('zoom.destroy');
 //            window.removeEventListener("resize", debounce);
         });
 
@@ -183,21 +177,20 @@ function init() {
         $(id + ' a').first().trigger('click');
 
         $(id).on('onBeforeClose.lg', function() {
-            $('.zoomImg').trigger('zoom.destroy');
             scrollEnabled = true;
         });
-        $(id).on('onSlideItemLoad.lg', function() {
-            $('.lg-current.lg-complete .lg-img-wrap').zoom({
-                on: 'click',
-//                magnify: 0.8,
-                onZoomIn: function() {
-                    $(this).css({'cursor': 'crosshair', 'z-index':'1'});
-                },
-                onZoomOut: function() {
-                    $(this).css({'cursor': 'zoom-in', 'z-index':'-1'});
-                }
-            });
+        
+        $(id).on('onAfterSlide.lg', function() {
+            $('.lg-current.lg-complete .lg-img-wrap img').uberZoom({
+                            navigator : true,
+                            navigatorImagePreview : true
+                        });
         });
+        
+        setTimeout(function(){
+            $(id).trigger("onAfterSlide.lg");
+        }, 500);
+        
         $('.lg-thumb-outer').niceScroll({
             cursoropacitymin: 1
         });

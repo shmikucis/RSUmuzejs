@@ -781,7 +781,7 @@ margin-top: 2px;
 .lg-outer .lg-item:before, .lg-outer .lg-img-wrap:before {
   content: "";
   display: inline-block;
-  height: 50%;
+  /*height: 50%;*/
   width: 1px;
   margin-right: -5px;
 }
