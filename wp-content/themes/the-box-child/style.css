@@ -928,16 +928,16 @@ a.archive{
 }
 
 .pic_popup#colorbox #cboxLoadedContent{
-/*    width: 100% !important;
-    margin: auto;*/
+    /*width: 100% !important;*/
+    margin: auto;
     height: 70vh !important;
     margin-bottom: 0;
     overflow: hidden !important;
 }
 
 .cboxPhoto{
-    /*height: auto!important;*/
-    /*max-height: 70vh !important;*/
+    height: auto!important;
+    max-height: 70vh !important;
     width: auto !important;
     /*max-width: 100vw;*/
     margin: auto;
@@ -1183,6 +1183,11 @@ a.archive{
     #continue:hover, .readmore:hover{
         background-position-y: -30px;
     }
+    .mejs-textform{
+        width: 120px;
+        height: 30px;
+        line-height: 30px;
+    }
     .aboutvid{
         width: 100px;
         height: 20px;
@@ -1233,6 +1238,11 @@ a.archive{
     #continue:hover, .readmore:hover{
         background-position-y: -30px;
     }
+    .mejs-textform{
+        width: 120px;
+        height: 30px;
+        line-height: 30px;
+    }
     .aboutvid{
         width: 100px;
         height: 20px;
@@ -1275,6 +1285,11 @@ a.archive{
     }
     #continue:hover,.readmore:hover{
         background-position-y: -40px;
+    }
+    .mejs-textform{
+        width: 160px;
+        height: 40px;
+        line-height: 40px;
     }
     .aboutvid{
         width: 126px;
@@ -1329,6 +1344,11 @@ a.archive{
     #continue:hover, .readmore:hover{
         background-position-y: -60px;
     }
+    .mejs-textform{
+        width: 240px;
+        height: 60px;
+        line-height: 60px;
+    }
     .aboutvid{
         width: 158px;
         height: 26.5px;
@@ -1378,6 +1398,11 @@ a.archive{
     }
     #continue:hover, .readmore:hover{
         background-position-y: -80px;
+    }
+    .mejs-textform{
+        width: 320px;
+        height: 80px;
+        line-height: 80px;
     }
     .aboutvid{
         width: 211px;

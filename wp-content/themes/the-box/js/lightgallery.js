@@ -10,11 +10,11 @@
         mode: 'lg-slide',
 
         // Ex : 'ease'
-        cssEasing: 'cubic-bezier(0.25, 0, 0.25, 1)',
+        cssEasing: 'none',
 
         //'for jquery animation'
         easing: 'linear',
-        speed: 600,
+        speed: 0,
         height: '100%',
         width: '100%',
         addClass: '',
@@ -45,7 +45,7 @@
          * if preload is 2 then 2nd 3rd 5th 6th slides will be preloaded.. ... ...
          *
          */
-        preload: 1,
+        preload: 0,
         showAfterLoad: true,
         selector: '',
         nextHtml: '',

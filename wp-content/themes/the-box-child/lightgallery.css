@@ -790,7 +790,7 @@ margin-top: 2px;
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 0 5px;
+  /*padding: 0 5px;*/
 }
 .lg-outer .lg-item.lg-complete {
   background-image: none;
