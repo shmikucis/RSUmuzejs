@@ -141,7 +141,7 @@
                 thumbImg = thumb;
             }
 
-            thumbList += '<div data-vimoe-id="' + vimeoId + '" class="lg-thumb-item" style="width:' + _this.core.s.thumbWidth + 'px; margin-right: ' + _this.core.s.thumbMargin + 'px"><img src="' + thumbImg + '" /></div>';
+            thumbList += '<div data-vimoe-id="' + vimeoId + '" class="lg-thumb-item" style="margin-right: ' + _this.core.s.thumbMargin + 'px"><img src="' + thumbImg + '" /></div>';
             vimeoId = '';
         }
 

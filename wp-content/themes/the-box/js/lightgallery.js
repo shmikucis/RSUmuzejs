@@ -14,7 +14,7 @@
 
         //'for jquery animation'
         easing: 'linear',
-        speed: 0,
+        speed: 600,
         height: '100%',
         width: '100%',
         addClass: '',

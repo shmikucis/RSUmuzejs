@@ -33,7 +33,6 @@ var Content = Class.extend({
                         return; // exit this handler for other keys
                 }
             }
-            checkContinue();
             e.preventDefault(); // prevent the default action (scroll / move caret)
         });
 

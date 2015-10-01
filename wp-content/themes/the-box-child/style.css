@@ -173,7 +173,7 @@ div.top_bar{
   padding: 0;
   border: 0;
   list-style: none;
-  line-height: 1;
+  /*line-height: 1;*/
   display: block;
   position: relative;
   z-index: 3000;
@@ -318,9 +318,9 @@ p{
     position: absolute !important;
     width: 110%;
     left: -5% !important;
-    min-height: 110px;
+/*    min-height: 110px;
     height: 17%;    
-    max-height: 210px;
+    max-height: 330px;*/
     z-index: 2;
 }
 .head_image div{
@@ -492,6 +492,7 @@ ul.menu p{
 }
 .narrow.alignright{
     margin-left:45vw !important;
+    transform: translateY(-50%);
 }
 
 div.narrow{
@@ -556,7 +557,7 @@ p.narrow.text_right{
 p.vnarrow.text_right{
     width: 25%;
     left: 90%;
-    font-size: 9pt;
+    /*font-size: 9pt;*/
 }
 
 p.narrow.text_left{
@@ -570,11 +571,11 @@ p.citation{
 
 p.author_text_single{
     padding-top: 4%;
-    font-size: 0.8vmax;
+    font-size: 7pt;
 }
 
 p.vnarrow.author_text_single{
-    font-size: 7pt;
+    /*font-size: 7pt;*/
 }
 
 .video-content{
@@ -974,9 +975,9 @@ a.archive{
     align-content:center;
     flex-direction:column;
     font-family: oswald-medium;
-    font-size: 9pt;
+    font-size: 1.4vmax;
     color: #575756;
-    padding: 15px 25px 10px;
+    padding: 1.5% 2.5% 1%;
     text-transform: uppercase;
     transform: translateX(-50%);
     
@@ -1064,7 +1065,7 @@ a.archive{
 
 #foreLine {
     height: 1px;
-    width: 480px;
+    width: 30%;
     background-color: rgba(73, 14, 20, 0.3);
     margin: 0 auto;
 }
@@ -1103,6 +1104,8 @@ a.archive{
 }
 
 /*Titullapas beigas*/
+
+/*media lietas*/
 @media screen and (max-width: 620px) {
     .text_popup#colorbox{
         width:90vw !important;
@@ -1122,47 +1125,9 @@ a.archive{
 }
 
 @media screen and (max-width: 950px) {
-    .entry-title{
-        font-size: 14pt;
-    }
-    p.citation{
-        font-size: 9pt;
-    }
     
-    .popup{
-        font-size: 9pt;
-    }
-    
-    #fore1{
-        font-size: 30pt;
-    }
-    #fore2{
-        width: 40%;
-        font-size: 15pt;
-    }
-    #fore3{
-        font-size: 9pt;
-        width: 70vw !important;
-    }
-    
-    ul.menu p{
-        font-size: 7.5pt;
-    }
-    
-    .author_text_single{
-        font-size: 6pt !important;
-    }
-    p.vnarrow.text_right{
-        font-size: 9pt;
-    }
-    a.obj_icon[data-title]:after{
-        font-size: 9pt;
-    }
     .text_popup#colorbox{
         width: 500px !important;
-    }
-    #cboxTitle{
-        font-size: 9pt !important;
     }
     a.obj_icon{
         font-size:9pt;
@@ -1274,9 +1239,78 @@ a.archive{
     }
 }
 @media screen and (min-width: 1600px) {
+    #fore1{
+        font-size:60pt;
+    }
+    #fore2{
+        font-size: 21pt;
+    }
+    #foreLine{
+        height: 2px;
+    }    
+    #fore3, p.text_right, p.text_left, .popup, .pic_popup#colorbox #cboxTitle{
+        font-size: 14pt;
+    }
+    a.obj_icon[data-title]:after{font-size:13pt;}
+    #lg-counter, #sidemenu > ul > li > a, #sidemenu ul ul li a{
+        font-size: 18pt;
+    }
+    p.main_text_single, .lg-sub-html, #lg-counter-all, .video-content div, .mejs-inner p, .mejs-textform{
+        font-size: 16pt;
+    }    
+    p.author_text_single{
+        font-size: 11pt;
+    }
+    .entry-title{
+        font-size: 24pt;
+    }
+    .video-content div{
+        height: 50px;
+        line-height: 50px;
+    }
+    #sidemenu{
+        width: 300px;
+    }
     .text_popup#colorbox{
         width:700px !important;
     }
+    .lg-thumb-outer{
+        width: 276px !important;
+    }
+    .mejs-container .mejs-controls{
+        bottom: 19%;
+    }
+    .mejs-container .mejs-controls div{    
+        font-size: 12pt;   
+        height: 34px;         
+    }  
+    .mejs-button{
+        transform: scale(2,2);
+    }
+    .mejs-time-rail{        
+        left: 1%;        
+    }
+    .mejs-controls .mejs-time-rail span, .mejs-controls .mejs-time-rail a{
+        height: 8px;
+    }
+    img.narrow{
+        width: 22vw;
+    }
+    div.wide{
+        margin-top: 12vh;
+    }
+    img.wide{
+        width: 34vw;
+    }
+    .lg-thumb-item{
+        height: 110px !important;
+        width: 110px !important;
+        margin-top: 3px;
+    }
+    .lg-thumb-item.active:before, .lg-thumb-item:hover:before {
+        height: 110px !important;
+        width: 110px !important;
+}
      #continue,.readmore{
         width: 160px;
         height: 40px;
@@ -1332,8 +1366,67 @@ a.archive{
 }
 
 @media screen and (min-width: 2000px) {
+    #fore1{
+        font-size:72pt;
+    }
+    #fore2{
+        font-size: 26pt;
+    }
+    #foreLine{
+        height: 3px;
+    }    
+    #fore3, p.text_right, p.text_left, .popup, a.obj_icon[data-title]:after, .pic_popup#colorbox #cboxTitle{
+        font-size: 18pt;
+    }
+    #lg-counter, #sidemenu > ul > li > a, #sidemenu ul ul li a{
+        font-size: 24pt;
+    }
+    p.main_text_single, .lg-sub-html, #lg-counter-all, .video-content div, .mejs-inner p, .mejs-textform{
+        font-size: 20pt;
+    }    
+    p.author_text_single{
+        font-size: 16pt;
+    }
+    .entry-title{
+        font-size: 32pt;
+    }  
+    .video-content div{
+        height: 70px;
+        line-height: 70px;
+    }
+    #sidemenu{
+        width: 400px;
+    }
     .text_popup#colorbox{
         width:1200px !important;
+    }
+    .lg-thumb-outer{
+        width: 376px !important;
+    }
+    .lg-thumb-item{
+        height: 150px !important;
+        width: 150px !important;
+        margin-top: 5px;
+    }
+    .lg-thumb-item.active:before, .lg-thumb-item:hover:before {
+        height: 150px !important;
+        width: 150px !important;
+    }
+    .mejs-container .mejs-controls{
+        bottom: 19%;
+    }
+    .mejs-container .mejs-controls div{    
+        font-size: 16pt;   
+        height: 34px;         
+    }  
+    .mejs-button{
+        transform: scale(3,3);
+    }
+    .mejs-time-rail{        
+        left: 1%;        
+    }
+    .mejs-controls .mejs-time-rail span, .mejs-controls .mejs-time-rail a{
+        height: 10px;
     }
     #continue, .readmore{
         width: 240px;
