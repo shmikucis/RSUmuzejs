@@ -219,10 +219,16 @@ var Content = Class.extend({
 			} else {
 				$('#footer .social').addClass('hidden');
 			}
-//                        if(nextItem.template === 'templates/video.php'){
+                        if(nextItem.template === 'templates/video.php'){
+                            console.log(10);
+                               setTimeout(function(){
+                                   setHeadFootSize(true);
+                                   setVideoSize();
+                               }, this.coolDownTime);
+                                
 //                            $('ul.social').addClass('hidden');
 //                            $('.head_image, .head_image_bot').addClass('hidden');
-//                        }
+                        }
 			return;
 		}
 		if(nextItem.post_name == 'titullapa'){
@@ -241,13 +247,14 @@ var Content = Class.extend({
 			this.animateObject('.head_image_bot', 'moveDown', 100, 'in');
 			this.animateObject('#continue', 'moveUp', 100, 'in');
 		}
-//                if(prevItem.template === 'templates/video.php'){
+                if(prevItem.template === 'templates/video.php'){
 //                    this.removeAnimation('.head_image', 'moveUpOut');
 //                    this.removeAnimation('.head_image_bot', 'moveUpOut');
 //                    this.animateObject('.head_image', 'moveDown', 100, 'in');			
 //                    this.animateObject('.head_image_bot', 'moveDown', 100, 'in');
 //                    $('ul.social').removeClass('hidden');
-//                }
+                        setHeadFootSize(false);
+                }
 	}
 
 	, drawExceptionsOut: function(prevItem, nextItem){
@@ -264,14 +271,16 @@ var Content = Class.extend({
 			this.removeAnimation('#footer .social', 'moveUp');
 			this.animateObject('#footer .social', 'moveDownOut', 100, 'out');
 		}
-//                if(nextItem.template === 'templates/video.php'){
+                if(nextItem.template === 'templates/video.php'){
+                    console.log(10);
+                               setHeadFootSize(true);
 //                    this.removeAnimation('.head_image', 'moveDown');
 //                    this.removeAnimation('.head_image_bot', 'moveDown');
 //                    this.animateObject('.head_image', 'moveUpOut', 100, 'out');
 //                    this.animateObject('.head_image_bot', 'moveUpOut', 100, 'out');
 //                    
 //                    $('ul.social').addClass('hidden');
-//                }
+                }
 	}
 
 	, animateObject: function(pointer, animationClass, delay, inOut){

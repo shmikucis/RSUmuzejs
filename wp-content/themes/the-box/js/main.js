@@ -193,16 +193,16 @@ function init() {
                     navigator : true,
                     navigatorImagePreview : true
                 });
+                e = jQuery.Event( "DOMMouseScroll",{delta: -650} );
+                $('.lg-current.lg-complete .lg-img-wrap img').on('click', function(){$('.lg-current.lg-complete .lg-img-wrap img').trigger(e);});
+                
                 if ($('.lg-img-wrap').width() > $('.lg-current.lg-complete .lg-img-wrap img').width())
                     $('.lg-current.lg-complete .ndd-uberzoom-container').css('left', ($('.lg-img-wrap').width()-$('.lg-current.lg-complete .lg-img-wrap img').width())/2);
             }, 500);
         });
-         $(id).on('onAfterSlide.lg', function() {     
-             console.log(1);
+         $(id).on('onAfterSlide.lg', function() {
              if ($('.lg-img-wrap').width() > $('.lg-current.lg-complete .lg-img-wrap img').width())
-                $('.lg-current.lg-complete .ndd-uberzoom-container').css('left', ($('.lg-img-wrap').width()-$('.lg-current.lg-complete .lg-img-wrap img').width())/2);
-            
-//            $(window).trigger("resize");$(window).trigger("resize");
+                $('.lg-current.lg-complete .ndd-uberzoom-container').css('left', ($('.lg-img-wrap').width()-$('.lg-current.lg-complete .lg-img-wrap img').width())/2);            
         });
         
         $('.lg-thumb-outer').niceScroll({
@@ -212,7 +212,12 @@ function init() {
         scrollEnabled = false;
         galleryInnerResize();
     });
-
+    
+    //noņem ctx menu
+    document.addEventListener("contextmenu", function(e){
+    e.preventDefault();
+    }, false);
+    
     $(document).on('click', '.audio', function() {
         var audio = $('#footer audio');
         if (audio.length) {
@@ -330,7 +335,7 @@ function picPopupResize(){
     
 }
 
-function setHeadFootSize() {
+function setHeadFootSize(divide) {
     $('#masthead').css('height', $('#masthead').height());
     $('.top_bar a img').css('height', $('#masthead').height() / 7 * 5);
     $('.top_bar a img').css('margin-top', $('#masthead').height() / 7);
@@ -339,7 +344,8 @@ function setHeadFootSize() {
     window.footHeight = $('#footer').height();
     $('#footer').css('height', footHeight);
 
-    $('.head_image').css('height', $('#masthead').height()*2);
+    if(divide) $('.head_image').css('height', $('#masthead').height());
+    else $('.head_image').css('height', $('#masthead').height()*2);
     $('.head_image_bot').css('height', $('.head_image_bot').height());
 
     $('.head_image').css('top', $('.site-header').height() - $('.head_image').height() / 100 * 1);

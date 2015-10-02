@@ -356,14 +356,7 @@
 @keyframes buffering-stripes { from {background-position: 0 0;} to {background-position: 30px 0;} }
 
 .mejs-controls .mejs-time-rail .mejs-time-loaded {
-	background: #3caac8;
-	background: rgba(60,170,200,0.8);
-	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(44,124,145,0.8)), to(rgba(78,183,212,0.8)));
-	background: -webkit-linear-gradient(top, rgba(44,124,145,0.8), rgba(78,183,212,0.8));
-	background: -moz-linear-gradient(top, rgba(44,124,145,0.8), rgba(78,183,212,0.8));
-	background: -o-linear-gradient(top, rgba(44,124,145,0.8), rgba(78,183,212,0.8));
-	background: -ms-linear-gradient(top, rgba(44,124,145,0.8), rgba(78,183,212,0.8));
-	background: linear-gradient(rgba(44,124,145,0.8), rgba(78,183,212,0.8));
+	background: #CAC8C8;
 	width: 0;
 }
 
