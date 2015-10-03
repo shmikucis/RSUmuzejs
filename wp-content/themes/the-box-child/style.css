@@ -523,7 +523,26 @@ img.vwide{
     width: 45vw;
     height: auto;
 }
-
+.innerImg{
+    position: absolute;
+    margin-top: -10vh;
+    /*clip: rect(0px 303px 189px 0px);*/
+}
+.innerImg .layer div{
+    width: 300px;
+    height: 200px;
+    position: relative;
+}
+.innerImg img{
+    position: absolute;
+    width: 40vw;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin-right: -5vw;
+}
 p.main_text_single{
     width: 85%;
     margin: auto;
@@ -571,7 +590,7 @@ p.citation{
 
 p.author_text_single{
     padding-top: 4%;
-    font-size: 7pt;
+    font-size: 8pt;
 }
 
 p.vnarrow.author_text_single{

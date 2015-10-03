@@ -8,6 +8,14 @@ $(window).load(function() {
 
 $(window).resize(function() {
     $('.head_image').css('clip', 'rect(0px,' + $('.head_image').width() + 'px,' + $('.head_image').height() + 'px, 0px)');
+    
+    //parallax izmēģinājums
+    $('.innerImg img').css('width', 30 + 'vw');
+    $('.innerImg .layer div').width($('.innerImg img').innerWidth());
+    $('.innerImg .layer div').height($('.innerImg img').innerHeight());
+    $('.innerImg').css('clip', 'rect(0px,' + $('.innerImg img').innerWidth() + 'px,' + $('.innerImg img').innerHeight() + 'px, 0px)');
+    $('.innerImg img').css('width', 40 + 'vw');
+    
     setSocialMargin();
     galleryInnerResize();
     picPopupResize();

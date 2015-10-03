@@ -7,14 +7,14 @@ var Content = Class.extend({
 		var self = this;
 
 		$(window).bind('mousewheel DOMmousescroll wheel', function(e){
-			var direction = e.originalEvent.wheelDelta /120 > 0 ? 'up' : 'down';
-            if(scrollEnabled){
-                if(direction === 'down'){
-                        self.drawNext();
-                } else {
-                        self.drawPrev();
-                }
-            }
+                    var direction = e.originalEvent.wheelDelta /120 > 0 ? 'up' : 'down';
+                    if(scrollEnabled){
+                        if(direction === 'down'){
+                                self.drawNext();
+                        } else {
+                                self.drawPrev();
+                        }
+                    }
 		});
                 
         $(document).keydown(function(e) {
@@ -69,7 +69,7 @@ var Content = Class.extend({
 			this.drawIn(item);
 			this.animateObject('#masthead', 'moveDown', 300, 'in');
 			this.animateObject('#footer', 'moveUp', 500, 'in');
-            setButtonMargin();
+                        setButtonMargin();
 		} else {
 			var prevItem = dynamicContent.getItem();
 			this.animateScene(prevItem, 'out');
@@ -83,8 +83,8 @@ var Content = Class.extend({
 			setTimeout(function(){
 				self.drawIn(item);
 				parallax.updateLayers();
-                updateListeners();
-                setButtonMargin();
+                                updateListeners();
+                                setButtonMargin();
 			}, coolDownTime);
 		}	
 		$visitedMaps = [];
@@ -97,6 +97,15 @@ var Content = Class.extend({
 		this.animateScene(item, 'in');
 		this.drawExceptionsIn(dynamicContent.getItem(), item);
 		dynamicContent.set(item);
+                //parallax izmēģinājums
+                setTimeout(function(){
+                    $('.innerImg img').css('width', 30 + 'vw');
+                    $('.innerImg .layer div').width($('.innerImg img').innerWidth());
+                    $('.innerImg .layer div').height($('.innerImg img').innerHeight());
+                    $('.innerImg').css('clip', 'rect(0px,' + $('.innerImg img').innerWidth() + 'px,' + $('.innerImg img').innerHeight() + 'px, 0px)');
+                    $('.innerImg img').css('width', 40 + 'vw');
+                }, 100);
+                    
 	}
 
 	, isTime: function(){
@@ -227,6 +236,7 @@ var Content = Class.extend({
                         }
                         if(nextItem.template === 'templates/menu.php'){
 				$('#continue').addClass('hidden none');
+                                scrollEnabled = false;
 			}
 			return;
 		}
@@ -249,6 +259,7 @@ var Content = Class.extend({
                 if(prevItem.template === 'templates/menu.php' && nextItem.template !== 'templates/menu.php'){
 			this.removeAnimation('#continue', 'none moveDownOut');
                         this.animateObject('#continue', 'moveUp', 100, 'in');
+                        scrollEnabled = true;
 		}
                 if(prevItem.template === 'templates/video.php'){
                         setHeadFootSize(false);
@@ -272,6 +283,7 @@ var Content = Class.extend({
                 if(nextItem.template == 'templates/menu.php'){
 			this.removeAnimation('#continue', 'moveUp');
 			this.animateObject('#continue', 'moveDownOut', 100, 'out');
+                        scrollEnabled = false;
 		}
                 if(nextItem.template === 'templates/video.php'){
                         setHeadFootSize(true);
