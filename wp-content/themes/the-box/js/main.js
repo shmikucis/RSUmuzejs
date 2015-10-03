@@ -379,6 +379,7 @@ function initTags(mapname) {
     $(mapname + ' area').each(
         function() {
             $(this).mouseover(function() {
+                if($('.ndd-uberzoom-main-image').width() === $('.ndd-uberzoom-container').width()){
                 var name = $(this).data('name');
                 var coords = $(this).attr('coords').split(',');
                 var top = parseInt(coords[3]);
@@ -388,6 +389,7 @@ function initTags(mapname) {
                 $('#pictag').css('top', top);
                 $('#pictag').css('left', left);
                 $('#pictag').show();
+                }
             });
 
             $(this).mouseout(function() {

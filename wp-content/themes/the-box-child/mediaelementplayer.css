@@ -282,7 +282,7 @@
     margin-top: 5px;
     /*width: 13%;*/    
     float: right;
-    margin-right: 8%;
+    margin-right: 4%;
     text-align: center;
     z-index: 9999;
 }
@@ -460,6 +460,7 @@
 
 .mejs-controls .mejs-volume-button {
 	position: relative;
+        left: 4%;
 }
 
 .mejs-controls .mejs-volume-button .mejs-volume-slider {
@@ -534,6 +535,7 @@
 	position: relative;
     display: block;
     float: left;
+    left: 4%;
     vertical-align: middle;
 }
 
@@ -571,14 +573,7 @@
 	-webkit-border-radius: 2px;
 	-moz-border-radius: 2px;
 	border-radius: 2px;
-	background: #fff;
-	background: rgba(255,255,255,0.8);
-	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(255,255,255,0.9)), to(rgba(200,200,200,0.8)));
-	background: -webkit-linear-gradient(top, rgba(255,255,255,0.9), rgba(200,200,200,0.8));
-	background: -moz-linear-gradient(top, rgba(255,255,255,0.9), rgba(200,200,200,0.8));
-	background: -o-linear-gradient(top, rgba(255,255,255,0.9), rgba(200,200,200,0.8));
-	background: -ms-linear-gradient(top, rgba(255,255,255,0.9), rgba(200,200,200,0.8));
-	background: linear-gradient(rgba(255,255,255,0.9), rgba(200,200,200,0.8));
+	background: #CAC8C8;
 }
 
 .mejs-controls .mejs-horizontal-volume-slider .mejs-horizontal-volume-handle {

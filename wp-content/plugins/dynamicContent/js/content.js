@@ -220,15 +220,14 @@ var Content = Class.extend({
 				$('#footer .social').addClass('hidden');
 			}
                         if(nextItem.template === 'templates/video.php'){
-                            console.log(10);
                                setTimeout(function(){
                                    setHeadFootSize(true);
                                    setVideoSize();
                                }, this.coolDownTime);
-                                
-//                            $('ul.social').addClass('hidden');
-//                            $('.head_image, .head_image_bot').addClass('hidden');
                         }
+                        if(nextItem.template === 'templates/menu.php'){
+				$('#continue').addClass('hidden none');
+			}
 			return;
 		}
 		if(nextItem.post_name == 'titullapa'){
@@ -247,12 +246,11 @@ var Content = Class.extend({
 			this.animateObject('.head_image_bot', 'moveDown', 100, 'in');
 			this.animateObject('#continue', 'moveUp', 100, 'in');
 		}
+                if(prevItem.template === 'templates/menu.php' && nextItem.template !== 'templates/menu.php'){
+			this.removeAnimation('#continue', 'none moveDownOut');
+                        this.animateObject('#continue', 'moveUp', 100, 'in');
+		}
                 if(prevItem.template === 'templates/video.php'){
-//                    this.removeAnimation('.head_image', 'moveUpOut');
-//                    this.removeAnimation('.head_image_bot', 'moveUpOut');
-//                    this.animateObject('.head_image', 'moveDown', 100, 'in');			
-//                    this.animateObject('.head_image_bot', 'moveDown', 100, 'in');
-//                    $('ul.social').removeClass('hidden');
                         setHeadFootSize(false);
                 }
 	}
@@ -271,15 +269,12 @@ var Content = Class.extend({
 			this.removeAnimation('#footer .social', 'moveUp');
 			this.animateObject('#footer .social', 'moveDownOut', 100, 'out');
 		}
+                if(nextItem.template == 'templates/menu.php'){
+			this.removeAnimation('#continue', 'moveUp');
+			this.animateObject('#continue', 'moveDownOut', 100, 'out');
+		}
                 if(nextItem.template === 'templates/video.php'){
-                    console.log(10);
-                               setHeadFootSize(true);
-//                    this.removeAnimation('.head_image', 'moveDown');
-//                    this.removeAnimation('.head_image_bot', 'moveDown');
-//                    this.animateObject('.head_image', 'moveUpOut', 100, 'out');
-//                    this.animateObject('.head_image_bot', 'moveUpOut', 100, 'out');
-//                    
-//                    $('ul.social').addClass('hidden');
+                        setHeadFootSize(true);
                 }
 	}
 
