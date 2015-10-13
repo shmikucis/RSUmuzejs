@@ -137,7 +137,7 @@ var Content = Class.extend({
 	, drawFromUrl: function(url){
 		var item = dynamicContent.getItemByUrl(url);
 		if(item) {
-			this.direction = 'up';
+			this.direction = 'down';
 			this.draw(item);
 		}
 	}
@@ -401,6 +401,7 @@ var Content = Class.extend({
 				break;
 		}     
 
+		// add eventlistener to menu items in content
 		var self = this;
 		if($('.entry-content .menu').length > 0) {
 			$('.entry-content .menu').bind('click', function(e){
