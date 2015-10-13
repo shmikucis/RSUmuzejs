@@ -1148,26 +1148,26 @@ a.archive{
     
     .text_popup#colorbox{
         width: 500px !important;
+    }  
+    #continue, .readmore{
+        width: 120px;
+        height: 30px;
+        background-size: 120px 60px;
+        background-position: 0px 0px;
+    }
+    #continue:hover, .readmore:hover{
+        background-position: 0px -30px;
     }
     a.obj_icon{
         font-size:9pt;
         height: 50px;
         width: 43px;
         background-size: 86px 50px;
-        background-position-x: 0px;
+        background-position: 0px 0px;
     }
     a.obj_icon:hover{
-        background-position-x: -43px;
-    }    
-    #continue, .readmore{
-        width: 120px;
-        height: 30px;
-        background-size: 120px 60px;
-        background-position-y: 0px;
-    }
-    #continue:hover, .readmore:hover{
-        background-position-y: -30px;
-    }
+        background-position: -43px 0px;
+    }  
     .mejs-textform{
         width: 120px;
         height: 30px;
@@ -1177,10 +1177,10 @@ a.archive{
         width: 100px;
         height: 20px;
         background-size: 100px 40px;
-        background-position-y:0px;
+        background-position: 0px 0px;
     }
     .aboutvid:hover{
-        background-position-y: -20px;
+        background-position: 0px -20px;
     }
     .social li{
         width: 26px;
@@ -1188,41 +1188,42 @@ a.archive{
     }
     .social li a{        
         background-size: 52px 30px;   
-        background-position-x: 0px;
+        background-position: 0px 0px;
     }
     .social li a:hover{
-        background-position-x: -26px;
+        background-position: -26px 0px;
     }
     #bigmore{
         width: 200px;
         height: 50px;
         background-size: 200px 100px;
-        background-position-y: 0px;
+        background-position: 0px 0px;
     }
     #bigmore:hover{
-        background-position-y: -50px;
+        background-position: 0px -50px;
     }
 }
 @media screen and (min-width:950px){
-   a.obj_icon{
+   
+    #continue, .readmore{
+        width: 120px;
+        height: 30px;
+        background-size: 120px 60px;
+        background-position: 0px 0px;
+    }
+    #continue:hover, .readmore:hover{
+        background-position: 0px -30px;
+    }
+    a.obj_icon{
         font-size:9pt;
         height: 50px;
         width: 43px;
         background-size: 86px 50px;
-        background-position-x: 0px;
+        background-position: 0px 0px;
     }
     a.obj_icon:hover{
-        background-position-x: -43px;
+        background-position: -43px 0px;
     }    
-    #continue, .readmore{
-        width: 120px;
-        height: 30px;
-        background-size: 120px 60px;
-        background-position-y: 0px;
-    }
-    #continue:hover, .readmore:hover{
-        background-position-y: -30px;
-    }
     .mejs-textform{
         width: 120px;
         height: 30px;
@@ -1232,10 +1233,10 @@ a.archive{
         width: 100px;
         height: 20px;
         background-size: 100px 40px;
-        background-position-y:0px;
+        background-position: 0px 0px;
     }
     .aboutvid:hover{
-        background-position-y: -20px;
+        background-position: 0px -20px;
     }
     .social li{
         width: 26px;
@@ -1243,19 +1244,19 @@ a.archive{
     }
     .social li a{        
         background-size: 52px 30px;   
-        background-position-x: 0px;
+        background-position: 0px 0px;
     }
     .social li a:hover{
-        background-position-x: -26px;
+        background-position: -26px 0px;
     }
     #bigmore{
         width: 200px;
         height: 50px;
         background-size: 200px 100px;
-        background-position-y: 0px;
+        background-position: 0px 0px;
     }
     #bigmore:hover{
-        background-position-y: -50px;
+        background-position: 0px -50px;
     }
 }
 @media screen and (min-width: 1600px) {
@@ -1340,10 +1341,10 @@ a.archive{
         width: 160px;
         height: 40px;
         background-size: 160px 80px;
-        background-position-y: 0px;
+        background-position: 0px 0px;
     }
     #continue:hover,.readmore:hover{
-        background-position-y: -40px;
+        background-position: 0px -40px;
     }
     .mejs-textform{
         width: 160px;
@@ -1354,19 +1355,19 @@ a.archive{
         width: 126px;
         height: 21px;
         background-size: 126px 42px;
-        background-position-y:0px;
+        background-position: 0px 0px;
     }
     .aboutvid:hover{
-        background-position-y: -21px;
+        background-position: 0px -21px;
     }
     a.obj_icon{
         height: 68px;
         width: 59px;
         background-size: 118px 68px;
-        background-position-x: 0px;
+        background-position: 0px 0px;
     }
     a.obj_icon:hover{
-        background-position-x: -59px;
+        background-position: -59px 0px;
     }
     .social li{
         width: 34px;
@@ -1374,19 +1375,19 @@ a.archive{
     }
     .social li a{
         background-size: 68px 39px;   
-        background-position-x: 0px;
+        background-position: 0px;
     }
     .social li a:hover{
-        background-position-x: -34px;
+        background-position: -34px 0px;
     }
     #bigmore{
         width: 220px;
         height: 55px;
         background-size: 220px 110px;
-        background-position-y: 0px;
+        background-position: 0px 0px;
     }
     #bigmore:hover{
-        background-position-y: -55px;
+        background-position: 0px -55px;
     }
 }
 
@@ -1461,10 +1462,10 @@ a.archive{
         width: 240px;
         height: 60px;
         background-size: 240px 120px;
-        background-position-y: 0px;
+        background-position: 0px 0px;
     }
     #continue:hover, .readmore:hover{
-        background-position-y: -60px;
+        background-position: 0px -60px;
     }
     .mejs-textform{
         width: 240px;
@@ -1475,19 +1476,19 @@ a.archive{
         width: 158px;
         height: 26.5px;
         background-size: 158px 53px;
-        background-position-y:0px;
+        background-position: 0px 0px;
     }
     .aboutvid:hover{
-        background-position-y: -26.5px;
+        background-position: 0px -26.5px;
     }
     a.obj_icon{
         height: 101px;
         width: 88px;
         background-size: 176px 101px;
-        background-position-x: 0px;
+        background-position: 0px 0px;
     }
     a.obj_icon:hover{
-        background-position-x: -88px;
+        background-position: -88px 0px;
     }
     .social li{
         width: 50px;
@@ -1495,19 +1496,19 @@ a.archive{
     }
     .social li a{
         background-size: 100px 58px;   
-        background-position-x: 0px;
+        background-position: 0px 0px;
     }
     .social li a:hover{
-        background-position-x: -50px;
+        background-position: -50px 0px;
     }
     #bigmore{
         width: 330px;
         height: 82px;
         background-size: 330px 164px;
-        background-position-y: 0px;
+        background-position: 0px 0px;
     }
     #bigmore:hover{
-        background-position-y: -84px;
+        background-position: 0px -84px;
     }
 }
 
@@ -1516,10 +1517,10 @@ a.archive{
         width: 320px;
         height: 80px;
         background-size: 320px 160px;
-        background-position-y: 0px;
+        background-position: 0px 0px;
     }
     #continue:hover, .readmore:hover{
-        background-position-y: -80px;
+        background-position: 0px -80px;
     }
     .mejs-textform{
         width: 320px;
@@ -1530,19 +1531,19 @@ a.archive{
         width: 211px;
         height: 35px;
         background-size: 211px 70px;
-        background-position-y:0px;
+        background-position: 0px 0px;
     }
     .aboutvid:hover{
-        background-position-y: -35px;
+        background-position: 0px -35px;
     }
     a.obj_icon{
         height: 135px;
         width: 117px;
         background-size: 234px 135px;
-        background-position-x: 0px;
+        background-position: 0px 0px;
     }
     a.obj_icon:hover{
-        background-position-x: -117px;
+        background-position: -117px 0px;
     }
     .social li{
         width: 67px;
@@ -1550,19 +1551,19 @@ a.archive{
     }
     .social li a{
         background-size: 134px 77px;   
-        background-position-x: 0px;
+        background-position: 0px 0px;
     }
     .social li a:hover{
-        background-position-x: -67px;
+        background-position: -67px 0px;
     }
     #bigmore{
         width: 440px;
         height: 110px;
         background-size: 440px 220px;
-        background-position-y: 0px;
+        background-position: 0px 0px;
     }
     #bigmore:hover{
-        background-position-y: -110px;
+        background-position: 0px -110px;
     }
 }
 
