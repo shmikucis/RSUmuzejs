@@ -324,10 +324,7 @@ p{
     z-index: 2;
 }
 .head_image div{
-    background: linear-gradient(
-      rgba(186, 36, 49, 0.35), 
-      rgba(186, 36, 49, 0.35)
-    ), url(images/family_header.jpg);
+    background: url(images/family_header.jpg);
     background-position: center;   
     background-size: cover;
     top: -25% !important;
