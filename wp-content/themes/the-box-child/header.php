@@ -103,6 +103,7 @@ else
                          <li><a href='#'><span>Tradīcijas</span></a></li>
                       </ul>
                    </li>
+                   <li><a href="#"><span>Kontakti</span></a>
                 </ul>
             </div>
             <div class="head_image headparallax">
