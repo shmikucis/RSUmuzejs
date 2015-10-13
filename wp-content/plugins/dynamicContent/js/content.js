@@ -4,6 +4,7 @@ var Content = Class.extend({
 		this.lastTime = new Date().getTime() - this.coolDownTime;
 		this.article = $('article');
 		this.direction = 'down'; // up, down
+		this.history = [];
 		var self = this;
 
 		$(window).bind('mousewheel DOMmousescroll wheel', function(e){
@@ -36,6 +37,16 @@ var Content = Class.extend({
             e.preventDefault(); // prevent the default action (scroll / move caret)
         });
 
+        // track backspace button
+        $('html').keyup(function(e){
+        	if(e.keyCode == 8){
+    		if(self.history.length > 1)
+    			self.history.pop();
+    			var backUrl = self.history.pop();
+    			self.drawFromUrl(backUrl);
+        	}
+        })  
+
         
         $( "#continue" ).bind( "click", function() {
 		  	self.drawNext();
@@ -65,6 +76,7 @@ var Content = Class.extend({
 		if(!item){
 			var item = dynamicContent.getItem();	
 		}
+		this.add2History(item.post_name);
 		if(this.article.html().trim().length === 0){ // calls first time after page is loaded
 			this.drawIn(item);
 			this.animateObject('#masthead', 'moveDown', 300, 'in');
@@ -97,14 +109,15 @@ var Content = Class.extend({
 		this.animateScene(item, 'in');
 		this.drawExceptionsIn(dynamicContent.getItem(), item);
 		dynamicContent.set(item);
-                //parallax izmēģinājums
-                setTimeout(function(){
-                    $('.innerImg img').css('width', 30 + 'vw');
-                    $('.innerImg .layer div').width($('.innerImg img').innerWidth());
-                    $('.innerImg .layer div').height($('.innerImg img').innerHeight());
-                    $('.innerImg').css('clip', 'rect(0px,' + $('.innerImg img').innerWidth() + 'px,' + $('.innerImg img').innerHeight() + 'px, 0px)');
-                    $('.innerImg img').css('width', 40 + 'vw');
-                }, 100);
+
+        //parallax izmēģinājums
+        setTimeout(function(){
+            $('.innerImg img').css('width', 30 + 'vw');
+            $('.innerImg .layer div').width($('.innerImg img').innerWidth());
+            $('.innerImg .layer div').height($('.innerImg img').innerHeight());
+            $('.innerImg').css('clip', 'rect(0px,' + $('.innerImg img').innerWidth() + 'px,' + $('.innerImg img').innerHeight() + 'px, 0px)');
+            $('.innerImg img').css('width', 40 + 'vw');
+        }, 100);
                     
 	}
 
@@ -116,6 +129,17 @@ var Content = Class.extend({
 		} else {
 			return false;
 		}
+	}
+
+	, add2History: function(url){
+		this.history.push(url);
+		if(this.history.length > 50){
+			this.history.shift();
+		}
+	}
+
+	, back: function(){
+
 	}
 
 	, drawNext: function(){
