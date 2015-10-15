@@ -409,7 +409,7 @@ function initTags(mapname) {
 }
 
 function updateListeners() {
-    $('a.readmore, a.mejs-textform a.humor').colorbox({
+    $('a.readmore, a.mejs-textform, a.humor').colorbox({
         inline: true,
         scrolling: false
     });

@@ -500,12 +500,15 @@ div.narrow{
 }
 
 div.wide{
+    margin-top: 17vh;
+}
+div.wide.alignright{
     margin-top: 10vh;
 }
 
 div.vwide{
-    margin-top: 20%;
-    left: -20%;
+    margin-top: 25%;
+    left: -10%;
 }
 
 img.narrow{
@@ -520,7 +523,7 @@ img.wide{
 }
 
 img.vwide{
-    width: 45vw;
+    width: 37vw;
     height: auto;
 }
 .innerImg{
@@ -575,7 +578,7 @@ p.narrow.text_right{
 
 p.vnarrow.text_right{
     width: 25%;
-    left: 90%;
+    left: 80%;
     /*font-size: 9pt;*/
 }
 
@@ -816,11 +819,11 @@ a.obj_icon[data-title]:hover:after{
 }
 .global_topright{
     top: -10vh !important;
-    left: 40vw !important;
+    left: 50vw !important;
 }
 .global_topmid{
     top: -10vh !important;
-   left: 50% !important;
+   left: 25vw !important;
 }
 
 a.closer{

@@ -62,15 +62,16 @@ else
                 <ul>
                    <li class='has-sub'><a><span>Pirmsākumi</span></a>
                        <ul>
-                         <li><a href='#stradinu-dzimta'><span>Stradiņa dzimta</span></a></li>
-                         <li><a href='#studiju-virzieni-1'><span>RSU studiju virzienu vēsture</span></a></li>
+                         <li><a href='#medicina'><span>Medicīna</span></a></li>
+                         <li><a href='#socialas-zinatnes'><span>Sociālās zinātnes</span></a></li>
                        </ul>
                    </li>
                    <li class='has-sub'><a><span>Attīstība</span></a>
                       <ul>
-                         <li><a href='#'><span>Rīgas medicīnas institūts</span></a></li>
-                         <li><a href='#'><span>Latvijas medicīnas akadēmija</span></a></li>
-                         <li><a href='#'><span>Rīgas Stradiņa Universitāte</span></a></li>
+                         <li><a href='#stradinu-dzimta'><span>Stradiņu dzimta</span></a></li>
+                         <li><a href='#'><span>Rīgas Medicīnas institūts</span></a></li>
+                         <li><a href='#'><span>Latvijas Medicīnas akadēmija</span></a></li>
+                         <li><a href='#'><span>Rīgas Stradiņa universitāte</span></a></li>
                          <li><a href='#'><span>Rektori</span></a></li>
                       </ul>
                    </li>
