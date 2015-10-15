@@ -120,7 +120,7 @@ function init() {
     });
 
     // click on read more button
-    $(document).on('click', '.readmore, .mejs-textform', function() {
+    $(document).on('click', '.readmore, .mejs-textform, .humor', function() {
         $("#colorbox").addClass("text_popup");
         $(document).bind('cbox_complete', function() {
             textPopupVcenter();
@@ -409,7 +409,7 @@ function initTags(mapname) {
 }
 
 function updateListeners() {
-    $('a.readmore, a.mejs-textform').colorbox({
+    $('a.readmore, a.mejs-textform a.humor').colorbox({
         inline: true,
         scrolling: false
     });

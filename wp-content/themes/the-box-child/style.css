@@ -397,6 +397,9 @@ ul.social{
 #draugiem{
     background-image: url(images/ui/draugiem.png);
 }
+#gplus{
+    background-image: url(images/ui/gplus.png);
+}
 ul.menu{
     width: 100vw;
     margin-left: -20vw;
@@ -832,8 +835,8 @@ a.objects{
     background-image: url('images/ui/objects.png');
 }
 
-a.crescent{
-    background-image: url('images/ui/crescent.png');   
+a.humor{
+    background-image: url('images/ui/humor.png');   
 }
 
 a.audio{
