@@ -278,7 +278,7 @@
                     "width" : self.contentWidth + "px",
                     "height" : self.contentHeight + "px",
                     "left" : (-self.contentWidth/2 + self.frameWidth/2) + "px",
-                    "top" : -self.contentHeight/2 + self.frameHeight/2 + "px"
+                    "top" : (-self.contentHeight/2 + self.frameHeight/2) + "px"
                 });
 
                 // show image and fit to wrapper
@@ -600,13 +600,13 @@
                 self.stop_moving();
                 self.dragging = false;
                 
-                var isRightMB;
-                if ("which" in e)  // Gecko (Firefox), WebKit (Safari/Chrome) & Opera
-                isRightMB = e.which == 3; 
-                    else if ("button" in e)  // IE, Opera 
-                isRightMB = e.button == 2; 
-                
-                isRightMB ? self.zoom_out(e.offsetX, e.offsetY) : self.zoom_in(e.offsetX, e.offsetY);
+//                var isRightMB;
+//                if ("which" in e)  // Gecko (Firefox), WebKit (Safari/Chrome) & Opera
+//                isRightMB = e.which == 3; 
+//                    else if ("button" in e)  // IE, Opera 
+//                isRightMB = e.button == 2; 
+//                
+//                isRightMB ? self.zoom_out(e.offsetX, e.offsetY) : self.zoom_in(e.offsetX, e.offsetY);
             }
 
             if (e.type == "mousewheel") {
@@ -1066,6 +1066,7 @@
                 "height" : self.contentHeight * self.currentZoom,
                 "left" : self.currentPosX,
                 "top" : self.currentPosY
+                //"transform": 'translate(' + -self.currentPosX/2 + 'px, ' + -self.currentPosY/2 + 'px)'
             });
 
             if (self.options.navigator) {

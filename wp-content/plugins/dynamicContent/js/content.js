@@ -81,7 +81,7 @@ var Content = Class.extend({
 			this.drawIn(item);
 			this.animateObject('#masthead', 'moveDown', 300, 'in');
 			this.animateObject('#footer', 'moveUp', 500, 'in');
-                        setButtonMargin();
+                        setButtonMargin();                        
 		} else {
 			var prevItem = dynamicContent.getItem();
 			this.animateScene(prevItem, 'out');
@@ -118,7 +118,7 @@ var Content = Class.extend({
             $('.innerImg').css('clip', 'rect(0px,' + $('.innerImg img').innerWidth() + 'px,' + $('.innerImg img').innerHeight() + 'px, 0px)');
             $('.innerImg img').css('width', 40 + 'vw');
         }, 100);
-                    
+                    console.log(item.menu_item_parent);
 	}
 
 	, isTime: function(){

@@ -108,6 +108,12 @@ else
                 </ul>
             </div>
             <div class="head_image headparallax">
+                <div class="breadcrumbs" xmlns:v="http://rdf.data-vocabulary.org/#">
+                    <?php if(function_exists('bcn_display'))
+                    {
+                        bcn_display();
+                    }?>
+                </div>
             <div class="layer" data-depth="0.3"></div>
         </div>
         <div class="head_image_bot">
