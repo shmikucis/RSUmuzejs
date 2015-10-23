@@ -151,6 +151,13 @@ div.top_bar{
     position: absolute;
 }
 
+#breadcrumbs{
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
 /*SideMenu*/
 #menu_toggle{
     float: right;
@@ -322,6 +329,7 @@ p{
     height: 17%;    
     max-height: 330px;*/
     z-index: 2;
+    text-align: center;
 }
 .head_image div{
     background: url(images/family_header.jpg);

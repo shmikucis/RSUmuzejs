@@ -54,7 +54,7 @@ else
 	<header id="masthead" class="site-header clearfix" role="banner">
 		<div class="top_bar">
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-				<img src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="RSU muzejs" id="header_logo"/>
+				<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo.png" alt="RSU muzejs" id="header_logo"/>
 			</a>
 		</div>
             <span id="menu_toggle"></span>
@@ -108,12 +108,23 @@ else
                 </ul>
             </div>
             <div class="head_image headparallax">
-                <div class="breadcrumbs" xmlns:v="http://rdf.data-vocabulary.org/#">
-                    <?php if(function_exists('bcn_display'))
+                <!--<div class="breadcrumbs" xmlns:v="http://rdf.data-vocabulary.org/#">
+                    <?php // if(function_exists('bcn_display'))
                     {
-                        bcn_display();
+//                        bcn_display();
                     }?>
-                </div>
+                </div>-->
+                <span id="breadcrumbs">
+                    <a>
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/ui/bcrumbs/mainmenu.png"/>
+                    </a>
+                    <a>
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/ui/bcrumbs/virzieni.png"/>
+                    </a>
+                    <a>
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/ui/bcrumbs/soczin.png"/>
+                    </a>
+                </span>
             <div class="layer" data-depth="0.3"></div>
         </div>
         <div class="head_image_bot">
