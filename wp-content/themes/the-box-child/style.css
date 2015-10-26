@@ -732,10 +732,12 @@ p.narrow{
     background-size:contain;
     background-repeat: no-repeat;
     position: relative;
-    height: 4vh;
+/*    height: 4vh;
     width: 2.1vw; 
-    min-width: 20px;
+    min-width: 20px;*/
     vertical-align: middle;
+    margin-left: auto;
+    margin-right: auto;
 }
 /*Ikonas un pogas*/
 .readmore{
@@ -895,7 +897,7 @@ a.archive{
     overflow: visible !important;
 }
 
-.text_popup#colorbox:before{
+/*.text_popup#colorbox:before{
     position: absolute;
     content: "";
     background-image: url('images/ui/citation.png');    
@@ -908,6 +910,21 @@ a.archive{
     min-width: 20px;
     margin-left: 50%;
     transform: translate(-50%,-50%);
+    z-index: 123525;
+}*/
+.text_popup#colorbox .citation_logo{
+    /*position: absolute;*/
+    content: "";
+    background-image: url('images/ui/citation.png');    
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+/*    height: 2.4vw;
+    min-height: 26px;
+    width: 2.1vw; 
+    min-width: 20px;*/
+    margin-left: auto;
+    margin-right: auto;
     z-index: 123525;
 }
 
@@ -1169,6 +1186,11 @@ a.archive{
     .text_popup#colorbox{
         width: 500px !important;
     }  
+    .citation_logo{
+        width: 20px;
+        height: 23px;
+        margin-top: -11.5px;        
+    }
     #continue, .readmore{
         width: 120px;
         height: 30px;
@@ -1224,7 +1246,11 @@ a.archive{
     }
 }
 @media screen and (min-width:950px){
-   
+   .citation_logo{
+        width: 20px;
+        height: 23px;
+        margin-top: -11.5px;        
+    }
     #continue, .readmore{
         width: 120px;
         height: 30px;
@@ -1319,6 +1345,11 @@ a.archive{
     }
     .text_popup#colorbox{
         width:700px !important;
+    }
+    .citation_logo{
+        width: 32px;
+        height: 37px;
+        margin-top: -18.5px;        
     }
     .lg-thumb-outer{
         width: 276px !important;
@@ -1450,6 +1481,11 @@ a.archive{
     .text_popup#colorbox{
         width:1200px !important;
     }
+    .citation_logo{
+        width: 44px;
+        height: 51px;
+        margin-top: -25.5px;        
+    }
     .lg-thumb-outer{
         width: 376px !important;
     }
@@ -1533,6 +1569,11 @@ a.archive{
 }
 
 @media screen and (min-width: 2400px){
+    .citation_logo{
+        width: 56px;
+        height: 65px;
+        margin-top: -32.5px;        
+    }
     #continue, .readmore{
         width: 320px;
         height: 80px;

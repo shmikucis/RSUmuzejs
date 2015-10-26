@@ -124,6 +124,7 @@ function init() {
         $("#colorbox").addClass("text_popup");
         $(document).bind('cbox_complete', function() {
             textPopupVcenter();
+            $('.citation_logo').show();
             $("#cboxLoadedContent").niceScroll({
                 cursoropacitymin: 1
             });
@@ -438,8 +439,8 @@ function setButtonMargin() {
     readmore.css('margin-left', readparent.width()-readmore.width());
     
     //citāta pēdiņas
-    $('.citation_logo').css({
-        'margin-top': -$('.citation_logo').height()/2,
-        'margin-left': $('.citation_logo').parent().width()/2-$('.citation_logo').width()/2
-    });
+//    $('.citation_logo').css({
+//        'margin-top': -$('.citation_logo').height()/2,
+//        'margin-left': $('.citation_logo').parent().width()/2-$('.citation_logo').width()/2
+//    });
 }
