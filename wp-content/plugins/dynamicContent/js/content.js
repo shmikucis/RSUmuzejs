@@ -100,6 +100,7 @@ var Content = Class.extend({
 			}, coolDownTime);
 		}	
 		this.drawBreadCrumbs(item);
+		this.activeMenuItem(item);
 		$visitedMaps = [];
 	}
 
@@ -188,6 +189,14 @@ var Content = Class.extend({
 			// 	'<a href="#'+list[i].url+'">'+list[i].post_title+'</a>'
 			// );
 		}
+	}
+
+	, activeMenuItem: function(item){
+		$('#sidemenu li.active').each(function(i){
+			$(this).removeClass('active');
+		});
+
+		$('a[href="#'+item.post_name+'"]').parent().addClass('active');
 	}
 
 	, animateScene: function(item, inOut){

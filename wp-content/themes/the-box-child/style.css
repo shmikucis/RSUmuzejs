@@ -270,6 +270,12 @@ div.top_bar{
 #sidemenu ul ul li.active > a {
   background: #D49539;
 }
+
+#sidemenu > ul > li.active {
+    background: #D49539;
+}
+
+
 /*SideMenu End*/
 
 div#primary.content-area{
