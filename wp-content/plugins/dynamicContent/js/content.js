@@ -169,6 +169,7 @@ var Content = Class.extend({
 	}
 
 	, drawBreadCrumbs: function(item){
+		$("#breadcrumbs").empty();
 		var list = [];
 		var parent;
 		
@@ -447,7 +448,7 @@ var Content = Class.extend({
 					+'</div>'
 				);
 				break;
-                        case 'templates/video.php':
+            case 'templates/video.php':
 				this.article.append(
 					'<header class="entry-header layer" data-depth="0">'
 					+'</header>'					
@@ -455,7 +456,7 @@ var Content = Class.extend({
 						+item.post_content
 					+'</div>'
 				);
-                                setVideoSize();
+                setVideoSize();
 				break;
 			default:
 				this.article.append(content);
