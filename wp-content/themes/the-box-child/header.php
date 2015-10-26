@@ -114,6 +114,8 @@ else
 //                        bcn_display();
                     }?>
                 </div>-->
+
+               
                 <span id="breadcrumbs">
                     <a>
                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/ui/bcrumbs/mainmenu.png"/>
@@ -125,6 +127,7 @@ else
                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/ui/bcrumbs/soczin.png"/>
                     </a>
                 </span>
+
             <div class="layer" data-depth="0.3"></div>
         </div>
         <div class="head_image_bot">
