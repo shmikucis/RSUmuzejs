@@ -129,6 +129,10 @@ function init() {
                 cursoropacitymin: 1
             });
         });
+        $(document).bind('cbox_closed', function() {           
+           $('.citation_logo').remove();
+        });
+        
     });
 
     // click on single image icon
