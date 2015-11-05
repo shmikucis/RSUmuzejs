@@ -99,7 +99,7 @@ var Content = Class.extend({
                 setButtonMargin();
 			}, coolDownTime);
 		}	
-		this.drawBreadCrumbs(item);
+		//this.drawBreadCrumbs(item);
 		this.activeMenuItem(item);
 		$visitedMaps = [];
 	}

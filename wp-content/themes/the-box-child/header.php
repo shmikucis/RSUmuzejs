@@ -116,15 +116,21 @@ else
 
                
                 <span id="breadcrumbs">
-                    <a>
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/ui/bcrumbs/mainmenu.png"/>
-                    </a>
-                    <a>
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/ui/bcrumbs/virzieni.png"/>
-                    </a>
-                    <a>
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/ui/bcrumbs/soczin.png"/>
-                    </a>
+                    <div>
+                        <a href="#">
+                            Galvenā izvēlne
+                        </a>
+                    </div><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/ui/navtree_end.png"/>
+                    
+                    <div><a href="#">
+                        Stradiņa dzimta
+                    </a></div><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/ui/navtree_end.png"/>
+                    
+                    <div>
+                        <a href="#">
+                            Random Breadcrumb #3
+                        </a>
+                    </div>
                 </span>
 
             <div class="layer" data-depth="0.3"></div>

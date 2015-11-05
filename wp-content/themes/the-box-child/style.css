@@ -152,11 +152,56 @@ div.top_bar{
 }
 
 #breadcrumbs{
+    /*display: flex;*/
+    align-items: center;
+    font-family: oswald-medium;
+    text-transform: uppercase;    
+    font-size: 14px;  
     position: absolute;
     z-index: 1;
     top: 50%;
+    /*margin: 0 auto;*/
     transform: translate(-50%, -50%);
 }
+
+#breadcrumbs div{
+    /*position: absolute;*/
+    background: none;
+    display:inline-block;
+    padding: 5px 2px;
+    border: 2px solid white;
+}
+/*
+#breadcrumbs .parent{
+    margin-right: 10%;
+}*/
+/*
+#breadcrumbs .parent:after{
+    content: url(images/ui/navtree_end.png);
+    position: absolute;
+    left: 100%;
+    top: 50%;    
+}*/
+
+#breadcrumbs a{
+    background-image: url('images/ui/navtree_bg.png');  
+    color: #B82431;
+    background-repeat: repeat;
+    padding: 4px 8px;
+    text-decoration: none;
+}
+#bradcrumbs a:visited{
+    color: #B82431;
+}
+
+/*#breadcrumbs a:before{
+    content: "";
+    position: absolute;
+    height: 110%;
+    width: 110%;
+    border: 2px solid white;
+    
+}*/
 
 /*SideMenu*/
 #menu_toggle{
