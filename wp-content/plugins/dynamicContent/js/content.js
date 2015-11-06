@@ -99,7 +99,7 @@ var Content = Class.extend({
                 setButtonMargin();
 			}, coolDownTime);
 		}	
-		//this.drawBreadCrumbs(item);
+		this.drawBreadCrumbs(item);
 		this.activeMenuItem(item);
 		$visitedMaps = [];
 	}
@@ -185,10 +185,12 @@ var Content = Class.extend({
 		// console.log(list);
 
 		for(var i=0, l=list.length; i<l; i++){
-			// TODO uncomment when css is ready
-			// $("#breadcrumbs").append(
-			// 	'<a href="#'+list[i].url+'">'+list[i].post_title+'</a>'
-			// );
+			$("#breadcrumbs").append(
+				'<div><a href="#'+list[i].url+'" onclick="content.drawFromUrl(\''+list[i].url+'\')">'+list[i].post_title+'</a></div>'
+			);
+			if(i < l-1){
+				$('#breadcrumbs').append('<img src="'+URLS.stylesheet+'/images/ui/navtree_end.png"/>');
+			}
 		}
 	}
 
