@@ -116,7 +116,7 @@ else
 
                
                 <span id="breadcrumbs">
-                    <div>
+                    <!-- <div>
                         <a href="#">
                             Galvenā izvēlne
                         </a>
@@ -130,7 +130,7 @@ else
                         <a href="#">
                             Random Breadcrumb #3
                         </a>
-                    </div>
+                    </div> -->
                 </span>
 
             <div class="layer" data-depth="0.3"></div>

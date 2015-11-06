@@ -319,10 +319,10 @@ var Content = Class.extend({
 			this.animateObject('.head_image_bot', 'moveDown', 100, 'in');
 			this.animateObject('#continue', 'moveUp', 100, 'in');
 		}
-                if(prevItem.template === 'templates/menu.php' && nextItem.template !== 'templates/menu.php'){
+        if(prevItem.template === 'templates/menu.php' && nextItem.template !== 'templates/menu.php'){
 			this.removeAnimation('#continue', 'none moveDownOut');
-                        this.animateObject('#continue', 'moveUp', 100, 'in');
-                        scrollEnabled = true;
+            this.animateObject('#continue', 'moveUp', 100, 'in');
+            scrollEnabled = true;
 		}
 
         if(prevItem.template === 'templates/video.php'){
@@ -344,14 +344,14 @@ var Content = Class.extend({
 			this.removeAnimation('#footer .social', 'moveUp');
 			this.animateObject('#footer .social', 'moveDownOut', 100, 'out');
 		}
-                if(nextItem.template == 'templates/menu.php'){
+        if(nextItem.template == 'templates/menu.php'){
 			this.removeAnimation('#continue', 'moveUp');
 			this.animateObject('#continue', 'moveDownOut', 100, 'out');
-                        scrollEnabled = false;
+            scrollEnabled = false;
 		}
-                if(nextItem.template === 'templates/video.php'){
-                        setHeadFootSize(true);
-                }
+        if(nextItem.template === 'templates/video.php'){
+            setHeadFootSize(true);
+        }
 	}
 
 	, animateObject: function(pointer, animationClass, delay, inOut){

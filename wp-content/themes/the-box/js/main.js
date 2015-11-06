@@ -128,10 +128,11 @@ function init() {
             $("#cboxLoadedContent").niceScroll({
                 cursoropacitymin: 1
             });
+            content.animateObject('#colorbox .popup', 'cardbordTextfadeInDown', 100, 'in'); 
         });
         $(document).bind('cbox_closed', function() {           
            $('.citation_logo').remove();
-        });
+        });        
         
     });
 
