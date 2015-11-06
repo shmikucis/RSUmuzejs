@@ -129,6 +129,7 @@ function init() {
                 cursoropacitymin: 1
             });
             content.animateObject('#colorbox .popup', 'cardbordTextfadeInDown', 100, 'in'); 
+            content.animateObject('#colorbox .citation_logo', 'animMushroom', 300, 'in');             
         });
         $(document).bind('cbox_closed', function() {           
            $('.citation_logo').remove();
