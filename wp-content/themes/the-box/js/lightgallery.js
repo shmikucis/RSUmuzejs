@@ -248,7 +248,7 @@
         var _this = this;
 
         $('body').append('<div class="lg-backdrop"></div>');
-        $('.lg-backdrop').css('transition-duration', this.s.backdropDuration + 'ms');
+        $('.lg-backdrop').css('transition-duration', 0 + 'ms');
 
         // Create gallery items
         for (i = 0; i < this.$items.length; i++) {
@@ -317,8 +317,8 @@
 
         if (this.doCss()) {
             var $inner = this.$outer.find('.lg-inner');
-            $inner.css('transition-timing-function', this.s.cssEasing);
-            $inner.css('transition-duration', this.s.speed + 'ms');
+//            $inner.css('transition-timing-function', this.s.cssEasing);
+//            $inner.css('transition-duration', this.s.speed + 'ms');
         }
 
         $('.lg-backdrop').addClass('in');

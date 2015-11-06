@@ -162,6 +162,7 @@ div.top_bar{
     top: 50%;
     /*margin: 0 auto;*/
     transform: translate(-50%, -50%);
+    width: 100%;
 }
 
 #breadcrumbs div{
@@ -170,6 +171,7 @@ div.top_bar{
     display:inline-block;
     padding: 5px 2px;
     border: 2px solid white;
+    margin-left: 1%;
 }
 /*
 #breadcrumbs .parent{
