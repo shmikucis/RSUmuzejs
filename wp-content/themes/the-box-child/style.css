@@ -167,11 +167,12 @@ div.top_bar{
 
 #breadcrumbs div{
     /*position: absolute;*/
-    background: none;
+    background: rgba(255,255,255,0.3);
     display:inline-block;
     padding: 5px 2px;
     border: 2px solid white;
-    margin-left: 1%;
+    border-radius: 3px;
+    margin-left: 0.5%;
 }
 /*
 #breadcrumbs .parent{
