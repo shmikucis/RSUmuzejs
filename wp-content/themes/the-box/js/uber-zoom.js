@@ -469,7 +469,7 @@
                 self.obj.remove();
             } else {
                 $('body').prepend('<img src="' + self.img.src + '" id="ndd-uberzoom-fullscreen-temp-image">');
-
+                console.log(self.img);
                 var options = self.options;
                 options.startInFullscreen = false;
                 options.starting_in_fullscreen = true;
@@ -864,7 +864,18 @@
 
         apply_zoom : function() {
             var self = this;
-
+            
+            
+            if ($('.lg-img-wrap').length>0){                
+                $('.lg-current .ndd-uberzoom-container').width($('.lg-current .ndd-uberzoom-content').width());
+                $('.lg-current .ndd-uberzoom-container').height($('.lg-current .ndd-uberzoom-content').height());
+                self.frameWidth = $('.lg-current .ndd-uberzoom-container').width();
+                self.frameHeight = $('.lg-current .ndd-uberzoom-container').height();
+            }
+            else{
+                $('#colorbox.pic_popup .ndd-uberzoom-container').width($('#colorbox.pic_popup .ndd-uberzoom-content').width());
+                self.frameWidth = $('#colorbox.pic_popup .ndd-uberzoom-container').width();
+            }
             clearTimeout(self.dragTimeout);
             clearTimeout(self.zoomTimeout);
 
@@ -881,11 +892,12 @@
                 }, 16);
             } else {
                 self.currentZoom = self.targetZoom;
-                self.currentPosX = self.targetPosX;
-                self.currentPosY = self.targetPosY;
+                self.currentPosX = self.targetPosX;self.currentPosY = self.targetPosY;
 
                 self.redraw();
             }
+            
+            
         },
 
         start_moving : function(x, y) {
@@ -1082,6 +1094,7 @@
             var scale = (self.contentWidth * self.currentZoom) / self.navigatorWidth;
             var px = -self.currentPosX / scale;
             var py = -self.currentPosY / scale;
+            //navigatora loga izmērs $('#colorbox.pic_popup .ndd-uberzoom-container').width()
             var px2 = ((self.contentWidth*self.currentZoom) - self.frameWidth - self.currentPosX) / scale;
             var py2 = ((self.contentHeight*self.currentZoom) - self.frameHeight - self.currentPosY) / scale;
 

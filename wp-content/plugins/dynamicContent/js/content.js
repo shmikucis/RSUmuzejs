@@ -113,13 +113,15 @@ var Content = Class.extend({
 		dynamicContent.set(item);
 
         //parallax izmēģinājums
-        setTimeout(function(){
+//        setTimeout(function(){
+            $('.innerImg img').one("load", function(){
             $('.innerImg img').css('width', 30 + 'vw');
             $('.innerImg .layer div').width($('.innerImg img').innerWidth());
             $('.innerImg .layer div').height($('.innerImg img').innerHeight());
             $('.innerImg').css('clip', 'rect(0px,' + $('.innerImg img').innerWidth() + 'px,' + $('.innerImg img').innerHeight() + 'px, 0px)');
             $('.innerImg img').css('width', 40 + 'vw');
-        }, 100);
+//        }, 100);
+        });
         // console.log(item.menu_item_parent);
 	}
 

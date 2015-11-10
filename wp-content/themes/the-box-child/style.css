@@ -174,6 +174,9 @@ div.top_bar{
     border-radius: 3px;
     margin-left: 0.5%;
 }
+#breadcrumbs div:hover{
+    opacity: 0.8;
+}
 /*
 #breadcrumbs .parent{
     margin-right: 10%;
@@ -1034,8 +1037,10 @@ a.archive{
 }
 
 .pic_popup#colorbox #cboxLoadedContent{
-    /*width: 100% !important;*/
-    margin: auto;
+    width: 100% !important;
+    /*margin: auto;*/
+    display: flex;
+    justify-content: center;
     height: 70vh !important;
     margin-bottom: 0;
     overflow: hidden !important;
@@ -1680,3 +1685,22 @@ a.archive{
 .hidden { visibility: hidden; }
 .visible { visibility: visible; }
 .none { display: none !important; }
+
+
+.lg-img-wrap{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}/*
+*/.ndd-uberzoom-container{
+    position:relative;
+/*    display: flex;
+    justify-content: center;
+    align-items: center;*/
+}/*
+.ndd-zoomable-content, .ndd-uberzoom-content{
+    position:relative !important;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}*/

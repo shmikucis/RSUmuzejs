@@ -68,7 +68,7 @@ else
                    </li>
                    <li class='has-sub'><a><span>Attīstība</span></a>
                       <ul>
-                         <li><a href='#'><span>Rīgas Medicīnas institūts</span></a></li>
+                         <li><a href='#rigas-medicinas-instituts'><span>Rīgas Medicīnas institūts</span></a></li>
                          <li><a href='#'><span>Latvijas Medicīnas akadēmija</span></a></li>
                          <li><a href='#rigas-stradina-universitate'><span>Rīgas Stradiņa universitāte</span></a></li>
                          <li><a href='#'><span>Rektori</span></a></li>
