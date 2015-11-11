@@ -10,12 +10,7 @@ $(window).resize(function() {
     $('.head_image').css('clip', 'rect(0px,' + $('.head_image').width() + 'px,' + $('.head_image').height() + 'px, 0px)');
     
     //parallax izmēģinājums
-    $('.innerImg img').css('width', 30 + 'vw');
-    $('.innerImg .layer div').width($('.innerImg img').innerWidth());
-    $('.innerImg .layer div').height($('.innerImg img').innerHeight());
-    $('.innerImg').css('clip', 'rect(0px,' + $('.innerImg img').innerWidth() + 'px,' + $('.innerImg img').innerHeight() + 'px, 0px)');
-    $('.innerImg img').css('width', 40 + 'vw');
-    
+    setInnerImg();    
     setSocialMargin();
     galleryInnerResize();
     picPopupResize();
@@ -120,7 +115,7 @@ function init() {
     });
 
     // click on read more button
-    $(document).on('click', '.readmore, .mejs-textform, .humor', function() {
+    $(document).on('click', '.readmore, .mejs-textform, .humor.cboxElement', function() {
         $("#colorbox").addClass("text_popup");
         $(document).bind('cbox_complete', function() {
             textPopupVcenter();
@@ -422,7 +417,7 @@ function initTags(mapname) {
 }
 
 function updateListeners() {
-    $('a.readmore, a.mejs-textform, a.humor').colorbox({
+    $('a.readmore, a.mejs-textform, a.humor.cboxElement').colorbox({
         inline: true,
         scrolling: false
     });
@@ -433,7 +428,7 @@ function updateListeners() {
 
 function setButtonMargin() {
     //objektu ikonas
-    $('.icon_midleft, .icon_midright, .icon_topmid, .icon_botleft, .icon_botmid, .icon_belowtopright').css({
+    $('.icon_midleft, .icon_midright, .icon_topmid, .icon_botleft, .icon_botmid, .icon_belowtopright, .icon_botright, .icon_topleft, .icon_topright, .icon_belowtopleft').css({
         'margin-left': -$('.obj_icon').width() / 2,
         'margin-top': -$('.obj_icon').height() / 2
     });
@@ -453,4 +448,24 @@ function setButtonMargin() {
 //        'margin-top': -$('.citation_logo').height()/2,
 //        'margin-left': $('.citation_logo').parent().width()/2-$('.citation_logo').width()/2
 //    });
+}
+
+function setInnerImg(){
+    if($('.innerImg img').hasClass('wide')){
+        $('.innerImg img').css('width', 30 + 'vw');
+        $('.innerImg .layer div').width($('.innerImg img').innerWidth());
+        $('.innerImg .layer div').height($('.innerImg img').innerHeight());
+        $('.innerImg').css('clip', 'rect(0px,' + $('.innerImg img').innerWidth() + 'px,' + $('.innerImg img').innerHeight() + 'px, 0px)');
+        $('.innerImg img').css('width', 40 + 'vw');
+    }
+    else if ($('.innerImg img').hasClass('narrow')){
+        $('.innerImg img').css('width', 20 + 'vw');
+        $('.innerImg .layer div').width($('.innerImg img').innerWidth());
+        $('.innerImg .layer div').height($('.innerImg img').innerHeight());
+        $('.innerImg').css('clip', 'rect(0px,' + $('.innerImg img').innerWidth() + 'px,' + $('.innerImg img').innerHeight() + 'px, 0px)');
+        $('.innerImg img').css('width', 30 + 'vw');
+    }
+    $('.innerImg').parent().width($('.innerImg .layer div').width());
+    $('.innerImg').parent().height($('.innerImg .layer div').height());
+    
 }

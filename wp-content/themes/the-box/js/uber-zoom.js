@@ -306,15 +306,21 @@
                 }
 
                 // UI
+//                $cont = $('.ndd-uberzoom-container').parent();
+//                $cont.append('<div class="ndd-uberzoom-interface"></div>');
                 self.obj.append('<div class="ndd-uberzoom-interface"></div>');
                 self.obj_interface = self.obj.find('.ndd-uberzoom-interface');
+//                self.obj_interface = $cont.find('.ndd-uberzoom-interface');
 
                 // navigator
                 if (self.options.navigator) {
                     // create navigator
                     self.obj_interface.append('<div class="ndd-uberzoom-navigator"><div class="ndd-uberzoom-navigator-window"></div></div>');
+                    
                     self.obj_navigator = self.obj.find('.ndd-uberzoom-navigator');
                     self.obj_nav_window = self.obj.find('.ndd-uberzoom-navigator-window');
+//                    self.obj_navigator = $cont.find('.ndd-uberzoom-navigator');
+//                    self.obj_nav_window = $cont.find('.ndd-uberzoom-navigator-window');
 
                     self.options.navigatorMaxWidth = self.frameWidth/4;
                     self.options.navigatorMaxHeight = self.frameHeight/4;
@@ -493,7 +499,9 @@
 
             e.stopPropagation();
             e.preventDefault();
-
+//            self.show_ui();
+//            mjau = $(e.target);
+            //console.log(mjau);
             // UI EVENTS ========================================================
             if (e.type != "mousewheel" &&
                 !imageInteraction &&
@@ -502,10 +510,11 @@
                 $(e.target).hasClass('ndd-uberzoom-navigator-image') ||
                 $(e.target).hasClass('ndd-uberzoom-navigator-window')))
             {
+                
                 // mouse events
                 if (e.type == "mousedown") {
                     interfaceInteraction = true;
-                    if ($(e.target).hasClass('ndd-uberzoom-navigator') || $(e.target).hasClass('ndd-uberzoom-navigator-image') || $(e.target).hasClass('ndd-uberzoom-navigator-window')) {
+                    if ($(e.target).parent().hasClass('ndd-uberzoom-navigator') || $(e.target).parent().hasClass('ndd-uberzoom-navigator-image') || $(e.target).parent().hasClass('ndd-uberzoom-navigator-window')) {
                         self.navigator_window_start_dragging(e.pageX, e.pageY);
                         self.navigator_dragging = true;
                     }
