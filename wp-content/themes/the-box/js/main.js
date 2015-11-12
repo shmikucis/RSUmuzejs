@@ -465,6 +465,13 @@ function setInnerImg(){
         $('.innerImg').css('clip', 'rect(0px,' + $('.innerImg img').innerWidth() + 'px,' + $('.innerImg img').innerHeight() + 'px, 0px)');
         $('.innerImg img').css('width', 30 + 'vw');
     }
+    else if ($('.innerImg img').hasClass('vwide')){
+        $('.innerImg img').css('width', 37 + 'vw');
+        $('.innerImg .layer div').width($('.innerImg img').innerWidth());
+        $('.innerImg .layer div').height($('.innerImg img').innerHeight());
+        $('.innerImg').css('clip', 'rect(0px,' + $('.innerImg img').innerWidth() + 'px,' + $('.innerImg img').innerHeight() + 'px, 0px)');
+        $('.innerImg img').css('width', 47 + 'vw');
+    }
     $('.innerImg').parent().width($('.innerImg .layer div').width());
     $('.innerImg').parent().height($('.innerImg .layer div').height());
     

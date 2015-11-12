@@ -254,7 +254,7 @@
     position:relative;
 	direction: ltr;
 	width: 200px;
-	padding-top: 5px;
+	/*padding-top: 5px;*/
         outline: 0;
 }
 
@@ -381,6 +381,7 @@
 }
 
 .mejs-controls .mejs-time-rail .mejs-time-float {
+        display: none !important;
 	position: absolute;
 	display: none;
 	background: #eee;
@@ -391,9 +392,11 @@
 	margin-left: -18px;
 	text-align: center;
 	color: #111;
+        z-index: 2;
 }
 
 .mejs-controls .mejs-time-rail .mejs-time-float-current {
+        display: none;
 	margin: 2px;
 	width: 30px;
 	display: block;
@@ -402,6 +405,7 @@
 }
 
 .mejs-controls .mejs-time-rail .mejs-time-float-corner {
+        display:none;
 	position: absolute;
 	display: block;
 	width: 0;
@@ -452,6 +456,7 @@
 
 .mejs-controls .mejs-mute button {
 	background-position: -16px -16px;
+        /*top: 10%;*/
 }
 
 .mejs-controls .mejs-unmute button {
@@ -536,6 +541,7 @@
     display: block;
     float: left;
     left: 4%;
+    /*top: 10%;*/
     vertical-align: middle;
 }
 

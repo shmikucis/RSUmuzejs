@@ -248,6 +248,7 @@
 }
 
 #lg-counter {
+    padding: 5px;
   color: #BA2431;
     position: relative;
     display: table;
@@ -268,8 +269,12 @@
     transform: translateY(-50%);
     line-height: 3.5em;
 }
+#lg-counter-current{
+    /*padding-left: 10px;*/
+}
 #lg-counter-all{
     font-size: 10pt;
+    /*padding-right: 10px;*/
 }
 .lg-toolbar, .lg-prev, .lg-next {
   opacity: 1;

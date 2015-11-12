@@ -108,14 +108,15 @@ var Content = Class.extend({
 		this.article.empty();
 		this.drawTemplate(item);
 		this.drawAttachments(item);
+                $('.innerImg img').one("load", function(){
+                    setInnerImg();
+                });
 		this.animateScene(item, 'in');
 		this.drawExceptionsIn(dynamicContent.getItem(), item);
 		dynamicContent.set(item);
 
         //parallax izmēģinājums
-            $('.innerImg img').one("load", function(){
-            setInnerImg();
-        });
+            
         // console.log(item.menu_item_parent);
 	}
 

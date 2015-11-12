@@ -175,8 +175,8 @@ div.top_bar{
     margin-left: 0.5%;
     margin-bottom: 0.5%;
 }
-#breadcrumbs div:hover{
-    opacity: 0.8;
+#breadcrumbs div:hover, #breadcrumbs div:hover + img{
+    opacity: 0.6;
 }
 /*
 #breadcrumbs .parent{
@@ -1350,8 +1350,8 @@ a.archive{
     }    
     .mejs-textform{
         width: 120px;
-        height: 30px;
-        line-height: 30px;
+        height: 26px;
+        line-height: 26px;
     }
     .aboutvid{
         width: 100px;
@@ -1432,6 +1432,9 @@ a.archive{
     .lg-thumb-outer{
         width: 276px !important;
     }
+    #lg-counter{
+        padding: 10px;
+    }
     .mejs-container .mejs-controls{
         bottom: 19%;
     }
@@ -1447,6 +1450,10 @@ a.archive{
     }
     .mejs-controls .mejs-time-rail span, .mejs-controls .mejs-time-rail a{
         height: 8px;
+    }
+    .mejs-time-float{
+        height: 30px !important;
+        width: 50px !important;
     }
     img.narrow{
         width: 22vw;
@@ -1477,8 +1484,8 @@ a.archive{
     }
     .mejs-textform{
         width: 160px;
-        height: 40px;
-        line-height: 40px;
+        height: 36px;
+        line-height: 36px;
     }
     .aboutvid{
         width: 126px;
@@ -1576,6 +1583,9 @@ a.archive{
         height: 150px !important;
         width: 150px !important;
     }
+    #lg-counter{
+        padding: 15px;
+    }
     .mejs-container .mejs-controls{
         bottom: 19%;
     }
@@ -1603,8 +1613,8 @@ a.archive{
     }
     .mejs-textform{
         width: 240px;
-        height: 60px;
-        line-height: 60px;
+        height: 54px;
+        line-height: 54px;
     }
     .aboutvid{
         width: 158px;
@@ -1663,8 +1673,8 @@ a.archive{
     }
     .mejs-textform{
         width: 320px;
-        height: 80px;
-        line-height: 80px;
+        height: 70px;
+        line-height: 70px;
     }
     .aboutvid{
         width: 211px;
