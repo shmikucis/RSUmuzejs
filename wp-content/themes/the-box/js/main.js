@@ -156,7 +156,7 @@ function init() {
                             navigatorImagePreview : true,
                             rubberband: false
                         });  
-            $('#colorbox.pic_popup .ndd-uberzoom-container').css("max-width", "90%");
+//            $('#colorbox.pic_popup .ndd-uberzoom-container').css("max-width", "80%");
 //            $('#cboxLoadedContent .ndd-uberzoom-container').css({'width': imgWdt, 'left': (window.innerWidth-imgWdt)});
             if (typeof $mapattr !== typeof undefined && $mapattr !== false) {
                 $('#cboxLoadedContent img').attr('usemap', $mapattr);

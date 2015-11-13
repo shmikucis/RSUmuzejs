@@ -1070,6 +1070,9 @@ a.archive{
     margin-bottom: 0;
     overflow: hidden !important;
 }
+.pic_popup#colorbox .ndd-uberzoom-container{
+    max-width: 80%;
+}
 
 .cboxPhoto{
     height: auto!important;

@@ -384,6 +384,11 @@
                 }
 
                 // EVENTS
+                $(self.obj).on("dblclick", function(e) {
+                    activeZoomable = self;
+                    self.handle_event(e);
+                });
+                
                 $(self.obj).on("mousedown", function(e) {
                     activeZoomable = self;
                     self.handle_event(e);
@@ -488,7 +493,7 @@
 
         handle_event : function(e) {
             var self = this;
-
+            
             if (e.type == 'mousewheel' && self.currentZoom == self.maxZoom && e.deltaY > 0) {
                 return;
             }
@@ -510,6 +515,7 @@
                 $(e.target).hasClass('ndd-uberzoom-navigator-image') ||
                 $(e.target).hasClass('ndd-uberzoom-navigator-window')))
             {
+                
                 
                 // mouse events
                 if (e.type == "mousedown") {
@@ -596,6 +602,21 @@
                 self.dragging = true;
                 self.start_moving(e.screenX, e.screenY);
             }
+            
+            if (e.type == "dblclick") {
+                imageInteraction = false;
+                self.stop_moving();
+                self.dragging = false;
+                
+//                var offsetX = e.originalEvent.touches[0].pageX - self.obj.offset().left;
+//                    var offsetY = e.originalEvent.touches[0].pageY - self.obj.offset().top;
+                
+                if (self.currentZoom < self.maxZoom / 2) {
+                        self.zoom_in(e.offsetX, e.offsetY, true);
+                    } else {
+                        self.zoom_out(e.offsetX, e.offsetY, true);
+                    }
+            }
 
             if (e.type == "mousemove") {
                 imageInteraction = true;
@@ -616,7 +637,7 @@
 //                isRightMB = e.button == 2; 
 //                
 //                isRightMB ? self.zoom_out(e.offsetX, e.offsetY) : self.zoom_in(e.offsetX, e.offsetY);
-            }
+            }            
 
             if (e.type == "mousewheel") {
                 if (e.deltaY > 0) {
@@ -833,7 +854,7 @@
             self.targetZoom = (self.targetZoom > self.minZoom) ? self.targetZoom : self.minZoom;
 
             if (max == true) {
-                self.targetZoom = self.maxZoom;
+                self.targetZoom = self.maxZoom/2;
             }
 
             var fpx = (offsetX - self.currentPosX) / (self.contentWidth * self.currentZoom);

@@ -95,8 +95,8 @@ var Content = Class.extend({
 			setTimeout(function(){
 				self.drawIn(item);
 				parallax.updateLayers();
-                updateListeners();
-                setButtonMargin();
+                                updateListeners();
+                                setButtonMargin();
 			}, coolDownTime);
 		}	
 		this.drawBreadCrumbs(item);
