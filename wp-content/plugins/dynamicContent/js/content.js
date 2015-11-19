@@ -108,16 +108,12 @@ var Content = Class.extend({
 		this.article.empty();
 		this.drawTemplate(item);
 		this.drawAttachments(item);
-                $('.innerImg img').one("load", function(){
-                    setInnerImg();
-                });
+//                $('.innerImg img').one("load", function(){
+//                    setInnerImg();
+//                });
 		this.animateScene(item, 'in');
 		this.drawExceptionsIn(dynamicContent.getItem(), item);
 		dynamicContent.set(item);
-
-        //parallax izmēģinājums
-            
-        // console.log(item.menu_item_parent);
 	}
 
 	, isTime: function(){
@@ -353,7 +349,13 @@ var Content = Class.extend({
 
 	, animateObject: function(pointer, animationClass, delay, inOut){
 		if(inOut !== 'out') $(pointer).addClass('hidden');
-		setTimeout(function(){ $(pointer).addClass(animationClass); }, delay);
+                //attēlus animē tikai pēc to ielādes
+                if ($(pointer).is('img')) $(pointer).one("load", function(){
+                    setTimeout(function(){
+                        setInnerImg();
+                        $(pointer).addClass(animationClass);
+                    }, delay);});
+		else setTimeout(function(){ $(pointer).addClass(animationClass); }, delay);
 	}
 
 	, removeAnimation: function(pointer, animationClass){		
