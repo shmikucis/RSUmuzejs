@@ -48,6 +48,14 @@ var DynamicContent = Class.extend({
 		}
 	}
 
+	, hasChildren: function(item){		
+		if(this.getItemByParam('menu_item_parent', item.menu_item_id)){
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 	, getByMenuID: function(id){
 		if(!id) return false;
 		return this.getItemByParam('menu_item_id', id);
