@@ -18,6 +18,8 @@
 	    	);
 	    	$list = array();	    	
 	    	foreach($menu as $item){
+	    		// var_dump($item);
+	    		// break;
 	    		$post = get_post($item -> object_id);
 	    		// var_dump($post);
 	    		array_push($list,
@@ -30,6 +32,7 @@
 	    				, 'menu_item_parent' => intval($item -> menu_item_parent)
 	    				, 'menu_order' => $item -> menu_order
 	    				, 'template' => get_page_template_slug($post -> ID)
+	    				, 'description' => $item -> description
 	    				
 	    			)
 	    		);

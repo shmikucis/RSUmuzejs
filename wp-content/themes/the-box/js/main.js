@@ -1,5 +1,43 @@
 $(window).load(function() {
     // Animate loader off screen
+    function preload(arrayOfImages) {
+    $(arrayOfImages).each(function () {
+            $('<img />').attr('src',this).appendTo('body').hide();
+        });
+    }
+
+    preload([
+        URLS.stylesheet+'/images/ui/readmore_big.png'
+        , URLS.stylesheet+'/images/ui/aboutvid.png'
+        , URLS.stylesheet+'/images/ui/archive.png'
+        , URLS.stylesheet+'/images/ui/audio.png'
+        , URLS.stylesheet+'/images/ui/citation.png'
+        , URLS.stylesheet+'/images/ui/closer.png'
+        , URLS.stylesheet+'/images/ui/continue.png'
+        , URLS.stylesheet+'/images/ui/draugiem.png'
+        , URLS.stylesheet+'/images/ui/fb.png'
+        , URLS.stylesheet+'/images/ui/gallery.png'
+        , URLS.stylesheet+'/images/ui/gallery_control.png'
+        , URLS.stylesheet+'/images/ui/gallery_counter.png'
+        , URLS.stylesheet+'/images/ui/gallery_loading.gif'
+        , URLS.stylesheet+'/images/ui/gplus.png'
+        , URLS.stylesheet+'/images/ui/header_pattern.png'
+        , URLS.stylesheet+'/images/ui/humor.png'
+        , URLS.stylesheet+'/images/ui/line_pattern.png'
+        , URLS.stylesheet+'/images/ui/menu_toggle.png'
+        , URLS.stylesheet+'/images/ui/navtree_bg.png'
+        , URLS.stylesheet+'/images/ui/navtree_bg1.png'
+        , URLS.stylesheet+'/images/ui/navtree_end.png'
+        , URLS.stylesheet+'/images/ui/objects.png'
+        , URLS.stylesheet+'/images/ui/popup_close.png'
+        , URLS.stylesheet+'/images/ui/readmore.png'
+        , URLS.stylesheet+'/images/ui/readmore_big.png'
+        , URLS.stylesheet+'/images/ui/slideout_bg.png'
+        , URLS.stylesheet+'/images/ui/slideout_bg_flip.png'
+        , URLS.stylesheet+'/images/ui/twitter.png'
+    ]);
+
+    // console.log(URLS.stylesheet);
 
     $(".page_load").fadeOut("slow", function() {
 

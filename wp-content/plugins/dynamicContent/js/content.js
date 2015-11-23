@@ -169,7 +169,7 @@ var Content = Class.extend({
 		while(item){
 			parent = item.menu_item_parent;
 			// hack for Klinta. Hide last level of breadcrumbs
-			if(dynamicContent.hasChildren(item)){
+			if(item.description !== "noBreadCrumb"){
 				list.push({
 					'post_title': item.post_title
 					, 'url': item.post_name
