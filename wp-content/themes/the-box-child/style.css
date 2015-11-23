@@ -141,10 +141,24 @@ header.site-header{
 }
 
 #header_logo{
+    /*margin-left: 4%;*/
     min-height: 34px;
     height:5vh;
     max-height: 80px;
-    /*margin: 1vh;*/
+}
+
+#logo_link{
+    margin-left: 4%;
+    position: relative;
+    display: inline-block;
+}
+#logo_link:after {
+  content: ""; 
+  position: absolute; 
+  top: 0; 
+  right: 0; 
+  bottom: 0; 
+  left: 0;
 }
 
 div.top_bar{

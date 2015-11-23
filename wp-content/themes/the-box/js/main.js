@@ -353,8 +353,8 @@ function picPopupResize(){
 
 function setHeadFootSize(divide) {
     $('#masthead').css('height', $('#masthead').height());
-    $('.top_bar a img').css('height', $('#masthead').height() / 7 * 5);
-    $('.top_bar a img').css('margin-top', $('#masthead').height() / 7);
+    $('.top_bar a object').css('height', $('#masthead').height() / 7 * 5);
+    $('.top_bar a object').css('margin-top', $('#masthead').height() / 7);
     $('#menu_toggle').css('margin-top', ($('#masthead').height()-$('#menu_toggle').height())/2);
 
     window.footHeight = $('#footer').height();

@@ -53,8 +53,8 @@ else
 	<?php do_action( 'before' ); ?>
 	<header id="masthead" class="site-header clearfix" role="banner">
 		<div class="top_bar">
-			<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-				<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo.png" alt="RSU muzejs" id="header_logo"/>
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" id="logo_link">
+				<object type="image/svg+xml" data="<?php echo get_stylesheet_directory_uri(); ?>/images/logo.svg" id="header_logo"></object>
 			</a>
 		</div>
             <span id="menu_toggle"></span>
