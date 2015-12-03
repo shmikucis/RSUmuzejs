@@ -645,6 +645,7 @@
                 } else if (e.deltaY < 0) {
                     self.zoom_out(e.offsetX, e.offsetY);
                 }
+                
             }
 
             if (e.type == "resize") {
@@ -733,6 +734,7 @@
                     self.move(e.originalEvent.touches[0].screenX, e.originalEvent.touches[0].screenY);
                 }
             }
+            
         },
 
         navigator_window_start_dragging : function(docX, docY) {
@@ -912,7 +914,9 @@
             self.currentZoom = lerp(self.currentZoom, self.targetZoom, self.zoomSpeed);
             self.currentPosX = lerp(self.currentPosX, self.targetPosX, self.zoomSpeed);
             self.currentPosY = lerp(self.currentPosY, self.targetPosY, self.zoomSpeed);
-
+            
+            if (self.currentZoom > 1.05) $('.lg-outer .lg-image, .cboxPhoto').css('cursor', 'zoom-out');
+            else $('.lg-outer .lg-image, .cboxPhoto').css('cursor', 'zoom-in');
             // Apply
             self.redraw();
 

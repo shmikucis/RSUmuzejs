@@ -55,6 +55,8 @@ $(window).resize(function() {
     textPopupVcenter();
     setVideoSize();
     setButtonMargin();
+    if (dynamicContent.getItem().template === "templates/video.php") setHeadFootSize(true);
+    else setHeadFootSize(false);
 });
 
 $(document).ready(function() {
@@ -356,29 +358,6 @@ function galleryInnerResize() {
     $('.lg-inner').css('width', inner);
     
     $('#lg-counter').css('line-height', $('#lg-counter').height() + "px");
-    
-    //attēla zooma lietas
-//    var imgElem = $('.lg-current.lg-complete .lg-img-wrap');
-//    if ($(imgElem).find('img').width() >= $(imgElem).find('img').height()){
-//        var imgWdt = imgElem.width();
-//        $('.lg-current .ndd-uberzoom-container').width(imgWdt);
-//        $('.lg-current .ndd-uberzoom-content').width(imgWdt);
-//        var imgHgt = $(imgElem).find('img').height();
-//        $('.lg-current .ndd-uberzoom-container').height(imgHgt);
-//        $('.lg-current .ndd-uberzoom-content').height(imgHgt);
-//    }
-//    else {
-//        var imgHgt = imgElem.height();
-//        $('.lg-current .ndd-uberzoom-container').height(imgHgt);
-//        $('.lg-current .ndd-uberzoom-content').height(imgHgt);
-//        var imgWdt = $(imgElem).find('img').width();
-//        $('.lg-current .ndd-uberzoom-container').width(imgWdt);
-//        $('.lg-current .ndd-uberzoom-content').width(imgWdt);
-//    }
-//    
-//    
-//    if ($('.lg-img-wrap').width() > $('.lg-current.lg-complete .lg-img-wrap img').width())
-//        $('.lg-current .ndd-uberzoom-container').css('left', ($('.lg-img-wrap').width()-$('.lg-current.lg-complete .lg-img-wrap img').width())/2);
 }
 
 function picPopupResize(){
@@ -390,7 +369,7 @@ function picPopupResize(){
 }
 
 function setHeadFootSize(divide) {
-    $('#masthead').css('height', $('#masthead').height());
+//    $('#masthead').css('height', $('#masthead').height());
     $('.top_bar a object').css('height', $('#masthead').height() / 7 * 5);
     $('.top_bar a object').css('margin-top', $('#masthead').height() / 7);
     $('#menu_toggle').css('margin-top', ($('#masthead').height()-$('#menu_toggle').height())/2);
