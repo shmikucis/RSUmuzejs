@@ -350,6 +350,7 @@ div#fullpage.content-area{
 body{
     margin: 0px;
     padding: 0px;
+    overflow: hidden;
 }
 
 h1{
@@ -717,6 +718,53 @@ p.vnarrow.author_text_single{
     z-index: 999;
     cursor: pointer;
 }
+#navCircle{display: none;}
+#navCircle span{
+    position: relative;
+    display: inline-block;
+    margin: 0 8px;
+    background-color: white;
+    cursor: pointer;
+    border-radius: 50%;
+    border: thin solid #EAE3E3;
+    width: 22px;
+    height: 22px;
+    font-family: oswald-medium;
+    color: #B82431;
+    font-size: 10px;
+    line-height: 22px;
+    vertical-align: middle;
+}
+#navCircle .visited{
+    background-color: #B82431;
+    color: white;
+}
+#navCircle .current{
+    font-size: 16px;
+}
+
+.slideNav{
+    position: absolute;
+    background-image: url(images/slidenav.png);
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 5%;
+    min-width: 45px;    
+    z-index: 99;
+    cursor: pointer;
+}
+.slideNav.prev{
+    background-position: left;
+    left: 0;  
+}
+.slideNav.next{
+    background-position: left;
+    right: 0;
+    transform: scaleX(-1);
+}
+.slideNav:hover{
+    opacity: 0.7;
+}
 
 #footer .social{
     float: none;
@@ -739,6 +787,9 @@ p.vnarrow.author_text_single{
 .left{
     margin-top: 3%;
 }
+
+
+
 
 .bg{
     position: absolute;

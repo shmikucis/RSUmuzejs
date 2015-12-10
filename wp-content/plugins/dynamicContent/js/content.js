@@ -18,24 +18,27 @@ var Content = Class.extend({
                     }
 		});
                 
-        $(document).keydown(function(e) {
-            if(scrollEnabled){
-                switch (e.which) {
-                    case 38: // up
-                        	self.drawPrev();
-                        break;
-                    case 40: // down
-                        if(scrollEnabled){
-                        	self.drawNext();
-                    	}
-                        break;
+                $(document).keydown(function(e) {
+                    if(scrollEnabled){
+                        switch (e.which) {
+                            case 38: // up
+                                        self.drawPrev();
+                                break;
+                            case 40: // down
+                                if(scrollEnabled){
+                                        self.drawNext();
+                                }
+                                break;
 
-                    default:
-                        return; // exit this handler for other keys
-                }
-            }
-            e.preventDefault(); // prevent the default action (scroll / move caret)
-        });
+                            default:
+                                return; // exit this handler for other keys
+                        }
+                    }
+                    e.preventDefault(); // prevent the default action (scroll / move caret)
+                });
+                
+                $('body').on('click', '.slideNav.prev', function(){self.drawPrev();});
+                $('body').on('click', '.slideNav.next', function(){self.drawNext();});
 
         // track backspace button
         $('html').keyup(function(e){
@@ -388,7 +391,7 @@ var Content = Class.extend({
 					'<header class="entry-header layer" data-depth="0">'
 						+'<h1 class="entry-title anim-right">'+item.post_title+'</h1>'
 					+'</header>'
-					+'<div class="bg stripes">'
+					+'<div class="slideNav prev"></div>'+'<div class="bg stripes">'
                         +'<div class="anim-right"></div>'
                     +'</div>'
 					+'<div class="entry-content layer" data-depth="0">'
@@ -396,18 +399,18 @@ var Content = Class.extend({
                         	+'<div class="citation_logo"/>'
                     		+item.post_content
 						+'</div>'
-        			+'</div>'
+        			+'</div><div class="slideNav next"></div>'
         		);
 				break;
 			case 'templates/citation-min.php':
 				this.article.append(
 					'<header class="entry-header layer"  data-depth="0"></header>'
-					+'<div class="bg stripes">'
+					+'<div class="slideNav prev"></div>'+'<div class="bg stripes">'
                         +'<div class="anim-right"></div>'
                     +'</div>'
 					+'<div class="entry-content layer" data-depth="0">'                    
 						+item.post_content
-					+'</div>'
+					+'</div><div class="slideNav next"></div>'
 				);
 				break;
 			case 'templates/citation-nobg.php':
@@ -415,18 +418,18 @@ var Content = Class.extend({
 					'<header class="entry-header layer" data-depth="0">'
 						+'<h1 class="entry-title anim-right">'+item.post_title+'</h1>'
 					+'</header>'
-					+'<div class="bg stripes">'
+					+'<div class="slideNav prev"></div>'+'<div class="bg stripes">'
                         +'<div class="anim-right"></div>'
                     +'</div>'	
 					+'<div class="entry-content layer" data-depth="0">'                    
 						+item.post_content
-					+'</div>'
+					+'</div><div class="slideNav next"></div>'
 				);
 				break;
 			case 'templates/citation-notitle.php':
 				this.article.append(
 					'<header class="entry-header"></header>'
-					+'<div class="bg stripes">'
+					+'<div class="slideNav prev"></div>'+'<div class="bg stripes">'
                         +'<div class="anim-right"></div>'
 					+'</div>'
 					+'<div class="entry-content layer" data-depth="0">'
@@ -434,7 +437,7 @@ var Content = Class.extend({
                         	+'<div class="citation_logo"/>'
                     		+item.post_content
 						+'</div>'
-        			+'</div>'
+        			+'</div><div class="slideNav next"></div>'
         		);
 				break;
 			case 'templates/menu.php':

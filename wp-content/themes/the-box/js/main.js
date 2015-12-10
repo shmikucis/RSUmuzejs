@@ -102,21 +102,6 @@ function init() {
             scalarY: 7
         });
 
-        $('#fullpage').fullpage({
-            scrollingSpeed: 0,
-            keyboardScrolling: false,
-            //            anchors:[
-            //                'main', 'main-2',
-            //                'menu-main', 'menu-origin',
-            //                'family-intro', 'family-stradins', 'family-items', 'family-humour', 'family-video', 'family-generations', 'family-generations-2',
-            //                'study-intro', 'study-medicine', 'study-medicine-2', 'study-social'
-            //            ],
-            afterLoad: function(anchorLink, index) {
-                // checkContinue();
-            }
-        });
-
-        $.fn.fullpage.setMouseWheelScrolling(false);
         setHeadFootSize();
         setVideoSize();
         //colorbox config
@@ -453,6 +438,7 @@ function setButtonMargin() {
     //footera socpogas un "Turpināt"
     $('#footer .social').css('margin-top', -$('#footer .social li').height()/2);
     $('#continue').css('margin-top', -$('#continue').height()/2);
+    $('#navCircle span').css('top', -$('#navCircle span').height()/2);
     
     //"Lasīt vairāk"
     var readmore = $('.readmore.right');

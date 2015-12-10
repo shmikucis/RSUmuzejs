@@ -10,7 +10,12 @@
 ?>
 		
 	<div id="footer">
-            <div id="continue"></div>
+            <span id="navCircle">
+                <span class="visited">1</span>
+                <span class="current">2</span>
+                <span class="">3</span>
+            </span>
+            <!--<div id="continue"></div>-->
             <ul class="social">
                     <li><a href="#" id="twitter"></a></li>
                     <li><a href="#" id="facebook"></a></li>
