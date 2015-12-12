@@ -747,8 +747,9 @@ p.vnarrow.author_text_single{
     position: absolute;
     background-image: url(images/slidenav.png);
     background-repeat: no-repeat;
+    background-size: contain;
     height: 100%;
-    width: 5%;
+    width: 3%;
     min-width: 45px;    
     z-index: 99;
     cursor: pointer;

@@ -459,9 +459,9 @@ var Content = Class.extend({
 				this.article.append(
 					'<header class="entry-header layer" data-depth="0">'
 					+'</header>'					
-					+'<div class="video-content">'
+					+'<div class="slideNav prev"></div>'+'<div class="video-content">'
 						+item.post_content
-					+'</div>'
+					+'</div>'+'</div><div class="slideNav next"></div>'
 				);
                 setVideoSize();
 				break;
