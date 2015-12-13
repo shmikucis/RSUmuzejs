@@ -753,6 +753,7 @@ p.vnarrow.author_text_single{
     min-width: 45px;    
     z-index: 99;
     cursor: pointer;
+    opacity: 0.5;
 }
 .slideNav.prev{
     background-position: left;
@@ -764,7 +765,7 @@ p.vnarrow.author_text_single{
     transform: scaleX(-1);
 }
 .slideNav:hover{
-    opacity: 0.7;
+    opacity: 1;
 }
 
 #footer .social{
@@ -943,17 +944,33 @@ a.obj_icon[data-title]:hover:after{
     top: 10vh !important;
     left: 40vw !important;
 }
+.global_midmid{
+    top: 10vh !important;
+    left:30vw !important;
+}
 .global_botleft{
     top: 25vh !important;
    left: 10vw !important;
 }
 .global_botright{
-    top:20vh !important;
+    top:25vh !important;
     left:40vw!important;
 }
 .global_botmid{
-    top: 20vh !important;
+    top: 25vh !important;
    left: 30vw !important;
+}
+.global_belowbotmid{
+    top: 35vh !important;
+    left: 30vw !important;
+}
+.global_belowbotleft{
+    top: 35vh !important;
+    left: 10vw !important;
+}
+.global_belowbotright{
+    top: 35vh !important;
+    left: 50vw !important;
 }
 .global_topright{
     top: -10vh !important;
@@ -962,6 +979,10 @@ a.obj_icon[data-title]:hover:after{
 .global_topmid{
     top: -10vh !important;
    left: 25vw !important;
+}
+.global_topleft{
+    top: -10vh !important;
+    left: 10vw !important;
 }
 
 a.closer{
@@ -1145,9 +1166,16 @@ a.archive{
     padding: 10px 25px;
     min-width: 470px;
     width: 70%; 
+    max-height: 10%;
+    overflow: hidden;
     float: none !important;
     right: 0;
     margin: auto;
+    transition: max-height 1s;
+    transition-timing-function: ease-out;
+}
+.pic_popup#colorbox #cboxTitle:hover{
+    max-height:100%;
 }
 
 #pictag{

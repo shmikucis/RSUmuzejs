@@ -319,8 +319,6 @@
                     
                     self.obj_navigator = self.obj.find('.ndd-uberzoom-navigator');
                     self.obj_nav_window = self.obj.find('.ndd-uberzoom-navigator-window');
-//                    self.obj_navigator = $cont.find('.ndd-uberzoom-navigator');
-//                    self.obj_nav_window = $cont.find('.ndd-uberzoom-navigator-window');
 
                     self.options.navigatorMaxWidth = self.frameWidth/4;
                     self.options.navigatorMaxHeight = self.frameHeight/4;
@@ -344,6 +342,8 @@
                     var px = 10;
                     var py = self.frameHeight - self.navigatorHeight - 10;
 
+//                    if(self.obj.width() === self.img.width() && self.obj.height() === self.img.height() && self.currentZoom===1)
+//                        {self.obj_navigator.css("display", "none");}
                     self.obj_navigator.css({
                         "width" : self.navigatorWidth,
                         "height" : self.navigatorHeight,
@@ -534,7 +534,7 @@
                     }
                 }
 
-                if (e.type == "mousemove") {
+                if (e.type == "mousemove") {                    
                     interfaceInteraction = true;
                     if (self.navigator_dragging) {
                         self.navigator_window_drag(e.pageX, e.pageY);
