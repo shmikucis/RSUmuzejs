@@ -735,11 +735,9 @@ p.vnarrow.author_text_single{
     line-height: 22px;
     vertical-align: middle;
 }
-#navCircle .visited{
+#navCircle .current, #navCircle span:hover{
     background-color: #B82431;
     color: white;
-}
-#navCircle .current{
     font-size: 16px;
 }
 
@@ -754,6 +752,7 @@ p.vnarrow.author_text_single{
     z-index: 99;
     cursor: pointer;
     opacity: 0.5;
+    display: none;
 }
 .slideNav.prev{
     background-position: left;
