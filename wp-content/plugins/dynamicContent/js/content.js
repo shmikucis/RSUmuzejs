@@ -261,8 +261,8 @@ var Content = Class.extend({
 			, '.cardboard'
 			, '.obj_icon'
 			, '.entry-content .menu li' 
-			// , '.entry-content div div img'
-			, '.entry-content .innerImg .layer'
+			, '.entry-content div div img'
+			// , '.entry-content .innerImg .layer'
 		];
 		var list = [];
 		for(var i=0, l=pointers.length; i<l; i++){
@@ -298,10 +298,12 @@ var Content = Class.extend({
 		// animationClass += inOut.capitalizeFirstLetter();
 		if(inOut == 'out') animationClass += 'Out';
 		// console.log(animationClass);
+		// console.log(list);
 		var delay = list.length < 5 ? 200 : Math.round(this.coolDownTime/list.length);
 		for(var i=0, l=list.length; i<l; i++){
-			list[i].removeClass('jumpDown');
-			list[i].removeClass('hidden');
+			// list[i].removeClass('jumpDown');
+			// list[i].removeClass('hidden');
+			// console.log(list[i].is('img'));
 			this.animateObject(list[i], animationClass, i*delay, inOut);
 			// console.log(list[i].offset().top);
 		}
@@ -411,12 +413,12 @@ var Content = Class.extend({
 
 	, animateObject: function(pointer, animationClass, delay, inOut){
 		if(inOut !== 'out') $(pointer).addClass('hidden');
-                //attēlus animē tikai pēc to ielādes
-                if ($(pointer).is('img')) $(pointer).one("load", function(){
-                    setTimeout(function(){
-                        setInnerImg();
-                        $(pointer).addClass(animationClass);
-                    }, delay);});
+        //attēlus animē tikai pēc to ielādes
+        if ($(pointer).is('img') && inOut == 'in') $(pointer).one("load", function(){
+            setTimeout(function(){
+                setInnerImg();
+                $(pointer).addClass(animationClass);
+            }, delay);});
 		else setTimeout(function(){ $(pointer).addClass(animationClass); }, delay);
 	}
 
