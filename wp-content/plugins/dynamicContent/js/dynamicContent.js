@@ -56,6 +56,10 @@ var DynamicContent = Class.extend({
 		}
 	}
 
+	, getChildren: function(item){
+		return this.getItemsByParam('menu_item_parent', item.menu_item_id);
+	}
+
 	, getByMenuID: function(id){
 		if(!id) return false;
 		return this.getItemByParam('menu_item_id', id);
@@ -86,6 +90,16 @@ var DynamicContent = Class.extend({
 			}
 		}
 		return false;
+	}
+
+	, getItemsByParam: function(param, value){
+		var arr = [];
+		for(var i=0, l=this.navigation.length; i<l; i++){
+			if(this.navigation[i][param] === value){
+				arr.push(this.navigation[i]);
+			}
+		}
+		return arr;
 	}
 
 	, getAttacments: function(itemID){

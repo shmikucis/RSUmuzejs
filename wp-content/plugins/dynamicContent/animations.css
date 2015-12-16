@@ -309,6 +309,57 @@
     0% { visibility: visible; opacity: 1; transform: translateY(0, 0px); }
 }
 
+
+.jumpLeft {
+    animation-name: jumpLeft;
+    animation-duration: 500ms;
+    animation-fill-mode: both;
+    transition-timing-function: ease-out;
+}
+@keyframes jumpLeft {
+    0% { visibility: visible; opacity: 0; transform: translateX(200px); }
+    70% { visibility: visible; opacity: 1; transform: translateX(20px); }
+    100% { visibility: visible; opacity: 1; transform: translateX(0px); }
+}
+
+.jumpLeftOut {
+    animation-name: jumpLeftOut;
+    animation-duration: 500ms;
+    animation-fill-mode: both;
+    transition-timing-function: ease-out;
+}
+@keyframes jumpLeftOut {
+    100% { visibility: visible; opacity: 0; transform: translateX(-200px); }
+    30% { visibility: visible; opacity: 1; transform: translateX(20px); }
+    0% { visibility: visible; opacity: 1; transform: translateX(0px); }
+}
+
+
+.jumpRight {
+    animation-name: jumpRight;
+    animation-duration: 500ms;
+    animation-fill-mode: both;
+    transition-timing-function: ease-out;
+}
+@keyframes jumpRight {
+    0% { visibility: visible; opacity: 0; transform: translateX(-200px); }
+    70% { visibility: visible; opacity: 1; transform: translateX(20px); }
+    100% { visibility: visible; opacity: 1; transform: translateX(0px); }
+}
+
+.jumpRightOut {
+    animation-name: jumpRightOut;
+    animation-duration: 500ms;
+    animation-fill-mode: both;
+    transition-timing-function: ease-out;
+}
+@keyframes jumpRightOut {
+    100% { visibility: visible; opacity: 0; transform: translateX(200px); }
+    30% { visibility: visible; opacity: 1; transform: translateX(-20px); }
+    0% { visibility: visible; opacity: 1; transform: translateX(0, 0px); }
+}
+
+
 .animMushroom{
     animation-name: animMushroom;
     animation-duration: 300ms;

@@ -8,37 +8,37 @@ var Content = Class.extend({
 		var self = this;
 
 		$(window).bind('mousewheel DOMmousescroll wheel', function(e){
-                    var direction = e.originalEvent.wheelDelta /120 > 0 ? 'up' : 'down';
-                    if(scrollEnabled){
-                        if(direction === 'down'){
-                                self.drawNext();
-                        } else {
-                                self.drawPrev();
-                        }
-                    }
+            var direction = e.originalEvent.wheelDelta /120 > 0 ? 'up' : 'down';
+            if(scrollEnabled){
+                if(direction === 'down'){
+                        self.drawNext();
+                } else {
+                        self.drawPrev();
+                }
+            }
 		});
                 
-                $(document).keydown(function(e) {
-                    if(scrollEnabled){
-                        switch (e.which) {
-                            case 37: // up
-                                        self.drawPrev();
-                                break;
-                            case 39: // down
-                                if(scrollEnabled){
-                                        self.drawNext();
-                                }
-                                break;
-
-                            default:
-                                return; // exit this handler for other keys
+        $(document).keyup(function(e) {
+            if(scrollEnabled){
+                switch (e.which) {
+                    case 37: // up
+                            self.drawPrev('left');
+                        break;
+                    case 39: // down
+                        if(scrollEnabled){
+                            self.drawNext('right');
                         }
-                    }
-                    e.preventDefault(); // prevent the default action (scroll / move caret)
-                });
-                
-                $('body').on('click', '.slideNav.prev', function(){self.drawPrev();});
-                $('body').on('click', '.slideNav.next', function(){self.drawNext();});
+                        break;
+
+                    default:
+                        return; // exit this handler for other keys
+                }
+            }
+            e.preventDefault(); // prevent the default action (scroll / move caret)
+        });
+        
+        $('body').on('click', '.slideNav.prev', function(){self.drawPrev();});
+        $('body').on('click', '.slideNav.next', function(){self.drawNext();});
 
         // track backspace button
         $('html').keyup(function(e){
@@ -68,7 +68,13 @@ var Content = Class.extend({
         	if(href && href !== ''){
         		self.drawFromUrl(href);
         	}
-		});		
+		});	
+
+		$("#navCircle").bind("click", function(event){
+			// var i = $("#navCircle").children().index(event.target);
+			var url = $(event.target).attr('data-url');
+			self.drawFromUrl(url);
+		});
 	}
 
 	, draw: function(item){
@@ -98,11 +104,12 @@ var Content = Class.extend({
 			setTimeout(function(){
 				self.drawIn(item);
 				parallax.updateLayers();
-                                updateListeners();
-                                setButtonMargin();
+                    updateListeners();
+                    setButtonMargin();
 			}, coolDownTime);
 		}	
 		this.drawBreadCrumbs(item);
+		this.drawNavCircle(item);
 		this.activeMenuItem(item);
 		$visitedMaps = [];
 	}
@@ -140,18 +147,18 @@ var Content = Class.extend({
 
 	}
 
-	, drawNext: function(){
+	, drawNext: function(direction){
 		var nextItem = dynamicContent.getNext();
 		if(nextItem){
-			this.direction = 'down';
+			this.direction = direction ? direction : 'down';
 			this.draw(nextItem);	
 		}		
 	}
 
-	, drawPrev: function(){
+	, drawPrev: function(direction){
 		var prevItem = dynamicContent.getPrev();
 		if(prevItem) {
-			this.direction = 'up';
+			this.direction = direction ? direction : 'up';
 			this.draw(prevItem);
 		}
 	}
@@ -191,6 +198,31 @@ var Content = Class.extend({
 				$('#breadcrumbs').append('<img src="'+URLS.stylesheet+'/images/ui/navtree_end.png"/>');
 			}
 		}
+	}
+
+	, drawNavCircle: function(item){
+		var pointer = $("#navCircle");
+		var parent;
+		if(dynamicContent.hasChildren(item)){
+			parent = item;
+		} else {
+			parent = dynamicContent.getParent(item.menu_item_id);
+		}
+
+		if(parent.description === "navCircle"){
+			pointer.show();
+			var children = dynamicContent.getChildren(parent);
+			children.unshift(parent);
+			var circles = '';
+			for(var i=0, l=children.length; i<l; i++){
+				var currentClass = item === children[i] ? 'current' : '';
+				circles += '<span class="'+currentClass+'" data-url="'+children[i].post_name+'" style="top: -11px;">'+(i+1)+'</span>';
+			}
+			pointer.html(circles);
+		} else {
+			pointer.hide();
+		}
+
 	}
 
 	, activeMenuItem: function(item){
@@ -238,9 +270,29 @@ var Content = Class.extend({
 		}
 
 		if(this.direction == 'down') list.sort(function(a, b){ return a.offset().top - b.offset().top; });
-		else list.sort(function(a, b){ return b.offset().top - a.offset().top; });
+		else if(this.direction == 'up') list.sort(function(a, b){ return b.offset().top - a.offset().top; });
+		else if(this.direction == 'left') list.sort(function(a, b){ return a.offset().left - b.offset().left; });
+		else if(this.direction == 'right') list.sort(function(a, b){ return b.offset().left - a.offset().left; });
 
-		var animationClass = this.direction == 'down' ? 'jumpUp' : 'jumpDown';
+		// var animationClass = this.direction == 'down' ? 'jumpUp' : 'jumpDown';
+		var animationClass = 'jump';
+		switch(this.direction ){
+			case 'down':
+				animationClass += 'Up';
+				break;
+			case 'up':
+			default:
+				animationClass += 'Down';
+				break;
+			case 'left':
+				animationClass += 'Right';
+				break;
+			case 'right':
+				animationClass += 'Left';
+				break;
+		}
+		// animationClass += this.direction.capitalizeFirstLetter();
+		// animationClass += inOut.capitalizeFirstLetter();
 		if(inOut == 'out') animationClass += 'Out';
 		// console.log(animationClass);
 		for(var i=0, l=list.length; i<l; i++){
@@ -531,3 +583,8 @@ var Content = Class.extend({
 });
 
 var content = new Content();
+
+
+String.prototype.capitalizeFirstLetter = function() {
+    return this.charAt(0).toUpperCase() + this.slice(1);
+}
