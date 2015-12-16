@@ -22,11 +22,13 @@ var Content = Class.extend({
             if(scrollEnabled){
                 switch (e.which) {
                     case 37: // up
-                            self.drawPrev('left');
+                            // self.drawPrev('left');
+                            self.drawPrev();
                         break;
                     case 39: // down
                         if(scrollEnabled){
-                            self.drawNext('right');
+                            // self.drawNext('right');
+                            self.drawNext();
                         }
                         break;
 
@@ -79,6 +81,7 @@ var Content = Class.extend({
 
 	, draw: function(item){
 		// console.log(item);
+		var self = this;
 		if(!this.isTime()){
 			return;
 		}
@@ -99,8 +102,7 @@ var Content = Class.extend({
 				var coolDownTime = ANIMATIONS[prevItem.post_name].coolDown;
 			} else {
 				var coolDownTime = this.coolDownTime;
-			}
-			var self = this;
+			}			
 			setTimeout(function(){
 				self.drawIn(item);
 				parallax.updateLayers();
@@ -109,7 +111,7 @@ var Content = Class.extend({
 			}, coolDownTime);
 		}	
 		this.drawBreadCrumbs(item);
-		this.drawNavCircle(item);
+		setTimeout( function(){ self.drawNavCircle(item); }, 1000 );
 		this.activeMenuItem(item);
 		$visitedMaps = [];
 	}
@@ -259,7 +261,8 @@ var Content = Class.extend({
 			, '.cardboard'
 			, '.obj_icon'
 			, '.entry-content .menu li' 
-			, '.entry-content div div img'
+			// , '.entry-content div div img'
+			, '.entry-content .innerImg .layer'
 		];
 		var list = [];
 		for(var i=0, l=pointers.length; i<l; i++){
@@ -295,10 +298,11 @@ var Content = Class.extend({
 		// animationClass += inOut.capitalizeFirstLetter();
 		if(inOut == 'out') animationClass += 'Out';
 		// console.log(animationClass);
+		var delay = list.length < 5 ? 200 : Math.round(this.coolDownTime/list.length);
 		for(var i=0, l=list.length; i<l; i++){
 			list[i].removeClass('jumpDown');
 			list[i].removeClass('hidden');
-			this.animateObject(list[i], animationClass, i*200, inOut);
+			this.animateObject(list[i], animationClass, i*delay, inOut);
 			// console.log(list[i].offset().top);
 		}
 	}
