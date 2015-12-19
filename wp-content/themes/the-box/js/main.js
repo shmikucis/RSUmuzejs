@@ -291,13 +291,6 @@ function init() {
         }
     });
 
-
-    $(document).on('click', '#bigmore', function() {
-        //        transition_out();
-        $.fn.fullpage.moveSectionDown();
-        // checkContinue();
-    });
-
 }
 
 
@@ -438,6 +431,7 @@ function setButtonMargin() {
     //footera socpogas un "Turpināt"
     $('#footer .social').css('margin-top', -$('#footer .social li').height()/2);
     $('#continue').css('margin-top', -$('#continue').height()/2);
+    $('#backToMenu').css('margin-top', -$('#backToMenu').height()/2);
     $('#navCircle span').css('top', -$('#navCircle span').height()/2);
     
     //"Lasīt vairāk"
