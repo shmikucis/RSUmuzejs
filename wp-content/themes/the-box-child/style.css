@@ -719,7 +719,7 @@ p.vnarrow.author_text_single{
     cursor: pointer;
 }
 #backToMenu{
-    display: none;
+    display: none !important;
     position: absolute;
     display: inline-block;
     left: 0;
