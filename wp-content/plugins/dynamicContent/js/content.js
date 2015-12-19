@@ -337,7 +337,7 @@ var Content = Class.extend({
 		if(prevItem === nextItem) { // calls once right after page is laoded
 			if(prevItem.post_name == 'titullapa'){
 				$('.head_image, .head_image_bot').addClass('hidden');
-				$('#continue').addClass('hidden none');
+				//$('#continue').addClass('hidden none');
 				var self = this;
 				$( "#bigmore" ).bind( "click", function() {
 				  	self.drawNext();
@@ -353,12 +353,18 @@ var Content = Class.extend({
                    }, this.coolDownTime);
             }
             if(nextItem.template === 'templates/menu.php'){
-				$('#continue').addClass('hidden none');
+				//$('#continue').addClass('hidden none');
                 scrollEnabled = false;
 			}
+                        if (nextItem.post_name !== 'ievads-2') {
+                $('#continue').addClass('hidden none');
+            }
 			return;
 		}
-
+if (nextItem.post_name === 'ievads-2') {
+                this.removeAnimation('#continue', 'none moveDownOut');
+                this.animateObject('#continue', 'moveUp', 100, 'in');
+            }
 		if(nextItem.post_name == 'titullapa'){
 			this.removeAnimation('#footer .social', 'moveDownOut');
 			this.animateObject('#footer .social', 'moveUp', 100, 'in');
@@ -371,14 +377,14 @@ var Content = Class.extend({
 		if(prevItem.post_name == 'titullapa'){
 			this.removeAnimation('.head_image', 'moveUpOut');
 			this.removeAnimation('.head_image_bot', 'moveUpOut');
-			this.removeAnimation('#continue', 'none moveDownOut');
+			//this.removeAnimation('#continue', 'none moveDownOut');
 			this.animateObject('.head_image', 'moveDown', 100, 'in');			
 			this.animateObject('.head_image_bot', 'moveDown', 100, 'in');
-			this.animateObject('#continue', 'moveUp', 100, 'in');
+			//this.animateObject('#continue', 'moveUp', 100, 'in');
 		}
         if(prevItem.template === 'templates/menu.php' && nextItem.template !== 'templates/menu.php'){
-			this.removeAnimation('#continue', 'none moveDownOut');
-            this.animateObject('#continue', 'moveUp', 100, 'in');
+			//this.removeAnimation('#continue', 'none moveDownOut');
+            //this.animateObject('#continue', 'moveUp', 100, 'in');
             scrollEnabled = true;
 		}
 
@@ -389,21 +395,25 @@ var Content = Class.extend({
 
 	, drawExceptionsOut: function(prevItem, nextItem){
 		if(prevItem === nextItem) return;
+                if(prevItem.post_name == 'ievads-2'){
+                    this.removeAnimation('#continue', 'moveUp');
+                    this.animateObject('#continue', 'moveDownOut', 100, 'out');
+                }
 		if(nextItem.post_name == 'titullapa'){
 			this.removeAnimation('.head_image', 'moveDown');
 			this.removeAnimation('.head_image_bot', 'moveDown');
-			this.removeAnimation('#continue', 'moveUp');
+			//this.removeAnimation('#continue', 'moveUp');
 			this.animateObject('.head_image', 'moveUpOut', 100, 'out');
 			this.animateObject('.head_image_bot', 'moveUpOut', 100, 'out');
-			this.animateObject('#continue', 'moveDownOut', 100, 'out');
+			//this.animateObject('#continue', 'moveDownOut', 100, 'out');
 		}
 		if(prevItem.post_name == 'titullapa'){
 			this.removeAnimation('#footer .social', 'moveUp');
 			this.animateObject('#footer .social', 'moveDownOut', 100, 'out');
 		}
         if(nextItem.template == 'templates/menu.php'){
-			this.removeAnimation('#continue', 'moveUp');
-			this.animateObject('#continue', 'moveDownOut', 100, 'out');
+			//this.removeAnimation('#continue', 'moveUp');
+			//this.animateObject('#continue', 'moveDownOut', 100, 'out');
             scrollEnabled = false;
 		}
         if(nextItem.template === 'templates/video.php'){
