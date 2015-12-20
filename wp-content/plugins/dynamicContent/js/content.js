@@ -21,11 +21,11 @@ var Content = Class.extend({
         $(document).keyup(function(e) {
             if(scrollEnabled){
                 switch (e.which) {
-                    case 37: // up
+                    case 38: // up
                             // self.drawPrev('left');
                             self.drawPrev();
                         break;
-                    case 39: // down
+                    case 40: // down
                         if(scrollEnabled){
                             // self.drawNext('right');
                             self.drawNext();
