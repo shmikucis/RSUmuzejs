@@ -211,6 +211,8 @@ var Content = Class.extend({
 			parent = dynamicContent.getParent(item.menu_item_id);
 		}
 
+		var isVisible = pointer.is(":visible");
+
 		if(parent.description === "navCircle"){
 			pointer.show();
 			var children = dynamicContent.getChildren(parent);
@@ -221,6 +223,12 @@ var Content = Class.extend({
 				circles += '<span class="'+currentClass+'" data-url="'+children[i].post_name+'" style="top: -11px;">'+(i+1)+'</span>';
 			}
 			pointer.html(circles);
+			if(!isVisible){
+				var self = this;
+				pointer.children().each(function(i){
+					self.animateObject(this, 'fadeInUp3', i*200, 'in');
+				});
+			}
 		} else {
 			pointer.hide();
 		}
