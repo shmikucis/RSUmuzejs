@@ -140,7 +140,7 @@ function init() {
     });
 
     // click on read more button
-    $(document).on('click', '.readmore, .mejs-textform, .humor.cboxElement', function() {
+    $(document).on('click', '.readmore, .mejs-textform, .humortext.cboxElement', function() {
         $("#colorbox").addClass("text_popup");
         $(document).bind('cbox_complete', function() {
             textPopupVcenter();
@@ -173,7 +173,6 @@ function init() {
             }
             var imgWdt = $('#cboxLoadedContent img').width();
             var imgHgt = $('#cboxLoadedContent img').height();
-            console.log(imgWdt);
             $('#cboxLoadedContent img').uberZoom({
                             width: imgWdt,
                             height: imgHgt,
@@ -412,7 +411,7 @@ function initTags(mapname) {
 }
 
 function updateListeners() {
-    $('a.readmore, a.mejs-textform, a.humor.cboxElement').colorbox({
+    $('a.readmore, a.mejs-textform, a.humortext.cboxElement').colorbox({
         inline: true,
         scrolling: false
     });

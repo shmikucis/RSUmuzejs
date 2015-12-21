@@ -396,7 +396,7 @@ if (nextItem.post_name === 'ievads-2') {
             scrollEnabled = true;
 		}
 
-        if(prevItem.template === 'templates/video.php'){
+        if(prevItem.template === 'templates/video.php' && nextItem.template !== 'templates/video.php'){
                 setHeadFootSize(false);
         }
 	}
