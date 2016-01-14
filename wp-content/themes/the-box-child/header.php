@@ -71,7 +71,7 @@ else
                          <li><a href='#rigas-medicinas-instituts'><span>Rīgas Medicīnas institūts</span></a></li>
                          <li><a href='#latvijas-medicinas-akademija'><span>Latvijas Medicīnas akadēmija</span></a></li>
                          <li><a href='#rigas-stradina-universitate'><span>Rīgas Stradiņa universitāte</span></a></li>
-                         <li><a href='#'><span>Rektori</span></a></li>
+                         <li><a href='#rektori-menu'><span>Rektori</span></a></li>
                       </ul>
                    </li>
                    <li class='has-sub'><a><span>Struktūra</span></a>
