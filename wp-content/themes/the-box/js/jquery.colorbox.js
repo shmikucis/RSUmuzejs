@@ -450,7 +450,7 @@
 
 			var opacity = parseFloat(settings.get('opacity'));
 			$overlay.css({
-				opacity: opacity === opacity ? opacity : '',
+				//opacity: opacity === opacity ? opacity : '',
 				cursor: settings.get('overlayClose') ? 'pointer' : '',
 				visibility: 'visible'
 			}).show();

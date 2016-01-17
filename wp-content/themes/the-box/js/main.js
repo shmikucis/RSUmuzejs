@@ -142,6 +142,7 @@ function init() {
     // click on read more button
     $(document).on('click', '.readmore, .mejs-textform, .humortext.cboxElement', function() {
         $("#colorbox").addClass("text_popup");
+        $('#cboxOverlay').css('opacity', 0.8);
         $(document).bind('cbox_complete', function() {
             textPopupVcenter();
             $('.citation_logo').show();
@@ -160,8 +161,9 @@ function init() {
     // click on single image icon
     $(document).on('click', '.pic_single', function() {
         $("#colorbox").addClass("pic_popup");
-        $('#cboxOverlay').css('top', $('#masthead').height() - 2);
-
+//        $('#cboxOverlay').css('top', $('#masthead').height() - 2);
+        $('#cboxOverlay').css('opacity', 1);
+        
         $titleattr = $(this).attr('title');
         $mapattr = $(this).data('map');
         $(document).bind('cbox_complete', function() {
@@ -180,8 +182,6 @@ function init() {
                             navigatorImagePreview : true,
                             rubberband: false
                         });  
-//            $('#colorbox.pic_popup .ndd-uberzoom-container').css("max-width", "80%");
-//            $('#cboxLoadedContent .ndd-uberzoom-container').css({'width': imgWdt, 'left': (window.innerWidth-imgWdt)});
             if (typeof $mapattr !== typeof undefined && $mapattr !== false) {
                 $('#cboxLoadedContent img').attr('usemap', $mapattr);
                 initTags($mapattr);
