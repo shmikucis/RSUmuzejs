@@ -1041,7 +1041,7 @@ a.archive{
 #cboxOverlay{
     top: 7vh;
     background: #1D1D1B;
-    /*opacity: 1 !important;*/
+    /*opacity: 0.8;*/
 }
 
 .text_popup#colorbox{

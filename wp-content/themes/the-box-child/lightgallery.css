@@ -320,7 +320,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 }
 
 .lg-outer .lg-thumb-outer {
-  background-color: #1D1D1B;
+  /*background-color: #1D1D1B;*/
   /*bottom: 0;*/
   right: 0;
   position: absolute;
@@ -840,7 +840,7 @@ margin-top: 2px;
   transition: opacity 0.15s ease 0s;
 }
 .lg-backdrop.in {
-  opacity: 1;
+  opacity: 0.8;
 }
 
 .lg-css3.lg-no-trans .lg-prev-slide, .lg-css3.lg-no-trans .lg-next-slide, .lg-css3.lg-no-trans .lg-current {

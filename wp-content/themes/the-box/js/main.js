@@ -142,7 +142,7 @@ function init() {
     // click on read more button
     $(document).on('click', '.readmore, .mejs-textform, .humortext.cboxElement', function() {
         $("#colorbox").addClass("text_popup");
-        $('#cboxOverlay').css('opacity', 0.8);
+        //$('#cboxOverlay').css('opacity', 0.8);
         $(document).bind('cbox_complete', function() {
             textPopupVcenter();
             $('.citation_logo').show();
@@ -162,7 +162,7 @@ function init() {
     $(document).on('click', '.pic_single', function() {
         $("#colorbox").addClass("pic_popup");
 //        $('#cboxOverlay').css('top', $('#masthead').height() - 2);
-        $('#cboxOverlay').css('opacity', 1);
+        //$('#cboxOverlay').css('opacity', 1);
         
         $titleattr = $(this).attr('title');
         $mapattr = $(this).data('map');

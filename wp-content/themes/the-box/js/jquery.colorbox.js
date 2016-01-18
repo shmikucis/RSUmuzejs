@@ -28,7 +28,7 @@
 		maxHeight: false,
 		scalePhotos: true,
 		scrolling: true,
-		opacity: 0.9,
+		opacity: 0.8,
 		preloading: true,
 		className: false,
 		overlayClose: true,
@@ -450,7 +450,7 @@
 
 			var opacity = parseFloat(settings.get('opacity'));
 			$overlay.css({
-				//opacity: opacity === opacity ? opacity : '',
+				opacity: opacity === opacity ? opacity : '',
 				cursor: settings.get('overlayClose') ? 'pointer' : '',
 				visibility: 'visible'
 			}).show();
