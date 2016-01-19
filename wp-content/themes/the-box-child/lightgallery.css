@@ -840,7 +840,7 @@ margin-top: 2px;
   transition: opacity 0.15s ease 0s;
 }
 .lg-backdrop.in {
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 .lg-css3.lg-no-trans .lg-prev-slide, .lg-css3.lg-no-trans .lg-next-slide, .lg-css3.lg-no-trans .lg-current {

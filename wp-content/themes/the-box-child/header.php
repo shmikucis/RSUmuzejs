@@ -96,11 +96,11 @@ else
                    </li>
                    <li class='has-sub'><a><span>Ārpus studijām</span></a>
                       <ul>
-                         <li><a href='#'><span>Okupācijas laikā</span></a></li>
-                         <li><a href='#'><span>Mākslinieciskie kolektīvi</span></a></li>
-                         <li><a href='#'><span>Sabiedriskās aktivitātes</span></a></li>
-                         <li><a href='#'><span>Sports</span></a></li>
-                         <li><a href='#'><span>Tradīcijas</span></a></li>
+                         <li><a href='#polakt'><span>Okupācijas laikā</span></a></li>
+                         <li><a href='#kolektivi'><span>Mākslinieciskie kolektīvi</span></a></li>
+                         <li><a href='#sabakt'><span>Sabiedriskās aktivitātes</span></a></li>
+                         <li><a href='#sports'><span>Sports</span></a></li>
+                         <li><a href='#svetki'><span>Tradīcijas</span></a></li>
                       </ul>
                    </li>
                    <li><a href="#"><span>Kontakti</span></a>

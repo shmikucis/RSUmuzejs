@@ -260,11 +260,17 @@ function init() {
     
     $(document).on('click', '.audio', function() {
         var audio = $('#footer audio');
-        if (audio.length) {
+        var id = $(this).attr('data-gallery');
+        if (audio.length && '#'+audio.attr('id') === id) {
             $('#footer audio').get(0).player.remove();
             $('#footer audio').get(0).remove();
-        } else {
-            $('audio').clone().appendTo('#footer');
+        } 
+        else {
+            if(audio.length){
+                $('#footer audio').get(0).player.remove();
+                $('#footer audio').get(0).remove();
+            }
+            $(id).clone().appendTo('#footer');
             audio = $('#footer audio');
             audio.mediaelementplayer({
                 audioWidth: window.innerWidth,
@@ -278,7 +284,7 @@ function init() {
             $('.mejs-currenttime-container').appendTo('.mejs-time-rail');
             $('.mejs-duration-container').appendTo('.mejs-time-rail');
             $('.mejs-inner').prepend('<p>' + $('#footer audio').data('title') + '</p>');
-            $('.mejs-inner').append('<a href="#audio-text" class="mejs-textform cboxElement">Teksta formā</a>');
+            $('.mejs-inner').append('<a href="'+id+'-text" class="mejs-textform cboxElement">Teksta formā</a>');
             $('.mejs-textform').css('margin-top', ($('.mejs-container').height() - $('.mejs-textform').height())/2);
 
 //            var pad = ($('.mejs-container').height() - 10 - $('.mejs-textform').height()) / 2;
