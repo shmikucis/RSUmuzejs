@@ -964,6 +964,10 @@ a.obj_icon[data-title]:hover:after{
     top: 25vh !important;
    left: 10vw !important;
 }
+.global_botfarleft{
+    top: 25vh !important;
+    left: 0 !important;
+}
 .global_botright{
     top:25vh !important;
     left:40vw!important;
