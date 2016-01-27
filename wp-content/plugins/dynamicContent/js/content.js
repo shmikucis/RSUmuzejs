@@ -361,15 +361,23 @@ var Content = Class.extend({
                    }, this.coolDownTime);
             }
             if(nextItem.template === 'templates/menu.php'){
-				//$('#continue').addClass('hidden none');
+		setTimeout(function(){
+                       if ($(".menu li").length > 6){
+                            resizeMenu();
+                            $(".menu").niceScroll({
+                                cursoropacitymin: 1
+                            });}
+                   }, this.coolDownTime);
                 scrollEnabled = false;
-			}
+                
+            }
+			
                         if (nextItem.post_name !== 'ievads-2') {
                 $('#continue').addClass('hidden none');
             }
 			return;
 		}
-if (nextItem.post_name === 'ievads-2') {
+            if (nextItem.post_name === 'ievads-2') {
                 this.removeAnimation('#continue', 'none moveDownOut');
                 this.animateObject('#continue', 'moveUp', 100, 'in');
             }
@@ -395,7 +403,16 @@ if (nextItem.post_name === 'ievads-2') {
             //this.animateObject('#continue', 'moveUp', 100, 'in');
             scrollEnabled = true;
 		}
-
+        if (nextItem.template === 'templates/menu.php'){
+            setTimeout(function(){
+                       if ($(".menu li").length > 6){
+                            resizeMenu();
+                            $(".menu").niceScroll({
+                                cursoropacitymin: 1
+                            });}                       
+                   }, this.coolDownTime);
+            scrollEnabled = false;
+        }
         if(prevItem.template === 'templates/video.php' && nextItem.template !== 'templates/video.php'){
                 setHeadFootSize(false);
         }
@@ -422,6 +439,7 @@ if (nextItem.post_name === 'ievads-2') {
         if(nextItem.template == 'templates/menu.php'){
 			//this.removeAnimation('#continue', 'moveUp');
 			//this.animateObject('#continue', 'moveDownOut', 100, 'out');
+                        
             scrollEnabled = false;
 		}
         if(nextItem.template === 'templates/video.php'){

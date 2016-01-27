@@ -57,6 +57,7 @@ $(window).resize(function() {
     setButtonMargin();
     if (dynamicContent.getItem().template === "templates/video.php") setHeadFootSize(true);
     else setHeadFootSize(false);
+    if (dynamicContent.getItem().template === "templates/menu.php") resizeMenu();
 });
 
 $(document).ready(function() {
@@ -477,4 +478,11 @@ function setInnerImg(){
     $('.innerImg').parent().width($('.innerImg .layer div').width());
     $('.innerImg').parent().height($('.innerImg .layer div').height());
     
+}
+
+function resizeMenu(){
+    var yPos = $('.menu')[0].getBoundingClientRect().top;
+    var footHgt = $(footer).height();
+    var bodyHgt = $('body').height();
+    $('.menu').css('max-height', bodyHgt-yPos-footHgt);
 }

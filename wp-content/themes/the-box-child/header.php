@@ -89,16 +89,16 @@ else
                    </li>
                    <li class='has-sub'><a><span>Personības</span></a>
                       <ul>
-                         <li><a href='#'><span>Veselības aprūpe</span></a></li>
-                         <li><a href='#'><span>Sociālās zinātnes</span></a></li>
-                         <li><a href='#'><span>Atpazīstamas personības</span></a></li>
+                         <li><a href='#veselibas-aprupe'><span>Veselības aprūpe</span></a></li>
+                         <li><a href='#socialas-zinatnes'><span>Sociālās zinātnes</span></a></li>
+                         <li><a href='#atpazistamas-personibas'><span>Atpazīstamas personības</span></a></li>
                       </ul>
                    </li>
                    <li class='has-sub'><a><span>Ārpus studijām</span></a>
                       <ul>
                          <li><a href='#polakt'><span>Okupācijas laikā</span></a></li>
-                         <li><a href='#kolektivi'><span>Mākslinieciskie kolektīvi</span></a></li>
                          <li><a href='#sabakt'><span>Sabiedriskās aktivitātes</span></a></li>
+                         <li><a href='#kolektivi'><span>Mākslinieciskie kolektīvi</span></a></li>                         
                          <li><a href='#sports'><span>Sports</span></a></li>
                          <li><a href='#svetki'><span>Tradīcijas</span></a></li>
                       </ul>
