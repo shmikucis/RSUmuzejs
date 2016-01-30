@@ -1352,6 +1352,9 @@ a.archive{
     .global_botleft{
         left: 25vw !important;
     }
+    .mejs-inner p{
+        font-size: 6pt !important;
+    }
 }
 
 @media screen and (max-width: 1024px){
@@ -1402,6 +1405,9 @@ a.archive{
         width: 120px;
         height: 30px;
         line-height: 30px;
+    }
+    .mejs-inner p{
+        font-size: 7pt !important;
     }
     .aboutvid{
         width: 100px;
@@ -1467,6 +1473,9 @@ a.archive{
     a.obj_icon:hover{
         background-position: -43px 0px;
     }    
+    .mejs-inner p{
+        font-size: 10pt;
+    }
     .mejs-textform{
         width: 120px;
         height: 26px;

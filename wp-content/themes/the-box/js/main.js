@@ -285,7 +285,13 @@ function init() {
             $('.mejs-currenttime-container').appendTo('.mejs-time-rail');
             $('.mejs-duration-container').appendTo('.mejs-time-rail');
             $('.mejs-inner').prepend('<p>' + $('#footer audio').data('title') + '</p>');
-            $('.mejs-inner').append('<a href="'+id+'-text" class="mejs-textform cboxElement">Teksta formā</a>');
+            if (id !== "#kolektivi-audio2"){
+                $('.mejs-inner').append('<a href="'+id+'-text" class="mejs-textform cboxElement">Teksta formā</a>');
+            }
+            else {
+                $(".mejs-controls").css("width", 80 + "%");
+                $(".mejs-inner p").css({"left":"15%", "width": "70%", "font-size":"8pt", "margin-top": "2px"});
+            }
             $('.mejs-textform').css('margin-top', ($('.mejs-container').height() - $('.mejs-textform').height())/2);
 
 //            var pad = ($('.mejs-container').height() - 10 - $('.mejs-textform').height()) / 2;
