@@ -131,7 +131,7 @@
         if (_this.s.preload > _this.$items.length) {
             _this.s.preload = _this.$items.length;
         }
-
+        
         // if dynamic option is enabled execute immediately
         var _hash = window.location.hash;
         if (_hash.indexOf('lg=' + this.s.galleryId) > 0) {
@@ -217,8 +217,9 @@
             if (_this.s.mousewheel) {
                 _this.mousewheel();
             }
+            
         }
-
+        
         _this.counter();
 
         _this.closeGallery();
@@ -409,7 +410,7 @@
      *  Ex: 1/10
      */
     Plugin.prototype.counter = function() {
-        if (this.s.counter) {
+        if (this.s.counter && this.$items.length>1) {
             $(this.s.appendCounterTo).append('<div id="lg-counter"><span id="lg-counter-current">' + (parseInt(this.index, 10) + 1) + '</span> / <span id="lg-counter-all">' + this.$items.length + '</span></div>');
         }
     };

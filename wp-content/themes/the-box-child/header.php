@@ -90,7 +90,7 @@ else
                    <li class='has-sub'><a><span>Personības</span></a>
                       <ul>
                          <li><a href='#veselibas-aprupe'><span>Veselības aprūpe</span></a></li>
-                         <li><a href='#socialas-zinatnes'><span>Sociālās zinātnes</span></a></li>
+                         <li><a href='#socialas-zinatnes2'><span>Sociālās zinātnes</span></a></li>
                          <li><a href='#atpazistamas-personibas'><span>Atpazīstamas personības</span></a></li>
                       </ul>
                    </li>

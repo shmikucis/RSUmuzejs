@@ -9,7 +9,7 @@
 .ndd-uberzoom-container img.ndd-uberzoom-main-image {
 	opacity: 0;
 	width: auto !important;
-	height: auto;
+	height: auto;        
         max-height: 100% !important;
 	-webkit-touch-callout: none;
     -webkit-user-select: none;

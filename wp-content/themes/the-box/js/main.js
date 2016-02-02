@@ -173,16 +173,16 @@ function init() {
                 $('#cboxTitle').css('display', 'block');
             } else {
                 $('#cboxTitle').css('display', 'none');
-            }
-            var imgWdt = $('#cboxLoadedContent img').width();
-            var imgHgt = $('#cboxLoadedContent img').height();
-            $('#cboxLoadedContent img').uberZoom({
-                            width: imgWdt,
-                            height: imgHgt,
-                            navigator : true,
-                            navigatorImagePreview : true,
-                            rubberband: false
-                        });  
+            }      
+                var imgWdt = $('#cboxLoadedContent img').width();
+                var imgHgt = $('#cboxLoadedContent img').height();
+                $('#cboxLoadedContent img').uberZoom({
+                    width: imgWdt,
+                    height: imgHgt,
+                    navigator : true,
+                    navigatorImagePreview : true,
+                    rubberband: false
+                });
             if (typeof $mapattr !== typeof undefined && $mapattr !== false) {
                 $('#cboxLoadedContent img').attr('usemap', $mapattr);
                 initTags($mapattr);
