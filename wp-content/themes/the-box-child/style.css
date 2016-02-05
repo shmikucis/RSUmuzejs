@@ -629,6 +629,7 @@ p.text_right{
     font-size: 9pt;
     line-height: 150%;
     left: 30%;
+    text-align: right;
 }
 
 p.text_left{
