@@ -44,7 +44,7 @@ var Content = Class.extend({
 
         // track backspace button
         $('html').keyup(function(e){
-        	if(e.keyCode == 8){
+        	if(e.keyCode == 8 && !$("#searchfield").is(":focus")){
                     self.back();
 //    		if(self.history.length > 1)
 //    			self.history.pop();
@@ -419,15 +419,16 @@ var Content = Class.extend({
                    }, this.coolDownTime);
             }
             if(nextItem.template === 'templates/menu.php'){
-//		setTimeout(function(){
-//                       if ($(".menu li").length > 6){
-//                            resizeMenu();
-//                            $(".menu").niceScroll({
-//                                cursoropacitymin: 1
-//                            });}
-//                   }, this.coolDownTime);
-                scrollEnabled = false;
-                
+                scrollEnabled = false;                
+            }
+            if(nextItem.template === 'templates/searchResults.php'){
+		setTimeout(function(){
+                        resizeSrcRes();
+                            $("ol.searchresults").niceScroll({
+                                cursoropacitymin: 1
+                            });
+                   }, this.coolDownTime);
+                scrollEnabled = false;                
             }
 			
                         if (nextItem.post_name !== 'ievads-2') {
@@ -458,19 +459,24 @@ var Content = Class.extend({
 		}
                 
         if(prevItem.template === 'templates/menu.php' && nextItem.template !== 'templates/menu.php'){
-			//this.removeAnimation('#continue', 'none moveDownOut');
-            //this.animateObject('#continue', 'moveUp', 100, 'in');
             scrollEnabled = true;
 		}
+        if(prevItem.template === 'templates/searchResults.php' && nextItem.template !== 'templates/searchResults.php'){
+            scrollEnabled = true;
+		}        
         if (nextItem.template === 'templates/menu.php'){
-//            setTimeout(function(){
-//                       if ($(".menu li").length > 6){
-//                            resizeMenu();
-//                            $(".menu").niceScroll({
-//                                cursoropacitymin: 1
-//                            });}                       
-//                   }, this.coolDownTime);
             scrollEnabled = false;
+        }
+        if (nextItem.template === 'templates/searchResults.php'){
+            setTimeout(function(){
+                       setTimeout(function(){
+                           resizeSrcRes();
+                            $("ol.searchresults").niceScroll({
+                                cursoropacitymin: 1
+                            });
+                   }, this.coolDownTime);
+        });
+        scrollEnabled = false;
         }
         if(prevItem.template === 'templates/video.php' && nextItem.template !== 'templates/video.php'){
                 setHeadFootSize(false);
@@ -495,7 +501,7 @@ var Content = Class.extend({
 			this.removeAnimation('#footer .social', 'moveUp');
 			this.animateObject('#footer .social', 'moveDownOut', 100, 'out');
 		}
-        if(nextItem.template == 'templates/menu.php'){
+        if(nextItem.template == 'templates/menu.php' || nextItem.template == 'templates/searchResults.php'){
 			//this.removeAnimation('#continue', 'moveUp');
 			//this.animateObject('#continue', 'moveDownOut', 100, 'out');
                         
@@ -633,9 +639,25 @@ var Content = Class.extend({
                                             );
                             setVideoSize();
                                             break;
+                        case 'templates/searchResults.php':
+				this.article.append(
+					'<header class="entry-header layer" data-depth="0">'
+						+'<h1 class="entry-title anim-right">'+item.post_title+'</h1>'
+					+'</header>'
+					+'<div class="slideNav prev"></div>'+'<div class="bg stripes">'
+                        +'<div class="anim-right"></div>'
+                    +'</div>'	
+					+'<div class="entry-content layer searchresults" data-depth="0">'
+                                +'<ol class="searchresults">'
+						+item.post_content
+                                        +'</ol>'
+					+'</div><div class="slideNav next"></div>'
+				);
+				break;
                                     default:
                                             this.article.append(content);
                                             break;
+                         
                             }     
 
 		// add eventlistener to menu items in content

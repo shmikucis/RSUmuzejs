@@ -58,6 +58,11 @@ else
 			</a>
 		</div>
             <span id="menu_toggle"></span>
+            <form id="search">
+                <input id="searchfield" type="text" required>
+                <input id="searchbutton" type="button">
+            </form>
+            
             <div id='sidemenu' style="display: none">
                 <ul>
                    <li class='has-sub'><a><span>Pirmsākumi</span></a>

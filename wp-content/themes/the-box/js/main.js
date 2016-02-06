@@ -57,7 +57,7 @@ $(window).resize(function() {
     setButtonMargin();
     if (dynamicContent.getItem().template === "templates/video.php") setHeadFootSize(true);
     else setHeadFootSize(false);
-    //if (dynamicContent.getItem().template === "templates/menu.php") resizeMenu();
+    if (dynamicContent.getItem().template === "templates/searchResults.php") resizeSrcRes();
 });
 
 $(document).ready(function() {
@@ -363,6 +363,7 @@ function setHeadFootSize(divide) {
     $('.top_bar a object').css('height', $('#masthead').height() / 7 * 5);
     $('.top_bar a object').css('margin-top', $('#masthead').height() / 7);
     $('#menu_toggle').css('margin-top', ($('#masthead').height()-$('#menu_toggle').height())/2);
+    $('#search').css('margin-top', ($('#masthead').height()-$('#search').height())/2);
 
     window.footHeight = $('#footer').height();
     $('#footer').css('height', footHeight);
@@ -486,9 +487,9 @@ function setInnerImg(){
     
 }
 
-function resizeMenu(){
-    var yPos = $('.menu')[0].getBoundingClientRect().top;
+function resizeSrcRes(){
+    var yPos = $('.searchresults')[0].getBoundingClientRect().top;
     var footHgt = $(footer).height();
     var bodyHgt = $('body').height();
-    $('.menu').css('max-height', bodyHgt-yPos-footHgt);
+    $('.searchresults').css('max-height', bodyHgt-yPos-footHgt);
 }
