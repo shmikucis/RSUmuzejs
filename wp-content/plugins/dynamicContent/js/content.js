@@ -7,16 +7,16 @@ var Content = Class.extend({
 		this.history = [];
 		var self = this;
 
-		$(window).bind('mousewheel DOMmousescroll wheel', function(e){
-            var direction = e.originalEvent.wheelDelta /120 > 0 ? 'up' : 'down';
-            if(scrollEnabled){
-                if(direction === 'down'){
-                        self.drawNext();
-                } else {
-                        self.drawPrev();
+            $(window).bind('mousewheel DOMmousescroll wheel', function(e){
+                var direction = e.originalEvent.wheelDelta /120 > 0 ? 'up' : 'down';
+                if(scrollEnabled){
+                    if(direction === 'down'){
+                            self.drawNext();
+                    } else {
+                            self.drawPrev();
+                    }
                 }
-            }
-		});
+            });
                 
         $(document).keyup(function(e) {
             if(scrollEnabled){
@@ -39,16 +39,17 @@ var Content = Class.extend({
             e.preventDefault(); // prevent the default action (scroll / move caret)
         });
         
-        $('body').on('click', '.slideNav.prev', function(){self.drawPrev();});
-        $('body').on('click', '.slideNav.next', function(){self.drawNext();});
+//        $('body').on('click', '.slideNav.prev', function(){self.drawPrev();});
+//        $('body').on('click', '.slideNav.next', function(){self.drawNext();});
 
         // track backspace button
         $('html').keyup(function(e){
         	if(e.keyCode == 8){
-    		if(self.history.length > 1)
-    			self.history.pop();
-    			var backUrl = self.history.pop();
-    			self.drawFromUrl(backUrl);
+                    self.back();
+//    		if(self.history.length > 1)
+//    			self.history.pop();
+//    			var backUrl = self.history.pop();
+//    			self.drawFromUrl(backUrl);
         	}
         })  
 
@@ -80,7 +81,6 @@ var Content = Class.extend({
 	}
 
 	, draw: function(item){
-		// console.log(item);
 		var self = this;
 		if(!this.isTime()){
 			return;
@@ -114,6 +114,10 @@ var Content = Class.extend({
 		setTimeout( function(){ self.drawNavCircle(item); }, 1000 );
 		this.activeMenuItem(item);
 		$visitedMaps = [];
+                
+                if (item.description === 'singleSlide'){
+                    this.setSingleSlide(item);
+                }
 	}
 
 	, drawIn: function(item){
@@ -146,22 +150,40 @@ var Content = Class.extend({
 	}
 
 	, back: function(){
-
+            if(this.history.length > 1)
+                    this.history.pop();
+                    var backUrl = this.history.pop();
+                    this.drawFromUrl(backUrl);
 	}
-
+        , upOneLevel: function(){
+            var levels = $('#breadcrumbs div').length;
+            if (levels>=2){
+                $("#breadcrumbs div a")[levels-2].click();
+            }
+        }       
 	, drawNext: function(direction){
+                var thisItem = dynamicContent.getItem();
 		var nextItem = dynamicContent.getNext();
 		if(nextItem){
-			this.direction = direction ? direction : 'down';
-			this.draw(nextItem);	
+                        if(thisItem.template === 'templates/menu2.php' && nextItem.template !== 'templates/menu2.php')
+                            return;
+                        else{
+                            this.direction = direction ? direction : 'down';
+                            this.draw(nextItem);	
+                        }
 		}		
 	}
 
 	, drawPrev: function(direction){
+                var thisItem = dynamicContent.getItem();
 		var prevItem = dynamicContent.getPrev();
 		if(prevItem) {
+                    if(thisItem.template === 'templates/menu2.php' && prevItem.template !== 'templates/menu2.php')
+                            return;
+                    else{
 			this.direction = direction ? direction : 'up';
 			this.draw(prevItem);
+                    }
 		}
 	}
 
@@ -187,6 +209,13 @@ var Content = Class.extend({
 					, 'url': item.post_name
 				});
 			}
+                        else if(item.template === "templates/menu2.php" && parent.template === "templates/menu2.php"){
+                            list.pop();
+                            list.push({
+					'post_title': item.post_title
+					, 'url': item.post_name
+				});
+                        }
 			item = dynamicContent.getByMenuID(parent);
 		}
 		list.reverse();
@@ -207,12 +236,13 @@ var Content = Class.extend({
 		var parent;
 		if(dynamicContent.hasChildren(item)){
 			parent = item;
+                        if (dynamicContent.getParent(item.menu_item_id).template === 'templates/menu2.php'){
+                            parent = dynamicContent.getParent(item.menu_item_id);
+                        }
 		} else {
 			parent = dynamicContent.getParent(item.menu_item_id);
 		}
-
 		var isVisible = pointer.is(":visible");
-
 		if(parent.description === "navCircle"){
 			pointer.show();
 			var children = dynamicContent.getChildren(parent);
@@ -242,6 +272,33 @@ var Content = Class.extend({
 
 		$('a[href="#'+item.post_name+'"]').parent().addClass('active');
 	}
+        
+        , setSingleSlide: function(item){
+            scrollEnabled = false;
+            var self = this;
+            var parent = dynamicContent.getParent(item.menu_item_id);
+            var grandParent = dynamicContent.getParent(parent.menu_item_id);
+            var siblings = dynamicContent.getChildren(parent);
+            
+            var handler = function(e){
+                if(e.which === 38 || e.which === 40 || e.which === 1){
+                    if(siblings.indexOf(item)<14){
+                        if (grandParent.template === parent.template)
+                            self.draw(grandParent);
+                        else self.draw(parent);
+                    }
+                    else self.draw(parent);
+                    setTimeout(function(){
+                        scrollEnabled = true;
+                        $(window).unbind('mousewheel Dommousescroll wheel keyup', handler)
+                    },self.coolDownTime);
+                }
+            };
+            
+            $(window).one('mousewheel Dommousescroll wheel keyup', handler);
+            
+            
+        }
 
 	, animateScene: function(item, inOut){
 		// animations from config
@@ -269,6 +326,7 @@ var Content = Class.extend({
 			, '.cardboard'
 			, '.obj_icon'
 			, '.entry-content .menu li' 
+                        , '.entry-content .menu2 li'
 			, '.entry-content div div img'
 			// , '.entry-content .innerImg .layer'
 		];
@@ -361,13 +419,13 @@ var Content = Class.extend({
                    }, this.coolDownTime);
             }
             if(nextItem.template === 'templates/menu.php'){
-		setTimeout(function(){
-                       if ($(".menu li").length > 6){
-                            resizeMenu();
-                            $(".menu").niceScroll({
-                                cursoropacitymin: 1
-                            });}
-                   }, this.coolDownTime);
+//		setTimeout(function(){
+//                       if ($(".menu li").length > 6){
+//                            resizeMenu();
+//                            $(".menu").niceScroll({
+//                                cursoropacitymin: 1
+//                            });}
+//                   }, this.coolDownTime);
                 scrollEnabled = false;
                 
             }
@@ -398,19 +456,20 @@ var Content = Class.extend({
 			this.animateObject('.head_image_bot', 'moveDown', 100, 'in');
 			//this.animateObject('#continue', 'moveUp', 100, 'in');
 		}
+                
         if(prevItem.template === 'templates/menu.php' && nextItem.template !== 'templates/menu.php'){
 			//this.removeAnimation('#continue', 'none moveDownOut');
             //this.animateObject('#continue', 'moveUp', 100, 'in');
             scrollEnabled = true;
 		}
         if (nextItem.template === 'templates/menu.php'){
-            setTimeout(function(){
-                       if ($(".menu li").length > 6){
-                            resizeMenu();
-                            $(".menu").niceScroll({
-                                cursoropacitymin: 1
-                            });}                       
-                   }, this.coolDownTime);
+//            setTimeout(function(){
+//                       if ($(".menu li").length > 6){
+//                            resizeMenu();
+//                            $(".menu").niceScroll({
+//                                cursoropacitymin: 1
+//                            });}                       
+//                   }, this.coolDownTime);
             scrollEnabled = false;
         }
         if(prevItem.template === 'templates/video.php' && nextItem.template !== 'templates/video.php'){
@@ -549,20 +608,35 @@ var Content = Class.extend({
 					+'</div>'
 				);
 				break;
-            case 'templates/video.php':
-				this.article.append(
-					'<header class="entry-header layer" data-depth="0">'
-					+'</header>'					
-					+'<div class="slideNav prev"></div>'+'<div class="video-content">'
-						+item.post_content
-					+'</div>'+'</div><div class="slideNav next"></div>'
-				);
-                setVideoSize();
-				break;
-			default:
-				this.article.append(content);
-				break;
-		}     
+                        case 'templates/menu2.php':
+                        this.article.append(
+                                '<header class="entry-header layer" data-depth="0">'
+                                        +'<h1 class="entry-title anim-right">'+item.post_title+'</h1>'
+                                +'</header>'
+                                +'<div class="bg stripes">'
+                                    +'<div class="anim-right"></div>'
+                                +'</div>'  
+                                                    +'<div class="entry-content layer" data-depth="0">'
+                                    +'<ul class="menu2">'
+                                                            +item.post_content
+                                    +'</ul>'
+                                +'</div>'
+                        );
+                        break;
+                        case 'templates/video.php':
+                                            this.article.append(
+                                                    '<header class="entry-header layer" data-depth="0">'
+                                                    +'</header>'					
+                                                    +'<div class="slideNav prev"></div>'+'<div class="video-content">'
+                                                            +item.post_content
+                                                    +'</div>'+'</div><div class="slideNav next"></div>'
+                                            );
+                            setVideoSize();
+                                            break;
+                                    default:
+                                            this.article.append(content);
+                                            break;
+                            }     
 
 		// add eventlistener to menu items in content
 		var self = this;
@@ -587,7 +661,29 @@ var Content = Class.extend({
 	        		self.drawFromUrl(href);
 	        	}
 			})
-		}      
+		}     
+                if($('.entry-content .menu2').length > 0) {
+			$('.entry-content .menu2').bind('click', function(e){
+				var pointer = $(e.target);
+				if(pointer.is('a')){
+
+				} 
+				else if(pointer.is('li')){
+					pointer = pointer.find('a');
+				}
+				else if(pointer.is('img')){
+					pointer = pointer.parent().parent();
+				}
+				else if(pointer.is('p')){
+					pointer = pointer.parent();
+				}
+
+				var href = $(pointer).attr('href').slice(1);
+	        	if(href && href !== ''){
+	        		self.drawFromUrl(href);
+	        	}
+			})
+		}  
 	}
 
 	, drawAttachments: function(item){

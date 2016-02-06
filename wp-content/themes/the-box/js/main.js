@@ -57,7 +57,7 @@ $(window).resize(function() {
     setButtonMargin();
     if (dynamicContent.getItem().template === "templates/video.php") setHeadFootSize(true);
     else setHeadFootSize(false);
-    if (dynamicContent.getItem().template === "templates/menu.php") resizeMenu();
+    //if (dynamicContent.getItem().template === "templates/menu.php") resizeMenu();
 });
 
 $(document).ready(function() {
