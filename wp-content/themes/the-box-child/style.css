@@ -36,6 +36,10 @@ This Theme is licensed under the GPL.
     font-family: oswald-light;
     src: url(fonts/Oswald-Light.ttf);
 }
+@font-face{
+    font-family: helvetica-neue;
+    src: url(fonts/HelveticaNeueLTPro-Roman.otf);
+}
 
 /*Loading*/
 
@@ -573,6 +577,20 @@ ul.menu2 p{
     color: #FFFFFF;
     width: auto;
     white-space: nowrap;
+    background-image: url(images/ui/menu_btn_bg.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    padding: 8% 16%;
+}
+ul.menu2 p::after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    bottom: 5px;
+    left: 5px;
+    border: 2px solid #fff;
+    border-radius: 2px;
 }
 ul.menu2 a:hover p{
     display: block;
@@ -1331,7 +1349,7 @@ a.archive{
 }
 
 #intro_content{
-    position: relative !important;
+    position: relative;
     width: 100%;
     margin-top: 22vh;
     height: 40vh;
@@ -1389,7 +1407,7 @@ a.archive{
 
 #fore3{
     position: relative !important;
-    width: 40vw !important;
+    width: 40vw;
     margin: auto;
     font-family: baskerville;
     font-size: 9pt;

@@ -31,7 +31,6 @@ else
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">	
-
         
 
 <!--[if lt IE 9]>
@@ -39,6 +38,7 @@ else
 <![endif]-->
 	
 <?php wp_head(); ?>
+<link id="styleswitch" rel="stylesheet" type="text/css" href="" media="screen" />
 </head>
 <body <?php body_class(); ?>>
 <div class="page_load"><div class="loading">

@@ -93,7 +93,8 @@ var Content = Class.extend({
 			this.drawIn(item);
 			this.animateObject('#masthead', 'moveDown', 300, 'in');
 			this.animateObject('#footer', 'moveUp', 500, 'in');
-            setButtonMargin();                        
+                        setButtonMargin();                   
+                        if(isMobile) mContinue();
 		} else {
 			var prevItem = dynamicContent.getItem();
 			this.animateScene(prevItem, 'out');
@@ -105,9 +106,14 @@ var Content = Class.extend({
 			}			
 			setTimeout(function(){
 				self.drawIn(item);
-				parallax.updateLayers();
-                    updateListeners();
-                    setButtonMargin();
+                                if(!isMobile){ 
+                                    parallax.updateLayers();
+                                    updateListeners();
+                                    setButtonMargin();
+                                }
+                                else{
+                                    mContinue();
+                                }
 			}, coolDownTime);
 		}	
 		this.drawBreadCrumbs(item);
@@ -531,7 +537,19 @@ var Content = Class.extend({
 	, drawTemplate: function(item){
 		switch(item.template){
 			case 'templates/title.php':
-				this.article.append(
+                            if(isMobile) this.article.append(
+					'<header class="entry-header main_title layer" data-depth="0.3">'
+					+'</header>'
+					+'<div id="intro" class="layer" data-depth="0">'            
+			            +'<div id ="background" class="layer" data-depth="0.2">'
+			            	+'<div id="bg1"></div>'
+			            +'</div>'
+			            +'<div id="intro_content" class="layer" data-depth="0">'
+			            	+item.post_content
+			                +'</div>'+'<span id="mobileButZone"><span id="m_menubtn"></span><span id="bigmore"></span><span id="m_socbtn"></span></span>'
+					+'</div>'
+				);
+                            else this.article.append(
 					'<header class="entry-header main_title layer" data-depth="0.3">'
 					+'</header>'
 					+'<div id="intro" class="layer" data-depth="0">'            

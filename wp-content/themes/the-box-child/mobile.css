@@ -1,0 +1,134 @@
+div#primary.content-area {
+    height: 90vh;
+}
+header.site-header{
+    position:relative;
+    height: 10%;
+}
+div.top_bar{
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+#header_logo{
+    min-height:25px;
+}
+#footer{
+    display:none;
+}
+#intro{
+    height: 90vh;
+    z-index:0;
+}
+#intro_content{
+    position: absolute;
+    height:auto;
+    margin-top: 20%;
+}
+#background{
+    height:100%;
+    width:100%;
+    left:0 !important;
+}
+#bg1 {
+    background: url(images/mobile_intro_bg.jpg) no-repeat center center;
+    background-size: cover;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left:0;
+    top:0;
+}
+#mid1 {
+    background-image: url(images/ui/line_pattern.png);
+    opacity: 0.9;
+    width: auto;
+    margin:0;
+    padding: 5%;
+    font-family: pagella;
+}
+#fore1{
+    font-size: 24pt;
+}
+#foreLine{
+   width: 90%; 
+}
+#fore2{
+    width: auto;
+    margin-top:5px;
+    font-size: 12pt;
+}
+#mid2 {
+    margin-top: -3%;
+    width: 90%;
+    margin-left: 5%;
+    background-image: url(images/ui/mobile/mid2_bg.png);
+    padding-top: 0;
+    padding-bottom: 0;
+}
+#fore3{
+    width: auto;
+    padding: 5% 10%;
+    font-family: helvetica-neue;
+    font-size: 8pt;
+    margin: 0;
+}
+#mobileButZone{
+    position: absolute;
+    width: 100%;
+    /*height: 10%;*/
+    bottom: 5%;
+}
+#bigmore {
+/*    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    margin-top: 10%;*/
+    display: inline-block;
+    background-image: url(images/ui/mobile/readmore.png);
+    margin-top: 0;
+    width: 176px;
+    height: 44px; 
+    background-size: 176px 88px;
+    background-position: 0px 0px;
+}
+#bigmore:hover{
+    background-position: 0px 44px;
+}
+#m_menubtn{
+    position:absolute;
+    background-image: url(images/ui/mobile/menu_toggle.png);
+    left:0;
+    height: 44px;
+    width: 38px;
+    background-size: 76px 44px;
+    background-position: 0px 0px;
+}
+#m_menubtn:hover{
+    background-position: 36px 0px;
+}
+#m_socbtn{
+    position:absolute;
+    background-image: url(images/ui/mobile/social_toggle.png);
+    right:0;
+    height: 44px;
+    width: 38px;
+    background-size: 76px 44px;
+    background-position: 0px 0px;
+}
+#m_socbtn:hover{
+    background-position: 36px 0px;
+}
+#m_srchbtn{
+    float: right;
+    margin-right: 6px;
+    height: 40px;
+    width: 40px;
+    background-image: url(images/ui/mobile/search_toggle.png), url(images/ui/mobile/bg_red_small.png);
+    background-size: 40px 80px, cover;
+    background-position: 0px 0px, center;
+}
+#m_srchbtn:hover{
+    background-position: 0px 40px, center;
+}
