@@ -18,6 +18,7 @@ var ANIMATIONS = {
 			, ['#fore2', 'clipMoveDownLittle', 1100]
 			, ['#fore3', 'fadeInDown', 1200]
 			, ['#bigmore', 'fadeInUp2', 300]
+                        , ['#m_social', 'fadeInUp2', 300]
 			, ['#background', 'fadeIn', 0]
 		]
 		, out: [

@@ -17,6 +17,7 @@ else
 <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.ico" />
 <!--<meta charset="<?php // bloginfo( 'charset' ); ?>">-->
 <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
 <!--<meta charset="windows-1257"/>-->
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/main.js" charset="utf-8"></script>
@@ -63,7 +64,7 @@ else
                 <input id="searchbutton" type="button">
             </form>
             
-            <div id='sidemenu' style="display: none">
+            <div id='sidemenu'>
                 <ul>
                    <li class='has-sub'><a><span>Pirmsākumi</span></a>
                        <ul>
@@ -100,6 +101,55 @@ else
                       </ul>
                    </li>
                    <li class='has-sub'><a><span>Ārpus studijām</span></a>
+                      <ul>
+                         <li><a href='#polakt'><span>Okupācijas laikā</span></a></li>
+                         <li><a href='#sabakt'><span>Sabiedriskās aktivitātes</span></a></li>
+                         <li><a href='#kolektivi'><span>Mākslinieciskie kolektīvi</span></a></li>                         
+                         <li><a href='#sports'><span>Sports</span></a></li>
+                         <li><a href='#svetki'><span>Tradīcijas</span></a></li>
+                      </ul>
+                   </li>
+                   <li><a href="#"><span>Kontakti</span></a>
+                </ul>
+            </div>
+            
+            <div id='msidemenu'>
+                <ul>
+                   <li class='has-sub'><div></div><a href='#pirmsakumi-menu'><span>Pirmsākumi un Stradiņa vārds</span></a>
+                       <ul>
+                         <li><a href='#medicina'><span>Medicīna</span></a></li>
+                         <li><a href='#socialas-zinatnes'><span>Sociālās zinātnes</span></a></li>
+                       </ul>
+                   </li>
+                   <li class='has-sub'><div></div><a href="#attistiba-menu"><span>Augstskolas attīstība</span></a>
+                      <ul>
+                         <li><a href='#rigas-medicinas-instituts'><span>Rīgas Medicīnas institūts</span></a></li>
+                         <li><a href='#latvijas-medicinas-akademija'><span>Latvijas Medicīnas akadēmija</span></a></li>
+                         <li><a href='#rigas-stradina-universitate'><span>Rīgas Stradiņa universitāte</span></a></li>
+                         <li><a href='#rektori-menu'><span>Rektori</span></a></li>
+                      </ul>
+                   </li>
+                   <li class='has-sub'><div></div><a href="#"><span>Augstskolas struktūra</span></a>
+                      <ul>
+                         <li><a href='#'><span>Fakultātes</span></a></li>
+                         <li><a href='#'><span>Institūti un laboratorijas</span></a></li>
+                         <li><a href='#'><span>Administrācija</span></a></li>
+                      </ul>
+                   </li>
+                   <li class='has-sub'><div></div><a href="#"><span>Zinātne un pedagoģija</span></a>
+                       <ul>
+                         <li><a href='#'><span>Zinātne</span></a></li>
+                         <li><a href='#'><span>Pedagoģija</span></a></li>
+                       </ul>
+                   </li>
+                   <li class='has-sub'><div></div><a href="#izcilas-personibas"><span>Izcilas personības</span></a>
+                      <ul>
+                         <li><a href='#veselibas-aprupe'><span>Veselības aprūpe</span></a></li>
+                         <li><a href='#socialas-zinatnes2'><span>Sociālās zinātnes</span></a></li>
+                         <li><a href='#atpazistamas-personibas'><span>Atpazīstamas personības</span></a></li>
+                      </ul>
+                   </li>
+                   <li class='has-sub'><div></div><a href="#arpus-menu"><span>Ārpus studijām</span></a>
                       <ul>
                          <li><a href='#polakt'><span>Okupācijas laikā</span></a></li>
                          <li><a href='#sabakt'><span>Sabiedriskās aktivitātes</span></a></li>

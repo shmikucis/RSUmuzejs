@@ -25,6 +25,17 @@
                     <li><a href="#" id="gplus"></a></li>
             </ul>
         </div>
+        <div id="mfooter" style="display: none;">
+            <span id="m_menubtn"></span>
+            <span id="bigmore"></span>
+            <span id="m_social">
+                <ul>
+                    <li><a href="#" id="m_twitter"></a></li><li><a href="#" id="m_fb"></a></li><li><a href="#" id="m_draugiem"></a></li><li><a href="#" id="m_gplus"></a></li>
+                </ul>
+            </span>
+            <span id="m_socbtn"></span>
+            
+        </div>
 
 <?php wp_footer(); ?>
 

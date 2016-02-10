@@ -250,6 +250,9 @@ div.top_bar{
     color: black;
 }
 /*SideMenu*/
+#msidemenu{
+    display: none;
+}
 #menu_toggle{
     float: right;
     background-image: url('images/ui/menu_toggle.png');
@@ -280,6 +283,7 @@ div.top_bar{
   box-sizing: border-box;
 }
 #sidemenu {
+    display: none;
     position:absolute;
   width: 200px;
   font-family: oswald-medium;

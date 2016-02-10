@@ -51,26 +51,29 @@ var Content = Class.extend({
 //    			var backUrl = self.history.pop();
 //    			self.drawFromUrl(backUrl);
         	}
-        })  
+        });  
 
         
         $( "#continue" ).bind( "click", function() {
 		  	self.drawNext();
 		});
-
-        $( "#sidemenu" ).bind( "click", function(e) {
+                    
+        $("#sidemenu, #msidemenu ul").bind( "click", function(e) {
    			var pointer;
+                        var href;
         	if($(e.target).is('span')){
         		pointer = $(e.target).parent();
+                        href = $(pointer).attr('href').slice(1);
         	}
         	else if($(e.target).is('a')){
         		pointer = $(e.target);
+                        href = $(pointer).attr('href').slice(1);
         	}
-
-        	var href = $(pointer).attr('href').slice(1);
+        	
         	if(href && href !== ''){
         		self.drawFromUrl(href);
         	}
+                if (isMobile) m_closeMenu();
 		});	
 
 		$("#navCircle").bind("click", function(event){
@@ -416,6 +419,7 @@ var Content = Class.extend({
 				});
 			} else {
 				$('#footer .social').addClass('hidden');
+                                if(isMobile) $("#bigmore").attr('id',"continue");
 			}
 
             if(nextItem.template === 'templates/video.php'){
@@ -440,6 +444,7 @@ var Content = Class.extend({
                         if (nextItem.post_name !== 'ievads-2') {
                 $('#continue').addClass('hidden none');
             }
+           
 			return;
 		}
             if (nextItem.post_name === 'ievads-2') {
@@ -453,6 +458,7 @@ var Content = Class.extend({
 			$( "#bigmore" ).bind( "click", function() {
 			  	self.drawNext();
 			});
+                        if(isMobile) $("#continue").attr('id',"bigmore");
 		}
 
 		if(prevItem.post_name == 'titullapa'){
@@ -462,6 +468,7 @@ var Content = Class.extend({
 			this.animateObject('.head_image', 'moveDown', 100, 'in');			
 			this.animateObject('.head_image_bot', 'moveDown', 100, 'in');
 			//this.animateObject('#continue', 'moveUp', 100, 'in');
+                        if(isMobile) $("#bigmore").attr('id',"continue");
 		}
                 
         if(prevItem.template === 'templates/menu.php' && nextItem.template !== 'templates/menu.php'){
@@ -546,7 +553,7 @@ var Content = Class.extend({
 			            +'</div>'
 			            +'<div id="intro_content" class="layer" data-depth="0">'
 			            	+item.post_content
-			                +'</div>'+'<span id="mobileButZone"><span id="m_menubtn"></span><span id="bigmore"></span><span id="m_socbtn"></span></span>'
+			                +'</div>'
 					+'</div>'
 				);
                             else this.article.append(
