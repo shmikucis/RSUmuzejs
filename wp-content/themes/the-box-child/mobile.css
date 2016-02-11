@@ -102,7 +102,7 @@ div.top_bar{
     /*height: 10%;*/
     bottom: 5%;
 }
-#bigmore, #continue {
+#bigmore, #mcontinue {
     display: inline-block;    
     margin-top: 0;
     width: 176px;
@@ -113,10 +113,13 @@ div.top_bar{
 #bigmore{
     background-image: url(images/ui/mobile/readmore.png);
 }
-#continue{
+#bigmore:hover {
+    background-position: 0px 0px;
+}
+#mcontinue{
     background-image: url(images/ui/mobile/continue.png);
 }
-#bigmore,#continue:focus{
+#bigmore,#mcontinue:focus{
     background-position: 0px 44px;
 }
 #m_menubtn{
@@ -169,7 +172,10 @@ div.top_bar{
     position: absolute;
     width: 100vw;
     height: 90vh;
-    /*transform: translateX(-100vw);*/
+/*    -webkit-transform: translate(-100vw, 0);
+    -moz-transform: translate(-100vw, 0);
+    -o-transform: translate(-100vw, 0);
+    transform: translate(-100vw, 0);*/
     left: -100vw;
     top: 10vh;
     margin: 0;
@@ -184,6 +190,10 @@ div.top_bar{
     -moz-transition: left 1s;
     -o-transition: left 1s;
     transition: left 1s;
+/*    -webkit-transition: -webkit-transform 1s;
+    -moz-transition: -moz-transform 1s;
+    -o-transition: -o-transform 1s;
+    transition: transform 1s;*/
 }
 #msidemenu div{
     position: relative;
@@ -365,9 +375,48 @@ div.top_bar{
 #m_srchbtn:focus{
     background-position: 0px 40px, center;
 }
+#mback{
+    position:absolute;
+/*    right: 0;*/
+    height: 40px;
+    width: 40px;
+    background-image: url(images/ui/mobile/back.png), url(images/ui/mobile/bg_red_small.png);
+    background-size: 40px 80px, cover;
+    background-position: 0px 0px, center;
+}
+#mback:focus{
+    background-position: 0px 40px, center;
+}
 /*IE specific*/
 @media screen and (min-width:0\0){
 /*    div.top_bar{
         transform: translate(-100%,-50%);
     }*/
+}
+#fullpage{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.bg.stripes{
+    height: 55%;
+    width: 100%;
+    top: 15% !important;
+    left: 0 !important;    
+    opacity: 0.7;
+}
+.entry-content{
+    /*position: relative !important;*/ 
+    width: 100%;
+    margin-left: 0;
+    text-align: center;
+    top: 25% !important;
+    font-family: helvetica-neue;
+    color: #575756;
+}
+p.main_text_single{
+    font-size: 9pt;
+}
+.entry-header{
+    display: none;
 }

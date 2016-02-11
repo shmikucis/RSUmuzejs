@@ -29,6 +29,7 @@ var ANIMATIONS = {
 			, ['#fore2', 'clipMoveUpLittleOut', 0]
 			, ['#fore3', 'fadeOutUp', 300]
 			, ['#bigmore', 'removeZoomIn', 0]
+                        , ['#mfooter #bigmore', 'moveDownOut', 100]
 			, ['#background', 'fadeOut', 700]
 		]
 		, coolDown: 1700

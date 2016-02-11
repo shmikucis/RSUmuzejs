@@ -63,7 +63,7 @@ else
                 <input id="searchfield" type="text" required>
                 <input id="searchbutton" type="button">
             </form>
-            
+            <div id="mback"></div><div id="m_srchbtn"></div><div id="menuclose" style="display: none"></div>
             <div id='sidemenu'>
                 <ul>
                    <li class='has-sub'><a><span>Pirmsākumi</span></a>
