@@ -115,7 +115,7 @@ else
             
             <div id='msidemenu'>
                 <ul>
-                   <li class='has-sub'><div></div><a href='#pirmsakumi-menu'><span>Pirmsākumi un Stradiņa vārds</span></a>
+                   <li class='has-sub'><div></div><a href='#pirmsakumi-menu'><span>Studiju virzienu pirmsākumi</span></a>
                        <ul>
                          <li><a href='#medicina'><span>Medicīna</span></a></li>
                          <li><a href='#socialas-zinatnes'><span>Sociālās zinātnes</span></a></li>

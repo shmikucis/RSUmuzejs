@@ -75,7 +75,8 @@ $(document).ready(function() {
     isMobile = mobilecheck();
     content.draw();
     
-    if(!isMobile){    
+    if(!isMobile){
+        $('#mfooter').hide();
     init(); 
     $('#sidemenu li.has-sub>a').on('click', function(event) {
         event.stopPropagation();
@@ -95,8 +96,9 @@ $(document).ready(function() {
         }
     });
     }
-    else{
-        setTimeout(function(){mInit();},500);
+    else{        
+        setTimeout(function(){
+            mInit();},500);
         $('#msidemenu div').on('click', function(event) {
         event.stopPropagation();
         //$(this).removeAttr('href');
@@ -618,3 +620,37 @@ function m_closeMenu(){
         $('#logo_link').show();
         $('#menutext').hide();
 }
+
+function m_menuElemHide(menu){
+    $('#mfooter').hide();
+    $('.bg.stripes').hide();
+//    $('.entry-content')[0].setAttribute('style', 'top: 0 !important');
+    
+//    var menu = dynamicContent.getItem();
+    if (menu.template === 'templates/menu2.php'){
+        var child = dynamicContent.getChildren(menu)[0];
+        if(child.template === 'templates/menu2.php')
+        $('ul.menu2').append(child.post_content);
+    }
+//    else{
+//        menu = dynamicContent.getParent(menu.menu_item_parent);
+//        if (menu.template === 'templates/menu2.php'){
+//            $('ul.menu2').append(dynamicContent.getChildren(menu)[0].post_content);
+//        }
+//    }
+    
+    var linkImages = $('ul.menu img, ul.menu2 img');
+    var links = $('ul.menu a, ul.menu2 a');
+    linkImages.hide();
+    for (var i=0; i<linkImages.length; i++){
+        var fullpath = linkImages[i].getAttribute('src');
+        var filename = fullpath.replace(/^.*[\\\/]/, '');
+        links[i].setAttribute('style', 'background-image: url('+URLS.stylesheet + '/images/menu/mobile/' + filename+')');
+    }
+    $('br').remove();
+}
+ function m_menuElemShow(){
+    $('#mfooter').show();
+    $('.bg.stripes').show();
+//    $('.entry-content')[0].removeAttribute('style');    
+ }

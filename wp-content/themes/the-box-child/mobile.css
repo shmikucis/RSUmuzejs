@@ -33,7 +33,7 @@ div.top_bar{
     display:none;
 }
 #mfooter{
-    display: inline-block !important;
+    display: inline-block;
     position: absolute;
     width: 100%;
     margin: auto;
@@ -410,13 +410,123 @@ div.top_bar{
     width: 100%;
     margin-left: 0;
     text-align: center;
-    top: 25% !important;
+    top: 0 !important;
     font-family: helvetica-neue;
     color: #575756;
+    overflow-x: scroll;
+    height: 90vh;
+}
+.bg.cardboard{
+    top: 25% !important;
+}
+.text_container{
+    max-height: 45vh;
+    overflow-y: scroll;
 }
 p.main_text_single{
+/*    overflow-y:scroll;
+    max-height: 45vh;*/
     font-size: 9pt;
+    /*padding-bottom: 3%;*/
 }
 .entry-header{
     display: none;
+}
+#menubg{
+    height: 100%;
+    width: 50%;
+    background-image: url(images/ui/line_pattern.png);
+    position: absolute;
+    opacity: 0.9;
+}
+ul.menu, ul.menu2{
+    height: 90vh;
+    margin: 0;
+    overflow-y: scroll;
+
+}
+ul.menu li, ul.menu2 li {
+    width: 96%;
+    margin: 0;
+    padding: 2%;
+}
+ul.menu a, ul.menu2 a {
+    position: relative;
+    overflow: visible;
+    background-size: contain;
+    background-repeat: no-repeat;
+     width: auto; 
+     height: 18vw;;
+    text-decoration: none;
+}
+ul.menu p, ul.menu2 p {    
+    font-family: pagella;
+    font-size: 9pt;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #575755;
+    width: 40%;
+    height: auto;
+    margin-left: 6%;
+    padding-top: 0;
+    text-align: left;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+ul.menu li a:before, ul.menu2 li a:before{
+     content: ' ';
+    display: block;
+    position: absolute;
+    left: -2%;
+    top: -2vh;
+    width: 52%;
+    height: 140%;
+    /*z-index: 1;*/
+    opacity: 0.9;
+    background-image: url(images/ui/line_pattern.png);
+}
+ul.menu li:first-child a:before, ul.menu2 li:first-child a:before{
+     content: ' ';
+    display: block;
+    position: absolute;
+    left: -2%;
+    top: -2vh;
+    width: 52%;
+    height: 92vh;
+    /*z-index: 1;*/
+    opacity: 0.9;
+    background-image: url(images/ui/line_pattern.png);
+}
+ul.menu li:after, ul.menu2 li:after{
+    content: "";
+    display: block;
+    background: #1E1E1C;
+    position: absolute;
+    top: -2px;
+    left: 8%;
+    height: 1px;
+    width: 84%;
+    opacity: 0.3;
+}
+ul.menu2 div{
+    display:none;
+}
+ul.menu2 p{
+    white-space: normal;
+    background: none;
+    display: block;
+    padding: 0;
+    left: 0;
+}
+ul.menu2 p:after{
+    display: none;
+}
+
+img.narrow, img.wide{
+    height: 60vh;
+    width: auto;
+}
+.innerImg img{
+    margin-right: auto;
 }

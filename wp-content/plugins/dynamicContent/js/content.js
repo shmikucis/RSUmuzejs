@@ -97,7 +97,10 @@ var Content = Class.extend({
 			this.animateObject('#masthead', 'moveDown', 300, 'in');
 			this.animateObject('#footer', 'moveUp', 500, 'in');
                         setButtonMargin();                   
-                        if(isMobile) mContinue();
+                        if(isMobile) {
+                            mContinue();
+                            this.setBackground(item);
+                        }
 		} else {
                         if (isMobile) this.setBackground(item);
 			var prevItem = dynamicContent.getItem();
@@ -117,6 +120,7 @@ var Content = Class.extend({
                                 }
                                 else{
                                     mContinue();
+                                    m_updateListeners();
                                 }
 			}, coolDownTime);
 		}	
@@ -411,8 +415,13 @@ var Content = Class.extend({
         , setBackground: function(item){
             var bgElem = $('#fullpage');
             if(item.post_name === "ievads-2"){
-                bgElem.css('background-image', 'url(' + URLS.stylesheet + '/images/background/'+ item.post_name +'.jpg)');
-                
+                bgElem.css('background-image', 'url(' + URLS.stylesheet + '/images/background/'+ item.post_name +'.jpg)');                
+            }
+            if(item.template === "templates/menu.php" || item.template === "templates/menu2.php"){
+                bgElem.css('background-image', 'url(' + URLS.stylesheet + '/images/background/mcardboard.jpg)');                  
+            }
+            if(~item.post_name.indexOf('dzimta')){
+                 bgElem.css('background-image', 'url(' + URLS.stylesheet + '/images/background/dzimta.jpg)');    
             }
         }
 
@@ -442,7 +451,15 @@ var Content = Class.extend({
                    }, this.coolDownTime);
             }
             if(nextItem.template === 'templates/menu.php'){
-                scrollEnabled = false;                
+                scrollEnabled = false;       
+                if(isMobile){
+                    m_menuElemHide(nextItem);                    
+                }
+            }
+            if(nextItem.template === 'templates/menu2.php'){
+                if(isMobile){
+                    m_menuElemHide(nextItem);                    
+                }
             }
             if(nextItem.template === 'templates/searchResults.php'){
 		setTimeout(function(){
@@ -501,8 +518,15 @@ var Content = Class.extend({
         if(prevItem.template === 'templates/searchResults.php' && nextItem.template !== 'templates/searchResults.php'){
             scrollEnabled = true;
 		}        
-        if (nextItem.template === 'templates/menu.php'){
+        
+        if(isMobile && (prevItem.template === 'templates/menu.php' || prevItem.template === 'templates/menu2.php')){
+                    m_menuElemShow();     
+            }
+            if (nextItem.template === 'templates/menu.php' || nextItem.template === 'templates/menu2.php'){
             scrollEnabled = false;
+            if(isMobile){
+                    m_menuElemHide(nextItem);                    
+                }
         }
         if (nextItem.template === 'templates/searchResults.php'){
             setTimeout(function(){
@@ -564,7 +588,7 @@ var Content = Class.extend({
         //attēlus animē tikai pēc to ielādes
         if ($(pointer).is('img') && inOut == 'in') $(pointer).one("load", function(){
             setTimeout(function(){
-                setInnerImg();
+                if(!isMobile)setInnerImg();
                 $(pointer).addClass(animationClass);
             }, delay);});
 		else setTimeout(function(){ $(pointer).addClass(animationClass); }, delay);

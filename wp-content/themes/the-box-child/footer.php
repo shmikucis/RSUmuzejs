@@ -25,7 +25,7 @@
                     <li><a href="#" id="gplus"></a></li>
             </ul>
         </div>
-        <div id="mfooter" style="display: none;">
+        <div id="mfooter">
             <span id="m_menubtn"></span>
             <span id="bigmore"></span>
             <span id="m_social">
