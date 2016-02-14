@@ -642,13 +642,14 @@ ul.menu2 a:hover p{
     transform: translateY(-50%);
 }
 
-.alignright{
+.wide.alignright{
     position: absolute;
-    margin-left: 37vw !important;
+    margin-left: 37vw;
     transform: translateY(-40%);
 }
 .narrow.alignright{
-    margin-left:45vw !important;
+    position: absolute;
+    margin-left:45vw;
     transform: translateY(-50%);
 }
 
@@ -724,7 +725,7 @@ p.text_right{
     font-size: 9pt;
     line-height: 150%;
     left: 30%;
-    text-align: right;
+    text-align: left;
 }
 
 p.text_left{

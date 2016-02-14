@@ -100,6 +100,8 @@ var Content = Class.extend({
                         if(isMobile) {
                             mContinue();
                             this.setBackground(item);
+                            m_updateListeners();
+                            $('.readmore').detach().appendTo($('.entry-content'));
                         }
 		} else {
                         if (isMobile) this.setBackground(item);
@@ -121,6 +123,7 @@ var Content = Class.extend({
                                 else{
                                     mContinue();
                                     m_updateListeners();
+                                    $('.readmore').detach().appendTo($('.entry-content'));
                                 }
 			}, coolDownTime);
 		}	
@@ -137,10 +140,7 @@ var Content = Class.extend({
 	, drawIn: function(item){
 		this.article.empty();
 		this.drawTemplate(item);
-		this.drawAttachments(item);
-//                $('.innerImg img').one("load", function(){
-//                    setInnerImg();
-//                });
+		this.drawAttachments(item);                
 		this.animateScene(item, 'in');
 		this.drawExceptionsIn(dynamicContent.getItem(), item);                
 		dynamicContent.set(item);
@@ -445,7 +445,7 @@ var Content = Class.extend({
 			}
 
             if(nextItem.template === 'templates/video.php'){
-                   setTimeout(function(){
+                   if(!isMobile)setTimeout(function(){
                        setHeadFootSize(true);
                        setVideoSize();
                    }, this.coolDownTime);
@@ -474,6 +474,7 @@ var Content = Class.extend({
                         if (nextItem.post_name !== 'ievads-2') {
                 $('#continue').addClass('hidden none');
             }
+            
            
 			return;
 		}
@@ -540,8 +541,9 @@ var Content = Class.extend({
         scrollEnabled = false;
         }
         if(prevItem.template === 'templates/video.php' && nextItem.template !== 'templates/video.php'){
-                setHeadFootSize(false);
+                if(!isMobile) setHeadFootSize(false);
         }
+        
 	}
 
 	, drawExceptionsOut: function(prevItem, nextItem){
@@ -579,7 +581,7 @@ var Content = Class.extend({
             scrollEnabled = false;
 		}
         if(nextItem.template === 'templates/video.php'){
-            setHeadFootSize(true);
+            if (!isMobile) setHeadFootSize(true);
         }
 	}
 
@@ -588,6 +590,13 @@ var Content = Class.extend({
         //attēlus animē tikai pēc to ielādes
         if ($(pointer).is('img') && inOut == 'in') $(pointer).one("load", function(){
             setTimeout(function(){
+                console.log(1);
+                if(isMobile){
+                    $('p.text_right').css('left', $('.mcit img').width());
+                    $('.readmore.right').css('left', $('.mcit img').width()+$('.readmore.right').width()/2);   
+                    $('.alignright').css('margin-left', $('p.text_left').width());
+                    if ($('p.text_right').length>0)$('.mcit').animate({scrollLeft: $('p.text_right').offset().left}, 1000);
+                }
                 if(!isMobile)setInnerImg();
                 $(pointer).addClass(animationClass);
             }, delay);});
@@ -650,7 +659,7 @@ var Content = Class.extend({
 					+'<div class="slideNav prev"></div>'+'<div class="bg stripes">'
                         +'<div class="anim-right"></div>'
                     +'</div>'
-					+'<div class="entry-content layer" data-depth="0">'                    
+					+'<div class="entry-content mcit layer" data-depth="0">'                    
 						+item.post_content
 					+'</div><div class="slideNav next"></div>'
 				);
@@ -663,7 +672,7 @@ var Content = Class.extend({
 					+'<div class="slideNav prev"></div>'+'<div class="bg stripes">'
                         +'<div class="anim-right"></div>'
                     +'</div>'	
-					+'<div class="entry-content layer" data-depth="0">'                    
+					+'<div class="entry-content mcit layer" data-depth="0">'                    
 						+item.post_content
 					+'</div><div class="slideNav next"></div>'
 				);

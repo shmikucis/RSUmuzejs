@@ -502,10 +502,12 @@ function setButtonMargin() {
     $('#navCircle span').css('top', -$('#navCircle span').height()/2);
     
     //"Lasīt vairāk"
-    var readmore = $('.readmore.right');
-    var readparent = readmore.parent();
-    
-    readmore.css('margin-left', readparent.width()-readmore.width());
+    if(!isMobile){
+        var readmore = $('.readmore.right');
+        var readparent = readmore.parent();
+
+        readmore.css('margin-left', readparent.width()-readmore.width());
+    }
     
     //citāta pēdiņas
 //    $('.citation_logo').css({

@@ -416,6 +416,9 @@ div.top_bar{
     overflow-x: scroll;
     height: 90vh;
 }
+.entry-content.mcit{
+    padding-left:20%;
+}
 .bg.cardboard{
     top: 25% !important;
 }
@@ -523,10 +526,53 @@ ul.menu2 p:after{
     display: none;
 }
 
-img.narrow, img.wide{
-    height: 60vh;
+img.narrow, img.wide, img.vwide{
+    height: 65vh;
     width: auto;
 }
-.innerImg img{
+.alignleft .innerImg img{
     margin-right: auto;
+    margin-top: -10vh;
+}
+div.wide.alignright, div.narrow.alignright{
+    margin-top: 15vh;
+    /*margin-left: 0 !important;*/
+}
+.alignright .innerImg img{
+    margin: 0;
+    margin-top: -10vh;
+    padding-right: 30vw;
+}
+/*img.hidden{
+    visibility: visible;
+}*/
+p.citation{
+    top:0;
+}
+p.narrow, p.vnarrow{
+    width: 65% !important;
+    padding-top: 10%;
+    text-align: left;
+}
+p.text_right{        
+    left: 70%;
+    padding-right: 30%;    
+}
+p.text_left{
+    padding-top: 10%;    
+    top: 15vh;
+    left: -10%;
+}
+p.narrow{
+    font-size: 10pt;
+    overflow-y:scroll;
+    height: 40%;
+}
+
+.readmore{
+    margin-top:0;
+    top: 70%;
+}
+.readmore.left{
+    margin-left: -10%;
 }
