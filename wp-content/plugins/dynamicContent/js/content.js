@@ -427,13 +427,13 @@ var Content = Class.extend({
             if(item.post_name === "ievads-2"){
                 bgElem.css('background-image', 'url(' + URLS.stylesheet + '/images/background/'+ item.post_name +'.jpg)');                
             }
-            if(item.template === "templates/menu.php" || item.template === "templates/menu2.php"){
+            else if(item.template === "templates/menu.php" || item.template === "templates/menu2.php"){
                 bgElem.css('background-image', 'url(' + URLS.stylesheet + '/images/background/mcardboard.jpg)');                  
             }
-            if(~item.post_name.indexOf('dzimta')){
+            else if(~item.post_name.indexOf('dzimta')){
                  bgElem.css('background-image', 'url(' + URLS.stylesheet + '/images/background/dzimta.jpg)');    
             }
-            if(item.template === 'templates/video.php'){
+            else if(item.template === 'templates/video.php'){
                 var iframe           = $('iframe:first');
                 var iframe_src       = iframe.attr('src');
                 var youtube_video_id = iframe_src.match(/youtube\.com.*(\?v=|\/embed\/)(.{11})/).pop();

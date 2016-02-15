@@ -364,6 +364,20 @@ function mInit(){
     $('#m_socbtn').on('click', m_showSocial);    
     $('#m_menubtn').on('click', m_showMenu);
     $('#menuclose').on('click', m_closeMenu);
+        
+    $(document).on('click', '.readmore, .mejs-textform, .humortext.cboxElement', function() {
+        $("#colorbox").addClass("text_popup");
+        $(document).bind('cbox_complete', function() {
+            textPopupVcenter();
+            $('.citation_logo').show();            
+//            content.animateObject('#colorbox .popup', 'cardbordTextfadeInDown', 100, 'in'); 
+//            content.animateObject('#colorbox .citation_logo', 'animMushroom', 300, 'in');             
+        });
+        $(document).bind('cbox_closed', function() {           
+           $('.citation_logo').remove();
+        });        
+        
+    });
 }
 
 function resetPopupClass() {
@@ -498,6 +512,14 @@ function m_updateListeners(){
     $( "#mfooter #bigmore, #mcontinue" ).bind( "click", function() {
 		  	content.drawNext();
 		});
+                
+    $('a.readmore, a.mejs-textform, a.humortext.cboxElement').colorbox({
+        inline: true,
+        scrolling: false
+    });
+    $('a.pic_single').colorbox({
+        photo: true
+    });            
 }
 
 function setButtonMargin() {
