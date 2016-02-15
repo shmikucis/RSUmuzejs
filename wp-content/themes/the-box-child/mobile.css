@@ -134,7 +134,7 @@ div.top_bar{
 #m_menubtn:focus{
     background-position: 36px 0px;
 }
-#menuclose{
+.mclose{
     position:relative;
     float: right;
     right: 0;
@@ -253,6 +253,9 @@ div.top_bar{
 }
 #msidemenu > ul > li.open > a {
   color: #BE323F;
+}
+#msidemenu > ul > li.open > div {
+  background-position: 0 40px;
 }
 #msidemenu > ul > li:first-child > a:after,
 #msidemenu > ul > li.last > a {
@@ -551,6 +554,7 @@ p.citation{
 }
 p.narrow, p.vnarrow{
     width: 65% !important;
+    max-width: 300px;
     padding-top: 10%;
     text-align: left;
 }
@@ -575,4 +579,92 @@ p.narrow{
 }
 .readmore.left{
     margin-left: -10%;
+}
+.video{
+    /*position: absolute;*/
+    margin-top: 35%;
+    height: 50%
+}
+
+.video-content{
+    height: 90vh;
+    /*background-image: url(images/ui/mobile/video_overlay.png);*/
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+}
+.video-content div{
+    position: absolute;
+    bottom: 18%;
+    display:table;
+    height: 18vh;
+    font-family: pagella;
+    font-size: 9pt;
+    line-height: 150%;  
+    background: none;
+    padding-top: 10%;
+    width: 70%;
+    left: 15%;
+}
+#vidicon{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    background-image: url(images/ui/mobile/icon_video.png);
+    background-repeat: no-repeat;
+    background-size:contain;
+    max-width: 40px;
+    max-height: 47px;
+    width: 6.25vw;
+    height: 7.2vw;
+    transform: translate(-50%, 0);
+}
+.aboutvid{
+    transform: translate(0,0);
+    background-image: url(images/ui/mobile/aboutvid.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    max-height: 48px;
+    max-width: 214px;
+    width: 33vw;
+    height: 7.5vw;
+    margin-top: 5%;
+}
+#m_playvid{
+    background-image: url(images/ui/mobile/video_start.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    max-width: 150px;
+    max-height: 150px;
+    width: 23vw;
+    height: 23vw;
+    display: block;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%,0);
+}
+#videopopup{
+    position: absolute;
+    top: -10vh;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    z-index: 4;
+    background: #000;
+}
+#vidclose{
+    background: url(images/ui/mobile/menuclose.png), #000;
+    background-size: 40px 80px, cover;
+    background-position: 0px 0px, center;
+}
+@media only screen and (orientation: landscape) {
+    .video{
+        margin-top: 0;
+        height: 90vh;
+    }
+    #videopopup{
+        top: -10vw;
+    }
+}
+
+.obj_icon{
+    display:none;
 }

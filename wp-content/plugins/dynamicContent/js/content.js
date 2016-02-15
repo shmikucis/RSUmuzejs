@@ -99,12 +99,11 @@ var Content = Class.extend({
                         setButtonMargin();                   
                         if(isMobile) {
                             mContinue();
-                            this.setBackground(item);
                             m_updateListeners();
-                            $('.readmore').detach().appendTo($('.entry-content'));
+                            if($('.aboutvid').length === 0) $('.readmore').detach().appendTo($('.entry-content'));
+                            $('<br>').insertBefore($('.aboutvid'));
                         }
-		} else {
-                        if (isMobile) this.setBackground(item);
+		} else {                        
 			var prevItem = dynamicContent.getItem();
 			this.animateScene(prevItem, 'out');
 			this.drawExceptionsOut(prevItem, item);
@@ -123,7 +122,8 @@ var Content = Class.extend({
                                 else{
                                     mContinue();
                                     m_updateListeners();
-                                    $('.readmore').detach().appendTo($('.entry-content'));
+                                    if($('.aboutvid').length === 0) $('.readmore').detach().appendTo($('.entry-content'));
+                                    $('<br>').insertBefore($('.aboutvid'));
                                 }
 			}, coolDownTime);
 		}	
@@ -140,7 +140,8 @@ var Content = Class.extend({
 	, drawIn: function(item){
 		this.article.empty();
 		this.drawTemplate(item);
-		this.drawAttachments(item);                
+		this.drawAttachments(item);
+                if (isMobile) this.setBackground(item);
 		this.animateScene(item, 'in');
 		this.drawExceptionsIn(dynamicContent.getItem(), item);                
 		dynamicContent.set(item);
@@ -164,11 +165,20 @@ var Content = Class.extend({
 	}
 
 	, back: function(){
-            if(this.history.length > 1)
+            if(this.history.length > 1){
                     this.history.pop();
                     var backUrl = this.history.pop();
                     this.drawFromUrl(backUrl);
-	}
+            }
+            else{
+                var item = dynamicContent.getItem();
+                if (item.menu_order>1){
+                    item = dynamicContent.getPrev();
+                    this.draw(item);
+                }
+                
+            }
+        }
         , upOneLevel: function(){
             var levels = $('#breadcrumbs div').length;
             if (levels>=2){
@@ -423,6 +433,15 @@ var Content = Class.extend({
             if(~item.post_name.indexOf('dzimta')){
                  bgElem.css('background-image', 'url(' + URLS.stylesheet + '/images/background/dzimta.jpg)');    
             }
+            if(item.template === 'templates/video.php'){
+                var iframe           = $('iframe:first');
+                var iframe_src       = iframe.attr('src');
+                var youtube_video_id = iframe_src.match(/youtube\.com.*(\?v=|\/embed\/)(.{11})/).pop();
+
+                if (youtube_video_id.length == 11) {
+                    bgElem.css('background-image', 'url(//img.youtube.com/vi/'+youtube_video_id+'/hqdefault.jpg');  
+                }
+            }
         }
 
 	, drawExceptionsIn: function(prevItem, nextItem){
@@ -445,10 +464,11 @@ var Content = Class.extend({
 			}
 
             if(nextItem.template === 'templates/video.php'){
-                   if(!isMobile)setTimeout(function(){
-                       setHeadFootSize(true);
-                       setVideoSize();
-                   }, this.coolDownTime);
+                   if(!isMobile) setTimeout(function(){
+                           setHeadFootSize(true);
+                           setVideoSize();
+                   }, this.coolDownTime);                   
+                   else m_setVideo();
             }
             if(nextItem.template === 'templates/menu.php'){
                 scrollEnabled = false;       
@@ -543,6 +563,9 @@ var Content = Class.extend({
         if(prevItem.template === 'templates/video.php' && nextItem.template !== 'templates/video.php'){
                 if(!isMobile) setHeadFootSize(false);
         }
+        if(nextItem.template === 'templates/video.php' && isMobile){
+                       m_setVideo();
+            }
         
 	}
 
@@ -590,7 +613,6 @@ var Content = Class.extend({
         //attēlus animē tikai pēc to ielādes
         if ($(pointer).is('img') && inOut == 'in') $(pointer).one("load", function(){
             setTimeout(function(){
-                console.log(1);
                 if(isMobile){
                     $('p.text_right').css('left', $('.mcit img').width());
                     $('.readmore.right').css('left', $('.mcit img').width()+$('.readmore.right').width()/2);   
@@ -729,7 +751,7 @@ var Content = Class.extend({
                                                             +item.post_content
                                                     +'</div>'+'</div><div class="slideNav next"></div>'
                                             );
-                            setVideoSize();
+                            if(!isMobile)setVideoSize();
                                             break;
                         case 'templates/searchResults.php':
 				this.article.append(
