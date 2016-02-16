@@ -7,16 +7,16 @@ var Content = Class.extend({
 		this.history = [];
 		var self = this;
 
-            $(window).bind('mousewheel DOMmousescroll wheel', function(e){
-                var direction = e.originalEvent.wheelDelta /120 > 0 ? 'up' : 'down';
-                if(scrollEnabled){
-                    if(direction === 'down'){
-                            self.drawNext();
-                    } else {
-                            self.drawPrev();
-                    }
+        $(window).bind('mousewheel DOMmousescroll wheel', function(e){
+            var direction = e.originalEvent.wheelDelta /120 > 0 ? 'up' : 'down';
+            if(scrollEnabled){
+                if(direction === 'down'){
+                        self.drawNext();
+                } else {
+                        self.drawPrev();
                 }
-            });
+            }
+        });
                 
         $(document).keyup(function(e) {
             if(scrollEnabled){
@@ -73,13 +73,41 @@ var Content = Class.extend({
         	if(href && href !== ''){
         		self.drawFromUrl(href);
         	}
-                if (isMobile) m_closeMenu();
+            if (isMobile) m_closeMenu();
 		});	
 
 		$("#navCircle").bind("click", function(event){
 			// var i = $("#navCircle").children().index(event.target);
 			var url = $(event.target).attr('data-url');
 			self.drawFromUrl(url);
+		});
+
+		$("#searchbutton").bind("click", function(){
+			var item = dynamicContent.getItemByUrl("meklesanas-rezultati");
+			item.post_content = "";
+			var searchText = $("#searchfield").val();
+			if(searchText.trim() == "") return;
+			var resultItems = dynamicContent.searchString(searchText);
+			for(var i=0, l=resultItems.length; i<l; i++){
+				var content = resultItems[i].post_content;	
+				content = content.replace(/<\/?[^>]+(>|$)/g, "");
+				content = content.split(searchText);
+				var liContent = "";
+				var highlight = "<span style='background-color: yellow;'>"+searchText+"</span>";
+				if(content.length >=2){
+					var startLength = content[0].length > 100 ? 100 : content[0].length;
+					liContent = content[0].slice(-startLength);
+					liContent += highlight;
+					var endLength = content[1].length > 100 ? 100 : content[1].length;
+					liContent += content[1].substring(0, endLength);
+				} else {
+					liContent += highlight; // hack! Most probably the word is at start of string.  
+					var endLength = content[0].length > 100 ? 100 : content[0].length;
+					liContent += content[0].substring(0, endLength);
+				}
+				item.post_content += '<li><a href="#'+resultItems[i].post_name+'" onclick="content.drawFromUrl(\''+resultItems[i].post_name+'\')">' + liContent + '<a></li>';
+			}			
+			self.draw(item);
 		});
 	}
 
@@ -96,13 +124,13 @@ var Content = Class.extend({
 			this.drawIn(item);
 			this.animateObject('#masthead', 'moveDown', 300, 'in');
 			this.animateObject('#footer', 'moveUp', 500, 'in');
-                        setButtonMargin();                   
-                        if(isMobile) {
-                            mContinue();
-                            m_updateListeners();
-                            if($('.aboutvid').length === 0) $('.readmore').detach().appendTo($('.entry-content'));
-                            $('<br>').insertBefore($('.aboutvid'));
-                        }
+                setButtonMargin();                   
+                if(isMobile) {
+                    mContinue();
+                    m_updateListeners();
+                    if($('.aboutvid').length === 0) $('.readmore').detach().appendTo($('.entry-content'));
+                    $('<br>').insertBefore($('.aboutvid'));
+                }
 		} else {                        
 			var prevItem = dynamicContent.getItem();
 			this.animateScene(prevItem, 'out');
@@ -114,17 +142,17 @@ var Content = Class.extend({
 			}			
 			setTimeout(function(){
 				self.drawIn(item);
-                                if(!isMobile){ 
-                                    parallax.updateLayers();
-                                    updateListeners();
-                                    setButtonMargin();
-                                }
-                                else{
-                                    mContinue();
-                                    m_updateListeners();
-                                    if($('.aboutvid').length === 0) $('.readmore').detach().appendTo($('.entry-content'));
-                                    $('<br>').insertBefore($('.aboutvid'));
-                                }
+                    if(!isMobile){ 
+                        parallax.updateLayers();
+                        updateListeners();
+                        setButtonMargin();
+                    }
+                    else{
+                        mContinue();
+                        m_updateListeners();
+                        if($('.aboutvid').length === 0) $('.readmore').detach().appendTo($('.entry-content'));
+                        $('<br>').insertBefore($('.aboutvid'));
+                    }
 			}, coolDownTime);
 		}	
 		this.drawBreadCrumbs(item);
@@ -132,16 +160,16 @@ var Content = Class.extend({
 		this.activeMenuItem(item);
 		$visitedMaps = [];
                 
-                if (item.description === 'singleSlide'){
-                    this.setSingleSlide(item);
-                }
+        if (item.description === 'singleSlide'){
+            this.setSingleSlide(item);
+        }
 	}
 
 	, drawIn: function(item){
 		this.article.empty();
 		this.drawTemplate(item);
 		this.drawAttachments(item);
-                if (isMobile) this.setBackground(item);
+        if(isMobile) this.setBackground(item);
 		this.animateScene(item, 'in');
 		this.drawExceptionsIn(dynamicContent.getItem(), item);                
 		dynamicContent.set(item);
@@ -165,43 +193,44 @@ var Content = Class.extend({
 	}
 
 	, back: function(){
-            if(this.history.length > 1){
-                    this.history.pop();
-                    var backUrl = this.history.pop();
-                    if (isMobile && backUrl === dynamicContent.getNext().post_name)
-                        backUrl = dynamicContent.getPrev().post_name;
-                    this.drawFromUrl(backUrl);
-            }
-            else{
-                var item = dynamicContent.getItem();
-                if (item.menu_order>1){
-                    item = dynamicContent.getPrev();
-                    this.draw(item);
-                }
-                
+        if(this.history.length > 1){
+            this.history.pop();
+            var backUrl = this.history.pop();
+            if (isMobile && backUrl === dynamicContent.getNext().post_name)
+                backUrl = dynamicContent.getPrev().post_name;
+            this.drawFromUrl(backUrl);
+        }
+        else{
+            var item = dynamicContent.getItem();
+            if (item.menu_order>1){
+                item = dynamicContent.getPrev();
+                this.draw(item);
             }
         }
-        , upOneLevel: function(){
-            var levels = $('#breadcrumbs div').length;
-            if (levels>=2){
-                $("#breadcrumbs div a")[levels-2].click();
-            }
-        }       
+    }
+
+    , upOneLevel: function(){
+        var levels = $('#breadcrumbs div').length;
+        if (levels>=2){
+            $("#breadcrumbs div a")[levels-2].click();
+        }
+    }  
+
 	, drawNext: function(direction){
-                var thisItem = dynamicContent.getItem();
+        var thisItem = dynamicContent.getItem();
 		var nextItem = dynamicContent.getNext();
 		if(nextItem){
-                        if(thisItem.template === 'templates/menu2.php' && nextItem.template !== 'templates/menu2.php')
-                            return;
-                        else{
-                            this.direction = direction ? direction : 'down';
-                            this.draw(nextItem);	
-                        }
+            if(thisItem.template === 'templates/menu2.php' && nextItem.template !== 'templates/menu2.php')
+                return;
+            else{
+                this.direction = direction ? direction : 'down';
+                this.draw(nextItem);	
+            }
 		}		
 	}
 
 	, drawPrev: function(direction){
-                var thisItem = dynamicContent.getItem();
+        var thisItem = dynamicContent.getItem();
 		var prevItem = dynamicContent.getPrev();
 		if(prevItem) {
                     if(thisItem.template === 'templates/menu2.php' && prevItem.template !== 'templates/menu2.php')

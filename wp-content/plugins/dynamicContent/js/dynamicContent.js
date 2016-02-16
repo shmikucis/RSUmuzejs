@@ -111,6 +111,17 @@ var DynamicContent = Class.extend({
 		}
 		return list;
 	}
+
+	, searchString: function(text){
+		var items = [];
+		for(var i=0, l=this.navigation.length; i<l; i++){
+			if(this.navigation[i].post_content.search(text) > -1){
+				items.push(this.navigation[i]);
+			}
+			// console.log(i);
+		}
+		return items;
+	}
 })
 
 var dynamicContent = new DynamicContent();

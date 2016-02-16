@@ -210,7 +210,7 @@ div.top_bar{
 /*search field*/
 #search{
     /*display:flex;*/
-    display:none;
+    /*display:none;*/
     float: right;
     background-color: rgb(102,0,0);   
     margin-right: 1%;
