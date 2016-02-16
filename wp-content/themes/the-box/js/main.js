@@ -1,6 +1,7 @@
 //globālie mainīgie
 window.parallax = null;
 window.scrollEnabled = true;
+window.singleSlide = false;
 window.isMobile = null;
 $(window).load(function() {
     // Animate loader off screen
@@ -351,6 +352,8 @@ function mInit(){
         if(content.history.length > 1){
             content.history.pop();
             var backUrl = content.history.pop();
+            if (isMobile && backUrl === dynamicContent.getNext().post_name)
+                        backUrl = dynamicContent.getPrev().post_name;
             content.drawFromUrl(backUrl);
         }
         else{
@@ -510,7 +513,7 @@ function updateListeners() {
 
 function m_updateListeners(){
     $( "#mfooter #bigmore, #mcontinue" ).bind( "click", function() {
-		  	content.drawNext();
+		  	if(!singleSlide) content.drawNext();
 		});
                 
     $('a.readmore, a.mejs-textform, a.humortext.cboxElement').colorbox({

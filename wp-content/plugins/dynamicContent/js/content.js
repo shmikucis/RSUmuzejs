@@ -55,7 +55,7 @@ var Content = Class.extend({
 
         
         $( "#continue, #mcontinue" ).bind( "click", function() {
-		  	self.drawNext();
+		  	if(!singleSlide) self.drawNext();
 		});
                     
         $("#sidemenu, #msidemenu ul").bind( "click", function(e) {
@@ -168,6 +168,8 @@ var Content = Class.extend({
             if(this.history.length > 1){
                     this.history.pop();
                     var backUrl = this.history.pop();
+                    if (isMobile && backUrl === dynamicContent.getNext().post_name)
+                        backUrl = dynamicContent.getPrev().post_name;
                     this.drawFromUrl(backUrl);
             }
             else{
@@ -299,27 +301,40 @@ var Content = Class.extend({
         
         , setSingleSlide: function(item){
             scrollEnabled = false;
+            singleSlide = true;
             var self = this;
             var parent = dynamicContent.getParent(item.menu_item_id);
             var grandParent = dynamicContent.getParent(parent.menu_item_id);
             var siblings = dynamicContent.getChildren(parent);
             
-            var handler = function(e){
-                if(e.which === 38 || e.which === 40 || e.which === 1){
-                    if(siblings.indexOf(item)<14){
-                        if (grandParent.template === parent.template)
-                            self.draw(grandParent);
+            if(!isMobile){
+                var handler = function(e){
+                    if(e.which === 38 || e.which === 40 || e.which === 1){
+                        if(siblings.indexOf(item)<14){
+                            if (grandParent.template === parent.template)
+                                self.draw(grandParent);
+                            else self.draw(parent);
+                        }
                         else self.draw(parent);
+                        setTimeout(function(){
+                            scrollEnabled = true;
+                            $(window).unbind('mousewheel Dommousescroll wheel keyup', handler)
+                        },self.coolDownTime);
                     }
+                    singleSlide = false;
+                };
+
+                $(window).one('mousewheel Dommousescroll wheel keyup', handler);  
+            }
+            else{
+                var mhandler = function(e){
+                    if (grandParent.template === parent.template)
+                                self.draw(grandParent);
                     else self.draw(parent);
-                    setTimeout(function(){
-                        scrollEnabled = true;
-                        $(window).unbind('mousewheel Dommousescroll wheel keyup', handler)
-                    },self.coolDownTime);
-                }
-            };
-            
-            $(window).one('mousewheel Dommousescroll wheel keyup', handler);          
+                    singleSlide = false;
+                };
+                $('#mcontinue').one('click', mhandler);
+            }
             
         }
 
