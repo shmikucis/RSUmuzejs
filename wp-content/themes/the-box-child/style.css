@@ -210,7 +210,8 @@ div.top_bar{
 /*search field*/
 #search{
     /*display:flex;*/
-    /*display:none;*/
+    display:table;
+    width: 25%;
     float: right;
     background-color: rgb(102,0,0);   
     margin-right: 1%;
@@ -219,18 +220,25 @@ div.top_bar{
     outline:none;
 }
 #searchfield{
+    display: table-cell;
+    font-family: palatino;
+    color: white;
+    font-size: 10pt;
     background-color: rgb(102,0,0);
     border: none;
     margin-left:1%;
+    width: 86%;
 }
 #searchbutton{
+    display:table-cell;
+    vertical-align: middle;
     border:none;
     background-color: rgb(102,0,0);
     background-image: url('images/ui/btn_search_on.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    width: 25px;
+    width: 11%;
     padding: 0;
 }
 #searchbutton:hover{
@@ -240,6 +248,12 @@ div.top_bar{
 .entry-content.searchresults{
     top: 30% !important;
     text-align: left;
+}
+ol.searchresults{
+    margin: 0;
+}
+.searchresults li{
+    margin-bottom: 2%;
 }
 .searchresults li a{
     text-decoration: none;

@@ -44,13 +44,16 @@ var Content = Class.extend({
 
         // track backspace button
         $('html').keyup(function(e){
-        	if(e.keyCode == 8 && !$("#searchfield").is(":focus")){
+        	if(e.keyCode === 8 && !$("#searchfield").is(":focus")){
                     self.back();
+                }
+                if(e.keyCode === 13 && $("#searchfield").is(":focus")){
+                    $('#searchbutton').trigger('click');
+                }
 //    		if(self.history.length > 1)
 //    			self.history.pop();
 //    			var backUrl = self.history.pop();
-//    			self.drawFromUrl(backUrl);
-        	}
+//    			self.drawFromUrl(backUrl);        	
         });  
 
         

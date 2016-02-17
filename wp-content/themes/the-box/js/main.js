@@ -441,6 +441,10 @@ function setHeadFootSize(divide) {
     $('.top_bar a object').css('margin-top', $('#masthead').height() / 7);
     $('#menu_toggle').css('margin-top', ($('#masthead').height()-$('#menu_toggle').height())/2);
     $('#search').css('margin-top', ($('#masthead').height()-$('#search').height())/2);
+    //$('#searchfield').css('margin-top', ($('#search').height()-$('#searchfield').height())/2);
+    $('#searchbutton').height($('#searchfield').height());
+    //$('#searchbutton').css('margin-top', ($('#search').height()-$('#searchbutton').height())/2);
+    
 
     window.footHeight = $('#footer').height();
     $('#footer').css('height', footHeight);

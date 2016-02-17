@@ -59,10 +59,7 @@ else
 			</a>
 		</div>
             <span id="menu_toggle"></span>
-            <form id="search">
-                <input id="searchfield" type="text" required>
-                <input id="searchbutton" type="button">
-            </form>
+            <span id="search"><input id="searchfield" type="text"><button id="searchbutton"></button></span>
             <div id="mback"></div><div id="m_srchbtn"></div><div id="menuclose" class="mclose" style="display: none"></div>
             <div id='sidemenu'>
                 <ul>
