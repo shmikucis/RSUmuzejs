@@ -346,7 +346,9 @@ function mInit(){
     
     $("#menu_toggle").remove();
 //    $("#masthead").append('<div id="mback"></div><div id="m_srchbtn"></div><div id="menuclose" style="display: none"></div>');
-    $("#m_srchbtn, .mclose, #mback").css("margin", ($('#masthead').height()-$('#m_srchbtn').height())/2);
+    $("#m_srchbtn, .mclose, #mback, #search").css("margin", ($('#masthead').height()-$('#m_srchbtn').height())/2);
+    $('#search').css('margin-right', $('#m_srchbtn').width() + parseInt($('#m_srchbtn').css('margin-right')));
+    $('#searchfield').height($('#m_srchbtn').height());
     $("#masthead").append('<div id="menutext" style="display: none">MENU</div>');
     $('#mback').on('click', function(){
         if(content.history.length > 1){
@@ -367,6 +369,7 @@ function mInit(){
     $('#m_socbtn').on('click', m_showSocial);    
     $('#m_menubtn').on('click', m_showMenu);
     $('#menuclose').on('click', m_closeMenu);
+    $('#m_srchbtn').on('click', m_toggleSearch);
         
     $(document).on('click', '.readmore, .mejs-textform, .humortext.cboxElement', function() {
         $("#colorbox").addClass("text_popup");
@@ -443,7 +446,7 @@ function setHeadFootSize(divide) {
     $('#search').css('margin-top', ($('#masthead').height()-$('#search').height())/2);
     //$('#searchfield').css('margin-top', ($('#search').height()-$('#searchfield').height())/2);
     $('#searchbutton').height($('#searchfield').height());
-    //$('#searchbutton').css('margin-top', ($('#search').height()-$('#searchbutton').height())/2);
+    $('#searchbutton').css('margin-top', ($('#search').height()-$('#searchbutton').height())/2);
     
 
     window.footHeight = $('#footer').height();
@@ -662,6 +665,27 @@ function m_closeMenu(){
         $('#m_srchbtn').show();
         $('#logo_link').show();
         $('#menutext').hide();
+}
+
+function m_toggleSearch(){
+    var searchArea = $('#search');
+    var searchButton = $('#m_srchbtn');
+    if (searchArea.width()>1){
+        searchArea.width(1);
+        setTimeout(function(){
+            searchArea.css('visibility', 'hidden');
+            searchButton.removeClass('mclose');
+        },1000);
+        searchArea.find('input').val("");
+        
+    }
+    else{
+        
+        searchArea.css('visibility', 'visible');
+        searchArea.width($(window).width()-$('#m_srchbtn').outerWidth(true));
+        searchButton.addClass('mclose');
+        searchArea.find('input').focus();
+    }
 }
 
 function m_menuElemHide(menu){

@@ -231,6 +231,7 @@ div.top_bar{
 }
 #searchbutton{
     display:table-cell;
+    float: right;
     vertical-align: middle;
     border:none;
     background-color: rgb(102,0,0);
@@ -253,7 +254,7 @@ ol.searchresults{
     margin: 0;
 }
 .searchresults li{
-    margin-bottom: 2%;
+    padding-bottom: 2%;
 }
 .searchresults li a{
     text-decoration: none;
@@ -933,7 +934,7 @@ p.vnarrow.author_text_single{
 .bg.stripes{    
     height: 30vh;
     width: 120vw;
-    top: 30% !important;
+    top: 30%;
     left: -10vw !important;
 }
 

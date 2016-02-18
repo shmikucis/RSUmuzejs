@@ -49,6 +49,7 @@ var Content = Class.extend({
                 }
                 if(e.keyCode === 13 && $("#searchfield").is(":focus")){
                     $('#searchbutton').trigger('click');
+                    if(isMobile) m_toggleSearch();
                 }
 //    		if(self.history.length > 1)
 //    			self.history.pop();
@@ -96,16 +97,23 @@ var Content = Class.extend({
 				content = content.replace(/<\/?[^>]+(>|$)/g, "");
 				content = content.split(searchText);
 				var liContent = "";
-				var highlight = "<span style='background-color: yellow;'>"+searchText+"</span>";
+                                if(isMobile) {
+                                    var highlight = "<span style='color: #ba252f;'>"+searchText+"</span>";
+                                    var strlen = 20;
+                                }
+				else{
+                                    var highlight = "<span style='background-color: yellow;'>"+searchText+"</span>";
+                                    var strlen = 100;
+                                }
 				if(content.length >=2){
-					var startLength = content[0].length > 100 ? 100 : content[0].length;
+					var startLength = content[0].length > strlen ? strlen : content[0].length;
 					liContent = content[0].slice(-startLength);
 					liContent += highlight;
-					var endLength = content[1].length > 100 ? 100 : content[1].length;
+					var endLength = content[1].length > strlen ? strlen : content[1].length;
 					liContent += content[1].substring(0, endLength);
 				} else {
 					liContent += highlight; // hack! Most probably the word is at start of string.  
-					var endLength = content[0].length > 100 ? 100 : content[0].length;
+					var endLength = content[0].length > strlen ? strlen : content[0].length;
 					liContent += content[0].substring(0, endLength);
 				}
 				item.post_content += '<li><a href="#'+resultItems[i].post_name+'" onclick="content.drawFromUrl(\''+resultItems[i].post_name+'\')">' + liContent + '<a></li>';
@@ -489,6 +497,10 @@ var Content = Class.extend({
                     bgElem.css('background-image', 'url(//img.youtube.com/vi/'+youtube_video_id+'/hqdefault.jpg');  
                 }
             }
+            else if(item.template === 'templates/searchResults.php'){
+                $('.bg.stripes').css({'height': '100%', 'top': 0});
+            }
+            else bgElem.css('background-image', 'none');   
         }
 
 	, drawExceptionsIn: function(prevItem, nextItem){
@@ -529,8 +541,9 @@ var Content = Class.extend({
                 }
             }
             if(nextItem.template === 'templates/searchResults.php'){
-		setTimeout(function(){
+		setTimeout(function(){                    
                         resizeSrcRes();
+                        if(!isMobile)
                             $("ol.searchresults").niceScroll({
                                 cursoropacitymin: 1
                             });
@@ -600,6 +613,7 @@ var Content = Class.extend({
             setTimeout(function(){
                        setTimeout(function(){
                            resizeSrcRes();
+                           if(!isMobile)
                             $("ol.searchresults").niceScroll({
                                 cursoropacitymin: 1
                             });

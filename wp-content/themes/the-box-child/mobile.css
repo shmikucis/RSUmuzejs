@@ -134,16 +134,7 @@ div.top_bar{
 #m_menubtn:focus{
     background-position: 36px 0px;
 }
-.mclose{
-    position:relative;
-    float: right;
-    right: 0;
-    height: 40px;
-    width: 40px;
-    background-image: url(images/ui/mobile/menuclose.png), url(images/ui/mobile/bg_red_small.png);
-    background-size: 40px 80px, cover;
-    background-position: 0px 0px, center;
-}
+
 #menuclose:focus{
     background-position: 0px 40px, center;
 }
@@ -378,6 +369,32 @@ div.top_bar{
 #m_srchbtn:focus{
     background-position: 0px 40px, center;
 }
+#search{
+    position:absolute;
+    z-index:1;
+    right: -1px;
+    visibility: hidden;
+    margin-right:0;        
+    background-image: url(images/ui/mobile/bg_red_small.png);
+    background-size: contain;
+    background-position: center;
+    width: 1px;
+    -webkit-transition: width 1s;
+    -moz-transition: width 1s;
+    -o-transition: width 1s;
+    transition: width 1s;
+}
+#searchfield{
+    width: 100%;
+    padding: 0;
+    background:none;
+    margin-left: 3%;
+    font-family: helvetica-neue;
+    font-size:9pt;
+}
+#searchbutton{
+    display:none;
+}
 #mback{
     position:absolute;
 /*    right: 0;*/
@@ -389,6 +406,16 @@ div.top_bar{
 }
 #mback:focus{
     background-position: 0px 40px, center;
+}
+.mclose{
+    position:relative;
+    float: right;
+    right: 0;
+    height: 40px;
+    width: 40px;
+    background-image: url(images/ui/mobile/menuclose.png), url(images/ui/mobile/bg_red_small.png) !important;
+    background-size: 40px 80px, cover;
+    background-position: 0px 0px, center;
 }
 /*IE specific*/
 @media screen and (min-width:0\0){
@@ -404,7 +431,7 @@ div.top_bar{
 .bg.stripes{
     height: 55%;
     width: 100%;
-    top: 15% !important;
+    top: 15%;
     left: 0 !important;    
     opacity: 0.7;
 }
@@ -579,6 +606,42 @@ p.narrow{
 }
 .readmore.left{
     margin-left: -10%;
+}
+.entry-content.searchresults{
+    top: 0 !important;
+}
+.searchresults{
+    max-height: 100% !important;
+    height: 76vh;
+}
+ol.searchresults{
+    width: 80%;
+    list-style: none;   
+    list-style-position: inside;
+    padding: 0;
+    margin: auto;
+    overflow-x: hidden;
+}
+.searchresults li{
+    width: 100%;
+    padding: 5% 0;
+    position: relative
+}
+.searchresults li a{
+    font-family: helvetica-neue;
+    font-size: 9pt;
+    width: 100%;
+    white-space: nowrap;
+}
+.searchresults li:after{
+    content: "";
+    background: #1E1E1C;
+    position: absolute;
+    top: 0;
+    left: 8%;
+    height: 1px;
+    width: 84%;
+    opacity: 0.3;
 }
 .video{
     /*position: absolute;*/
