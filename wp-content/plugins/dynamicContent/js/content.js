@@ -93,13 +93,20 @@ var Content = Class.extend({
 			if(searchText.trim() == "") return;
 			var resultItems = dynamicContent.searchString(searchText);
 			for(var i=0, l=resultItems.length; i<l; i++){
-				var content = resultItems[i].post_content;	
+				var content = resultItems[i].post_content;
+                                var startIdx = content.indexOf("citation");
+                                startIdx = content.indexOf(">", startIdx)+1;
+                                var endIdx = content.indexOf("readmore", startIdx);
+                                if(endIdx<0) endIdx = content.indexOf("</", startIdx)+1;
+                                endIdx = content.indexOf("<", endIdx);
+                                content = content.substring(startIdx, endIdx);
+                                
 				content = content.replace(/<\/?[^>]+(>|$)/g, "");
 				content = content.split(searchText);
 				var liContent = "";
                                 if(isMobile) {
                                     var highlight = "<span style='color: #ba252f;'>"+searchText+"</span>";
-                                    var strlen = 20;
+                                    var strlen = 100;
                                 }
 				else{
                                     var highlight = "<span style='background-color: yellow;'>"+searchText+"</span>";

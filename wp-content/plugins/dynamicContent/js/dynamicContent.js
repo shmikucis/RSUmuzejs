@@ -115,9 +115,16 @@ var DynamicContent = Class.extend({
 	, searchString: function(text){
 		var items = [];
 		for(var i=0, l=this.navigation.length; i<l; i++){
-			if(this.navigation[i].post_content.search(text) > -1){
-				items.push(this.navigation[i]);
-			}
+                    var content = this.navigation[i].post_content;
+                    var startIdx = content.indexOf("citation");
+                    startIdx = content.indexOf(">", startIdx)+1;
+                    var endIdx = content.indexOf("readmore", startIdx);
+                    if(endIdx<0) endIdx = content.indexOf("</", startIdx)+1;
+                    //endIdx = content.indexOf("<", endIdx);
+                    content = content.substring(startIdx, endIdx);
+                    if(content.search(text) > -1){
+                            items.push(this.navigation[i]);
+                    }
 			// console.log(i);
 		}
 		return items;
