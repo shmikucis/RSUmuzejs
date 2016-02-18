@@ -93,12 +93,23 @@ var Content = Class.extend({
 			if(searchText.trim() == "") return;
 			var resultItems = dynamicContent.searchString(searchText);
 			for(var i=0, l=resultItems.length; i<l; i++){
-				var content = resultItems[i].post_content;
-                                var startIdx = content.indexOf("citation");
-                                startIdx = content.indexOf(">", startIdx)+1;
+                            var content = resultItems[i].post_content;
+                            if(resultItems[i].template !== 'templates/video.php'){
+                            var startIdx = content.indexOf("citation");   
+                            if (content.lastIndexOf("citation") !== startIdx){
+                                var endIdx = content.indexOf("readmore", content.lastIndexOf("citation"));
+                                if(endIdx<0) endIdx = content.indexOf("</", content.lastIndexOf("citation"));
+                                }
+                            else{
                                 var endIdx = content.indexOf("readmore", startIdx);
-                                if(endIdx<0) endIdx = content.indexOf("</", startIdx)+1;
-                                endIdx = content.indexOf("<", endIdx);
+                                if(endIdx<0) endIdx = content.indexOf("</", startIdx);
+                            }
+                            }
+                            else{
+                                var startIdx = content.indexOf("<div>");
+                                var endIdx = content.indexOf("</div>");
+                            }   
+                                startIdx = content.indexOf(">", startIdx)+1;
                                 content = content.substring(startIdx, endIdx);
                                 
 				content = content.replace(/<\/?[^>]+(>|$)/g, "");
@@ -106,7 +117,7 @@ var Content = Class.extend({
 				var liContent = "";
                                 if(isMobile) {
                                     var highlight = "<span style='color: #ba252f;'>"+searchText+"</span>";
-                                    var strlen = 100;
+                                    var strlen = 20;
                                 }
 				else{
                                     var highlight = "<span style='background-color: yellow;'>"+searchText+"</span>";
