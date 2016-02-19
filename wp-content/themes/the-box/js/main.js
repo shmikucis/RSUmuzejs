@@ -351,6 +351,7 @@ function mInit() {
     $(document).on('click', '.readmore, .mejs-textform, .humortext.cboxElement', function() {
         $("#colorbox").addClass("text_popup");
         var popupBtn = $(this);
+        
         $(document).bind('cbox_complete', function() {
 //            textPopupVcenter();
             $('.citation_logo').show();            
@@ -358,8 +359,9 @@ function mInit() {
                  $('.citation_logo').attr('id', 'vidicon');
                  $('#cboxLoadedContent #vidicon').remove();
             }
-            if(popupBtn.hasClass('.mejs-textform')){
-                $('.citation_logo').attr('id', 'audicon');
+            if(popupBtn.hasClass('mejs-textform')){
+                 $('.citation_logo').attr('id', 'audicon');
+                 $('#cboxLoadedContent').css('max-height','70vh');
             }
             
             //            content.animateObject('#colorbox .popup', 'cardbordTextfadeInDown', 100, 'in'); 
@@ -368,8 +370,54 @@ function mInit() {
         $(document).bind('cbox_closed', function() {
             $('.citation_logo').remove();
             $('.citation_logo').removeAttr('id');
+            if($('#cboxContent audio').length>0){
+                $('#cboxContent audio').get(0).player.remove();
+                $('#cboxContent audio').get(0).remove();
+                $('#cboxLoadedContent').css('max-height','75vh');
+            }
         });
 
+    });
+    
+    $(document).on('click', '.audio', function() {
+        var audio;
+        var id = $(this).attr('data-gallery');
+            $(id).clone().prependTo('#cboxContent');
+            audio = $('#cboxContent audio');
+            audio.mediaelementplayer({
+                audioWidth: window.innerWidth,
+                audioHeight: $('#masthead').height(),
+                features: ['playpause','progress','current','duration']
+            });
+            $('.mejs-currenttime-container').appendTo('.mejs-time-rail');
+            $('.mejs-duration-container').appendTo('.mejs-time-rail');
+                $('.mejs-inner').append('<a href="' + id + '-text" class="mejs-textform cboxElement" style="display: none;">Teksta formā</a>');
+                $(".mejs-controls").css({
+                    "width": $(window).width()-parseInt($('#m_srchbtn').css('margin'))*2,
+                    "height": $('#m_srchbtn').height(),
+                    "margin": parseInt($('#m_srchbtn').css('margin'))
+                });
+                $(".mejs-controls .mejs-button button, .mejs-container .mejs-controls div").css({
+                    "height": $('#m_srchbtn').height(),
+                    "width": $('#m_srchbtn').height(),
+                    "background-size": $('#m_srchbtn').height() + "px " + $('#m_srchbtn').height()*2 + "px",
+                });
+                $('.mejs-time-rail').css({
+                    'margin': $('#m_srchbtn').css('margin'),
+                    'height': $('#m_srchbtn').height()/2
+                });
+                $('.mejs-time').css({
+                    'width': $('.mejs-controls').width()-$('#m_srchbtn').outerWidth(true),
+                    'right': $('#m_srchbtn').css('margin')
+                });
+                 $('.mejs-time > :nth-child(2)').remove();
+                //$('.mejs-time-total.mejs-time-slider').width($('.mejs-controls').width()-$('#m_srchbtn').width()-$('#m_srchbtn').css('margin'));
+            $('.mejs-textform').css('margin-top', ($('.mejs-container').height() - $('.mejs-textform').height()) / 2);
+            m_updateListeners();
+
+            audio.trigger("play");
+            $('.mejs-inner a').trigger('click');
+//        }
     });
 }
 
