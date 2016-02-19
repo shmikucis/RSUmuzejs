@@ -357,6 +357,16 @@ div.top_bar{
 #m_gplus{
     background-image: url(images/ui/mobile/m_gplus.png);
 }
+.mclose{
+    position:relative;
+    float: right;
+    right: 0;
+    height: 40px;
+    width: 40px;
+    background-image: url(images/ui/mobile/menuclose.png), url(images/ui/mobile/bg_red_small.png);
+    background-size: 40px 80px, cover;
+    background-position: 0px 0px, center;
+}
 #m_srchbtn{
     position:absolute;
     right: 0;
@@ -368,6 +378,9 @@ div.top_bar{
 }
 #m_srchbtn:focus{
     background-position: 0px 40px, center;
+}
+#m_srchbtn.mclose{
+    background-image: url(images/ui/mobile/menuclose.png), url(images/ui/mobile/bg_red_small.png);
 }
 #search{
     position:absolute;
@@ -407,16 +420,7 @@ div.top_bar{
 #mback:focus{
     background-position: 0px 40px, center;
 }
-.mclose{
-    position:relative;
-    float: right;
-    right: 0;
-    height: 40px;
-    width: 40px;
-    background-image: url(images/ui/mobile/menuclose.png), url(images/ui/mobile/bg_red_small.png) !important;
-    background-size: 40px 80px, cover;
-    background-position: 0px 0px, center;
-}
+
 /*IE specific*/
 @media screen and (min-width:0\0){
 /*    div.top_bar{
@@ -600,6 +604,44 @@ p.narrow{
     height: 40%;
 }
 
+.text_container_left{
+    height: 40%;
+    overflow-y: scroll;
+    width: 65%;
+    top: 15vh;
+    position: relative;
+    padding-top: 10%;
+    left: -10%;
+    max-width: 300px;
+}
+.text_container_left p{
+    width: 100% !important;
+    height: auto;
+    top: 0;
+    padding-top: 0;
+    left: 0;
+    overflow: visible;
+}
+.text_container_right{
+    height: 40%;
+    overflow-y: scroll;
+    width: 65%;
+    position: relative;
+    padding-top: 10%;
+    padding-right: 30%;
+    max-width: 300px;
+}
+.text_container_right p{
+    left: 0 !important;
+    width: 100% !important;
+    height: auto;
+    overflow: visible;
+    padding-top: 0;
+}
+p.author_text_single{
+    padding-top: 10%;
+    font-size: 8pt;
+}
 .readmore{
     margin-top:0;
     top: 70%;
@@ -671,7 +713,7 @@ ol.searchresults{
     position: absolute;
     top: 0;
     left: 50%;
-    background-image: url(images/ui/mobile/icon_video.png);
+    background-image: url(images/ui/mobile/icon_video.png) !important;
     background-repeat: no-repeat;
     background-size:contain;
     max-width: 40px;
@@ -679,6 +721,9 @@ ol.searchresults{
     width: 6.25vw;
     height: 7.2vw;
     transform: translate(-50%, 0);
+}
+#audicon{
+    background-image: url(images/ui/mobile/icon_audio.png) !important;
 }
 .aboutvid{
     transform: translate(0,0);
@@ -765,3 +810,24 @@ ol.searchresults{
     font-family: helvetica-neue;
     margin-left: 10%;
 }
+p.popuptitle{
+    display: block !important;
+    border-bottom-style: solid;
+    border-bottom-color: rgba(30,30,28,0.4);
+    border-bottom-width: 1px;
+    margin-bottom: 0;
+    padding: 0 0.7em 0.7em 0.7em;
+    font-size:larger;
+    font-weight: bold;
+    text-align: center;
+}
+/*p.popuptitle:after{
+    content: "";
+    background: #1E1E1C;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    opacity: 0.3;
+}*/

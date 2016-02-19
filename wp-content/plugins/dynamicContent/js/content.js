@@ -708,9 +708,11 @@ var Content = Class.extend({
         if ($(pointer).is('img') && inOut == 'in') $(pointer).one("load", function() {
             setTimeout(function() {
                 if (isMobile) {
-                    $('p.text_right').css('left', $('.mcit img').width());
-                    $('.readmore.right').css('left', $('.mcit img').width() + $('.readmore.right').width() / 2);
-                    $('.alignright').css('margin-left', $('p.text_left').width());
+                    if($('div.text_container_right').length>0) $('div.text_container_right').css('left', $('.mcit img').width());
+                    else $('p.text_right').css('left', $('.mcit img').width());
+                    $('.readmore.right').css('left', $('.mcit img').width() + $(window).width()*0.2);
+                    if($('div.text_container_left').length>0)  $('.alignright').css('margin-left', $('div.text_container_left').width());
+                    else $('.alignright').css('margin-left', $('p.text_left').width());
                     if ($('p.text_right').length > 0) $('.mcit').animate({
                         scrollLeft: $('p.text_right').offset().left
                     }, 1000);

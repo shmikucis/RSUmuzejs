@@ -40,9 +40,12 @@ $(window).resize(function() {
         if (dynamicContent.getItem().template === "templates/searchResults.php") resizeSrcRes();
     } else {
         mContinue();
-        $('p.text_right').css('left', $('.mcit img').width());
-        $('.readmore.right').css('left', $('.mcit img').width() + $('.readmore.right').width() / 2);
-        $('.alignright').css('margin-left', $('p.text_left').width());
+        if($('div.text_container_right').length>0) $('div.text_container_right').css('left', $('.mcit img').width());
+        else $('p.text_right').css('left', $('.mcit img').width());
+        
+        $('.readmore.right').css('left', $('.mcit img').width() + $(window).width()*0.2);
+        if($('div.text_container_left').length>0)  $('.alignright').css('margin-left', $('div.text_container_left').width());
+        else $('.alignright').css('margin-left', $('p.text_left').width());
         $("#m_srchbtn, .mclose, #mback").css("margin", ($('#masthead').height() - $('#m_srchbtn').height()) / 2);
         $("#menutext").css('width', $(window).width() - $('#m_srchbtn').outerWidth(true) * 2);
     }
@@ -347,14 +350,24 @@ function mInit() {
 
     $(document).on('click', '.readmore, .mejs-textform, .humortext.cboxElement', function() {
         $("#colorbox").addClass("text_popup");
+        var popupBtn = $(this);
         $(document).bind('cbox_complete', function() {
-            textPopupVcenter();
-            $('.citation_logo').show();
+//            textPopupVcenter();
+            $('.citation_logo').show();            
+            if(popupBtn.hasClass('aboutvid')){
+                 $('.citation_logo').attr('id', 'vidicon');
+                 $('#cboxLoadedContent #vidicon').remove();
+            }
+            if(popupBtn.hasClass('.mejs-textform')){
+                $('.citation_logo').attr('id', 'audicon');
+            }
+            
             //            content.animateObject('#colorbox .popup', 'cardbordTextfadeInDown', 100, 'in'); 
             //            content.animateObject('#colorbox .citation_logo', 'animMushroom', 300, 'in');             
         });
         $(document).bind('cbox_closed', function() {
             $('.citation_logo').remove();
+            $('.citation_logo').removeAttr('id');
         });
 
     });
@@ -648,7 +661,6 @@ function m_toggleSearch() {
         searchArea.find('input').val("");
 
     } else {
-
         searchArea.css('visibility', 'visible');
         searchArea.width($(window).width() - $('#m_srchbtn').outerWidth(true));
         searchButton.addClass('mclose');
