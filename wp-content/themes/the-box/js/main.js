@@ -348,24 +348,73 @@ function mInit() {
     $('#menuclose').on('click', m_closeMenu);
     $('#m_srchbtn').on('click', m_toggleSearch);
 
-    $(document).on('click', '.readmore, .mejs-textform, .humortext.cboxElement', function() {
-        $("#colorbox").addClass("text_popup");
-        var popupBtn = $(this);
+    $(document).bind('cbox_closed', function() {
+            resetPopupClass();
+        });
+    $(document).on('click', '.readmore, .mejs-textform, .humortext.cboxElement, .pic_single', function() {        
+        
+        var popupBtn = $(this);        
+            
+        if(popupBtn.hasClass('pic_single')){
+            $("#colorbox").addClass("pic_popup");
+            $titleattr = $(this).attr('title');
+        }
+        else $("#colorbox").addClass("text_popup");
         
         $(document).bind('cbox_complete', function() {
-//            textPopupVcenter();
-            $('.citation_logo').show();            
-            if(popupBtn.hasClass('aboutvid')){
-                 $('.citation_logo').attr('id', 'vidicon');
-                 $('#cboxLoadedContent #vidicon').remove();
+            if($('#pictoolbar').length>0){
+                $('#pictoolbar').remove();
+                $('#cboxTitle').html("");
             }
-            if(popupBtn.hasClass('mejs-textform')){
-                 $('.citation_logo').attr('id', 'audicon');
-                 $('#cboxLoadedContent').css('max-height','70vh');
+            $('.citation_logo').show();
+            if (popupBtn.hasClass('gallery')){
+                $('.citation_logo').attr('id', 'galicon');
+            }
+            else if (popupBtn.hasClass('archive')){
+                $('.citation_logo').attr('id', 'archicon');
+            }
+            else if (popupBtn.hasClass('objects')){
+                $('.citation_logo').attr('id', 'objicon');
+            }
+            else if (popupBtn.hasClass('humor')){
+                $('.citation_logo').attr('id', 'humicon');
+            }
+            else if (popupBtn.hasClass('closer')){
+                $('.citation_logo').attr('id', 'cloicon');
+            }
+            if(popupBtn.hasClass('pic_single')){
+                $('#cboxContent').append('<div id="pictoolbar"><div id="zoomin"><div id="zoomout" style="display: none;"></div></div><div id="showtext"></div></div>');
+                var text = $('#cboxTitle').html();
+                $('#cboxTitle').html("");
+                $('#cboxTitle').append('<div>'+$titleattr+'</div><div class="mclose"></div>');
+                
+                $('#cboxTitle').css('display', 'none');
+            if (typeof $titleattr === typeof undefined && $titleattr === false) {
+                $('#showtext').css('display', 'none');
+                }    
+            $('#showtext').on('click', function(){
+                $('#cboxTitle').css('display', 'block');
+                $('#pictoolbar').css('display', 'none');
+                $('.pic_popup#colorbox #cboxTitle .mclose').one('click', function(){
+                    $('#cboxTitle').css('display', 'none');
+                $('#pictoolbar').css('display', 'block');
+                });
+            });         
             }
             
+            else{           
+                if(popupBtn.hasClass('aboutvid')){
+                     $('.citation_logo').attr('id', 'vidicon');
+                     $('#cboxLoadedContent #vidicon').remove();
+                }
+                if(popupBtn.hasClass('mejs-textform')){
+                     $('.citation_logo').attr('id', 'audicon');
+                     $('#cboxLoadedContent').css('max-height','70vh');
+                }
+            
             //            content.animateObject('#colorbox .popup', 'cardbordTextfadeInDown', 100, 'in'); 
-            //            content.animateObject('#colorbox .citation_logo', 'animMushroom', 300, 'in');             
+            //            content.animateObject('#colorbox .citation_logo', 'animMushroom', 300, 'in');      
+            }
         });
         $(document).bind('cbox_closed', function() {
             $('.citation_logo').remove();
@@ -374,9 +423,8 @@ function mInit() {
                 $('#cboxContent audio').get(0).player.remove();
                 $('#cboxContent audio').get(0).remove();
                 $('#cboxLoadedContent').css('max-height','75vh');
-            }
+            }            
         });
-
     });
     
     $(document).on('click', '.audio', function() {
