@@ -27,7 +27,6 @@ else
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/lightgallery.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/lg-thumbnail.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/uber-zoom.js"></script>
-<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/jquery.panzoom.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/imageMapResizer.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/mediaelement-and-player.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">

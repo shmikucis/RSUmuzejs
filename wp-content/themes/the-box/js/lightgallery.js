@@ -265,7 +265,10 @@
         }
 
         if (this.s.appendSubHtmlTo === '.lg-sub-html') {
-            subHtmlCont = '<div class="lg-sub-html"></div>';
+            //if(isMobile) subHtmlCont = '<div class="lg-sub-html"><div></div><div class="mclose"></div></div>';
+           // else
+                subHtmlCont = '<div class="lg-sub-html"></div>';
+            
         }
 
         template = '<div class="lg-outer ' + this.s.addClass + ' ' + this.s.startClass + '">' + '<button class="lg-close lg-icon"></button>' + 
@@ -411,7 +414,7 @@
      */
     Plugin.prototype.counter = function() {
         if (this.s.counter && this.$items.length>1) {
-            $(this.s.appendCounterTo).append('<div id="lg-counter"><span id="lg-counter-current">' + (parseInt(this.index, 10) + 1) + '</span> / <span id="lg-counter-all">' + this.$items.length + '</span></div>');
+            $(this.s.appendCounterTo).append('<div id="lg-counter"><span id="lg-counter-current">' + (parseInt(this.index, 10) + 1) + '</span>/<span id="lg-counter-all">' + this.$items.length + '</span></div>');
         }
     };
 
@@ -832,6 +835,7 @@
      */
     Plugin.prototype.goToNextSlide = function(fromTouch) {
         var _this = this;
+        if(isMobile && $('.zoom').hasClass('zoomin')){
         if (!_this.lgBusy) {
             if ((_this.index + 1) < _this.$slide.length) {
                 _this.index++;
@@ -850,6 +854,7 @@
                 }
             }
         }
+        }
     };
 
     /**
@@ -858,6 +863,7 @@
      */
     Plugin.prototype.goToPrevSlide = function(fromTouch) {
         var _this = this;
+        if(isMobile && $('.zoom').hasClass('zoomin')){
         if (!_this.lgBusy) {
             if (_this.index > 0) {
                 _this.index--;
@@ -875,6 +881,7 @@
                     }, 400);
                 }
             }
+        }
         }
     };
 
@@ -945,7 +952,7 @@
     };
 
     Plugin.prototype.touchMove = function(startCoords, endCoords) {
-
+        if(!isMobile){
         var distance = endCoords - startCoords;
 
         // reset opacity and transition duration
@@ -957,6 +964,7 @@
         // move next and prev slide with current slide
         this.setTranslate($('.lg-prev-slide'), -this.$slide.eq(this.index).width() + distance, 0);
         this.setTranslate($('.lg-next-slide'), this.$slide.eq(this.index).width() + distance, 0);
+        }
     };
 
     Plugin.prototype.touchEnd = function(distance) {

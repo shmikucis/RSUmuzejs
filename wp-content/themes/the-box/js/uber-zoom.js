@@ -404,13 +404,15 @@
                 });
                 
                 if(isMobile){
-                $('#zoom').on('click', function(){
+                $('.zoom').on('click', function(){
                     if ($(this).hasClass('zoomin')){
-                        $(this).attr('class','zoomout');
+                            $('.zoom').addClass('zoomout');
+                            $('.zoom').removeClass('zoomin');
                         self.zoom_in(self.contentWidth/2, self.contentHeight/3, true);
                     }
                     else{
-                        $(this).attr('class','zoomin');
+                        $('.zoom').addClass('zoomin');
+                        $('.zoom').removeClass('zoomout');
                         self.zoom_out(0, 0, true);
                     }
                     });
@@ -627,10 +629,16 @@
                 
                 if (self.currentZoom < self.maxZoom / 2) {
                         self.zoom_in(e.offsetX, e.offsetY, true);
-                        if(isMobile) $('#zoom').attr('class','zoomout');
+                        if(isMobile) {
+                            $('.zoom').addClass('zoomout');
+                            $('.zoom').removeClass('zoomin');
+                        }
                     } else {
                         self.zoom_out(e.offsetX, e.offsetY, true);
-                        if(isMobile) $('#zoom').attr('class','zoomin');
+                        if(isMobile) {
+                            $('.zoom').addClass('zoomin');
+                            $('.zoom').removeClass('zoomout');
+                        }
                     }
             }
 
@@ -718,10 +726,16 @@
 
                     if (self.currentZoom < self.maxZoom / 2) {
                         self.zoom_in(offsetX, offsetY, true);
-                        if(isMobile) $('#zoom').attr('class','zoomout');
+                        if(isMobile) {
+                            $('.zoom').addClass('zoomout');
+                            $('.zoom').removeClass('zoomin');
+                        }
                     } else {
                         self.zoom_out(offsetX, offsetY, true);
-                        if(isMobile) $('#zoom').attr('class','zoomin');
+                        if(isMobile) {
+                            $('.zoom').addClass('zoomin');
+                            $('.zoom').removeClass('zoomout');
+                        }
                     }
 
                     self.didDoubleTap = false;

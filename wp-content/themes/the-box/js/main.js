@@ -367,9 +367,9 @@ function mInit() {
         else $("#colorbox").addClass("text_popup");
         
         $(document).bind('cbox_complete', function() {
-            if($('#pictoolbar').length>0){
+            if($('.pictoolbar').length>0){
                 //$('#pictoolbar').remove();
-                var div = $('#pictoolbar')[0];
+                var div = $('.pictoolbar')[0];
                 div.parentNode.removeChild(div);
                 $('#cboxTitle').html("");
             }
@@ -390,7 +390,7 @@ function mInit() {
                 $('.citation_logo').attr('id', 'cloicon');
             }
             if(popupBtn.hasClass('pic_single')){
-                $('#cboxWrapper').append('<div id="pictoolbar"><div id="zoom" class="zoomin"></div><div id="showtext"></div></div>');
+                $('#cboxWrapper').append('<div class="pictoolbar"><div class="zoom zoomin"></div><div class="showtext"></div></div>');
                 var text = $('#cboxTitle').html();
                 $('#cboxTitle').html("");
                 $('#cboxTitle').append('<div>'+$titleattr+'</div><div class="mclose"></div>');
@@ -399,12 +399,12 @@ function mInit() {
             if (typeof $titleattr === typeof undefined && $titleattr === false) {
                 $('#showtext').css('display', 'none');
                 }    
-            $('#showtext').on('click', function(){
+            $('.showtext').on('click', function(){
                 $('#cboxTitle').css('display', 'block');
-                $('#pictoolbar').css('display', 'none');
+                $('.pictoolbar').css('display', 'none');
                 $('.pic_popup#colorbox #cboxTitle .mclose').one('click', function(){
                     $('#cboxTitle').css('display', 'none');
-                $('#pictoolbar').css('display', 'block');
+                    $('.pictoolbar').css('display', 'block');
                 });
             });     
             var imgWdt = $('#cboxLoadedContent img').width();
@@ -493,6 +493,87 @@ function mInit() {
             //audio.play();
             $('.mejs-inner a').trigger('click');
 //        }
+    });
+    
+    $(document).on('click', '.pic_gallery', function() {
+        var id = $(this).attr('data-gallery');
+        var popupBtn = $(this);
+        $(id).lightGallery({
+            mode: 'lg-fade',
+            thumbnail: false,
+            closable: false,
+            escKey: false,
+            appendCounterTo: '.lg-inner',
+            download: false,
+            enableTouch: true,
+            controls: false
+        });
+        $(id + ' a').first().trigger('click');
+        $(id).on('onBeforeClose.lg', function() {
+            scrollEnabled = true;
+        });
+
+        $('.lg-outer').prepend('<div class="citation_logo"></div>');
+        if (popupBtn.hasClass('gallery')){
+                $('.citation_logo').attr('id', 'galicon');
+            }
+            else if (popupBtn.hasClass('archive')){
+                $('.citation_logo').attr('id', 'archicon');
+            }
+            else if (popupBtn.hasClass('objects')){
+                $('.citation_logo').attr('id', 'objicon');
+            }
+            else if (popupBtn.hasClass('humor')){
+                $('.citation_logo').attr('id', 'humicon');
+            }
+            else if (popupBtn.hasClass('closer')){
+                $('.citation_logo').attr('id', 'cloicon');
+            }
+        $('.lg-close').detach().appendTo($('.lg-backdrop.in'));
+        var div = $('.pictoolbar')[0];
+        if(div) div.parentNode.removeChild(div);
+        $('.lg').append('<div class="pictoolbar"><div class="zoom zoomin"></div><div class="showtext"></div></div>');
+        $('#lg-counter').insertAfter('div.pictoolbar .zoom');
+        $('#lg-counter').css('margin-left', $('.pictoolbar').width()/3 + ($('.pictoolbar').width() - $('.pictoolbar div').width()*3)/4);        
+        $('.showtext').on('click', function(){
+                $('.lg-sub-html').css('display', 'block');
+                $('.pictoolbar').css('display', 'none');
+                $('.lg-sub-html .mclose').one('click', function(){
+                    $('.lg-sub-html').css('display', 'none');
+                    $('.pictoolbar').css('display', 'block');
+                });
+            });    
+            
+        $(id).on('onSlideItemLoad.lg', function() {
+            setTimeout(function() {
+                var imgWdt = $('.lg-current.lg-complete .lg-img-wrap img').width();
+                var imgHgt = $('.lg-current.lg-complete .lg-img-wrap img').height();
+                $('.lg-current.lg-complete .lg-img-wrap img').uberZoom({
+                    width: imgWdt,
+                    height: imgHgt,
+                    navigator: false,
+                    navigatorImagePreview: false,
+                    rubberband: false
+                });
+                $('.lg-current .ndd-uberzoom-container').css("max-width", $('.lg-img-wrap').width());
+                $('.lg-current .ndd-uberzoom-container').css("max-height", $('.lg-img-wrap').height());
+            }, 500);
+        });
+        $(id).on('onAfterSlide.lg', function() {
+            $('.lg-current .ndd-uberzoom-container').css("max-width", $('.lg-img-wrap').width());
+            $('.lg-current .ndd-uberzoom-container').css("max-height", $('.lg-img-wrap').height());
+                     
+        });
+        $(id).on('onAfterAppendSubHtml.lg', function(){
+            if($('lg-sub-html div').length<=0) $('.lg-sub-html').append('<div></div><div class="mclose"></div>');
+            var text = $(".lg-sub-html").contents().filter(function(){ 
+              return this.nodeType == 3; 
+            });
+            $('.lg-sub-html div:first').text(text[0].nodeValue);
+            text[0].nodeValue = "";   
+        })
+
+        //galleryInnerResize();
     });
 }
 
