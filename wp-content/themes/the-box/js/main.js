@@ -286,7 +286,12 @@ function init() {
             audio = $('#footer audio');
             audio.mediaelementplayer({
                 audioWidth: window.innerWidth,
-                audioHeight: footHeight * 0.7
+                audioHeight: footHeight * 0.7,
+                success: function (mediaElement, domObject) {
+                    // call the play method
+                    mediaElement.play();
+
+                }
             });
             $('.mejs-container').append('<button id="close">close</button>');
             $('.mejs-container #close').click(function() {
@@ -314,7 +319,7 @@ function init() {
 
             updateListeners();
 
-            audio.trigger("play");
+//            audio.trigger("play");
         }
     });
 }
@@ -363,7 +368,9 @@ function mInit() {
         
         $(document).bind('cbox_complete', function() {
             if($('#pictoolbar').length>0){
-                $('#pictoolbar').remove();
+                //$('#pictoolbar').remove();
+                var div = $('#pictoolbar')[0];
+                div.parentNode.removeChild(div);
                 $('#cboxTitle').html("");
             }
             $('.citation_logo').show();
@@ -405,7 +412,9 @@ function mInit() {
             else{           
                 if(popupBtn.hasClass('aboutvid')){
                      $('.citation_logo').attr('id', 'vidicon');
-                     $('#cboxLoadedContent #vidicon').remove();
+//                     $('#cboxLoadedContent #vidicon').remove();
+                    var div = $('#cboxLoadedContent #vidicon')[0];
+                    div.parentNode.removeChild(div);
                 }
                 if(popupBtn.hasClass('mejs-textform')){
                      $('.citation_logo').attr('id', 'audicon');
@@ -417,11 +426,15 @@ function mInit() {
             }
         });
         $(document).bind('cbox_closed', function() {
-            $('.citation_logo').remove();
+//            $('.citation_logo').remove();
+            var div = document.getElementsByClassName('citation_logo')[0];
+                if(div) div.parentNode.removeChild(div);
             $('.citation_logo').removeAttr('id');
             if($('#cboxContent audio').length>0){
                 $('#cboxContent audio').get(0).player.remove();
-                $('#cboxContent audio').get(0).remove();
+//                $('#cboxContent audio').get(0).remove();
+                var div = $('#cboxContent audio')[0];
+                div.parentNode.removeChild(div);
                 $('#cboxLoadedContent').css('max-height','75vh');
             }            
         });
@@ -435,15 +448,20 @@ function mInit() {
             audio.mediaelementplayer({
                 audioWidth: window.innerWidth,
                 audioHeight: $('#masthead').height(),
-                features: ['playpause','progress','current','duration']
+                features: ['playpause','progress','current','duration'],
+                 success: function (mediaElement, domObject) {
+                    // call the play method
+                    mediaElement.play();
+
+                }
             });
             $('.mejs-currenttime-container').appendTo('.mejs-time-rail');
             $('.mejs-duration-container').appendTo('.mejs-time-rail');
                 $('.mejs-inner').append('<a href="' + id + '-text" class="mejs-textform cboxElement" style="display: none;">Teksta formā</a>');
                 $(".mejs-controls").css({
-                    "width": $(window).width()-parseInt($('#m_srchbtn').css('margin'))*2,
+                    "width": $(window).width()-parseInt($('#m_srchbtn').css('margin-left'))*2,
                     "height": $('#m_srchbtn').height(),
-                    "margin": parseInt($('#m_srchbtn').css('margin'))
+                    "margin": parseInt($('#m_srchbtn').css('margin-left'))
                 });
                 $(".mejs-controls .mejs-button button, .mejs-container .mejs-controls div").css({
                     "height": $('#m_srchbtn').height(),
@@ -451,19 +469,19 @@ function mInit() {
                     "background-size": $('#m_srchbtn').height() + "px " + $('#m_srchbtn').height()*2 + "px",
                 });
                 $('.mejs-time-rail').css({
-                    'margin': $('#m_srchbtn').css('margin'),
+                    'margin': $('#m_srchbtn').css('margin-left'),
                     'height': $('#m_srchbtn').height()/2
                 });
                 $('.mejs-time').css({
                     'width': $('.mejs-controls').width()-$('#m_srchbtn').outerWidth(true),
-                    'right': $('#m_srchbtn').css('margin')
+                    'right': $('#m_srchbtn').css('margin-left')
                 });
                  $('.mejs-time > :nth-child(2)').remove();
                 //$('.mejs-time-total.mejs-time-slider').width($('.mejs-controls').width()-$('#m_srchbtn').width()-$('#m_srchbtn').css('margin'));
             $('.mejs-textform').css('margin-top', ($('.mejs-container').height() - $('.mejs-textform').height()) / 2);
             m_updateListeners();
 
-            audio.trigger("play");
+            //audio.play();
             $('.mejs-inner a').trigger('click');
 //        }
     });
@@ -607,11 +625,25 @@ function m_updateListeners() {
     });
 
     $('a.readmore, a.mejs-textform, a.humortext.cboxElement').colorbox({
+        transition: 'none',
         inline: true,
-        scrolling: false
+        scrolling: false,
+        returnFocus: false,
+        ovarlayClose: false
     });
     $('a.pic_single').colorbox({
-        photo: true
+        transition: 'none',
+        scrolling: false,
+        returnFocus: false,
+        ovarlayClose: false,
+        width: $('#fullpage').width(),
+        height: $('#fullpage').height(),
+        initialWidth: $('#fullpage').width(),
+        initialHeight: $('#fullpage').height(),
+        maxWidth: 1,
+        maxHeight: 1
+//        photo: true
+//        reposition: false
     });
 }
 

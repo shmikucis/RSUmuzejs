@@ -431,6 +431,7 @@ div.top_bar{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    height: 100%;
 }
 .bg.stripes{
     height: 55%;
@@ -806,6 +807,7 @@ ol.searchresults{
     opacity: 1 !important;
     width: 100vw;
     height: 100vh;
+    overflow: hidden;
 }
 #colorbox, .pic_popup#colorbox{
     top: 10vh !important;
@@ -830,16 +832,22 @@ ol.searchresults{
     width: 80vw !important;
     overflow: hidden;
 }
+.pic_popup#colorbox #cboxWrapper{
+    width: 80vw !important;
+}
 .pic_popup#colorbox #cboxContent{
    max-height: 75vh !important; 
+   width: 80vw !important;
 }
 .pic_popup#colorbox #cboxLoadedContent{
     height: 75vh !important;
+    width: 80vw !important;
+    display: block;
 }
 .cboxPhoto{
-    width: 100% !important;
+    max-width: 80vw !important;
     max-height: 75vh !important;
-    margin-top: 0;
+    margin-top: 0 !important;
 }
 .pic_popup#colorbox #cboxTitle{
     width: 100%;    
