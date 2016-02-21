@@ -76,7 +76,8 @@
         $(window).on('resize', function() {
             windowWidth = $(window).width();
             windowHeight = $(window).height();
-        })
+        });
+        
     }
     function log(obj) { console.log(obj); }
 
@@ -401,6 +402,19 @@
                 $(window).on("resize", function(e) {
                     self.handle_event(e);
                 });
+                
+                if(isMobile){
+                $('#zoom').on('click', function(){
+                    if ($(this).hasClass('zoomin')){
+                        $(this).attr('class','zoomout');
+                        self.zoom_in(self.contentWidth/2, self.contentHeight/3, true);
+                    }
+                    else{
+                        $(this).attr('class','zoomin');
+                        self.zoom_out(0, 0, true);
+                    }
+                    });
+                }
 
                 // touch events
                 $(self.obj).on("touchstart", function(e) {
@@ -613,8 +627,10 @@
                 
                 if (self.currentZoom < self.maxZoom / 2) {
                         self.zoom_in(e.offsetX, e.offsetY, true);
+                        if(isMobile) $('#zoom').attr('class','zoomout');
                     } else {
                         self.zoom_out(e.offsetX, e.offsetY, true);
+                        if(isMobile) $('#zoom').attr('class','zoomin');
                     }
             }
 
@@ -658,7 +674,7 @@
             if (e.type == "touchstart" && e.originalEvent.touches.length == 2) {
                 self.show_ui();
                 imageInteraction = true;
-                this.pinchZooming = true;
+                this.pinchZooming = false;
 
                 var t1x = e.originalEvent.touches[0].screenX;
                 var t1y = e.originalEvent.touches[0].screenY;
@@ -702,8 +718,10 @@
 
                     if (self.currentZoom < self.maxZoom / 2) {
                         self.zoom_in(offsetX, offsetY, true);
+                        if(isMobile) $('#zoom').attr('class','zoomout');
                     } else {
                         self.zoom_out(offsetX, offsetY, true);
+                        if(isMobile) $('#zoom').attr('class','zoomin');
                     }
 
                     self.didDoubleTap = false;
@@ -810,6 +828,7 @@
         },
 
         pinch_zoom : function(offsetX, offsetY) {
+            if(isMobile) return;
             var self = this;
 
             var targetZoom = self.initialZoom * (1 + self.pinchDelta);
@@ -855,8 +874,9 @@
             self.targetZoom = (self.targetZoom < self.maxZoom) ? self.targetZoom : self.maxZoom;
             self.targetZoom = (self.targetZoom > self.minZoom) ? self.targetZoom : self.minZoom;
 
-            if (max == true) {
-                self.targetZoom = self.maxZoom/2;
+            if (max === true) {                
+                if(isMobile) self.targetZoom = self.maxZoom*0.75;
+                else self.targetZoom = self.maxZoom/2;
             }
 
             var fpx = (offsetX - self.currentPosX) / (self.contentWidth * self.currentZoom);
@@ -907,6 +927,10 @@
             else{
                 $('#colorbox.pic_popup .ndd-uberzoom-container').width($('#colorbox.pic_popup .ndd-uberzoom-content').width());
                 self.frameWidth = $('#colorbox.pic_popup .ndd-uberzoom-container').width();
+                if (isMobile){
+                $('#colorbox.pic_popup .ndd-uberzoom-container').height($('#colorbox.pic_popup .ndd-uberzoom-content').height());
+                self.frameHeight = $('#colorbox.pic_popup .ndd-uberzoom-container').height();
+                }
             }
             clearTimeout(self.dragTimeout);
             clearTimeout(self.zoomTimeout);

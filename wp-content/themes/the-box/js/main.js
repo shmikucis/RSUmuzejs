@@ -390,7 +390,7 @@ function mInit() {
                 $('.citation_logo').attr('id', 'cloicon');
             }
             if(popupBtn.hasClass('pic_single')){
-                $('#cboxContent').append('<div id="pictoolbar"><div id="zoomin"><div id="zoomout" style="display: none;"></div></div><div id="showtext"></div></div>');
+                $('#cboxWrapper').append('<div id="pictoolbar"><div id="zoom" class="zoomin"></div><div id="showtext"></div></div>');
                 var text = $('#cboxTitle').html();
                 $('#cboxTitle').html("");
                 $('#cboxTitle').append('<div>'+$titleattr+'</div><div class="mclose"></div>');
@@ -406,7 +406,16 @@ function mInit() {
                     $('#cboxTitle').css('display', 'none');
                 $('#pictoolbar').css('display', 'block');
                 });
-            });         
+            });     
+            var imgWdt = $('#cboxLoadedContent img').width();
+            var imgHgt = $('#cboxLoadedContent img').height();
+            $('#cboxLoadedContent img').uberZoom({
+                width: imgWdt,
+                height: imgHgt,
+                navigator: false,
+                navigatorImagePreview: false,
+                rubberband: false
+            });
             }
             
             else{           

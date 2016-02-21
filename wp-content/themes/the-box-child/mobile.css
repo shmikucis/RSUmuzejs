@@ -836,18 +836,25 @@ ol.searchresults{
     width: 80vw !important;
 }
 .pic_popup#colorbox #cboxContent{
-   max-height: 75vh !important; 
+   height: 75vh !important; 
    width: 80vw !important;
+   max-height: 75vh;
 }
 .pic_popup#colorbox #cboxLoadedContent{
     height: 75vh !important;
-    width: 80vw !important;
+    width: auto !important;
     display: block;
 }
 .cboxPhoto{
-    max-width: 80vw !important;
-    max-height: 75vh !important;
-    margin-top: 0 !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    /*margin-top: 0 !important;*/
+}
+.pic_popup#colorbox .ndd-uberzoom-container {
+/*    width: 80vw !important;
+    height: 75vh!important;*/
+    max-width: 80vw;
+    max-height: 75vh;
 }
 .pic_popup#colorbox #cboxTitle{
     width: 100%;    
@@ -863,6 +870,7 @@ ol.searchresults{
     display: none;
     overflow: visible;
     transition: none;
+    z-index: 1;
 }
 .pic_popup#colorbox #cboxTitle div:first-child{
     overflow: scroll;
@@ -872,8 +880,8 @@ ol.searchresults{
 .pic_popup#colorbox #cboxTitle .mclose{
     position: absolute;
     top: 0;
-    -webkit-transform: translate(50%, -50%);
-    transform: translate(50%, -50%);
+    -webkit-transform: translate(50%, -25%);
+    transform: translate(50%, -25%);
     background-image: url("images/ui/mobile/menuclose.png");
 }
 .pic_popup#colorbox #cboxTitle:hover{
@@ -901,22 +909,22 @@ ol.searchresults{
     width: 6.5vh;
     height: 8vh;
     max-width: 67px;
-    max-height: 80px;
-}
-.pic_popup#colorbox #zoomin{
-    background-image: url(images/ui/mobile/gallery_zoom.png);
-    background-size: contain;
+    max-height: 80px;    
+    /*background-size: contain;*/
     background-repeat: no-repeat;
 }
-.pic_popup#colorbox #zoomout{
-    background-image: url(images/ui/mobile/gallery_zoom.png);
-    background-size: contain;
-    background-repeat: no-repeat;
+#zoom{
+    background-image: url(images/ui/mobile/zoom.png);
+    background-size: 200% 100%;    
 }
-.pic_popup#colorbox #showtext{
-    background-image: url(images/ui/mobile/gallery_zoom.png);
-    background-size: contain;
-    background-repeat: no-repeat;
+#zoom.zoomin{
+    background-position: 0 0;
+}
+#zoom.zoomout{
+    background-position: 100% 0;
+}
+#showtext{
+    background: #fff;
     float:right;
 }
 .popup{

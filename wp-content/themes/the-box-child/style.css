@@ -1301,6 +1301,7 @@ a.archive{
     float: none !important;
     right: 0;
     margin: auto;
+    z-index: 1;
     transition: max-height 1s;
     transition-timing-function: ease-out;
 }
