@@ -60,7 +60,7 @@
         counter: true,
         appendCounterTo: '.lg-toolbar',
 
-        swipeThreshold: 50,
+        swipeThreshold: 10,
         enableSwipe: true,
         enableDrag: true,
 
@@ -952,19 +952,19 @@
     };
 
     Plugin.prototype.touchMove = function(startCoords, endCoords) {
-        if(!isMobile){
+//        if(!isMobile){
         var distance = endCoords - startCoords;
 
         // reset opacity and transition duration
-        this.$outer.addClass('lg-dragging');
+//        this.$outer.addClass('lg-dragging');
 
         // move current slide
-        this.setTranslate(this.$slide.eq(this.index), distance, 0);
+//        this.setTranslate(this.$slide.eq(this.index), distance, 0);
 
         // move next and prev slide with current slide
-        this.setTranslate($('.lg-prev-slide'), -this.$slide.eq(this.index).width() + distance, 0);
-        this.setTranslate($('.lg-next-slide'), this.$slide.eq(this.index).width() + distance, 0);
-        }
+//        this.setTranslate($('.lg-prev-slide'), -this.$slide.eq(this.index).width() + distance, 0);
+//        this.setTranslate($('.lg-next-slide'), this.$slide.eq(this.index).width() + distance, 0);
+//        }
     };
 
     Plugin.prototype.touchEnd = function(distance) {

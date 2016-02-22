@@ -534,12 +534,13 @@ function mInit() {
         if(div) div.parentNode.removeChild(div);
         $('.lg').append('<div class="pictoolbar"><div class="zoom zoomin"></div><div class="showtext"></div></div>');
         $('#lg-counter').insertAfter('div.pictoolbar .zoom');
-        $('#lg-counter').css('margin-left', $('.pictoolbar').width()/3 + ($('.pictoolbar').width() - $('.pictoolbar div').width()*3)/4);        
+        $('#lg-counter').css('margin-left', $('.pictoolbar').width()/3 + ($('.pictoolbar').width() - $('.pictoolbar div').width()*3)/4); 
+        $('.lg-inner').append('<div class="lg-text"><div></div><div class="mclose"></div></div>');
         $('.showtext').on('click', function(){
-                $('.lg-sub-html').css('display', 'block');
+                $('.lg-text').css('display', 'block');
                 $('.pictoolbar').css('display', 'none');
-                $('.lg-sub-html .mclose').one('click', function(){
-                    $('.lg-sub-html').css('display', 'none');
+                $('.lg-text .mclose').one('click', function(){
+                    $('.lg-text').css('display', 'none');
                     $('.pictoolbar').css('display', 'block');
                 });
             });    
@@ -565,13 +566,9 @@ function mInit() {
                      
         });
         $(id).on('onAfterAppendSubHtml.lg', function(){
-            if($('lg-sub-html div').length<=0) $('.lg-sub-html').append('<div></div><div class="mclose"></div>');
-            var text = $(".lg-sub-html").contents().filter(function(){ 
-              return this.nodeType == 3; 
-            });
-            $('.lg-sub-html div:first').text(text[0].nodeValue);
-            text[0].nodeValue = "";   
-        })
+            var text = $(".lg-sub-html").text();
+            $('.lg-text div:first').text(text);
+        });
 
         //galleryInnerResize();
     });

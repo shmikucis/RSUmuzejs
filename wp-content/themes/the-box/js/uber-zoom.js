@@ -405,21 +405,26 @@
                 
                 if(isMobile){
                 $('.zoom').on('click', function(){
-                    if ($(this).hasClass('zoomin')){
-                            $('.zoom').addClass('zoomout');
-                            $('.zoom').removeClass('zoomin');
-                        self.zoom_in(self.contentWidth/2, self.contentHeight/3, true);
-                    }
-                    else{
-                        $('.zoom').addClass('zoomin');
-                        $('.zoom').removeClass('zoomout');
-                        self.zoom_out(0, 0, true);
-                    }
+                    if($('.lg-current').length>0) $('.lg-current img').trigger('touchstart');
+                        else $('img.cboxPhoto').trigger('touchstart');
+//                    if ($(this).hasClass('zoomin')){
+//                        if($('.lg-current').length>0) $('.lg-current img').trigger('touchstart');
+//                        else $('img.cboxPhoto').trigger('touchstart');
+//                            setTimeout(function(){$('.zoom').addClass('zoomout');
+//                            $('.zoom').removeClass('zoomin');},300);
+//                    }
+//                    else{
+//                        if($('.lg-current').length>0) $('.lg-current img').trigger('touchstart');
+//                        else $('img.cboxPhoto').trigger('touchstart');
+//                         setTimeout(function(){$('.zoom').addClass('zoomin');
+//                            $('.zoom').removeClass('zoomout');},300);
+//                    }
                     });
                 }
 
                 // touch events
                 $(self.obj).on("touchstart", function(e) {
+                    if(e.originalEvent){
                     if (e.originalEvent.touches.length == 1) {
                         activeZoomable = self;
 
@@ -446,7 +451,18 @@
                         self.handle_event(e);
                     }
 
-                    e.preventDefault();
+//                    e.preventDefault();
+                    }
+                    else if ($('.zoom').hasClass('zoomin')){
+                        self.zoom_in(self.contentWidth/2, self.contentHeight/3, true);
+                            $('.zoom').addClass('zoomout');
+                            $('.zoom').removeClass('zoomin');
+                    }
+                    else{
+                        self.zoom_out(0,0, true);
+                         $('.zoom').addClass('zoomin');
+                            $('.zoom').removeClass('zoomout');
+                    }
                 });
 
                 // start in fullscreen (user option)
@@ -509,7 +525,7 @@
 
         handle_event : function(e) {
             var self = this;
-            
+//            console.log(self);
             if (e.type == 'mousewheel' && self.currentZoom == self.maxZoom && e.deltaY > 0) {
                 return;
             }
@@ -518,8 +534,8 @@
                 return;
             }
 
-            e.stopPropagation();
-            e.preventDefault();
+//            e.stopPropagation();
+//            e.preventDefault();
 //            self.show_ui();
 //            mjau = $(e.target);
             //console.log(mjau);
@@ -623,22 +639,26 @@
                 imageInteraction = false;
                 self.stop_moving();
                 self.dragging = false;
+                console.log(e);
                 
 //                var offsetX = e.originalEvent.touches[0].pageX - self.obj.offset().left;
 //                    var offsetY = e.originalEvent.touches[0].pageY - self.obj.offset().top;
                 
                 if (self.currentZoom < self.maxZoom / 2) {
-                        self.zoom_in(e.offsetX, e.offsetY, true);
+                        
                         if(isMobile) {
                             $('.zoom').addClass('zoomout');
                             $('.zoom').removeClass('zoomin');
+                            self.zoom_in(self.contentWidth/2, self.contentHeight/3, true);
                         }
-                    } else {
-                        self.zoom_out(e.offsetX, e.offsetY, true);
+                        else self.zoom_in(e.offsetX, e.offsetY, true);
+                    } else {                        
                         if(isMobile) {
                             $('.zoom').addClass('zoomin');
                             $('.zoom').removeClass('zoomout');
+                            self.zoom_out(0,0, true);
                         }
+                        else self.zoom_out(e.offsetX, e.offsetY, true);
                     }
             }
 

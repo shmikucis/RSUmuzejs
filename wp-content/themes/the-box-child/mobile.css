@@ -844,7 +844,7 @@ ol.searchresults{
 .pic_popup#colorbox #cboxLoadedContent{
     height: 75vh !important;
     width: auto !important;
-    display: block;
+    /*display: block;*/
 }
 .cboxPhoto{
     max-width: 100% !important;
@@ -857,40 +857,45 @@ ol.searchresults{
     max-width: 100vw;
     max-height: 75vh;
 }
-.pic_popup#colorbox #cboxTitle, .lg-sub-html{
+.lg-sub-html{
+    display: none;
+}
+.pic_popup#colorbox #cboxTitle, .lg-text{
+    position: absolute;
     width: 100%;    
     min-width: 0px;
     max-height: 30%;    
     padding: 0;
-    padding-top: 8%;
+    padding-top: 10%;
     padding-bottom: 4%;
     background: #1D1D1B;
     bottom: -15%;
     font-family: helvetica-neue;
+    font-size: 9pt;
     color: white;
     display: none;
     overflow: visible;
     transition: none;
     z-index: 2000;
 }
-.pic_popup#colorbox #cboxTitle div:first-child, .lg-sub-html div:first-child{
+.pic_popup#colorbox #cboxTitle div:first-child, .lg-text div:first-child{
     overflow: scroll;
     max-height: 10vh;
-    /*padding-bottom: 10%;*/
+    white-space: normal;
     width: 80%;
     margin: auto;
 }
-.pic_popup#colorbox #cboxTitle .mclose, .lg-sub-html .mclose{
+.pic_popup#colorbox #cboxTitle .mclose, .lg-text .mclose{
     position: absolute;
     top: 0;
-    -webkit-transform: translate(0%, -25%);
-    transform: translate(0%, -25%);
+    -webkit-transform: translate(0%, -15%);
+    transform: translate(0%, -15%);
     background-image: url("images/ui/mobile/menuclose.png");
 }
 .pic_popup#colorbox #cboxTitle:hover, .lg-sub-html:hover{
     max-height:30%;
 }
-.pic_popup#colorbox #cboxTitle:before,.lg-sub-html:before{
+.pic_popup#colorbox #cboxTitle:before,.lg-text:before{
     content: "";
     background: #FFFFFF;
     position: absolute;
