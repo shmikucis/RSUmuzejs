@@ -199,9 +199,12 @@ var Content = Class.extend({
     drawIn: function(item) {
         this.article.empty();
         this.drawTemplate(item);
-        this.drawAttachments(item);
-        if (isMobile) this.setBackground(item);
+        this.drawAttachments(item);    
         this.animateScene(item, 'in');
+        if (isMobile){ 
+            this.setBackground(item);
+            
+        }        
         this.drawExceptionsIn(dynamicContent.getItem(), item);
         dynamicContent.set(item);
     }
@@ -531,6 +534,32 @@ var Content = Class.extend({
                 'top': 0
             });
         } else bgElem.css('background-image', 'none');
+    },
+    setMobilePopups: function(){
+        if($('.obj_icon').length){
+            var icons = $('.obj_icon');
+//            $('.mcit img').parent().append('<ul id="popupbar"></ul>');
+            $('.mcit').prepend('<ul id="popupbar"></ul>');
+            
+            for(var i = 0; i < icons.length; i++){
+                if($('.mcit .alignleft:has(img)').length){
+                    $('#popupbar').append('<li></li>');                
+                    icons.eq(i).detach().appendTo($('#popupbar li:last'));
+                }
+                else{
+                    $('#popupbar').prepend('<li></li>');                
+                    icons.eq(i).detach().appendTo($('#popupbar li:first'));
+                }
+            }
+            icons.css('display', 'block');
+            if($('.mcit .alignleft:has(img)').length)
+                $('#popupbar').css({
+                    'margin-left': $('.mcit img').width() - $(window).width()*0.07 - $('#popupbar li').outerWidth(true)/2
+                });
+            else $('#popupbar').css({
+                'margin-left': $('.mcit .text_left').width() + $('#popupbar li').outerWidth(true)/2 - $('#popupbar').width()
+            });
+        }
     }
 
     ,
@@ -704,6 +733,7 @@ var Content = Class.extend({
     ,
     animateObject: function(pointer, animationClass, delay, inOut) {
         if (inOut !== 'out') $(pointer).addClass('hidden');
+        var self = this;
         //attēlus animē tikai pēc to ielādes
         if ($(pointer).is('img') && inOut == 'in') $(pointer).one("load", function() {
             setTimeout(function() {
@@ -713,9 +743,11 @@ var Content = Class.extend({
                     $('.readmore.right').css('left', $('.mcit img').width() + $(window).width()*0.2);
                     if($('div.text_container_left').length>0)  $('.alignright').css('margin-left', $('div.text_container_left').width());
                     else $('.alignright').css('margin-left', $('p.text_left').width());
+//                    $('p.text_right')[0].scrollIntoView();
                     if ($('p.text_right').length > 0) $('.mcit').animate({
                         scrollLeft: $('p.text_right').offset().left
                     }, 1000);
+                    self.setMobilePopups();
                 }
                 if (!isMobile) setInnerImg();
                 $(pointer).addClass(animationClass);

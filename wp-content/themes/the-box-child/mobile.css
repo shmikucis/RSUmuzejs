@@ -790,9 +790,6 @@ ol.searchresults{
     }
 }
 
-.obj_icon{
-    /*display:none;*/
-}
 .citation_logo{
     z-index: 10000;
 }
@@ -1037,4 +1034,41 @@ p.popuptitle.noborder{
 }
 #lg-counter-all{
     font-size: 8pt;
+}
+#popupbar{
+    position: absolute;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    top: 15%;
+    -webkit-transform: translate(0,-50%);
+    transform: translate(0,-50%);
+    z-index: 1;
+}
+.alignleft #popupbar{
+    /*margin-left: 100%;*/
+}
+#popupbar li{
+    /*display:table-cell;*/
+    height: 50px;
+    /*width: 100%;*/
+    margin: 0 4px;
+}
+a.obj_icon{
+    display: none;
+    position: relative;
+    margin: 0 !important;    
+    top: 0 !important;
+    left: 0 !important;
+    background-size: 200% 100%;
+}
+a.obj_icon:hover{
+    background-position: 0 0;
+}
+a.obj_icon:focus{
+    background-position: 100% 0;
+}
+a.obj_icon:after{
+    content: "";
+    display: none;
 }
