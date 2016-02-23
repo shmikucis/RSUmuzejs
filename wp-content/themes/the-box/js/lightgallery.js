@@ -1050,7 +1050,7 @@
         if (_this.s.enableDrag && !_this.isTouch && _this.doCss()) {
             _this.$slide.on('mousedown.lg', function(e) {
                 // execute only on .lg-object
-                if (!_this.$outer.hasClass('lg-zoomed')) {
+                if (!_this.$outer.hasClass('lg-zoomed') && !$('.zoom').hasClass('zoomout')) {
                     if ($(e.target).hasClass('lg-object') || $(e.target).hasClass('lg-video-play')) {
                         e.preventDefault();
 

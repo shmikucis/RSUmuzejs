@@ -451,7 +451,7 @@
                         self.handle_event(e);
                     }
 
-//                    e.preventDefault();
+                    e.preventDefault();
                     }
                     else if ($('.zoom').hasClass('zoomin')){
                         self.zoom_in(self.contentWidth/2, self.contentHeight/3, true);
@@ -534,8 +534,8 @@
                 return;
             }
 
-//            e.stopPropagation();
-//            e.preventDefault();
+            e.stopPropagation();
+            e.preventDefault();
 //            self.show_ui();
 //            mjau = $(e.target);
             //console.log(mjau);
@@ -639,7 +639,7 @@
                 imageInteraction = false;
                 self.stop_moving();
                 self.dragging = false;
-                console.log(e);
+//                console.log(e);
                 
 //                var offsetX = e.originalEvent.touches[0].pageX - self.obj.offset().left;
 //                    var offsetY = e.originalEvent.touches[0].pageY - self.obj.offset().top;

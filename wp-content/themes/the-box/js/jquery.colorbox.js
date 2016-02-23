@@ -403,7 +403,7 @@
 				$content.css({width:'', height:''}).append($loaded);
 
 				// Cache values needed for size calculations
-				interfaceHeight = $topBorder.height() + $bottomBorder.height() + $content.outerHeight(true) - $content.height();
+				interfaceHeight = $topBorder.height() + $content.outerHeight(true) - $content.height(); // + $bottomBorder.height()
 				interfaceWidth = $leftBorder.width() + $rightBorder.width() + $content.outerWidth(true) - $content.width();
 				loadedHeight = $loaded.outerHeight(true);
 				loadedWidth = $loaded.outerWidth(true);
@@ -501,12 +501,13 @@
 					$leftBorder = $tag(div, "MiddleLeft"),
 					$content,
 					$rightBorder = $tag(div, "MiddleRight")
-				),
-				$tag(div, false, 'clear:left').append(
-					$tag(div, "BottomLeft"),
-					$bottomBorder = $tag(div, "BottomCenter"),
-					$tag(div, "BottomRight")
 				)
+//                                    ,
+//				$tag(div, false, 'clear:left').append(
+//					$tag(div, "BottomLeft"),
+//					$bottomBorder = $tag(div, "BottomCenter"),
+//					$tag(div, "BottomRight")
+//				)
 			).find('div div').css({'float': 'left'});
 
 			$loadingBay = $tag(div, false, 'position:absolute; width:9999px; visibility:hidden; display:none; max-width:none;');
@@ -671,9 +672,10 @@
 			left += Math.round(Math.max($window.width() - settings.w - loadedWidth - interfaceWidth, 0) / 2);
 		}
 
-		if (settings.get('bottom') !== false) {
-			top += Math.max(winheight() - settings.h - loadedHeight - interfaceHeight - setSize(settings.get('bottom'), 'y'), 0);
-		} else if (settings.get('top') !== false) {
+//		if (settings.get('bottom') !== false) {
+//			top += Math.max(winheight() - settings.h - loadedHeight - interfaceHeight - setSize(settings.get('bottom'), 'y'), 0);
+//		} else 
+                    if (settings.get('top') !== false) {
 			top += setSize(settings.get('top'), 'y');
 		} else {
 			top += Math.round(Math.max(winheight() - settings.h - loadedHeight - interfaceHeight, 0) / 2);
@@ -687,7 +689,7 @@
 		$wrap[0].style.width = $wrap[0].style.height = "9999px";
 
 		function modalDimensions() {
-			$topBorder[0].style.width = $bottomBorder[0].style.width = $content[0].style.width = (parseInt($box[0].style.width,10) - interfaceWidth)+'px';
+			$topBorder[0].style.width  = $content[0].style.width = (parseInt($box[0].style.width,10) - interfaceWidth)+'px'; //= $bottomBorder[0].style.width
 			$content[0].style.height = $leftBorder[0].style.height = $rightBorder[0].style.height = (parseInt($box[0].style.height,10) - interfaceHeight)+'px';
 		}
 

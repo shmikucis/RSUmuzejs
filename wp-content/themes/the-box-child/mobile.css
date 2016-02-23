@@ -1,6 +1,8 @@
 html{
     min-width: 0px;
     overflow: hidden;
+    -ms-overflow-style: none;
+    overflow: auto;
 }
 #page{
     width: 100vw;
@@ -19,7 +21,8 @@ div.top_bar{
     position:absolute;
     top: 50%;
     /*left: 50%;*/
-    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
 }
 #header_logo{
     min-height:25px;
@@ -151,8 +154,6 @@ div.top_bar{
   display: block;
   position: relative;
   z-index: 3000;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 #msidemenu a:focus{
@@ -179,8 +180,6 @@ div.top_bar{
     right: 0;
     z-index: 3;
     -webkit-transition: left 1s;
-    -moz-transition: left 1s;
-    -o-transition: left 1s;
     transition: left 1s;
 /*    -webkit-transition: -webkit-transform 1s;
     -moz-transition: -moz-transform 1s;
@@ -299,7 +298,8 @@ div.top_bar{
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
     box-shadow: 0px 0px 0px 1px rgba(255,255,255,0.6) inset;
 }
 
@@ -394,8 +394,6 @@ div.top_bar{
     background-position: center;
     width: 1px;
     -webkit-transition: width 1s;
-    -moz-transition: width 1s;
-    -o-transition: width 1s;
     transition: width 1s;
 }
 #searchfield{
@@ -511,7 +509,8 @@ ul.menu p, ul.menu2 p {
     text-align: left;
     position: absolute;
     top: 50%;
-    transform: translate(0, -50%);
+    -webkit-transform: translate(0, -50%);
+            transform: translate(0, -50%);
 }
 ul.menu li a:before, ul.menu2 li a:before{
      content: ' ';
@@ -696,6 +695,7 @@ ol.searchresults{
 .video-content{
     height: 90vh;
     /*background-image: url(images/ui/mobile/video_overlay.png);*/
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
 }
 .video-content div{
@@ -722,7 +722,8 @@ ol.searchresults{
     max-height: 47px;
     width: 6.25vw;
     height: 7.2vw;
-    transform: translate(-50%, 0);
+    -webkit-transform: translate(-50%, 0);
+            transform: translate(-50%, 0);
 }
 #audicon{
     background-image: url(images/ui/mobile/icon_audio.png) !important;
@@ -743,7 +744,8 @@ ol.searchresults{
     background-image: url(images/ui/mobile/icon_picture.png) !important;
 }
 .aboutvid{
-    transform: translate(0,0);
+    -webkit-transform: translate(0,0);
+            transform: translate(0,0);
     background-image: url(images/ui/mobile/aboutvid.png);
     background-repeat: no-repeat;
     background-size: contain;
@@ -764,7 +766,8 @@ ol.searchresults{
     display: block;
     top: 25%;
     left: 50%;
-    transform: translate(-50%,0);
+    -webkit-transform: translate(-50%,0);
+            transform: translate(-50%,0);
 }
 #videopopup{
     position: absolute;
@@ -797,8 +800,10 @@ ol.searchresults{
     background-image: url(images/ui/mobile/menuclose.png);
     width: 40px;
     height: 40px;
-    transform: scale(1,1);
-    transform: translate(-16.25%, 16.25%);
+    -webkit-transform: scale(1,1);
+            transform: scale(1,1);
+    -webkit-transform: translate(-16.25%, 16.25%);
+            transform: translate(-16.25%, 16.25%);
 }
 #cboxOverlay{
     top: 0 !important;
@@ -872,6 +877,7 @@ ol.searchresults{
     color: white;
     display: none;
     overflow: visible;
+    -webkit-transition: none;
     transition: none;
     z-index: 2000;
 }
@@ -1023,7 +1029,8 @@ p.popuptitle.noborder{
     position: absolute;
     margin: 0;
     padding: 0;
-    transform: translate(0,0);
+    -webkit-transform: translate(0,0);
+            transform: translate(0,0);
     min-width: 0px;
     min-height: 0px;
     font-size: 10pt;
@@ -1037,6 +1044,9 @@ p.popuptitle.noborder{
 }
 #popupbar{
     position: absolute;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
     padding: 0;
     margin: 0;
@@ -1054,7 +1064,7 @@ p.popuptitle.noborder{
     /*width: 100%;*/
     margin: 0 4px;
 }
-a.obj_icon{
+a.obj_icon, div.obj_icon{
     display: none;
     position: relative;
     margin: 0 !important;    
@@ -1062,13 +1072,95 @@ a.obj_icon{
     left: 0 !important;
     background-size: 200% 100%;
 }
+div.obj_icon{
+    display: block;
+}
 a.obj_icon:hover{
     background-position: 0 0;
 }
-a.obj_icon:focus{
+#popupbar .obj_icon:focus{
     background-position: 100% 0;
 }
-a.obj_icon:after{
+/*a.obj_icon:after{
     content: "";
+    display: none !important;
+}*/
+#popupgroup{
+    height: 100vh;
+    width: 100vw;
+    background-image: url(images/cardboard.jpg);
+    background-position: center;
+    z-index: 4;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#popupgroup .mclose{
+    background-image: url(images/ui/mobile/menuclose_bl.png);
+    background-size: contain;
+}
+#popuplist{
+    position: absolute;
+    height: 90vh;
+    top: 10vh;
+    width: 100vw;
+    background-image: url(images/bg_stripes.jpg);
+}
+
+#popuplist ul{
+    padding: 0;
+    width: 80%;
+    margin: auto;
+    margin-top: 12vh;
+}
+#popuplist ul li{
+    /*display: block;*/
+        
+}
+
+#popuplist ul li a:after{
+    content: "";
+    background: #1E1E1C;
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    opacity: 0.3;
+    margin: 0;
+    padding: 0;
+}
+#popuplist ul li:first-child a:after{
+    content: none;
     display: none;
+    height: 0px;
+}
+#popuplist ul li a{
+    background: none;
+    position: relative;
+    width: 100%;
+    display: table;
+    padding: 5% 0%;
+}
+#popuplist ul li a div{
+    display: table-cell;
+    color: #70706F;    
+    vertical-align: middle;
+    text-transform: uppercase;
+    font-family: pagella;
+    font-size: 10pt;
+}
+#popuplist ul li a div:first-child{
+    width: 40px;
+    height: 48px;
+    text-align:center;
+    background-image: url(images/ui/mobile/popup_counter.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+#popuplist ul li a div:last-child{
+    text-align: left;
+    padding-left: 5%;
 }

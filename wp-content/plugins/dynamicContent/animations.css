@@ -1,51 +1,90 @@
 .moveDown {
-    animation-name: moveDown;
-    animation-duration: 300ms;
-    animation-fill-mode: both;
-    transition-timing-function: ease-out;
+    -webkit-animation-name: moveDown;
+            animation-name: moveDown;
+    -webkit-animation-duration: 300ms;
+            animation-duration: 300ms;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+    -webkit-transition-timing-function: ease-out;
+            transition-timing-function: ease-out;
+}
+@-webkit-keyframes moveDown {
+    0% { visibility: visible; -webkit-transform: translate(0, -150px); transform: translate(0, -150px); }
+    100% { visibility: visible; -webkit-transform: translate(0, 0px); transform: translate(0, 0px); }
 }
 @keyframes moveDown {
-    0% { visibility: visible; transform: translate(0, -150px); }
-    100% { visibility: visible; transform: translate(0, 0px); }
+    0% { visibility: visible; -webkit-transform: translate(0, -150px); transform: translate(0, -150px); }
+    100% { visibility: visible; -webkit-transform: translate(0, 0px); transform: translate(0, 0px); }
 }
 
 .moveDownOut {
-    animation-name: moveDownOut;
-    animation-duration: 300ms;
-    animation-fill-mode: both;
-    transition-timing-function: ease-out;
+    -webkit-animation-name: moveDownOut;
+            animation-name: moveDownOut;
+    -webkit-animation-duration: 300ms;
+            animation-duration: 300ms;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+    -webkit-transition-timing-function: ease-out;
+            transition-timing-function: ease-out;
+}
+@-webkit-keyframes moveDownOut {
+    0% { visibility: visible; -webkit-transform: translate(0, 0px); transform: translate(0, 0px); }
+    100% { visibility: visible; -webkit-transform: translate(0, 250px); transform: translate(0, 250px); }
 }
 @keyframes moveDownOut {
-    0% { visibility: visible; transform: translate(0, 0px); }
-    100% { visibility: visible; transform: translate(0, 250px); }
+    0% { visibility: visible; -webkit-transform: translate(0, 0px); transform: translate(0, 0px); }
+    100% { visibility: visible; -webkit-transform: translate(0, 250px); transform: translate(0, 250px); }
 }
 
 .moveUp {
-    animation-name: moveUp;
-    animation-duration: 300ms;
-    animation-fill-mode: both;
-    transition-timing-function: ease-out;
+    -webkit-animation-name: moveUp;
+            animation-name: moveUp;
+    -webkit-animation-duration: 300ms;
+            animation-duration: 300ms;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+    -webkit-transition-timing-function: ease-out;
+            transition-timing-function: ease-out;
+}
+@-webkit-keyframes moveUp {
+    0% { visibility: visible; -webkit-transform: translate(0, 150px); transform: translate(0, 150px); }
+    100% { visibility: visible; -webkit-transform: translate(0, 0px); transform: translate(0, 0px); }
 }
 @keyframes moveUp {
-    0% { visibility: visible; transform: translate(0, 150px); }
-    100% { visibility: visible; transform: translate(0, 0px); }
+    0% { visibility: visible; -webkit-transform: translate(0, 150px); transform: translate(0, 150px); }
+    100% { visibility: visible; -webkit-transform: translate(0, 0px); transform: translate(0, 0px); }
 }
 
 .moveUpOut {
-    animation-name: moveUpOut;
-    animation-duration: 500ms;
-    animation-fill-mode: both;
-    transition-timing-function: ease-out;
+    -webkit-animation-name: moveUpOut;
+            animation-name: moveUpOut;
+    -webkit-animation-duration: 500ms;
+            animation-duration: 500ms;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+    -webkit-transition-timing-function: ease-out;
+            transition-timing-function: ease-out;
+}
+@-webkit-keyframes moveUpOut {
+    0% { visibility: visible; -webkit-transform: translate(0, 0px); transform: translate(0, 0px); }
+    100% { visibility: visible; -webkit-transform: translate(0, -250px); transform: translate(0, -250px); }
 }
 @keyframes moveUpOut {
-    0% { visibility: visible; transform: translate(0, 0px); }
-    100% { visibility: visible; transform: translate(0, -250px); }
+    0% { visibility: visible; -webkit-transform: translate(0, 0px); transform: translate(0, 0px); }
+    100% { visibility: visible; -webkit-transform: translate(0, -250px); transform: translate(0, -250px); }
 }
 
 .growUp {
-    animation-name: growUp;
-    animation-duration: 500ms;
-    animation-fill-mode: both;
+    -webkit-animation-name: growUp;
+            animation-name: growUp;
+    -webkit-animation-duration: 500ms;
+            animation-duration: 500ms;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+}
+@-webkit-keyframes growUp {
+    0% { visibility: visible; -webkit-clip-path: inset(100% 0px 0px 0px); }
+    100% { visibility: visible; -webkit-clip-path: inset(0% 0px 0px 0px); }
 }
 @keyframes growUp {
     0% { visibility: visible; -webkit-clip-path: inset(100% 0px 0px 0px); }
@@ -53,9 +92,16 @@
 }
 
 .growDown {
-    animation-name: growDown;
-    animation-duration: 500ms;
-    animation-fill-mode: both;
+    -webkit-animation-name: growDown;
+            animation-name: growDown;
+    -webkit-animation-duration: 500ms;
+            animation-duration: 500ms;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+}
+@-webkit-keyframes growDown {
+    0% { visibility: visible; -webkit-clip-path: inset(0px 0px 100% 0px); }
+    100% { visibility: visible; -webkit-clip-path: inset(0px 0px 0% 0px); }
 }
 @keyframes growDown {
     0% { visibility: visible; -webkit-clip-path: inset(0px 0px 100% 0px); }
@@ -63,9 +109,16 @@
 }
 
 .shrinkDown {
-    animation-name: shrinkDown;
-    animation-duration: 500ms;
-    animation-fill-mode: both;
+    -webkit-animation-name: shrinkDown;
+            animation-name: shrinkDown;
+    -webkit-animation-duration: 500ms;
+            animation-duration: 500ms;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+}
+@-webkit-keyframes shrinkDown {
+    100% { visibility: visible; -webkit-clip-path: inset(100% 0px 0px 0px); }
+    0% { visibility: visible; -webkit-clip-path: inset(0% 0px 0px 0px); }
 }
 @keyframes shrinkDown {
     100% { visibility: visible; -webkit-clip-path: inset(100% 0px 0px 0px); }
@@ -73,9 +126,16 @@
 }
 
 .shrinkUp {
-    animation-name: shrinkUp;
-    animation-duration: 500ms;
-    animation-fill-mode: both;
+    -webkit-animation-name: shrinkUp;
+            animation-name: shrinkUp;
+    -webkit-animation-duration: 500ms;
+            animation-duration: 500ms;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+}
+@-webkit-keyframes shrinkUp {
+    100% { visibility: visible; -webkit-clip-path: inset(0px 0px 100% 0px); }
+    0% { visibility: visible; -webkit-clip-path: inset(0% 0px 0% 0px); }
 }
 @keyframes shrinkUp {
     100% { visibility: visible; -webkit-clip-path: inset(0px 0px 100% 0px); }
@@ -83,118 +143,201 @@
 }
 
 .clipMoveUp {
-    animation-name: clipMoveUp;
-    animation-duration: 500ms;
-    animation-fill-mode: both;
+    -webkit-animation-name: clipMoveUp;
+            animation-name: clipMoveUp;
+    -webkit-animation-duration: 500ms;
+            animation-duration: 500ms;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+}
+@-webkit-keyframes clipMoveUp {
+    0% { visibility: visible; -webkit-clip-path: inset(0px 0px 100% 0px); -webkit-transform: translate(0,50px); transform: translate(0,50px); }
+    100% { visibility: visible; -webkit-clip-path: inset(0px 0px 0% 0px); -webkit-transform: translate(0,0); transform: translate(0,0); }
 }
 @keyframes clipMoveUp {
-    0% { visibility: visible; -webkit-clip-path: inset(0px 0px 100% 0px); transform: translate(0,50px); }
-    100% { visibility: visible; -webkit-clip-path: inset(0px 0px 0% 0px); transform: translate(0,0); }
+    0% { visibility: visible; -webkit-clip-path: inset(0px 0px 100% 0px); -webkit-transform: translate(0,50px); transform: translate(0,50px); }
+    100% { visibility: visible; -webkit-clip-path: inset(0px 0px 0% 0px); -webkit-transform: translate(0,0); transform: translate(0,0); }
 }
 
 .clipMoveUpOut {
-    animation-name: clipMoveUpOut;
-    animation-duration: 500ms;
-    animation-fill-mode: both;
+    -webkit-animation-name: clipMoveUpOut;
+            animation-name: clipMoveUpOut;
+    -webkit-animation-duration: 500ms;
+            animation-duration: 500ms;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+}
+@-webkit-keyframes clipMoveUpOut {
+    0% { visibility: visible; -webkit-clip-path: inset(0px 0px 0px 0px); -webkit-transform: translate(0,0); transform: translate(0,0); }
+    100% { visibility: visible; -webkit-clip-path: inset(100% 0px 0px 0px); -webkit-transform: translate(0,-50px); transform: translate(0,-50px); }
 }
 @keyframes clipMoveUpOut {
-    0% { visibility: visible; -webkit-clip-path: inset(0px 0px 0px 0px); transform: translate(0,0); }
-    100% { visibility: visible; -webkit-clip-path: inset(100% 0px 0px 0px); transform: translate(0,-50px); }
+    0% { visibility: visible; -webkit-clip-path: inset(0px 0px 0px 0px); -webkit-transform: translate(0,0); transform: translate(0,0); }
+    100% { visibility: visible; -webkit-clip-path: inset(100% 0px 0px 0px); -webkit-transform: translate(0,-50px); transform: translate(0,-50px); }
 }
 
 .clipMoveUpLittleOut {
-    animation-name: clipMoveUpLittleOut;
-    animation-duration: 500ms;
-    animation-fill-mode: both;
+    -webkit-animation-name: clipMoveUpLittleOut;
+            animation-name: clipMoveUpLittleOut;
+    -webkit-animation-duration: 500ms;
+            animation-duration: 500ms;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+}
+@-webkit-keyframes clipMoveUpLittleOut {
+    0% { visibility: visible; -webkit-clip-path: inset(0px 0px 0px 0px); -webkit-transform: translate(0,0); transform: translate(0,0); }
+    100% { visibility: visible; -webkit-clip-path: inset(100% 0px 0px 0px); -webkit-transform: translate(0,-20px); transform: translate(0,-20px); }
 }
 @keyframes clipMoveUpLittleOut {
-    0% { visibility: visible; -webkit-clip-path: inset(0px 0px 0px 0px); transform: translate(0,0); }
-    100% { visibility: visible; -webkit-clip-path: inset(100% 0px 0px 0px); transform: translate(0,-20px); }
+    0% { visibility: visible; -webkit-clip-path: inset(0px 0px 0px 0px); -webkit-transform: translate(0,0); transform: translate(0,0); }
+    100% { visibility: visible; -webkit-clip-path: inset(100% 0px 0px 0px); -webkit-transform: translate(0,-20px); transform: translate(0,-20px); }
 }
 
 .clipMoveDown {
-    animation-name: clipMoveDown;
-    animation-duration: 500ms;
-    animation-fill-mode: both;
+    -webkit-animation-name: clipMoveDown;
+            animation-name: clipMoveDown;
+    -webkit-animation-duration: 500ms;
+            animation-duration: 500ms;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+}
+@-webkit-keyframes clipMoveDown {
+    0% { visibility: visible; -webkit-clip-path: inset(100% 0px 0px 0px); -webkit-transform: translate(0,-50px); transform: translate(0,-50px); }
+    100% { visibility: visible; -webkit-clip-path: inset(0% 0px 0px 0px); -webkit-transform: translate(0,0); transform: translate(0,0); }
 }
 @keyframes clipMoveDown {
-    0% { visibility: visible; -webkit-clip-path: inset(100% 0px 0px 0px); transform: translate(0,-50px); }
-    100% { visibility: visible; -webkit-clip-path: inset(0% 0px 0px 0px); transform: translate(0,0); }
+    0% { visibility: visible; -webkit-clip-path: inset(100% 0px 0px 0px); -webkit-transform: translate(0,-50px); transform: translate(0,-50px); }
+    100% { visibility: visible; -webkit-clip-path: inset(0% 0px 0px 0px); -webkit-transform: translate(0,0); transform: translate(0,0); }
 }
 
 .clipMoveDownOut {
-    animation-name: clipMoveDownOut;
-    animation-duration: 500ms;
-    animation-fill-mode: both;
+    -webkit-animation-name: clipMoveDownOut;
+            animation-name: clipMoveDownOut;
+    -webkit-animation-duration: 500ms;
+            animation-duration: 500ms;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+}
+@-webkit-keyframes clipMoveDownOut {
+    0% { visibility: visible; -webkit-clip-path: inset(0px 0px 0% 0px); -webkit-transform: translate(0,0); transform: translate(0,0); }
+    100% { visibility: visible; -webkit-clip-path: inset(0px 0px 100% 0px); -webkit-transform: translate(0,80px); transform: translate(0,80px); }
 }
 @keyframes clipMoveDownOut {
-    0% { visibility: visible; -webkit-clip-path: inset(0px 0px 0% 0px); transform: translate(0,0); }
-    100% { visibility: visible; -webkit-clip-path: inset(0px 0px 100% 0px); transform: translate(0,80px); }
+    0% { visibility: visible; -webkit-clip-path: inset(0px 0px 0% 0px); -webkit-transform: translate(0,0); transform: translate(0,0); }
+    100% { visibility: visible; -webkit-clip-path: inset(0px 0px 100% 0px); -webkit-transform: translate(0,80px); transform: translate(0,80px); }
 }
 
 .clipMoveDownLittle {
-    animation-name: clipMoveDownLittle;
-    animation-duration: 500ms;
-    animation-fill-mode: both;
+    -webkit-animation-name: clipMoveDownLittle;
+            animation-name: clipMoveDownLittle;
+    -webkit-animation-duration: 500ms;
+            animation-duration: 500ms;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+}
+@-webkit-keyframes clipMoveDownLittle {
+    0% { visibility: visible; -webkit-clip-path: inset(100% 0px 0px 0px); -webkit-transform: translate(0,-20px); transform: translate(0,-20px); }
+    100% { visibility: visible; -webkit-clip-path: inset(0% 0px 0px 0px); -webkit-transform: translate(0,0); transform: translate(0,0); }
 }
 @keyframes clipMoveDownLittle {
-    0% { visibility: visible; -webkit-clip-path: inset(100% 0px 0px 0px); transform: translate(0,-20px); }
-    100% { visibility: visible; -webkit-clip-path: inset(0% 0px 0px 0px); transform: translate(0,0); }
+    0% { visibility: visible; -webkit-clip-path: inset(100% 0px 0px 0px); -webkit-transform: translate(0,-20px); transform: translate(0,-20px); }
+    100% { visibility: visible; -webkit-clip-path: inset(0% 0px 0px 0px); -webkit-transform: translate(0,0); transform: translate(0,0); }
 }
 
 .fadeInUp {
-    animation-name: fadeInUp;
-    animation-duration: 600ms;
-    animation-fill-mode: both;
+    -webkit-animation-name: fadeInUp;
+            animation-name: fadeInUp;
+    -webkit-animation-duration: 600ms;
+            animation-duration: 600ms;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+}
+@-webkit-keyframes fadeInUp {
+    0% { visibility: visible; opacity: 0; -webkit-transform: translate(0,100px); transform: translate(0,100px); }
+    100% { visibility: visible; opacity: 1; -webkit-transform: translate(0,0px); transform: translate(0,0px); }
 }
 @keyframes fadeInUp {
-    0% { visibility: visible; opacity: 0; transform: translate(0,100px); }
-    100% { visibility: visible; opacity: 1; transform: translate(0,0px); }
+    0% { visibility: visible; opacity: 0; -webkit-transform: translate(0,100px); transform: translate(0,100px); }
+    100% { visibility: visible; opacity: 1; -webkit-transform: translate(0,0px); transform: translate(0,0px); }
 }
 
 .fadeInUp2 {
-    animation-name: fadeInUp;
-    animation-duration: 700ms;
-    animation-fill-mode: both;
+    -webkit-animation-name: fadeInUp;
+            animation-name: fadeInUp;
+    -webkit-animation-duration: 700ms;
+            animation-duration: 700ms;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
 }
 
 .fadeInUp3 {
-    animation-name: fadeInUp3;
-    animation-duration: 300ms;
-    animation-fill-mode: both;
+    -webkit-animation-name: fadeInUp3;
+            animation-name: fadeInUp3;
+    -webkit-animation-duration: 300ms;
+            animation-duration: 300ms;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeInUp3 {
+    0% { visibility: visible; opacity: 0; -webkit-transform: translate(0,40px); transform: translate(0,40px); }
+    100% { visibility: visible; opacity: 1; -webkit-transform: translate(0,0px); transform: translate(0,0px); }
 }
 
 @keyframes fadeInUp3 {
-    0% { visibility: visible; opacity: 0; transform: translate(0,40px); }
-    100% { visibility: visible; opacity: 1; transform: translate(0,0px); }
+    0% { visibility: visible; opacity: 0; -webkit-transform: translate(0,40px); transform: translate(0,40px); }
+    100% { visibility: visible; opacity: 1; -webkit-transform: translate(0,0px); transform: translate(0,0px); }
 }
 
 .fadeInDown {
-    animation-name: fadeInDown;
-    animation-duration: 700ms;
-    animation-fill-mode: both;
+    -webkit-animation-name: fadeInDown;
+            animation-name: fadeInDown;
+    -webkit-animation-duration: 700ms;
+            animation-duration: 700ms;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeInDown {
+    0% { visibility: visible; opacity: 0; -webkit-transform: translate(0,-100px); transform: translate(0,-100px); }
+    100% { visibility: visible; opacity: 1; -webkit-transform: translate(0,0px); transform: translate(0,0px); }
 }
 
 @keyframes fadeInDown {
-    0% { visibility: visible; opacity: 0; transform: translate(0,-100px); }
-    100% { visibility: visible; opacity: 1; transform: translate(0,0px); }
+    0% { visibility: visible; opacity: 0; -webkit-transform: translate(0,-100px); transform: translate(0,-100px); }
+    100% { visibility: visible; opacity: 1; -webkit-transform: translate(0,0px); transform: translate(0,0px); }
 }
 
 .fadeInDown2 {
-    animation-name: fadeInDown2;
-    animation-duration: 400ms;
-    animation-fill-mode: both;
+    -webkit-animation-name: fadeInDown2;
+            animation-name: fadeInDown2;
+    -webkit-animation-duration: 400ms;
+            animation-duration: 400ms;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeInDown2 {
+    0% { visibility: visible; opacity: 0; -webkit-transform: translate(0,-10px); transform: translate(0,-10px); }
+    100% { visibility: visible; opacity: 1; -webkit-transform: translate(0,0px); transform: translate(0,0px); }
 }
 
 @keyframes fadeInDown2 {
-    0% { visibility: visible; opacity: 0; transform: translate(0,-10px); }
-    100% { visibility: visible; opacity: 1; transform: translate(0,0px); }
+    0% { visibility: visible; opacity: 0; -webkit-transform: translate(0,-10px); transform: translate(0,-10px); }
+    100% { visibility: visible; opacity: 1; -webkit-transform: translate(0,0px); transform: translate(0,0px); }
 }
 
 .fadeIn {
-    animation-name: fadeIn;
-    animation-duration: 1000ms;
-    animation-fill-mode: both;
+    -webkit-animation-name: fadeIn;
+            animation-name: fadeIn;
+    -webkit-animation-duration: 1000ms;
+            animation-duration: 1000ms;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+}
+@-webkit-keyframes fadeIn {
+    0% { visibility: visible; opacity: 0; }
+    100% { visibility: visible; opacity: 1; }
 }
 @keyframes fadeIn {
     0% { visibility: visible; opacity: 0; }
@@ -202,9 +345,16 @@
 }
 
 .fadeOut {
-    animation-name: fadeOut;
-    animation-duration: 1000ms;
-    animation-fill-mode: both;
+    -webkit-animation-name: fadeOut;
+            animation-name: fadeOut;
+    -webkit-animation-duration: 1000ms;
+            animation-duration: 1000ms;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+}
+@-webkit-keyframes fadeOut {
+    0% { visibility: visible; opacity: 1; }
+    100% { visibility: visible; opacity: 0; }
 }
 @keyframes fadeOut {
     0% { visibility: visible; opacity: 1; }
@@ -212,49 +362,85 @@
 }
 
 .fadeOutDown {
-    animation-name: fadeOutDown;
-    animation-duration: 500ms;
-    animation-fill-mode: both;
+    -webkit-animation-name: fadeOutDown;
+            animation-name: fadeOutDown;
+    -webkit-animation-duration: 500ms;
+            animation-duration: 500ms;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+}
+@-webkit-keyframes fadeOutDown {
+    100% { opacity: 0; -webkit-transform: translate(0,100px); transform: translate(0,100px); }
+    0% { opacity: 1; -webkit-transform: translate(0,0px); transform: translate(0,0px); }
 }
 @keyframes fadeOutDown {
-    100% { opacity: 0; transform: translate(0,100px); }
-    0% { opacity: 1; transform: translate(0,0px); }
+    100% { opacity: 0; -webkit-transform: translate(0,100px); transform: translate(0,100px); }
+    0% { opacity: 1; -webkit-transform: translate(0,0px); transform: translate(0,0px); }
 }
 
 .fadeOutUp {
-    animation-name: fadeOutUp;
-    animation-duration: 300ms;
-    animation-fill-mode: both;
+    -webkit-animation-name: fadeOutUp;
+            animation-name: fadeOutUp;
+    -webkit-animation-duration: 300ms;
+            animation-duration: 300ms;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+}
+@-webkit-keyframes fadeOutUp {
+    100% { visibility: visible; opacity: 0; -webkit-transform: translate(0,-100px); transform: translate(0,-100px); }
+    0% { visibility: visible; opacity: 1; -webkit-transform: translate(0,0px); transform: translate(0,0px); }
 }
 @keyframes fadeOutUp {
-    100% { visibility: visible; opacity: 0; transform: translate(0,-100px); }
-    0% { visibility: visible; opacity: 1; transform: translate(0,0px); }
+    100% { visibility: visible; opacity: 0; -webkit-transform: translate(0,-100px); transform: translate(0,-100px); }
+    0% { visibility: visible; opacity: 1; -webkit-transform: translate(0,0px); transform: translate(0,0px); }
 }
 
 .fadeOutUp2 {
-    animation-name: fadeOutUp2;
-    animation-duration: 300ms;
-    animation-fill-mode: both;
+    -webkit-animation-name: fadeOutUp2;
+            animation-name: fadeOutUp2;
+    -webkit-animation-duration: 300ms;
+            animation-duration: 300ms;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+}
+@-webkit-keyframes fadeOutUp2 {
+    100% { visibility: visible; opacity: 0; -webkit-transform: translate(0,-10px); transform: translate(0,-10px); }
+    0% { visibility: visible; opacity: 1; -webkit-transform: translate(0,0px); transform: translate(0,0px); }
 }
 @keyframes fadeOutUp2 {
-    100% { visibility: visible; opacity: 0; transform: translate(0,-10px); }
-    0% { visibility: visible; opacity: 1; transform: translate(0,0px); }
+    100% { visibility: visible; opacity: 0; -webkit-transform: translate(0,-10px); transform: translate(0,-10px); }
+    0% { visibility: visible; opacity: 1; -webkit-transform: translate(0,0px); transform: translate(0,0px); }
 }
 
 .removeZoomIn {
-    animation-name: removeZoomIn;
-    animation-duration: 300ms;
-    animation-fill-mode: both;
+    -webkit-animation-name: removeZoomIn;
+            animation-name: removeZoomIn;
+    -webkit-animation-duration: 300ms;
+            animation-duration: 300ms;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+}
+@-webkit-keyframes removeZoomIn {
+    0% { opacity: 1; -webkit-transform: scale(1, 1); transform: scale(1, 1); }
+    100% { opacity: 0; -webkit-transform: scale(0, 0); transform: scale(0, 0); }
 }
 @keyframes removeZoomIn {
-    0% { opacity: 1; transform: scale(1, 1); }
-    100% { opacity: 0; transform: scale(0, 0); }
+    0% { opacity: 1; -webkit-transform: scale(1, 1); transform: scale(1, 1); }
+    100% { opacity: 0; -webkit-transform: scale(0, 0); transform: scale(0, 0); }
 } 
 
 .clipCenterV {
-    animation-name: clipCenterV;
-    animation-duration: 500ms;
-    animation-fill-mode: both;
+    -webkit-animation-name: clipCenterV;
+            animation-name: clipCenterV;
+    -webkit-animation-duration: 500ms;
+            animation-duration: 500ms;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+}
+
+@-webkit-keyframes clipCenterV {
+    0% { visibility: visible; -webkit-clip-path: inset(0px 50% 0px 50%); }
+    100% { visibility: visible; -webkit-clip-path: inset(0px 0px 0% 0px); }
 }
 
 @keyframes clipCenterV {
@@ -263,9 +449,16 @@
 }
 
 .clipCenterVOut {
-    animation-name: clipCenterVOut;
-    animation-duration: 500ms;
-    animation-fill-mode: both;
+    -webkit-animation-name: clipCenterVOut;
+            animation-name: clipCenterVOut;
+    -webkit-animation-duration: 500ms;
+            animation-duration: 500ms;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+}
+@-webkit-keyframes clipCenterVOut {
+    100% { visibility: visible; -webkit-clip-path: inset(0px 50% 0px 50%); }
+    0% { visibility: visible; -webkit-clip-path: inset(0px 0px 0% 0px); }
 }
 @keyframes clipCenterVOut {
     100% { visibility: visible; -webkit-clip-path: inset(0px 50% 0px 50%); }
@@ -273,140 +466,247 @@
 }
 
 .jumpUp {
-    animation-name: jumpUp;
-    animation-duration: 500ms;
-    animation-fill-mode: both;
-    transition-timing-function: ease-out;
+    -webkit-animation-name: jumpUp;
+            animation-name: jumpUp;
+    -webkit-animation-duration: 500ms;
+            animation-duration: 500ms;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+    -webkit-transition-timing-function: ease-out;
+            transition-timing-function: ease-out;
+}
+@-webkit-keyframes jumpUp {
+    0% { visibility: visible; opacity: 0; -webkit-transform: translateY(200px); transform: translateY(200px); }
+    70% { visibility: visible; opacity: 1; -webkit-transform: translateY(20px); transform: translateY(20px); }
+    100% { visibility: visible; opacity: 1; -webkit-transform: translateY(0px); transform: translateY(0px); }
 }
 @keyframes jumpUp {
-    0% { visibility: visible; opacity: 0; transform: translateY(200px); }
-    70% { visibility: visible; opacity: 1; transform: translateY(20px); }
-    100% { visibility: visible; opacity: 1; transform: translateY(0px); }
+    0% { visibility: visible; opacity: 0; -webkit-transform: translateY(200px); transform: translateY(200px); }
+    70% { visibility: visible; opacity: 1; -webkit-transform: translateY(20px); transform: translateY(20px); }
+    100% { visibility: visible; opacity: 1; -webkit-transform: translateY(0px); transform: translateY(0px); }
 }
 
 .jumpUpOut {
-    animation-name: jumpUpOut;
-    animation-duration: 500ms;
-    animation-fill-mode: both;
-    transition-timing-function: ease-out;
+    -webkit-animation-name: jumpUpOut;
+            animation-name: jumpUpOut;
+    -webkit-animation-duration: 500ms;
+            animation-duration: 500ms;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+    -webkit-transition-timing-function: ease-out;
+            transition-timing-function: ease-out;
+}
+@-webkit-keyframes jumpUpOut {
+    100% { visibility: visible; opacity: 0; -webkit-transform: translateY(-200px); transform: translateY(-200px); }
+    30% { visibility: visible; opacity: 1; -webkit-transform: translateY(20px); transform: translateY(20px); }
+    0% { visibility: visible; opacity: 1; -webkit-transform: translateY(0px); transform: translateY(0px); }
 }
 @keyframes jumpUpOut {
-    100% { visibility: visible; opacity: 0; transform: translateY(-200px); }
-    30% { visibility: visible; opacity: 1; transform: translateY(20px); }
-    0% { visibility: visible; opacity: 1; transform: translateY(0px); }
+    100% { visibility: visible; opacity: 0; -webkit-transform: translateY(-200px); transform: translateY(-200px); }
+    30% { visibility: visible; opacity: 1; -webkit-transform: translateY(20px); transform: translateY(20px); }
+    0% { visibility: visible; opacity: 1; -webkit-transform: translateY(0px); transform: translateY(0px); }
 }
 
 .jumpDown {
-    animation-name: jumpDown;
-    animation-duration: 500ms;
-    animation-fill-mode: both;
-    transition-timing-function: ease-out;
+    -webkit-animation-name: jumpDown;
+            animation-name: jumpDown;
+    -webkit-animation-duration: 500ms;
+            animation-duration: 500ms;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+    -webkit-transition-timing-function: ease-out;
+            transition-timing-function: ease-out;
+}
+@-webkit-keyframes jumpDown {
+    0% { visibility: visible; opacity: 0; -webkit-transform: translateY(-200px); transform: translateY(-200px); }
+    70% { visibility: visible; opacity: 1; -webkit-transform: translateY(20px); transform: translateY(20px); }
+    100% { visibility: visible; opacity: 1; -webkit-transform: translateY(0px); transform: translateY(0px); }
 }
 @keyframes jumpDown {
-    0% { visibility: visible; opacity: 0; transform: translateY(-200px); }
-    70% { visibility: visible; opacity: 1; transform: translateY(20px); }
-    100% { visibility: visible; opacity: 1; transform: translateY(0px); }
+    0% { visibility: visible; opacity: 0; -webkit-transform: translateY(-200px); transform: translateY(-200px); }
+    70% { visibility: visible; opacity: 1; -webkit-transform: translateY(20px); transform: translateY(20px); }
+    100% { visibility: visible; opacity: 1; -webkit-transform: translateY(0px); transform: translateY(0px); }
 }
 
 .jumpDownOut {
-    animation-name: jumpDownOut;
-    animation-duration: 500ms;
-    animation-fill-mode: both;
-    transition-timing-function: ease-out;
+    -webkit-animation-name: jumpDownOut;
+            animation-name: jumpDownOut;
+    -webkit-animation-duration: 500ms;
+            animation-duration: 500ms;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+    -webkit-transition-timing-function: ease-out;
+            transition-timing-function: ease-out;
+}
+@-webkit-keyframes jumpDownOut {
+    100% { visibility: visible; opacity: 0; -webkit-transform: translateY(200px); transform: translateY(200px); }
+    30% { visibility: visible; opacity: 1; -webkit-transform: translateY(-20px); transform: translateY(-20px); }
+    0% { visibility: visible; opacity: 1; -webkit-transform: translateY(0, 0px); transform: translateY(0, 0px); }
 }
 @keyframes jumpDownOut {
-    100% { visibility: visible; opacity: 0; transform: translateY(200px); }
-    30% { visibility: visible; opacity: 1; transform: translateY(-20px); }
-    0% { visibility: visible; opacity: 1; transform: translateY(0, 0px); }
+    100% { visibility: visible; opacity: 0; -webkit-transform: translateY(200px); transform: translateY(200px); }
+    30% { visibility: visible; opacity: 1; -webkit-transform: translateY(-20px); transform: translateY(-20px); }
+    0% { visibility: visible; opacity: 1; -webkit-transform: translateY(0, 0px); transform: translateY(0, 0px); }
 }
 
 
 .jumpLeft {
-    animation-name: jumpLeft;
-    animation-duration: 500ms;
-    animation-fill-mode: both;
-    transition-timing-function: ease-out;
+    -webkit-animation-name: jumpLeft;
+            animation-name: jumpLeft;
+    -webkit-animation-duration: 500ms;
+            animation-duration: 500ms;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+    -webkit-transition-timing-function: ease-out;
+            transition-timing-function: ease-out;
+}
+@-webkit-keyframes jumpLeft {
+    0% { visibility: visible; opacity: 0; -webkit-transform: translateX(200px); transform: translateX(200px); }
+    70% { visibility: visible; opacity: 1; -webkit-transform: translateX(20px); transform: translateX(20px); }
+    100% { visibility: visible; opacity: 1; -webkit-transform: translateX(0px); transform: translateX(0px); }
 }
 @keyframes jumpLeft {
-    0% { visibility: visible; opacity: 0; transform: translateX(200px); }
-    70% { visibility: visible; opacity: 1; transform: translateX(20px); }
-    100% { visibility: visible; opacity: 1; transform: translateX(0px); }
+    0% { visibility: visible; opacity: 0; -webkit-transform: translateX(200px); transform: translateX(200px); }
+    70% { visibility: visible; opacity: 1; -webkit-transform: translateX(20px); transform: translateX(20px); }
+    100% { visibility: visible; opacity: 1; -webkit-transform: translateX(0px); transform: translateX(0px); }
 }
 
 .jumpLeftOut {
-    animation-name: jumpLeftOut;
-    animation-duration: 500ms;
-    animation-fill-mode: both;
-    transition-timing-function: ease-out;
+    -webkit-animation-name: jumpLeftOut;
+            animation-name: jumpLeftOut;
+    -webkit-animation-duration: 500ms;
+            animation-duration: 500ms;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+    -webkit-transition-timing-function: ease-out;
+            transition-timing-function: ease-out;
+}
+@-webkit-keyframes jumpLeftOut {
+    100% { visibility: visible; opacity: 0; -webkit-transform: translateX(-200px); transform: translateX(-200px); }
+    30% { visibility: visible; opacity: 1; -webkit-transform: translateX(20px); transform: translateX(20px); }
+    0% { visibility: visible; opacity: 1; -webkit-transform: translateX(0px); transform: translateX(0px); }
 }
 @keyframes jumpLeftOut {
-    100% { visibility: visible; opacity: 0; transform: translateX(-200px); }
-    30% { visibility: visible; opacity: 1; transform: translateX(20px); }
-    0% { visibility: visible; opacity: 1; transform: translateX(0px); }
+    100% { visibility: visible; opacity: 0; -webkit-transform: translateX(-200px); transform: translateX(-200px); }
+    30% { visibility: visible; opacity: 1; -webkit-transform: translateX(20px); transform: translateX(20px); }
+    0% { visibility: visible; opacity: 1; -webkit-transform: translateX(0px); transform: translateX(0px); }
 }
 
 
 .jumpRight {
-    animation-name: jumpRight;
-    animation-duration: 500ms;
-    animation-fill-mode: both;
-    transition-timing-function: ease-out;
+    -webkit-animation-name: jumpRight;
+            animation-name: jumpRight;
+    -webkit-animation-duration: 500ms;
+            animation-duration: 500ms;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+    -webkit-transition-timing-function: ease-out;
+            transition-timing-function: ease-out;
+}
+@-webkit-keyframes jumpRight {
+    0% { visibility: visible; opacity: 0; -webkit-transform: translateX(-200px); transform: translateX(-200px); }
+    70% { visibility: visible; opacity: 1; -webkit-transform: translateX(20px); transform: translateX(20px); }
+    100% { visibility: visible; opacity: 1; -webkit-transform: translateX(0px); transform: translateX(0px); }
 }
 @keyframes jumpRight {
-    0% { visibility: visible; opacity: 0; transform: translateX(-200px); }
-    70% { visibility: visible; opacity: 1; transform: translateX(20px); }
-    100% { visibility: visible; opacity: 1; transform: translateX(0px); }
+    0% { visibility: visible; opacity: 0; -webkit-transform: translateX(-200px); transform: translateX(-200px); }
+    70% { visibility: visible; opacity: 1; -webkit-transform: translateX(20px); transform: translateX(20px); }
+    100% { visibility: visible; opacity: 1; -webkit-transform: translateX(0px); transform: translateX(0px); }
 }
 
 .jumpRightOut {
-    animation-name: jumpRightOut;
-    animation-duration: 500ms;
-    animation-fill-mode: both;
-    transition-timing-function: ease-out;
+    -webkit-animation-name: jumpRightOut;
+            animation-name: jumpRightOut;
+    -webkit-animation-duration: 500ms;
+            animation-duration: 500ms;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+    -webkit-transition-timing-function: ease-out;
+            transition-timing-function: ease-out;
+}
+@-webkit-keyframes jumpRightOut {
+    100% { visibility: visible; opacity: 0; -webkit-transform: translateX(200px); transform: translateX(200px); }
+    30% { visibility: visible; opacity: 1; -webkit-transform: translateX(-20px); transform: translateX(-20px); }
+    0% { visibility: visible; opacity: 1; -webkit-transform: translateX(0, 0px); transform: translateX(0, 0px); }
 }
 @keyframes jumpRightOut {
-    100% { visibility: visible; opacity: 0; transform: translateX(200px); }
-    30% { visibility: visible; opacity: 1; transform: translateX(-20px); }
-    0% { visibility: visible; opacity: 1; transform: translateX(0, 0px); }
+    100% { visibility: visible; opacity: 0; -webkit-transform: translateX(200px); transform: translateX(200px); }
+    30% { visibility: visible; opacity: 1; -webkit-transform: translateX(-20px); transform: translateX(-20px); }
+    0% { visibility: visible; opacity: 1; -webkit-transform: translateX(0, 0px); transform: translateX(0, 0px); }
 }
 
 
 .animMushroom{
-    animation-name: animMushroom;
-    animation-duration: 300ms;
-    animation-fill-mode: both;
+    -webkit-animation-name: animMushroom;
+            animation-name: animMushroom;
+    -webkit-animation-duration: 300ms;
+            animation-duration: 300ms;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+}
+@-webkit-keyframes animMushroom {
+    0% {visibility: visible; -webkit-transform: scale(0, 0); transform: scale(0, 0); }
+    90% {visibility: visible; -webkit-transform: scale(1.3, 1.3); transform: scale(1.3, 1.3); }
+    100% {visibility: visible; -webkit-transform: scale(1, 1); transform: scale(1, 1); }
 }
 @keyframes animMushroom {
-    0% {visibility: visible; transform: scale(0, 0); }
-    90% {visibility: visible; transform: scale(1.3, 1.3); }
-    100% {visibility: visible; transform: scale(1, 1); }
+    0% {visibility: visible; -webkit-transform: scale(0, 0); transform: scale(0, 0); }
+    90% {visibility: visible; -webkit-transform: scale(1.3, 1.3); transform: scale(1.3, 1.3); }
+    100% {visibility: visible; -webkit-transform: scale(1, 1); transform: scale(1, 1); }
 }
 
 .animMushroomOut{
-    animation-name: animMushroomOut;
-    animation-duration: 300ms;
-    animation-fill-mode: both;
+    -webkit-animation-name: animMushroomOut;
+            animation-name: animMushroomOut;
+    -webkit-animation-duration: 300ms;
+            animation-duration: 300ms;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+}
+@-webkit-keyframes animMushroomOut {
+    100% { visibility: visible; -webkit-transform: scale(0, 0); transform: scale(0, 0); opacity: 0; }
+    10% { visibility: visible; -webkit-transform: scale(1.3, 1.3); transform: scale(1.3, 1.3); }
+    0% { visibility: visible; -webkit-transform: scale(1, 1); transform: scale(1, 1); }
 }
 @keyframes animMushroomOut {
-    100% { visibility: visible; transform: scale(0, 0); opacity: 0; }
-    10% { visibility: visible; transform: scale(1.3, 1.3); }
-    0% { visibility: visible; transform: scale(1, 1); }
+    100% { visibility: visible; -webkit-transform: scale(0, 0); transform: scale(0, 0); opacity: 0; }
+    10% { visibility: visible; -webkit-transform: scale(1.3, 1.3); transform: scale(1.3, 1.3); }
+    0% { visibility: visible; -webkit-transform: scale(1, 1); transform: scale(1, 1); }
 }
 
 .cardbordTextfadeInDown {
-    animation-name: cardbordTextfadeInDown;
-    animation-duration: 300ms;
-    animation-fill-mode: both;
+    -webkit-animation-name: cardbordTextfadeInDown;
+            animation-name: cardbordTextfadeInDown;
+    -webkit-animation-duration: 300ms;
+            animation-duration: 300ms;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+}
+@-webkit-keyframes cardbordTextfadeInDown {
+    0% { visibility: visible; opacity: 0; -webkit-transform: translate(0,-50px); transform: translate(0,-50px); }
+    100% { visibility: visible; opacity: 1; -webkit-transform: translate(0,0px); transform: translate(0,0px); }
 }
 @keyframes cardbordTextfadeInDown {
-    0% { visibility: visible; opacity: 0; transform: translate(0,-50px); }
-    100% { visibility: visible; opacity: 1; transform: translate(0,0px); }
+    0% { visibility: visible; opacity: 0; -webkit-transform: translate(0,-50px); transform: translate(0,-50px); }
+    100% { visibility: visible; opacity: 1; -webkit-transform: translate(0,0px); transform: translate(0,0px); }
 }
 
 .titleBorder {
-    animation-name: titleBorder;
-    animation-duration: 10000ms;
-    animation-fill-mode: both;
+    -webkit-animation-name: titleBorder;
+            animation-name: titleBorder;
+    -webkit-animation-duration: 10000ms;
+            animation-duration: 10000ms;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+}
+
+@-webkit-keyframes titleBorder {
+    0% { visibility: visible;  -webkit-clip-path: polygon(5% 11%, 5% 10%, 95% 10%, 95% 90%, 5% 90%); }
+    1% { visibility: visible;  -webkit-clip-path: polygon(5% 10%, 0% 0%, 95% 10%, 95% 90%, 5% 90%); }
+    40% { visibility: visible; -webkit-clip-path: polygon(5% 10%, 0% 0%, 100% 0%, 95% 90%, 5% 90%); }
+    50% { visibility: visible; -webkit-clip-path: polygon(5% 10%, 0% 0%, 100% 0%, 100% 100%, 5% 90%); }
+    90% { visibility: visible; -webkit-clip-path: polygon(5% 10%, 0% 0%, 100% 0%, 100% 100%, 0% 100%); }
+    100% { visibility: visible; -webkit-clip-path: polygon(0% 0%, 0% 0%, 100% 0%, 100% 100%, 0% 100%); }
 }
 
 @keyframes titleBorder {
