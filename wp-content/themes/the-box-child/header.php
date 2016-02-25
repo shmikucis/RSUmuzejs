@@ -77,12 +77,7 @@ else
                          <li><a href='#rektori-menu'><span>Rektori</span></a></li>
                       </ul>
                    </li>
-                   <li class='has-sub'><a><span>Struktūra</span></a>
-                      <ul>
-                         <li><a href='#'><span>Fakultātes</span></a></li>
-                         <li><a href='#'><span>Institūti un laboratorijas</span></a></li>
-                         <li><a href='#'><span>Administrācija</span></a></li>
-                      </ul>
+                   <li><a href="#"><span>Struktūra</span></a>
                    </li>
                    <li class='has-sub'><a><span>Zinātne un pedagoģija</span></a>
                        <ul>
@@ -126,12 +121,7 @@ else
                          <li><a href='#rektori-menu'><span>Rektori</span></a></li>
                       </ul>
                    </li>
-                   <li class='has-sub'><div></div><a href="#"><span>Augstskolas struktūra</span></a>
-                      <ul>
-                         <li><a href='#'><span>Fakultātes</span></a></li>
-                         <li><a href='#'><span>Institūti un laboratorijas</span></a></li>
-                         <li><a href='#'><span>Administrācija</span></a></li>
-                      </ul>
+                   <li><a href="#"><span>Augstskolas struktūra</span></a>
                    </li>
                    <li class='has-sub'><div></div><a href="#"><span>Zinātne un pedagoģija</span></a>
                        <ul>

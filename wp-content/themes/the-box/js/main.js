@@ -2,7 +2,7 @@
 window.parallax = null;
 window.scrollEnabled = true;
 window.singleSlide = false;
-window.isMobile = null;
+window.isMobile =null;
 $(window).load(function() {
     // Animate loader off screen
     function preload(arrayOfImages) {
@@ -354,9 +354,12 @@ function mInit() {
     $('#m_menubtn').on('click', m_showMenu);
     $('#menuclose').on('click', m_closeMenu);
     $('#m_srchbtn').on('click', m_toggleSearch);
-
+    $(document).bind('cbox_open', function() {
+        $('html').css({ overflow: 'hidden' });
+    });
     $(document).bind('cbox_closed', function() {
             resetPopupClass();
+            $('html').css({ overflow: '' });
         });
     $(document).on('click', '.readmore, .mejs-textform, .humortext.cboxElement, .pic_single', function() {        
         

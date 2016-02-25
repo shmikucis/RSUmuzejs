@@ -6,7 +6,7 @@ var Content = Class.extend({
         this.direction = 'down'; // up, down
         this.history = [];
         var self = this;
-
+        if(!isMobile){
         $(window).bind('mousewheel DOMmousescroll wheel', function(e) {
             var direction = e.originalEvent.wheelDelta / 120 > 0 ? 'up' : 'down';
             if (scrollEnabled) {
@@ -38,10 +38,14 @@ var Content = Class.extend({
             }
             e.preventDefault(); // prevent the default action (scroll / move caret)
         });
-
+        $("#navCircle").bind("click", function(event) {
+            // var i = $("#navCircle").children().index(event.target);
+            var url = $(event.target).attr('data-url');
+            self.drawFromUrl(url);
+        });
         //        $('body').on('click', '.slideNav.prev', function(){self.drawPrev();});
         //        $('body').on('click', '.slideNav.next', function(){self.drawNext();});
-
+        }
         // track backspace button
         $('html').keyup(function(e) {
             if (e.keyCode === 8 && !$("#searchfield").is(":focus")) {
@@ -56,7 +60,7 @@ var Content = Class.extend({
             //    			var backUrl = self.history.pop();
             //    			self.drawFromUrl(backUrl);        	
         });
-
+        
 
         $("#continue, #mcontinue").bind("click", function() {
             if (!singleSlide) self.drawNext();
@@ -79,11 +83,7 @@ var Content = Class.extend({
             if (isMobile) m_closeMenu();
         });
 
-        $("#navCircle").bind("click", function(event) {
-            // var i = $("#navCircle").children().index(event.target);
-            var url = $(event.target).attr('data-url');
-            self.drawFromUrl(url);
-        });
+        
 
         $("#searchbutton").bind("click", function() {
             var item = dynamicContent.getItemByUrl("meklesanas-rezultati");
@@ -558,23 +558,23 @@ var Content = Class.extend({
                 $('#popupbar li:has(a.gallery)').hide();
                 $('#popupbar').append('<li><div class="gallery obj_icon" data-class="gallery"></div></li>');
             }
-            else if ($('#popupbar a.objects').length>1){
+            if ($('#popupbar a.objects').length>1){
                 $('#popupbar li:has(a.objects)').hide();
                 $('#popupbar').append('<li><div class="objects obj_icon" data-class="objects"></div></li>'); 
             }
-            else if ($('#popupbar a.archive').length>1){
+            if ($('#popupbar a.archive').length>1){
                 $('#popupbar li:has(a.archive)').hide();
                 $('#popupbar').append('<li><div class="archive obj_icon" data-class="archive"></div></li>'); 
             }
-            else if ($('#popupbar a.audio').length>1){
+            if ($('#popupbar a.audio').length>1){
                 $('#popupbar li:has(a.audio)').hide();
                 $('#popupbar').append('<li><div class="audio obj_icon" data-class="audio"></div></li>'); 
             }
-            else if ($('#popupbar a.humor').length>1){
+            if ($('#popupbar a.humor').length>1){
                 $('#popupbar li:has(a.humor').hide();
                 $('#popupbar').append('<li><div class="humor obj_icon" data-class="humor"></div></li>'); 
             }
-            else if ($('#popupbar a.closer').length>1){
+            if ($('#popupbar a.closer').length>1){
                 $('#popupbar li:has(a.closer)').hide();
                 $('#popupbar').append('<li><div class="humor obj_icon" data-class="closer"></div></li>'); 
             }
