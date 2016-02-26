@@ -86,7 +86,6 @@
 	    			}
 	    		}
 	    	}
-
 	    		// var_dump($children);
 	    	return $attachments;
 	    }

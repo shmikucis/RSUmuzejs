@@ -123,6 +123,7 @@ var DynamicContent = Class.extend({
                 list.push(ATTACHMENTS[i]);
             }
         }
+        console.log(list);
         return list;
     }
 

@@ -539,16 +539,10 @@ var Content = Class.extend({
         if($('#popupgroup').length<=0) $('#page').append('<div id="popupgroup"><div class="mclose"></div><div id="popuplist"><div class="citation_logo"></div><ul></ul></div></div>');
         if($('.obj_icon').length){
             var icons = $('.obj_icon');
-//            $('.mcit img').parent().append('<ul id="popupbar"></ul>');
             $('.mcit').prepend('<ul id="popupbar"></ul>');          
             
             $('#popupgroup').hide();
             for(var i = 0; i < icons.length; i++){
-//                if($('.mcit .alignleft:has(img)').length){
-//                    $('#popupbar').append('<li></li>');                
-//                    icons.eq(i).detach().appendTo($('#popupbar li:last'));
-//                }
-//                else{
                     $('#popupbar').prepend('<li></li>');                
                     icons.eq(i).detach().appendTo($('#popupbar li:first'));
 //                }
