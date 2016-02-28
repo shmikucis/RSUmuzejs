@@ -1,5 +1,6 @@
 var Content = Class.extend({
     init: function() {
+        isMobile = mobilecheck();
         this.coolDownTime = 1000; // 1s
         this.lastTime = new Date().getTime() - this.coolDownTime;
         this.article = $('article');
@@ -7,6 +8,7 @@ var Content = Class.extend({
         this.history = [];
         var self = this;
         if(!isMobile){
+            console.log(1);
         $(window).bind('mousewheel DOMmousescroll wheel', function(e) {
             var direction = e.originalEvent.wheelDelta / 120 > 0 ? 'up' : 'down';
             if (scrollEnabled) {
@@ -572,15 +574,41 @@ var Content = Class.extend({
                 $('#popupbar li:has(a.closer)').hide();
                 $('#popupbar').append('<li><div class="humor obj_icon" data-class="closer"></div></li>'); 
             }
-            
+            var mainIcon = $('.icon_midleft, .icon_midright, .icon_topright, .icon_topmid, .icon_topleft, .icon_botleft, .icon_botright, .icon_botmid, .icon_belowtopright, .icon_belowtopleft');
+            if(mainIcon.hasClass('gallery')){
+                $('#popupbar li:has(a.gallery)').detach().prependTo($('#popupbar'));
+            }
+            else if(mainIcon.hasClass('objects')){
+                 $('#popupbar li:has(a.objects)').detach().prependTo($('#popupbar'));
+            }
+            else if(mainIcon.hasClass('archive')){
+                 $('#popupbar li:has(a.archive)').detach().prependTo($('#popupbar'));
+            }
+            else if(mainIcon.hasClass('audio')){
+                 $('#popupbar li:has(a.audio)').detach().prependTo($('#popupbar'));
+            }
+            else if(mainIcon.hasClass('humor')){
+                 $('#popupbar li:has(a.humor)').detach().prependTo($('#popupbar'));
+            }
+            else if(mainIcon.hasClass('closer')){
+                 $('#popupbar li:has(a.closer)').detach().prependTo($('#popupbar'));
+            }
+                
+                
             icons.css('display', 'block');
-            if($('.mcit .alignleft:has(img)').length)
+            
+            if($('.mcit .alignleft:has(img)').length){                
                 $('#popupbar').css({
                     'margin-left': $('.mcit img').width() - $(window).width()*0.07 - $('#popupbar li').outerWidth(true)/2
-                });
-            else $('#popupbar').css({
+                });}
+            else {
+                var list = $('#popupbar');
+            var listItems = list.children('li');
+            list.append(listItems.get().reverse());
+                $('#popupbar').css({
                 'margin-left': $('.mcit .text_left').width() + $('#popupbar li').outerWidth(true)/2 - $('#popupbar').width()
             });
+            }
             
             $('#popupbar li div').on('click', function(){                 
                 var classname = $(this).attr('data-class');
