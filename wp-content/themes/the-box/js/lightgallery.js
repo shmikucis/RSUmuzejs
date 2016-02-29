@@ -60,7 +60,7 @@
         counter: true,
         appendCounterTo: '.lg-toolbar',
 
-        swipeThreshold: 10,
+        swipeThreshold: 100,
         enableSwipe: true,
         enableDrag: true,
 

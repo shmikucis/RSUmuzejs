@@ -328,6 +328,7 @@ function init() {
 
 function mInit() {
     mContinue();
+    
 
     $("#menu_toggle").remove();
     //    $("#masthead").append('<div id="mback"></div><div id="m_srchbtn"></div><div id="menuclose" style="display: none"></div>');
@@ -335,6 +336,7 @@ function mInit() {
     $('#search').css('margin-right', $('#m_srchbtn').width() + parseInt($('#m_srchbtn').css('margin-right')));
     $('#searchfield').height($('#m_srchbtn').height());
     $("#masthead").append('<div id="menutext" style="display: none">MENU</div>');
+    $('#masthead').height( $('#masthead').height());
     $('#mback').on('click', function() {
         if (content.history.length > 1) {
             content.history.pop();
@@ -395,7 +397,9 @@ function mInit() {
                 $('#colorbox .citation_logo').attr('id', 'cloicon');
             }
             if(popupBtn.hasClass('pic_single')){
-                $('#cboxWrapper').append('<div class="pictoolbar"><div class="zoom zoomin"></div><div class="showtext"></div></div>');
+                $('#cboxWrapper').append('<div class="pictoolbar"><div class="zoom zoomin"></div><div id="lg-counter">1/1</div><div class="showtext"></div></div>');
+                $('#lg-counter').css('margin-left', $('.pictoolbar').width()/3 + ($('.pictoolbar').width() - $('.pictoolbar div').width()*3)/4); 
+                $('#lg-counter').css('line-height', $('#lg-counter').height() + "px");
                 var text = $('#cboxTitle').html();
                 $('#cboxTitle').html("");
                 $('#cboxTitle').append('<div>'+$titleattr+'</div><div class="mclose"></div>');
@@ -540,6 +544,7 @@ function mInit() {
         $('.lg').append('<div class="pictoolbar"><div class="zoom zoomin"></div><div class="showtext"></div></div>');
         $('#lg-counter').insertAfter('div.pictoolbar .zoom');
         $('#lg-counter').css('margin-left', $('.pictoolbar').width()/3 + ($('.pictoolbar').width() - $('.pictoolbar div').width()*3)/4); 
+        $('#lg-counter').css('line-height', $('#lg-counter').height() + "px");
         $('.lg-inner').append('<div class="lg-text"><div></div><div class="mclose"></div></div>');
         $('.showtext').on('click', function(){
                 $('.lg-text').css('display', 'block');
@@ -738,6 +743,11 @@ function m_updateListeners() {
 //        reposition: false
     });
     $('.mcit img').on('click', scrollToImage);
+    
+    //focus fix for chrome
+    $("#popupbar .obj_icon, #bigmore, #mcontinue, #m_menubtn, #m_socbtn, #mback, .readmore, ul.menu a, ul.menu2 a").on("click",function(){
+        $(this).focus();
+    });
 }
 
 function setButtonMargin() {

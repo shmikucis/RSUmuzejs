@@ -534,7 +534,7 @@
                 return;
             }
 
-            e.stopPropagation();
+//            e.stopPropagation();
             e.preventDefault();
 //            self.show_ui();
 //            mjau = $(e.target);

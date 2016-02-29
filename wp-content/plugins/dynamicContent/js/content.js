@@ -206,7 +206,8 @@ var Content = Class.extend({
         if (isMobile){ 
             this.setBackground(item);
             $("#m_srchbtn, .mclose, #mback, #search").css("margin", ($('#masthead').height() - $('#m_srchbtn').height()) / 2);
-        }        
+        }
+        $('#bigmore, #mcontinue').blur();
         this.drawExceptionsIn(dynamicContent.getItem(), item);
         dynamicContent.set(item);
     }
