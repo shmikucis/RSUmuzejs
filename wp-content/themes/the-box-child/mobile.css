@@ -37,6 +37,7 @@ div.top_bar{
 }
 #header_logo{
     min-height:25px;
+    height: 7vh;
 }
 #logo_link {
      margin-left: 0; 

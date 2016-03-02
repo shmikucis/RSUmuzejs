@@ -81,8 +81,8 @@ else
                    </li>
                    <li class='has-sub'><a><span>Zinātne un pedagoģija</span></a>
                        <ul>
-                         <li><a href='#'><span>Zinātne</span></a></li>
-                         <li><a href='#'><span>Pedagoģija</span></a></li>
+                         <li><a href='#zinatne'><span>Zinātne</span></a></li>
+                         <li><a href='#pedagogija'><span>Pedagoģija</span></a></li>
                        </ul>
                    </li>
                    <li class='has-sub'><a><span>Personības</span></a>
@@ -123,10 +123,10 @@ else
                    </li>
                    <li><a href="#augstskolas-struktura"><span>Augstskolas struktūra</span></a>
                    </li>
-                   <li class='has-sub'><div></div><a href="#"><span>Zinātne un pedagoģija</span></a>
+                   <li class='has-sub'><div></div><a href="#zinatne-un-pedagogija"><span>Zinātne un pedagoģija</span></a>
                        <ul>
-                         <li><a href='#'><span>Zinātne</span></a></li>
-                         <li><a href='#'><span>Pedagoģija</span></a></li>
+                         <li><a href='#zinatne'><span>Zinātne</span></a></li>
+                         <li><a href='#pedagogija'><span>Pedagoģija</span></a></li>
                        </ul>
                    </li>
                    <li class='has-sub'><div></div><a href="#izcilas-personibas"><span>Izcilas personības</span></a>

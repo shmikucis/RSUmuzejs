@@ -397,7 +397,7 @@ function mInit() {
                 $('#colorbox .citation_logo').attr('id', 'cloicon');
             }
             if(popupBtn.hasClass('pic_single')){
-                $('#cboxWrapper').append('<div class="pictoolbar"><div class="zoom zoomin"></div><div id="lg-counter">1/1</div><div class="showtext"></div></div>');
+                $('#cboxWrapper').append('<div class="pictoolbar"><div class="zoom zoomin"></div><div id="lg-counter">1/<span id="lg-counter-all">1</span></div><div class="showtext"></div></div>');
                 $('#lg-counter').css('margin-left', $('.pictoolbar').width()/3 + ($('.pictoolbar').width() - $('.pictoolbar div').width()*3)/4); 
                 $('#lg-counter').css('line-height', $('#lg-counter').height() + "px");
                 var text = $('#cboxTitle').html();
@@ -638,8 +638,8 @@ function picPopupResize() {
 
 function setHeadFootSize(divide) {
     //    $('#masthead').css('height', $('#masthead').height());
-    $('.top_bar a object').css('height', $('#masthead').height() / 7 * 5);
-    $('.top_bar a object').css('margin-top', $('#masthead').height() / 7);
+//    $('.top_bar a object').css('height', $('#masthead').height() / 7 * 5);
+    $('.top_bar a object').css('margin-top', ($('#masthead').height() - $('.top_bar a object').height())/2);
     $('#menu_toggle').css('margin-top', ($('#masthead').height() - $('#menu_toggle').height()) / 2);
     $('#search').css('margin-top', ($('#masthead').height() - $('#search').height()) / 2);
     //$('#searchfield').css('margin-top', ($('#search').height()-$('#searchfield').height())/2);

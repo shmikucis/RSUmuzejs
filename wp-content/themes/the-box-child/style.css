@@ -173,8 +173,8 @@ header.site-header{
 
 #header_logo{
     /*margin-left: 4%;*/
-    min-height: 34px;
-    height:5vh;
+    min-height: 40px;
+    height:6vh;
     max-height: 80px;
 }
 

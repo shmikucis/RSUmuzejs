@@ -413,7 +413,7 @@
      *  Ex: 1/10
      */
     Plugin.prototype.counter = function() {
-        if (this.s.counter && this.$items.length>1) {
+        if (this.s.counter && this.$items.length>1 || isMobile) {
             $(this.s.appendCounterTo).append('<div id="lg-counter"><span id="lg-counter-current">' + (parseInt(this.index, 10) + 1) + '</span>/<span id="lg-counter-all">' + this.$items.length + '</span></div>');
         }
     };
@@ -835,7 +835,7 @@
      */
     Plugin.prototype.goToNextSlide = function(fromTouch) {
         var _this = this;
-        if(isMobile && $('.zoom').hasClass('zoomin')){
+//        if(isMobile && $('.zoom').hasClass('zoomin')){
         if (!_this.lgBusy) {
             if ((_this.index + 1) < _this.$slide.length) {
                 _this.index++;
@@ -854,7 +854,7 @@
                 }
             }
         }
-        }
+//        }
     };
 
     /**
@@ -981,9 +981,9 @@
         setTimeout(function() {
             _this.$outer.removeClass('lg-dragging');
             if ((distance < 0) && (Math.abs(distance) > _this.s.swipeThreshold)) {
-                _this.goToNextSlide(true);
+                if(isMobile && $('.zoom').hasClass('zoomin')) _this.goToNextSlide(true);
             } else if ((distance > 0) && (Math.abs(distance) > _this.s.swipeThreshold)) {
-                _this.goToPrevSlide(true);
+                if(isMobile && $('.zoom').hasClass('zoomin'))_this.goToPrevSlide(true);
             } else if (Math.abs(distance) < 5) {
 
                 // Trigger click if distance is less than 5 pix
