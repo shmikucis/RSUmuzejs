@@ -314,6 +314,15 @@ function init() {
                     "margin-top": "2px"
                 });
             }
+            if (id === "#pedagogija-audio" || id === "#pedagogija5-audio"){
+                $('.mejs-inner p').css('left', '30%');
+            }
+            if (id === "#zinatne-audio" || id === "#pedagogija10-audio"){
+                $('.mejs-inner p').css('left', '25%');
+            }
+            if (id === "#pedagogija9-audio"){
+                $('.mejs-inner p').css('left', '20%');
+            }
             $('.mejs-textform').css('margin-top', ($('.mejs-container').height() - $('.mejs-textform').height()) / 2);
 
             //            var pad = ($('.mejs-container').height() - 10 - $('.mejs-textform').height()) / 2;
