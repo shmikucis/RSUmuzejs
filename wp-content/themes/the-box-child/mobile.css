@@ -34,6 +34,8 @@ div.top_bar{
     /*left: 50%;*/
     -webkit-transform: translateY(-50%);
             transform: translateY(-50%);
+    -webkit-transition: opacity 750ms;
+    transition: opacity 750ms;
 }
 #header_logo{
     min-height:25px;
@@ -262,7 +264,7 @@ div.top_bar{
   color: #BE323F;
 }
 #msidemenu > ul > li.open > div {
-  background-position: 0 40px;
+  background-position: 0% 100%;
 }
 #msidemenu > ul > li:first-child > a:after,
 #msidemenu > ul > li.last > a {
@@ -1066,8 +1068,9 @@ p.popuptitle.noborder{
     position: absolute;
     margin: 0;
     padding: 0;
-    -webkit-transform: translate(0,0);
-            transform: translate(0,0);
+    left: 50%;
+    -webkit-transform: translate(-50%,0);
+            transform: translate(-50%,0);
     min-width: 0px;
     min-height: 0px;
     font-size: 10pt;
@@ -1205,4 +1208,121 @@ a.obj_icon[data-title]:after{
 #popuplist ul li a div:last-child{
     text-align: left;
     padding-left: 5%;
+}
+
+@media screen and (min-width:550px) and (min-height:700px){
+    #m_srchbtn, .mclose, #mback{
+        width: 50px;
+        height: 50px;
+        background-size: 50px 100px, cover;
+    }
+    #cboxClose, .lg-close{
+        width: 50px;
+        height: 50px;
+    }
+    .citation_logo{
+        width: 28px;
+        height: 32px;
+        margin-top: -16px;
+    }
+    div.obj_icon, a.obj_icon {
+        width: 52px;
+        height: 60px;
+    }
+    .readmore{
+        width: 160px;
+        height: 40px;
+        background-size: 160px 80px;
+        top: 66.5%;
+    }
+    .video-content .readmore{
+        width: 160px;
+        height: 40px;
+        background-size: 160px 40px;
+        top: 66.5%;
+    }
+    #m_menubtn, #m_socbtn{
+        width: 52px;
+        height: 60px;
+        background-size: 104px 60px;
+    }
+    #msidemenu div{
+        width: 50px;
+        height: 50px;
+        background-size: 50px 100px;
+    }
+    #mcontinue, #bigmore{
+        width: 240px;
+        height: 60px;
+        background-size: 240px 120px;
+    }
+    #m_social{
+        width: 240px;
+        height: 60px;
+    }
+    #m_social ul {
+        height: 54px;
+    }
+    #m_social ul li {    
+        height: 54px;
+        width: 54px;
+    }
+    #m_social ul li a{    
+        background-size: 54px 108px;
+    }
+    #msidemenu, #msidemenu ul, #msidemenu ul li, #msidemenu ul li a{
+        line-height: 70px;
+    }
+    #menutext{
+        line-height: 50px;
+    }
+    #fore1{
+        font-size: 30pt;
+    }
+    #fore2{
+        font-size: 16pt;
+    }
+    #fore3, p.main_text_single, ul.menu p, ul.menu2 p, p.narrow, p.vnarrow, .searchresults li a,
+    .popup, .pic_popup#colorbox #cboxTitle, .lg-text, .video-content div{
+        font-size: 12pt;
+    }
+    #searchfield, #menutext, #msidemenu, #lg-counter, #popuplist ul li a div{
+        font-size: 14pt;
+    }
+    #lg-counter-all, p.author_text_single, .mejs-container .mejs-controls  div{
+        font-size: 10pt;
+    }
+    ul.menu li, ul.menu2 li {
+        width: 92%;
+    }
+    ul.menu li, ul.menu2 li {
+        padding: 0 4vw 0 4vw;
+    }   
+    ul.menu li:first-child a:before, ul.menu2 li:first-child a:before, ul.menu li a:before, ul.menu2 li a:before {
+    left: -4%;
+    top: -2vh;
+    width: 54%;
+    }
+    ul.menu a, ul.menu2 a {
+        height: 20vw;
+    }
+    .pictoolbar{
+        max-width: 260px;
+    }
+    #popuplist ul{
+        width: 84%;
+    }
+    #popuplist ul li a div:first-child{
+        width: 50px;
+        height: 60px;
+    }
+    .citation_logo{
+        top: -4px !important;
+    }
+    .video{
+        margin-top: 20%;
+    }
+    .mejs-controls .mejs-time-rail span, .mejs-controls .mejs-time-rail a{
+        height: 8px;
+    }
 }
