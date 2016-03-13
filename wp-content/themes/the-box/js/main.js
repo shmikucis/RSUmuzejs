@@ -343,6 +343,11 @@ function mInit() {
     $("#menu_toggle").remove();
     //    $("#masthead").append('<div id="mback"></div><div id="m_srchbtn"></div><div id="menuclose" style="display: none"></div>');
     $("#m_srchbtn, .mclose, #mback, #search").css("margin", ($('#masthead').height() - $('#m_srchbtn').height()) / 2);
+    $("#m_srchbtn").css({
+        height: $("#m_srchbtn").height(),
+        width: $("#m_srchbtn").width(),
+        backgroundSize: $("#m_srchbtn").css('background-size')
+    })
     $('#search').css('margin-right', $('#m_srchbtn').width() + parseInt($('#m_srchbtn').css('margin-right')));
     $('#searchfield').height($('#m_srchbtn').height());
     $("#masthead").append('<div id="menutext" style="display: none">MENU</div>');
@@ -751,7 +756,7 @@ function m_updateListeners() {
         inline: true,
         scrolling: false,
         returnFocus: false,
-        ovarlayClose: false
+        overlayClose: false
     });
     $('a.pic_single').colorbox({
         transition: 'none',
@@ -915,6 +920,7 @@ function m_toggleSearch() {
             searchButton.removeClass('mclose');
         }, 1000);
         searchArea.find('input').val("");
+        searchArea.find('input').blur();
         $('#mfooter').show();
 
     } else {

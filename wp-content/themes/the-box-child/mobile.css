@@ -1210,8 +1210,8 @@ a.obj_icon[data-title]:after{
     padding-left: 5%;
 }
 
-@media screen and (min-width:550px) and (min-height:700px){
-    #m_srchbtn, .mclose, #mback{
+@media screen and (min-width:550px), screen and (min-height:700px){
+    #m_srchbtn, .mclose, #mback, #vidclose{
         width: 50px;
         height: 50px;
         background-size: 50px 100px, cover;
@@ -1219,6 +1219,7 @@ a.obj_icon[data-title]:after{
     #cboxClose, .lg-close{
         width: 50px;
         height: 50px;
+        transform: translate(-25.25%, 25.25%);
     }
     .citation_logo{
         width: 28px;
@@ -1317,12 +1318,16 @@ a.obj_icon[data-title]:after{
         height: 60px;
     }
     .citation_logo{
-        top: -4px !important;
+        /*top: -4px !important;*/
     }
     .video{
         margin-top: 20%;
     }
     .mejs-controls .mejs-time-rail span, .mejs-controls .mejs-time-rail a{
         height: 8px;
+            
+    }
+    .mejs-time-rail{
+        margin-top: 0px !important;
     }
 }

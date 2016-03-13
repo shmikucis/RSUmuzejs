@@ -633,9 +633,11 @@ var Content = Class.extend({
                     }
                 $('#popupbar li:has(a.'+classname+')').clone().appendTo($('#popupgroup ul'));
                 $('#popupgroup').show();
+                m_updateListeners();
+//                $('#popupgroup .mclose').css('margin', $('#m_srchbtn').css('margin'));
                 for(var i = 0; i < $('#popuplist ul li a').length; i++)
                     $('#popuplist ul li a').eq(i).append('<div>'+(i+1)+'</div><div>'+$('#popuplist ul li a').eq(i).attr('data-title')+'</div>');
-                
+                $('#popupgroup .mclose').css("margin", ($('#masthead').height() - $('#m_srchbtn').height()) / 2);
                 $('#popuplist ul li').css('display', 'block');
                 $('#popupgroup .mclose').one('click', function(){
                     $('#popupgroup').hide();
