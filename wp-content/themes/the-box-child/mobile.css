@@ -1331,3 +1331,134 @@ a.obj_icon[data-title]:after{
         margin-top: 0px !important;
     }
 }
+
+@media screen and (min-width:620px){
+    .popup{
+        width: 76vw !important;
+    }
+}
+
+@media screen and (min-width:700px), screen and (min-height:900px){
+    #m_srchbtn, .mclose, #mback, #vidclose{
+        width: 60px;
+        height: 60px;
+        background-size: 60px 120px, cover;
+    }
+    #cboxClose, .lg-close{
+        width: 60px;
+        height: 60px;
+        transform: translate(-35.25%, 35.25%);
+    }
+    .citation_logo{
+        width: 35px;
+        height: 40px;
+        margin-top: -20px;
+    }
+    div.obj_icon, a.obj_icon {
+        width: 66px;
+        height: 76px;
+    }
+    .readmore{
+        width: 200px;
+        height: 50px;
+        background-size: 200px 100px;
+        top: 66.5%;
+    }
+    .readmore:hover{
+        background-position: 0px 100%;
+    }
+    .video-content .readmore{
+        width: 200px;
+        height: 50px;
+        background-size: 200px 100px;
+        top: 66.5%;
+    }
+    #m_menubtn, #m_socbtn{
+        width: 66px;
+        height: 76px;
+        background-size: 132px 76px;
+    }
+    #msidemenu div{
+        width: 70px;
+        height: 70px;
+        background-size: 70px 140px;
+    }
+    #mcontinue, #bigmore{
+        width: 304px;
+        height: 76px;
+        background-size: 304px 152px;
+    }
+    #m_social{
+        width: 304px;
+        height: 76px;
+    }
+    #m_social ul {
+        height: 62px;
+    }
+    #m_social ul li {    
+        height: 62px;
+        width: 62px;
+    }
+    #m_social ul li a{    
+        background-size: 62px 124px;
+    }
+    #msidemenu, #msidemenu ul, #msidemenu ul li, #msidemenu ul li a{
+        line-height: 90px;
+    }
+    #menutext{
+        line-height: 60px;
+    }
+    #fore1{
+        font-size: 36pt;
+    }
+    #fore2{
+        font-size: 20pt;
+    }
+    #fore3, p.main_text_single, ul.menu p, ul.menu2 p, p.narrow, p.vnarrow, .searchresults li a,
+    .popup, .pic_popup#colorbox #cboxTitle, .lg-text, .video-content div{
+        font-size: 16pt;
+    }
+    #searchfield, #menutext, #msidemenu, #lg-counter, #popuplist ul li a div{
+        font-size: 18pt;
+    }
+    #lg-counter-all, p.author_text_single, .mejs-container .mejs-controls  div{
+        font-size: 12pt;
+    }
+    ul.menu li, ul.menu2 li {
+        width: 88%;
+    }
+    ul.menu li, ul.menu2 li {
+        padding: 0 6vw 0 6vw;
+    }   
+    ul.menu li:first-child a:before, ul.menu2 li:first-child a:before, ul.menu li a:before, ul.menu2 li a:before {
+    left: -6%;
+    top: -2vh;
+    width: 56%;
+    }
+    ul.menu a, ul.menu2 a {
+        height: 20vw;
+    }
+    .pictoolbar{
+        max-width: 260px;
+    }
+    #popuplist ul{
+        width: 86%;
+    }
+    #popuplist ul li a div:first-child{
+        width: 60px;
+        height: 72px;
+    }
+    .citation_logo{
+        /*top: -4px !important;*/
+    }
+    .video{
+        margin-top: 25%;
+    }
+    .mejs-controls .mejs-time-rail span, .mejs-controls .mejs-time-rail a{
+        height: 10px;
+            
+    }
+    .mejs-time-rail{
+        margin-top: 2px !important;
+    }
+}
