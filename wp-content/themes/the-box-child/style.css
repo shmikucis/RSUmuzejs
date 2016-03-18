@@ -481,7 +481,7 @@ p{
     text-align: center;
 }
 .head_image div{
-    background: url(images/family_header.jpg);
+    background: url(images/background/default.jpg);
     background-position: center;   
     background-size: cover;
     top: -25% !important;
@@ -631,7 +631,7 @@ ul.menu2 p{
     -webkit-transform:translate(-50%,-50%);
             transform:translate(-50%,-50%);
     font-family: oswald-light;
-    font-size: 1.5vmax;
+    font-size: 1vmax;
     text-transform: uppercase;
     text-decoration: none;
     color: #FFFFFF;
@@ -640,15 +640,15 @@ ul.menu2 p{
     background-image: url(images/ui/menu_btn_bg.png);
     background-size: 100% 100%;
     background-repeat: no-repeat;
-    padding: 8% 16%;
+    padding: 4% 8%;
 }
 ul.menu2 p::after {
     content: '';
     position: absolute;
-    top: 5px;
-    right: 5px;
-    bottom: 5px;
-    left: 5px;
+    top: 4px;
+    right: 4px;
+    bottom: 4px;
+    left: 4px;
     border: 2px solid #fff;
     border-radius: 2px;
 }
@@ -981,7 +981,18 @@ p.vnarrow.author_text_single{
     background-position: center;
     background-size: cover;
 }
-
+.bg.cardboard.contacts{
+    padding-bottom: 10%;
+    line-height: 150%;
+    font-weight: lighter;
+}
+.contacts a{
+    text-decoration: none;
+    color: inherit;
+}
+.contacts p:first-of-type{
+    padding-top: 8%;
+}
 .bg.stripes{    
     height: 30vh;
     width: 120vw;
@@ -1016,6 +1027,21 @@ p.narrow{
     vertical-align: middle;
     margin-left: auto;
     margin-right: auto;
+}
+#phoneicon, #mailicon, #cursoricon{
+    display: inline-block;
+    margin-top: 0;
+}
+#phoneicon{
+    background-image: url('images/ui/phoneicon.png');
+}
+#mailicon{
+    background-image: url('images/ui/mailicon.png');
+    padding-right: 1.5%;
+    margin-left: 1.5%;
+}
+#cursoricon{
+    background-image: url('images/ui/cursoricon.png');
 }
 /*Ikonas un pogas*/
 .readmore{
@@ -1579,7 +1605,7 @@ a.archive, div.archive{
     .citation_logo{
         width: 20px;
         height: 23px;
-        margin-top: -11.5px;        
+        top: -11.5px;        
     }
     #continue, .readmore{
         width: 120px;
@@ -1644,14 +1670,14 @@ a.archive, div.archive{
         background-position: 0px 0px;
     }
     #bigmore:hover{
-        background-position: 0px -50px;
+        background-position: 0% 100%;
     }
 }
 @media screen and (min-width:950px){
    .citation_logo{
         width: 20px;
         height: 23px;
-        margin-top: -11.5px;        
+        top: -11.5px;        
     }
     #continue, .readmore{
         width: 120px;
@@ -1716,7 +1742,7 @@ a.archive, div.archive{
         background-position: 0px 0px;
     }
     #bigmore:hover{
-        background-position: 0px -50px;
+        background-position: 0% 100%;
     }
 }
 @media screen and (min-width: 1600px) {
@@ -1764,7 +1790,7 @@ a.archive, div.archive{
     .citation_logo{
         width: 32px;
         height: 37px;
-        margin-top: -18.5px;        
+        top: -18.5px;        
     }
     .lg-thumb-outer{
         width: 276px !important;
@@ -1878,7 +1904,7 @@ a.archive, div.archive{
         background-position: 0px 0px;
     }
     #bigmore:hover{
-        background-position: 0px -55px;
+        background-position: 0% 100%;
     }
 }
 
@@ -1925,7 +1951,7 @@ a.archive, div.archive{
     .citation_logo{
         width: 44px;
         height: 51px;
-        margin-top: -25.5px;        
+        top: -25.5px;        
     }
     .lg-thumb-outer{
         width: 376px !important;
@@ -2026,7 +2052,7 @@ a.archive, div.archive{
         background-position: 0px 0px;
     }
     #bigmore:hover{
-        background-position: 0px -84px;
+        background-position: 0% 100%;
     }
 }
 
@@ -2038,7 +2064,7 @@ a.archive, div.archive{
     .citation_logo{
         width: 56px;
         height: 65px;
-        margin-top: -32.5px;        
+        top: -32.5px;        
     }
     #continue, .readmore{
         width: 320px;
@@ -2099,7 +2125,7 @@ a.archive, div.archive{
         background-position: 0px 0px;
     }
     #bigmore:hover{
-        background-position: 0px -110px;
+        background-position: 0% 100%;
     }
     #cboxClose, .lg-close{
         width: 80px;

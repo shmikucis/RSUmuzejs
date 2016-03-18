@@ -54,7 +54,8 @@ div.top_bar{
     position: absolute;
     width: 100%;
     margin: auto;
-    bottom: 3%;
+    /*bottom: 3%;*/
+    top: 86vh;
 }
 #intro{
     height: 90vh;
@@ -63,7 +64,7 @@ div.top_bar{
 #intro_content{
     position: absolute;
     height:auto;
-    margin-top: 20%;
+    margin-top: 16vh;
 }
 #background{
     height:100%;
@@ -305,6 +306,24 @@ div.top_bar{
     height: 0px;
     width: 100%;
     opacity: 0.3;
+}
+#mcontacts ul{
+    padding: 5% 0% 10% 0;
+}
+#mcontacts ul, #mcontacts ul li, #mcontacts ul li a{
+    line-height: 150% !important;
+}
+#mcontacts p{
+    color: rgb(112, 112, 111);
+}
+#mcontacts ul a{
+    display:inline !important;
+}
+#mcont_link{
+    color: rgb(190, 50, 63) !important;
+}
+#mcontacts:after{
+    display: none;
 }
 #menutext{
     font-family: oswald-light;
@@ -1364,7 +1383,7 @@ a.obj_icon[data-title]:after{
         background-size: 200px 100px;
         top: 66.5%;
     }
-    .readmore:hover{
+    .readmore:hover, .bigmore:hover{
         background-position: 0px 100%;
     }
     .video-content .readmore{

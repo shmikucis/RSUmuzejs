@@ -101,7 +101,7 @@ else
                          <li><a href='#svetki'><span>Tradīcijas</span></a></li>
                       </ul>
                    </li>
-                   <li><a href="#"><span>Kontakti</span></a>
+                   <li><a href="#kontakti"><span>Kontakti</span></a>
                 </ul>
             </div>
             
@@ -145,7 +145,15 @@ else
                          <li><a href='#svetki'><span>Tradīcijas</span></a></li>
                       </ul>
                    </li>
-                   <li><a href="#"><span>Kontakti</span></a>
+                   <li class='has-sub' id='mcontacts'><div></div><a href="#" id='contlink'>&nbsp;<span>Kontakti</span></a>
+                       <ul>
+                           <li>
+                               <p>Tālrunis: <a href="tel:22003426">22003426</a></p>
+                               <p>E-pasts: <a href="mailto:muzejs@rsu.lv">muzejs@rsu.lv</a></p>
+                               <p><a href="http://www.rsu.lv/par-rsu/rsu-muzejs" id='mcont_link'>http://www.rsu.lv/par-rsu/rsu-muzejs</a></p>
+                           </li>
+                       </ul>
+                   </li>
                 </ul>
             </div>
             <div class="head_image headparallax">

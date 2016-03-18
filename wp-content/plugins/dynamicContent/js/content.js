@@ -8,7 +8,6 @@ var Content = Class.extend({
         this.history = [];
         var self = this;
         if(!isMobile){
-            console.log(1);
         $(window).bind('mousewheel DOMmousescroll wheel', function(e) {
             var direction = e.originalEvent.wheelDelta / 120 > 0 ? 'up' : 'down';
             if (scrollEnabled) {
@@ -203,12 +202,17 @@ var Content = Class.extend({
         this.drawTemplate(item);
         this.drawAttachments(item);    
         this.animateScene(item, 'in');
-        if (isMobile){ 
-            this.setBackground(item);
+        this.setBackground(item);
+        if (isMobile){             
             $("#m_srchbtn, .mclose, #mback, #search").css("margin", ($('#masthead').height() - $('#m_srchbtn').height()) / 2);
         }
         $('#bigmore, #mcontinue').blur();
         this.drawExceptionsIn(dynamicContent.getItem(), item);
+        if (item.post_name === "kontakti" || item.post_name === "contacts"){
+            $('.bg.cardboard').addClass('contacts');
+            $('.citation_logo').attr('id','cursoricon');
+            $('.contacts').prepend('<div id="phoneicon" class="citation_logo"></div><div id="mailicon" class="citation_logo"></div>');
+        }
         dynamicContent.set(item);
     }
 
@@ -516,27 +520,58 @@ var Content = Class.extend({
 
     ,
     setBackground: function(item) {
-        var bgElem = $('#fullpage');
-        if (item.post_name === "ievads-2") {
-            bgElem.css('background-image', 'url(' + URLS.stylesheet + '/images/background/' + item.post_name + '.jpg)');
-        } else if (item.template === "templates/menu.php" || item.template === "templates/menu2.php") {
-            bgElem.css('background-image', 'url(' + URLS.stylesheet + '/images/background/mcardboard.jpg)');
-        } else if (~item.post_name.indexOf('dzimta')) {
-            bgElem.css('background-image', 'url(' + URLS.stylesheet + '/images/background/dzimta.jpg)');
-        } else if (item.template === 'templates/video.php') {
-            var iframe = $('iframe:first');
-            var iframe_src = iframe.attr('src');
-            var youtube_video_id = iframe_src.match(/youtube\.com.*(\?v=|\/embed\/)(.{11})/).pop();
+        if(isMobile){
+            var bgElem = $('#fullpage');
+            if (item.post_name === "ievads-2") {
+                bgElem.css('background-image', 'url(' + URLS.stylesheet + '/images/background/mobile/' + item.post_name + '.jpg)');
+            } else if (item.template === "templates/menu.php" || item.template === "templates/menu2.php") {
+                bgElem.css('background-image', 'url(' + URLS.stylesheet + '/images/background/mobile/mcardboard.jpg)');
+            } else if (~item.post_name.indexOf('dzimta')) {
+                bgElem.css('background-image', 'url(' + URLS.stylesheet + '/images/background/mobile/dzimta.jpg)');
+            } else if (item.template === 'templates/video.php') {
+                var iframe = $('iframe:first');
+                var iframe_src = iframe.attr('src');
+                var youtube_video_id = iframe_src.match(/youtube\.com.*(\?v=|\/embed\/)(.{11})/).pop();
 
-            if (youtube_video_id.length == 11) {
-                bgElem.css('background-image', 'url(//img.youtube.com/vi/' + youtube_video_id + '/hqdefault.jpg');
+                if (youtube_video_id.length == 11) {
+                    bgElem.css('background-image', 'url(//img.youtube.com/vi/' + youtube_video_id + '/hqdefault.jpg');
+                }
+            } else if (item.template === 'templates/searchResults.php') {
+                $('.bg.stripes').css({
+                    'height': '100%',
+                    'top': 0
+                });
+            } else bgElem.css('background-image', 'none');
+        }
+        else{
+            var bgElem = $('.head_image div.layer');
+            if(bgElem.length){
+                if(dynamicContent.getByMenuID(item.menu_item_parent)) var parent = dynamicContent.getByMenuID(item.menu_item_parent);
+                else var parent = dynamicContent.getItemByUrl('titullapa');
+                if (item.post_name === "ievads-2" || item.post_name === "mainmenu") {
+                    bgElem.css('background-image', 'url(' + URLS.stylesheet + '/images/background/intro.jpg)');
+                }
+                else if (~item.post_name.indexOf('attistiba') || ~item.post_name.indexOf('medicinas') || ~item.post_name.indexOf('universitate') || ~item.post_name.indexOf('rektori') || ~item.post_name.indexOf('dzimta') || ~parent.post_name.indexOf('rektori')){
+                    bgElem.css('background-image', 'url(' + URLS.stylesheet + '/images/background/attistiba.jpg)');
+                }
+                else if (~item.post_name.indexOf('pirmsakumi') || ~item.post_name.indexOf('medicina') || item.post_name === 'socialas-zinatnes'){
+                    bgElem.css('background-image', 'url(' + URLS.stylesheet + '/images/background/pirmsakumi.jpg)');
+                }
+                else if (item.post_name === "augstskolas-struktura"){
+                    bgElem.css('background-image', 'url(' + URLS.stylesheet + '/images/background/struktura.jpg)');
+                }
+                else if (~item.post_name.indexOf('zinatne') || ~item.post_name.indexOf('pedagogija')){
+                    bgElem.css('background-image', 'url(' + URLS.stylesheet + '/images/background/zinatne.jpg)');
+                }
+                else if (~item.post_name.indexOf('personibas') || ~item.post_name.indexOf('veselibas-aprupe') || item.post_name === 'socialas-zinatnes2' || ~parent.post_name.indexOf('personibas') || ~parent.post_name.indexOf('veselibas-aprupe') || parent.post_name === 'socialas-zinatnes2'){
+                    bgElem.css('background-image', 'url(' + URLS.stylesheet + '/images/background/personibas.jpg)');
+                }
+                else if (~item.post_name.indexOf('arpus') || ~item.post_name.indexOf('polakt') || ~item.post_name.indexOf('sabakt') || ~item.post_name.indexOf('kolektivi') || ~item.post_name.indexOf('sports') || ~item.post_name.indexOf('svetki')){
+                    bgElem.css('background-image', 'url(' + URLS.stylesheet + '/images/background/arpus.jpg)');
+                }
+                else bgElem.css('background-image', 'url(' + URLS.stylesheet + '/images/background/default.jpg)');
             }
-        } else if (item.template === 'templates/searchResults.php') {
-            $('.bg.stripes').css({
-                'height': '100%',
-                'top': 0
-            });
-        } else bgElem.css('background-image', 'none');
+        }
     },
     setMobilePopups: function(){
         if($('#popupgroup').length<=0) $('#page').append('<div id="popupgroup"><div class="mclose"></div><div id="popuplist"><div class="citation_logo"></div><ul></ul></div></div>');
