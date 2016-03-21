@@ -480,12 +480,19 @@ p{
     z-index: 2;
     text-align: center;
 }
-.head_image div{
+.head_image div.layer{
+    width: 110%;
     background: url(images/background/default.jpg);
     background-position: center;   
     background-size: cover;
     top: -25% !important;
     height: 150%;
+     -webkit-transition: opacity 750ms;
+    transition: opacity 750ms;
+}
+.head_image div.inactive{
+    opacity: 0;
+    width: 110%;
 }
 
 .head_image_bot{
@@ -1212,8 +1219,8 @@ a.obj_icon[data-title]:hover:after{
     left: 10vw !important;
 }
 
-a.closer, div.closer{
-    background-image: url('images/ui/closer.png');   
+a.magazine, div.magazine{
+    background-image: url('images/ui/magazine.png');   
 }
 
 a.gallery, div.gallery{

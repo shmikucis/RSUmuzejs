@@ -183,7 +183,8 @@ else
                     </div> -->
                 </span>
 
-            <div class="layer" data-depth="0.3"></div>
+            <div class="layer active" data-depth="0.3"></div>
+            <div class="layer inactive" data-depth="0.3"></div>
         </div>
         <div class="head_image_bot">
             <ul class="social">

@@ -526,8 +526,6 @@ var Content = Class.extend({
                 bgElem.css('background-image', 'url(' + URLS.stylesheet + '/images/background/mobile/' + item.post_name + '.jpg)');
             } else if (item.template === "templates/menu.php" || item.template === "templates/menu2.php") {
                 bgElem.css('background-image', 'url(' + URLS.stylesheet + '/images/background/mobile/mcardboard.jpg)');
-            } else if (~item.post_name.indexOf('dzimta')) {
-                bgElem.css('background-image', 'url(' + URLS.stylesheet + '/images/background/mobile/dzimta.jpg)');
             } else if (item.template === 'templates/video.php') {
                 var iframe = $('iframe:first');
                 var iframe_src = iframe.attr('src');
@@ -544,7 +542,8 @@ var Content = Class.extend({
             } else bgElem.css('background-image', 'none');
         }
         else{
-            var bgElem = $('.head_image div.layer');
+            var bgElem = $('.head_image div.layer.inactive');
+            var bgAct = $('.head_image div.layer.active');
             if(bgElem.length){
                 if(dynamicContent.getByMenuID(item.menu_item_parent)) var parent = dynamicContent.getByMenuID(item.menu_item_parent);
                 else var parent = dynamicContent.getItemByUrl('titullapa');
@@ -571,6 +570,12 @@ var Content = Class.extend({
                 }
                 else bgElem.css('background-image', 'url(' + URLS.stylesheet + '/images/background/default.jpg)');
             }
+            bgElem.css('opacity', 1);
+            setTimeout(function(){bgAct.css('opacity', 0);}, 750);
+            bgElem.removeClass('inactive');
+            bgAct.removeClass('active');
+            bgElem.addClass('active');
+            bgAct.addClass('inactive');
         }
     },
     setMobilePopups: function(){
@@ -606,9 +611,9 @@ var Content = Class.extend({
                 $('#popupbar li:has(a.humor').hide();
                 $('#popupbar').append('<li><div class="humor obj_icon" data-class="humor"></div></li>'); 
             }
-            if ($('#popupbar a.closer').length>1){
-                $('#popupbar li:has(a.closer)').hide();
-                $('#popupbar').append('<li><div class="humor obj_icon" data-class="closer"></div></li>'); 
+            if ($('#popupbar a.magazine').length>1){
+                $('#popupbar li:has(a.magazine)').hide();
+                $('#popupbar').append('<li><div class="humor obj_icon" data-class="magazine"></div></li>'); 
             }
             var mainIcon = $('.icon_midleft, .icon_midright, .icon_topright, .icon_topmid, .icon_topleft, .icon_botleft, .icon_botright, .icon_botmid, .icon_belowtopright, .icon_belowtopleft');
             if(mainIcon.hasClass('gallery')){
@@ -626,8 +631,8 @@ var Content = Class.extend({
             else if(mainIcon.hasClass('humor')){
                  $('#popupbar li:has(a.humor)').detach().prependTo($('#popupbar'));
             }
-            else if(mainIcon.hasClass('closer')){
-                 $('#popupbar li:has(a.closer)').detach().prependTo($('#popupbar'));
+            else if(mainIcon.hasClass('magazine')){
+                 $('#popupbar li:has(a.magazine)').detach().prependTo($('#popupbar'));
             }
                 
                 
@@ -660,7 +665,7 @@ var Content = Class.extend({
                     else if (classname === "humor"){
                         $('#popupgroup .citation_logo').attr('id', 'humicon');
                     }
-                    else if (classname === "closer"){
+                    else if (classname === "magazine"){
                         $('#popupgroup .citation_logo').attr('id', 'cloicon');
                     }
                     else if (classname === "audio"){
