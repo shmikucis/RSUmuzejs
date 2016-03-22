@@ -6,7 +6,7 @@ var Content = Class.extend({
         this.article = $('article');
         this.direction = 'down'; // up, down
         this.history = [];
-        this.inDoc = false;
+//        window.inDoc = false;
         var self = this;
         if(!isMobile){
         $(window).bind('mousewheel DOMmousescroll wheel', function(e) {
@@ -20,13 +20,13 @@ var Content = Class.extend({
             }
         });
         
-        document.onmouseover = function() {
-            window.inDoc = true;
-        }
-
-        document.onmouseot = function() {console.log(0);
-            window.inDoc= false;
-        }
+//        document.onmouseover = function() {
+//            window.inDoc = true;
+//        }
+//
+//        document.onmouseout = function() {console.log(0);
+//            window.inDoc= false;
+//        }
 
         $(document).keyup(function(e) {
             if (scrollEnabled) {
@@ -71,8 +71,17 @@ var Content = Class.extend({
             //    			self.drawFromUrl(backUrl);        	
         });
         window.onhashchange = function(){
-            if (!this.inDoc && !isMobile) self.back();
-        }
+//            if (!this.inDoc){ 
+                if(location.hash === ("#"+self.history[self.history.length-2])) self.back();
+//                if (!isMobile) self.back();
+//            else{
+//                if(self.history.length > 1)
+//                self.history.pop();
+//                var backUrl = self.history.pop();
+//                self.drawFromUrl(backUrl);
+//            }
+//            }
+        };
         
 
         $("#continue, #mcontinue").bind("click", function() {
