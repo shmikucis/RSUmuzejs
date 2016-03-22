@@ -137,10 +137,10 @@ div.top_bar{
 #mcontinue{
     background-image: url(images/ui/mobile/continue.png);
 }
-#bigmore:focus, #bigmore:active, #mcontinue:focus, #mcontinue:active{
+/*#bigmore:focus, #bigmore:active, #mcontinue:focus, #mcontinue:active{
     background-position: 0% 100%;
     opacity: 0.3;
-}
+}*/
 #m_menubtn{
     position:absolute;
     background-image: url(images/ui/mobile/menu_toggle.png);
@@ -150,15 +150,15 @@ div.top_bar{
     background-size: 76px 44px;
     background-position: 0px 0px;
 }
-#m_menubtn:focus, #m_menubtn:active{
+/*#m_menubtn:focus, #m_menubtn:active{
     background-position: 100% 0%;
     opacity: 0.3;
-}
+}*/
 
-#menuclose:focus, #menuclose:active{
+/*#menuclose:focus, #menuclose:active{
     background-position: 0% 100%, center;
     opacity: 0.3;
-}
+}*/
 #msidemenu,
 #msidemenu ul,
 #msidemenu ul li,
@@ -349,10 +349,10 @@ div.top_bar{
     background-size: 76px 44px;
     background-position: 0px 0px;
 }
-#m_socbtn:focus, #m_socbtn:active{
+/*#m_socbtn:focus, #m_socbtn:active{
     background-position: 100% 0%;
     opacity: 0.3;
-}
+}*/
 #m_social{
     display:none;
     background-image: url(images/ui/mobile/share_bg.png);
@@ -415,10 +415,10 @@ div.top_bar{
     background-size: 40px 80px, cover;
     background-position: 0px 0px, center;
 }
-#m_srchbtn:focus{
+/*#m_srchbtn:focus{
     background-position: 0% 100%, center;
     opacity: 0.3;
-}
+}*/
 #m_srchbtn.mclose{
     background-image: url(images/ui/mobile/menuclose.png), url(images/ui/mobile/bg_red_small.png);
 }
@@ -455,10 +455,10 @@ div.top_bar{
     background-size: 40px 80px, cover;
     background-position: 0px 0px, center;
 }
-#mback:focus, #mback:active{
+/*#mback:focus, #mback:active{
     background-position: 0% 100%, center;
     opacity: 0.3;
-}
+}*/
 
 /*IE specific*/
 @media screen and (min-width:0\0){
@@ -524,9 +524,9 @@ ul.menu, ul.menu2{
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
 }
-ul.menu a:focus, ul.menu a:active, ul.menu2 a:focus, ul.menu2 a:active{
+/*ul.menu a:focus, ul.menu a:active, ul.menu2 a:focus, ul.menu2 a:active{
     opacity: 0.3;
-}
+}*/
 ul.menu li, ul.menu2 li {
     width: 96%;
     margin: 0;
@@ -701,10 +701,10 @@ div.vwide{
 .readmore.left{
     margin-left: -10%;
 }
-.readmore:focus, .readmore:active{
+/*.readmore:focus, .readmore:active{
     background-position: 0% 100%;
     opacity: 0.3;
-}
+}*/
 .entry-content.searchresults{
     top: 0 !important;
 }
@@ -1138,10 +1138,10 @@ div.obj_icon{
 a.obj_icon:hover{
     background-position: 0 0;
 }
-#popupbar .obj_icon:focus, #popupbar .obj_icon:active{
+/*#popupbar .obj_icon:focus, #popupbar .obj_icon:active{
     background-position: 100% 0;
     opacity: 0.3;
-}
+}*/
 a.obj_icon[data-title]:after{
     content: "";
     display: none !important;
@@ -1350,7 +1350,9 @@ a.obj_icon[data-title]:after{
         margin-top: 0px !important;
     }
 }
-
+.tapped{
+    opacity: 0.4 !important;
+}
 @media screen and (min-width:620px){
     .popup{
         width: 76vw !important;

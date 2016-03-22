@@ -556,7 +556,7 @@ var Content = Class.extend({
                 else if (~item.post_name.indexOf('pirmsakumi') || ~item.post_name.indexOf('medicina') || item.post_name === 'socialas-zinatnes'){
                     bgElem.css('background-image', 'url(' + URLS.stylesheet + '/images/background/pirmsakumi.jpg)');
                 }
-                else if (item.post_name === "augstskolas-struktura"){
+                else if (~item.post_name.indexOf('augstskolas-struktura')){
                     bgElem.css('background-image', 'url(' + URLS.stylesheet + '/images/background/struktura.jpg)');
                 }
                 else if (~item.post_name.indexOf('zinatne') || ~item.post_name.indexOf('pedagogija')){
@@ -616,23 +616,24 @@ var Content = Class.extend({
                 $('#popupbar').append('<li><div class="humor obj_icon" data-class="magazine"></div></li>'); 
             }
             var mainIcon = $('.icon_midleft, .icon_midright, .icon_topright, .icon_topmid, .icon_topleft, .icon_botleft, .icon_botright, .icon_botmid, .icon_belowtopright, .icon_belowtopleft');
+//            mainIcon.detach().prependTo($('#popupbar'));
             if(mainIcon.hasClass('gallery')){
-                $('#popupbar li:has(a.gallery)').detach().prependTo($('#popupbar'));
+                $('#popupbar li:has(.gallery)').detach().prependTo($('#popupbar'));
             }
             else if(mainIcon.hasClass('objects')){
-                 $('#popupbar li:has(a.objects)').detach().prependTo($('#popupbar'));
+                 $('#popupbar li:has(.objects)').detach().prependTo($('#popupbar'));
             }
             else if(mainIcon.hasClass('archive')){
-                 $('#popupbar li:has(a.archive)').detach().prependTo($('#popupbar'));
+                 $('#popupbar li:has(.archive)').detach().prependTo($('#popupbar'));
             }
             else if(mainIcon.hasClass('audio')){
-                 $('#popupbar li:has(a.audio)').detach().prependTo($('#popupbar'));
+                 $('#popupbar li:has(.audio)').detach().prependTo($('#popupbar'));
             }
             else if(mainIcon.hasClass('humor')){
-                 $('#popupbar li:has(a.humor)').detach().prependTo($('#popupbar'));
+                 $('#popupbar li:has(.humor)').detach().prependTo($('#popupbar'));
             }
             else if(mainIcon.hasClass('magazine')){
-                 $('#popupbar li:has(a.magazine)').detach().prependTo($('#popupbar'));
+                 $('#popupbar li:has(.magazine)').detach().prependTo($('#popupbar'));
             }
                 
                 
@@ -682,6 +683,7 @@ var Content = Class.extend({
                 $('#popupgroup .mclose').one('click', function(){
                     $('#popupgroup').hide();
                     $('#popupgroup li').remove();
+                    $('#popupbar .tapped').removeClass('tapped');
                 })
             });
         }
@@ -812,7 +814,7 @@ var Content = Class.extend({
         if (nextItem.template === 'templates/video.php' && isMobile) {
             m_setVideo();
         }
-
+        if(isMobile){$('#bigmore.tapped, #mcontinue.tapped, #mback.tapped').removeClass('tapped');}
     }
 
     ,

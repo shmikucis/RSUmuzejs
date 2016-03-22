@@ -489,7 +489,8 @@ function mInit() {
                 var div = $('#cboxContent audio')[0];
                 div.parentNode.removeChild(div);
                 $('#cboxLoadedContent').css('max-height','75vh');
-            }            
+            }
+            $('.cboxElement.tapped, #popupbar .tapped').removeClass('tapped');
         });
     });
     
@@ -537,6 +538,9 @@ function mInit() {
             //audio.play();
             $('.mejs-inner a').trigger('click');
 //        }
+$(document).bind('cbox_closed', function() {
+            $('#popupbar .tapped').removeClass('tapped');
+        });
     });
     
     $(document).on('click', '.pic_gallery', function() {
@@ -614,7 +618,9 @@ function mInit() {
             var text = $(".lg-sub-html").text();
             $('.lg-text div:first').text(text);
         });
-
+         $(id).on('onCloseAfter.lg', function(){
+            $('#popupbar .tapped').removeClass('tapped');
+        });
         //galleryInnerResize();
     });
 }
@@ -780,8 +786,9 @@ function m_updateListeners() {
     $('.mcit img').on('click', scrollToImage);
     
     //focus fix for chrome
-    $("#popupbar .obj_icon, #bigmore, #mcontinue, #m_menubtn, #m_socbtn, #mback, .readmore, ul.menu a, ul.menu2 a").on("click",function(){
-        $(this).focus();
+    $("#popupbar li:has(.obj_icon), #bigmore, #mcontinue, #m_menubtn, #mback, .readmore, ul.menu a, ul.menu2 a").on("click",function(){
+//        $(this).focus();
+        $(this).addClass('tapped');
     });
 }
 
@@ -874,10 +881,12 @@ function m_showSocial() {
     if ($('#mfooter #bigmore, #mcontinue').css('display') === 'inline-block') {
         $('#mfooter #bigmore, #mcontinue').hide();
         $('#m_social').css('display', 'inline-block');
+        $('#m_socbtn').addClass('tapped');
     } else {
         $('#m_social').hide();
         $('#mfooter #bigmore, #mcontinue').css('display', 'inline-block');
-        $('#m_socbtn').blur();
+//        $('#m_socbtn').blur();
+        $('#m_socbtn').removeClass('tapped');
     }
 }
 
@@ -914,6 +923,7 @@ function m_closeMenu() {
     $('#m_srchbtn').show();
     $('#logo_link').show();
     $('#menutext').hide();
+    $('#m_menubtn.tapped').removeClass('tapped');
 }
 
 function m_toggleSearch() {
