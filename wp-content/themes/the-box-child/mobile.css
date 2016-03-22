@@ -1353,6 +1353,10 @@ a.obj_icon[data-title]:after{
 .tapped{
     opacity: 0.4 !important;
 }
+
+#mcontinue:hover, .readmore:hover, #bigmore:hover{
+    background-position: 0 0;
+}
 @media screen and (min-width:620px){
     .popup{
         width: 76vw !important;

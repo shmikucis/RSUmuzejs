@@ -6,6 +6,7 @@ var Content = Class.extend({
         this.article = $('article');
         this.direction = 'down'; // up, down
         this.history = [];
+        this.inDoc = false;
         var self = this;
         if(!isMobile){
         $(window).bind('mousewheel DOMmousescroll wheel', function(e) {
@@ -18,6 +19,14 @@ var Content = Class.extend({
                 }
             }
         });
+        
+        document.onmouseover = function() {
+            window.inDoc = true;
+        }
+
+        document.onmouseot = function() {console.log(0);
+            window.inDoc= false;
+        }
 
         $(document).keyup(function(e) {
             if (scrollEnabled) {
@@ -61,6 +70,9 @@ var Content = Class.extend({
             //    			var backUrl = self.history.pop();
             //    			self.drawFromUrl(backUrl);        	
         });
+        window.onhashchange = function(){
+            if (!this.inDoc && !isMobile) self.back();
+        }
         
 
         $("#continue, #mcontinue").bind("click", function() {
@@ -608,7 +620,7 @@ var Content = Class.extend({
                 $('#popupbar').append('<li><div class="audio obj_icon" data-class="audio"></div></li>'); 
             }
             if ($('#popupbar a.humor').length>1){
-                $('#popupbar li:has(a.humor').hide();
+                $('#popupbar li:has(a.humor)').hide();
                 $('#popupbar').append('<li><div class="humor obj_icon" data-class="humor"></div></li>'); 
             }
             if ($('#popupbar a.magazine').length>1){

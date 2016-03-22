@@ -123,17 +123,17 @@ var DynamicContent = Class.extend({
                 list.push(ATTACHMENTS[i]);
             }
         }
-        console.log(list);
         return list;
     }
 
     ,
     searchString: function(text) {
+        text = text.toLowerCase();
         var items = [];
         for (var i = 0, l = this.navigation.length; i < l; i++) {
             if (this.navigation[i].template === 'templates/title.php' || this.navigation[i].template === 'templates/menu.php')
                 continue;
-            var content = this.navigation[i].post_content;
+            var content = this.navigation[i].post_content.toLowerCase();
             if (this.navigation[i].template !== 'templates/video.php') {
                 var startIdx = content.indexOf("citation");
                 startIdx = content.indexOf(">", startIdx) + 1;
