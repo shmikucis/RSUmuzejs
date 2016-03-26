@@ -6,7 +6,7 @@ var Content = Class.extend({
         this.article = $('article');
         this.direction = 'down'; // up, down
         this.history = [];
-//        window.inDoc = false;
+        window.inDoc = false;
         var self = this;
         if(!isMobile){
         $(window).bind('mousewheel DOMmousescroll wheel', function(e) {
@@ -20,13 +20,13 @@ var Content = Class.extend({
             }
         });
         
-//        document.onmouseover = function() {
-//            window.inDoc = true;
-//        }
-//
-//        document.onmouseout = function() {console.log(0);
-//            window.inDoc= false;
-//        }
+        document.onmouseover = function() {
+            window.inDoc = true;
+        }
+
+        document.onmouseout = function() {console.log(0);
+            window.inDoc= false;
+        }
 
         $(document).keyup(function(e) {
             if (scrollEnabled) {
@@ -59,7 +59,9 @@ var Content = Class.extend({
         // track backspace button
         $('html').keyup(function(e) {
             if (e.keyCode === 8 && !$("#searchfield").is(":focus")) {
-                self.back();
+                //self.back();
+                var hash = location.hash.slice(1);
+                self.drawFromUrl(hash);
             }
             if (e.keyCode === 13 && $("#searchfield").is(":focus")) {
                 $('#searchbutton').trigger('click');
@@ -71,8 +73,10 @@ var Content = Class.extend({
             //    			self.drawFromUrl(backUrl);        	
         });
         window.onhashchange = function(){
-//            if (!this.inDoc){ 
-                if(location.hash === ("#"+self.history[self.history.length-2])) self.back();
+            if (!this.inDoc){ 
+                var hash = location.hash.slice(1);
+                self.drawFromUrl(hash);
+//                if(location.hash === ("#"+self.history[self.history.length-2])) self.back();
 //                if (!isMobile) self.back();
 //            else{
 //                if(self.history.length > 1)
@@ -80,7 +84,7 @@ var Content = Class.extend({
 //                var backUrl = self.history.pop();
 //                self.drawFromUrl(backUrl);
 //            }
-//            }
+            }
         };
         
 
