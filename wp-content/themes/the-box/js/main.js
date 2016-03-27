@@ -209,8 +209,8 @@ function init() {
                 if ($.inArray($mapattr, $visitedMaps) === -1) {
 
                     //                window.resizevar = $($mapattr).imageMapResize();
-                    imageMapResize($mapattr);
-
+//                    imageMapResize($mapattr);
+                    $('map').imageMapResize();
                     $visitedMaps.push($mapattr);
                 }
             }
@@ -304,7 +304,9 @@ function init() {
             $('.mejs-container').append('<button id="close">close</button>');
             $('.mejs-container #close').click(function() {
                 $('#footer audio').get(0).player.remove();
-                $('#footer audio').get(0).remove();
+                var node = $('#footer audio').get(0);
+                node.parentNode.removeChild(node);
+//                $('#footer audio').get(0).remove();
             });
             $('.mejs-currenttime-container').appendTo('.mejs-time-rail');
             $('.mejs-duration-container').appendTo('.mejs-time-rail');
@@ -685,7 +687,7 @@ function setHeadFootSize(divide) {
     $('#search').css('margin-top', ($('#masthead').height() - $('#search').height()) / 2);
     //$('#searchfield').css('margin-top', ($('#search').height()-$('#searchfield').height())/2);
     $('#searchbutton').height($('#searchfield').height());
-    $('#searchbutton').css('margin-top', ($('#search').height() - $('#searchbutton').height()) / 2);
+//    $('#searchbutton').css('margin-top', ($('#search').height() - $('#searchbutton').height()) / 2);
 
 
     window.footHeight = $('#footer').height();
@@ -719,12 +721,15 @@ function setVideoSize() {
 }
 
 function initTags(mapname) {
+    
     if ($('#pictag').length <= 0)
         $('#cboxLoadedContent').append('<div id="pictag"></div>');
     $('#pictag').hide();
 
     $(mapname + ' area').each(
+            
         function() {
+//    console.log(11);
             $(this).mouseover(function() {
                 if ($('.ndd-uberzoom-main-image').width() === $('.ndd-uberzoom-container').width()) {
                     var name = $(this).data('name');
@@ -737,6 +742,7 @@ function initTags(mapname) {
                     $('#pictag').css('left', left);
                     $('#pictag').show();
                 }
+//                console.log(10);
             });
 
             $(this).mouseout(function() {

@@ -443,6 +443,10 @@ div.top_bar{
     font-family: helvetica-neue;
     font-size:9pt;
 }
+#searchfield::-ms-clear {
+  width : 0;
+  height: 0;
+}
 #searchbutton{
     display:none;
 }

@@ -10,7 +10,8 @@ var Content = Class.extend({
         var self = this;
         if(!isMobile){
         $(window).bind('mousewheel DOMmousescroll wheel', function(e) {
-            var direction = e.originalEvent.wheelDelta / 120 > 0 ? 'up' : 'down';
+            var direction = e.originalEvent.deltaY / 120 > 0 ? 'down' : 'up';
+//            console.log(e);
             if (scrollEnabled) {
                 if (direction === 'down') {
                     self.drawNext();
@@ -24,7 +25,7 @@ var Content = Class.extend({
             window.inDoc = true;
         }
 
-        document.onmouseout = function() {console.log(0);
+        document.onmouseout = function() {
             window.inDoc= false;
         }
 
@@ -728,7 +729,7 @@ var Content = Class.extend({
                     $('#mback').addClass('hidden');
                 }
             } else {
-                $('#footer .social').addClass('hidden');
+                $('#footer .social').css('display', 'none')
                 if (isMobile) {
                     $("#bigmore").attr('id', "mcontinue");
                 }
@@ -751,6 +752,7 @@ var Content = Class.extend({
                 if (isMobile) {
                     m_menuElemHide(nextItem);
                 }
+                else scrollEnabled = true;
             }
             if (nextItem.template === 'templates/searchResults.php') {
                 setTimeout(function() {
@@ -765,6 +767,7 @@ var Content = Class.extend({
 
             if (nextItem.post_name !== 'ievads-2') {
                 $('#continue').addClass('hidden none');
+                $('#continue').css('display', 'none');
             }
 
 
@@ -772,7 +775,8 @@ var Content = Class.extend({
         }
         if (nextItem.post_name === 'ievads-2') {
             this.removeAnimation('#continue', 'none moveDownOut');
-            this.animateObject('#continue', 'moveUp', 100, 'in');
+            $('#continue').css('display', 'block');
+            this.animateObject('#continue', 'moveUp', 100, 'in');            
         }
         if (nextItem.post_name == 'titullapa') {
             if (isMobile) {
@@ -782,6 +786,7 @@ var Content = Class.extend({
             }
             this.removeAnimation('#footer .social', 'moveDownOut');
             this.animateObject('#footer .social', 'moveUp', 100, 'in');
+            $('#footer .social').css('display', 'block');
             var self = this;
             $("#bigmore, #mfooter #bigmore").bind("click", function() {
                 self.drawNext();
@@ -816,7 +821,8 @@ var Content = Class.extend({
             m_menuElemShow();
         }
         if (nextItem.template === 'templates/menu.php' || nextItem.template === 'templates/menu2.php') {
-            scrollEnabled = false;
+            if(nextItem.template === 'templates/menu.php')
+                scrollEnabled = false;
             if (isMobile) {
                 m_menuElemHide(nextItem);
             }
@@ -848,6 +854,7 @@ var Content = Class.extend({
         if (prevItem.post_name == 'ievads-2') {
             this.removeAnimation('#continue', 'moveUp');
             this.animateObject('#continue', 'moveDownOut', 100, 'out');
+            setTimeout(function(){$('#continue').css('display', 'none');},100);
         }
         if (nextItem.post_name == 'titullapa') {
             this.removeAnimation('.head_image', 'moveDown');
@@ -865,6 +872,7 @@ var Content = Class.extend({
         if (prevItem.post_name == 'titullapa') {
             this.removeAnimation('#footer .social', 'moveUp');
             this.animateObject('#footer .social', 'moveDownOut', 100, 'out');
+            setTimeout(function(){$('#footer .social').css('display', 'none');},100);
             if (isMobile) {
                 $('#mback').removeClass('hidden');
                 $('#bigmore').removeClass('removeZoomIn');

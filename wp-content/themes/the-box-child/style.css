@@ -211,9 +211,10 @@ div.top_bar{
     position: absolute;
     z-index: 1;
     top: 50%;
+    left: 0;
     /*margin: 0 auto;*/
-    -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
+    -webkit-transform: translate(0%, -50%);
+            transform: translate(0%, -50%);
     width: 100%;
 }
 
@@ -265,7 +266,7 @@ div.top_bar{
 }
 #searchbutton{
     display:table-cell;
-    float: right;
+    /*float: right;*/
     vertical-align: middle;
     border:none;
     background-color: rgb(102,0,0);
@@ -837,9 +838,13 @@ p.vnarrow.author_text_single{
     width: 100vw;
     position: absolute;
     height: 66vh;
+    /*z-index: -999;*/
+    /*background-color: #000;*/
 }
 .video{
     width: 100%;
+    /*z-index: -999;*/
+    /*background-color: #000;*/
 }
 .video-content div{
     background: -webkit-linear-gradient(
