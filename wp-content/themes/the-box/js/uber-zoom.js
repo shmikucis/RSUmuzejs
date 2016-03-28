@@ -973,8 +973,8 @@
             self.currentPosX = lerp(self.currentPosX, self.targetPosX, self.zoomSpeed);
             self.currentPosY = lerp(self.currentPosY, self.targetPosY, self.zoomSpeed);
             
-            if (self.currentZoom > 1.05) $('.lg-outer .lg-image, .cboxPhoto').css('cursor', 'zoom-out');
-            else $('.lg-outer .lg-image, .cboxPhoto').css('cursor', 'zoom-in');
+            if (self.currentZoom > 1.05) $('.ndd-uberzoom-content').css('cursor', 'zoom-out');
+            else $('.ndd-uberzoom-content').css('cursor', 'zoom-in');
             // Apply
             self.redraw();
 

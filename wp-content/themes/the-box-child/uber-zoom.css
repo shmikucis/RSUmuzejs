@@ -92,3 +92,7 @@
 	top: 0;
 	background: black;
 }
+.ndd-uberzoom-content{
+    -webkit-cursor: -webkit-zoom-in;
+    cursor: zoom-in;
+}

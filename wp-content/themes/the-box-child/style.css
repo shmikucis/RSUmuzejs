@@ -1394,8 +1394,8 @@ a.archive, div.archive{
     width: auto !important;
     /*max-width: 100vw;*/
     margin: auto;
-    -webkit-cursor: -webkit-zoom-in;
-    cursor: zoom-in;
+    /*-webkit-cursor: -webkit-zoom-in;*/
+    /*cursor: zoom-in;*/
 }
 .gallery_div a img{
     display:none;
@@ -1456,8 +1456,8 @@ a.archive, div.archive{
 }
 
 .zoomImg{
-    cursor: -webkit-zoom-in;
-    cursor: -moz-zoom-in;
+/*    cursor: -webkit-zoom-in;
+    cursor: -moz-zoom-in;*/
     z-index: -1;
 }
 

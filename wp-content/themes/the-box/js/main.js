@@ -196,13 +196,18 @@ function init() {
             }
             var imgWdt = $('#cboxLoadedContent img').width();
             var imgHgt = $('#cboxLoadedContent img').height();
-            $('#cboxLoadedContent img').uberZoom({
-                width: imgWdt,
-                height: imgHgt,
-                navigator: true,
-                navigatorImagePreview: true,
-                rubberband: false
-            });
+            var natWdt = $('#cboxLoadedContent img').get(0).naturalWidth;
+            var natHgt = $('#cboxLoadedContent img').get(0).naturalHeight;
+            if (natHgt <= $(window).height()*0.7 && natWdt <= $(window).width()){
+                //$('.cboxPhoto').css('cursor', 'auto');
+            }
+            else $('#cboxLoadedContent img').uberZoom({
+                    width: imgWdt,
+                    height: imgHgt,
+                    navigator: true,
+                    navigatorImagePreview: true,
+                    rubberband: false
+                });
             if (typeof $mapattr !== typeof undefined && $mapattr !== false) {
                 $('#cboxLoadedContent img').attr('usemap', $mapattr);
                 initTags($mapattr);
@@ -243,7 +248,11 @@ function init() {
             setTimeout(function() {
                 var imgWdt = $('.lg-current.lg-complete .lg-img-wrap img').width();
                 var imgHgt = $('.lg-current.lg-complete .lg-img-wrap img').height();
-                $('.lg-current.lg-complete .lg-img-wrap img').uberZoom({
+                var natWdt = $('.lg-current.lg-complete .lg-img-wrap img').get(0).naturalWidth;
+                var natHgt = $('.lg-current.lg-complete .lg-img-wrap img').get(0).naturalHeight;
+                if (natWdt <= $('.lg-img-wrap').width() && natHgt <= $('.lg-img-wrap').height()){}
+                   // $('.lg-outer .lg-image').css('cursor','auto');
+                else $('.lg-current.lg-complete .lg-img-wrap img').uberZoom({
                     width: imgWdt,
                     height: imgHgt,
                     navigator: true,
