@@ -465,6 +465,25 @@
     0% { visibility: visible; -webkit-clip-path: inset(0px 0px 0% 0px); }
 }
 
+.clipCenterH{
+    -webkit-animation-name: clipCenterH;
+            animation-name: clipCenterH;
+    -webkit-animation-duration: 1000ms;
+            animation-duration: 1000ms;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+}
+
+@-webkit-keyframes clipCenterH {
+    0% { visibility: visible; -webkit-clip-path: inset(50% 0px 50% 0px); }
+    100% { visibility: visible; -webkit-clip-path: inset(0px 0px 0px 0px); }
+}
+
+@keyframes clipCenterH {
+    0% { visibility: visible; -webkit-clip-path: inset(50% 0px 50% 0px); }
+    100% { visibility: visible; -webkit-clip-path: inset(0px 0px 0px 0px); }
+}
+
 .jumpUp {
     -webkit-animation-name: jumpUp;
             animation-name: jumpUp;

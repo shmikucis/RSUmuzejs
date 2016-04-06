@@ -1490,9 +1490,7 @@ a.archive, div.archive{
     height: 100vh;
     left: -5% !important;
 }
-
-#bg1{
-    background: url(images/AI_Image.jpg) no-repeat center center;
+#background div{
     background-size: cover;
     position: absolute;
     width: 110%;
@@ -1500,7 +1498,21 @@ a.archive, div.archive{
     left: -5%;
     top: -5%; 
 }
-
+#bg1{
+    background: url(images/background/title1.jpg) no-repeat center center;    
+}
+#bg2{
+    background: url(images/background/title2.jpg) no-repeat center center;    
+}
+#bg3{
+    background: url(images/background/title3.jpg) no-repeat center center;    
+}
+#bg4{
+    background: url(images/background/title4.jpg) no-repeat center center;    
+}
+#bg5{
+    background: url(images/background/title5.jpg) no-repeat center center;    
+}
 #intro_content{
     position: relative;
     width: 100%;
@@ -1513,8 +1525,9 @@ a.archive, div.archive{
     text-align: center;
     background-image: url(images/ui/line_pattern.png);
     opacity: 0.9;
-    width: 120%;
-    margin-left: -10%;
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 1%;
     padding-top: 2.5%;
     padding-bottom: 2.5%;
 }
@@ -1534,7 +1547,7 @@ a.archive, div.archive{
     position: relative;
     text-align: center;
     font-family: palatino;
-    font-size: 30pt;
+    font-size: 48pt;
     color: #AB182B;
     font-weight: normal;
 }
@@ -1548,14 +1561,14 @@ a.archive, div.archive{
 
 #fore2{
     position: relative;
-    width: 26%;
+    /*width: 26%;*/
     margin: auto;
     text-align: center;
     font-family: palatino;
-    font-size: 15pt;
+    font-size: 20pt;
     color: #575756;
-    padding-left: 1%;
-    padding-right: 1%;
+/*    padding-left: 1%;
+    padding-right: 1%;*/
 }
 
 #fore3{
@@ -1575,7 +1588,7 @@ a.archive, div.archive{
     display: block;
     margin: auto;
     background-image: url(images/ui/readmore_big.png);
-    margin-top: 8vh;
+    margin-top: 12vh;
     cursor: pointer;
 }
 
@@ -1759,10 +1772,10 @@ a.archive, div.archive{
 }
 @media screen and (min-width: 1600px) {
     #fore1{
-        font-size:60pt;
+        font-size:78pt;
     }
     #fore2{
-        font-size: 21pt;
+        font-size: 26pt;
     }
     #foreLine{
         height: 2px;
@@ -1922,10 +1935,10 @@ a.archive, div.archive{
 
 @media screen and (min-width: 2000px) {
     #fore1{
-        font-size:72pt;
+        font-size:90pt;
     }
     #fore2{
-        font-size: 26pt;
+        font-size: 31pt;
     }
     #foreLine{
         height: 3px;
