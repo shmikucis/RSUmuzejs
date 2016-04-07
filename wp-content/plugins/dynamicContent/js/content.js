@@ -6,7 +6,7 @@ var Content = Class.extend({
         this.article = $('article');
         this.direction = 'down'; // up, down
         this.history = [];
-        window.inDoc = false;
+//        window.inDoc = false;
         var self = this;
         if(!isMobile){
         $(window).bind('mousewheel DOMmousescroll wheel', function(e) {
@@ -20,15 +20,15 @@ var Content = Class.extend({
                 }
             }
         });
-        
-        document.onmouseover = function() {
-            window.inDoc = true;
-        }
-
-        document.onmouseout = function() {
-            window.inDoc= false;
-        }
-
+//        
+//        document.onmouseover = function() {
+//            window.inDoc = true;
+//        };
+//
+//        document.onmouseout = function() {
+//            window.inDoc= false;
+//        };
+//        
         $(document).keyup(function(e) {
             if (scrollEnabled) {
                 switch (e.which) {
@@ -73,10 +73,11 @@ var Content = Class.extend({
             //    			var backUrl = self.history.pop();
             //    			self.drawFromUrl(backUrl);        	
         });
-        window.onhashchange = function(){
-            if (!this.inDoc){ 
+        window.onhashchange = function(e){
+//            if (!this.inDoc){ 
                 var hash = location.hash.slice(1);
-                self.drawFromUrl(hash);
+                if (hash !== self.history[self.history.length-1]) self.drawFromUrl(hash);
+//                console.log(e);
 //                if(location.hash === ("#"+self.history[self.history.length-2])) self.back();
 //                if (!isMobile) self.back();
 //            else{
@@ -85,7 +86,7 @@ var Content = Class.extend({
 //                var backUrl = self.history.pop();
 //                self.drawFromUrl(backUrl);
 //            }
-            }
+//            }
         };
         
 
@@ -175,6 +176,7 @@ var Content = Class.extend({
         if (!item) {
             var item = dynamicContent.getItem();
         }
+        
         this.add2History(item.post_name);
         if (this.article.html().trim().length === 0) { // calls first time after page is loaded
             this.drawIn(item);
@@ -731,7 +733,7 @@ var Content = Class.extend({
                   $('#background > div:first')
                     .appendTo('#background')
                     .addClass('clipCenterH');                    
-                },  4000);
+                },  6000);
                 
                 if (isMobile) {
                     $('#mback').addClass('hidden');
@@ -805,7 +807,7 @@ var Content = Class.extend({
                   $('#background > div:first')
                     .appendTo('#background')
                     .addClass('clipCenterH');                    
-                },  4000);
+                },  6000);
 
         }
 
