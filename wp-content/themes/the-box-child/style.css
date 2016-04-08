@@ -1554,7 +1554,7 @@ a.archive, div.archive{
 
 #foreLine {
     height: 1px;
-    width: 30%;
+    width: 45%;
     background-color: rgba(73, 14, 20, 0.3);
     margin: 0 auto;
 }
@@ -1584,11 +1584,13 @@ a.archive, div.archive{
 }
 
 #bigmore{
-    position: relative;
+    position: absolute;
+    left: 0;
+    right: 0;
     display: block;
     margin: auto;
     background-image: url(images/ui/readmore_big.png);
-    margin-top: 12vh;
+    bottom: 22vh;
     cursor: pointer;
 }
 
@@ -1617,6 +1619,9 @@ a.archive, div.archive{
 }
 
 @media screen and (max-width: 1024px){
+    #fore1{
+        font-size: 38pt;
+    }
     .global_botleft{
         left: 25vw !important;
     }
@@ -1772,7 +1777,7 @@ a.archive, div.archive{
 }
 @media screen and (min-width: 1600px) {
     #fore1{
-        font-size:78pt;
+        font-size:60pt;
     }
     #fore2{
         font-size: 26pt;
@@ -1935,7 +1940,7 @@ a.archive, div.archive{
 
 @media screen and (min-width: 2000px) {
     #fore1{
-        font-size:90pt;
+        font-size:76pt;
     }
     #fore2{
         font-size: 31pt;

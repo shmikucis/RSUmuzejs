@@ -87,8 +87,14 @@
     100% { visibility: visible; -webkit-clip-path: inset(0% 0px 0px 0px); }
 }
 @keyframes growUp {
-    0% { visibility: visible; -webkit-clip-path: inset(100% 0px 0px 0px); }
-    100% { visibility: visible; -webkit-clip-path: inset(0% 0px 0px 0px); }
+    0% { visibility: visible; 
+    /*-webkit-clip-path: inset(100% 0px 0px 0px);*/ 
+    opacity: 0;
+}
+    100% { visibility: visible; 
+           /*-webkit-clip-path: inset(0% 0px 0px 0px);*/ 
+           opacity: 0.9;
+    }
 }
 
 .growDown {
@@ -104,8 +110,14 @@
     100% { visibility: visible; -webkit-clip-path: inset(0px 0px 0% 0px); }
 }
 @keyframes growDown {
-    0% { visibility: visible; -webkit-clip-path: inset(0px 0px 100% 0px); }
-    100% { visibility: visible; -webkit-clip-path: inset(0px 0px 0% 0px); }
+    0% { visibility: visible; 
+    /*-webkit-clip-path: inset(0px 0px 100% 0px);*/ 
+    opacity: 0;
+}
+    100% { visibility: visible; 
+           /*-webkit-clip-path: inset(0px 0px 0% 0px);*/ 
+           opacity: 1;
+    }
 }
 
 .shrinkDown {
@@ -121,8 +133,14 @@
     0% { visibility: visible; -webkit-clip-path: inset(0% 0px 0px 0px); }
 }
 @keyframes shrinkDown {
-    100% { visibility: visible; -webkit-clip-path: inset(100% 0px 0px 0px); }
-    0% { visibility: visible; -webkit-clip-path: inset(0% 0px 0px 0px); }
+    100% { visibility: visible; 
+    /*-webkit-clip-path: inset(100% 0px 0px 0px);*/ 
+    opacity: 0;
+}
+    0% { visibility: visible; 
+         /*-webkit-clip-path: inset(0% 0px 0px 0px);*/ 
+         opacity: 0.9;
+    }
 }
 
 .shrinkUp {
@@ -138,8 +156,14 @@
     0% { visibility: visible; -webkit-clip-path: inset(0% 0px 0% 0px); }
 }
 @keyframes shrinkUp {
-    100% { visibility: visible; -webkit-clip-path: inset(0px 0px 100% 0px); }
-    0% { visibility: visible; -webkit-clip-path: inset(0% 0px 0% 0px); }
+    100% { visibility: visible; 
+    /*-webkit-clip-path: inset(0px 0px 100% 0px);*/ 
+    opacity: 0;
+}
+    0% { visibility: visible; 
+         /*-webkit-clip-path: inset(0% 0px 0% 0px);*/ 
+         opacity: 1;
+    }
 }
 
 .clipMoveUp {
@@ -155,8 +179,14 @@
     100% { visibility: visible; -webkit-clip-path: inset(0px 0px 0% 0px); -webkit-transform: translate(0,0); transform: translate(0,0); }
 }
 @keyframes clipMoveUp {
-    0% { visibility: visible; -webkit-clip-path: inset(0px 0px 100% 0px); -webkit-transform: translate(0,50px); transform: translate(0,50px); }
-    100% { visibility: visible; -webkit-clip-path: inset(0px 0px 0% 0px); -webkit-transform: translate(0,0); transform: translate(0,0); }
+    0% { visibility: visible; 
+    /*-webkit-clip-path: inset(0px 0px 100% 0px);*/ 
+    opacity: 0;
+    -webkit-transform: translate(0,50px); transform: translate(0,50px); }
+    100% { visibility: visible; 
+           /*-webkit-clip-path: inset(0px 0px 0% 0px);*/ 
+           opacity: 1;
+           -webkit-transform: translate(0,0); transform: translate(0,0); }
 }
 
 .clipMoveUpOut {
@@ -172,8 +202,14 @@
     100% { visibility: visible; -webkit-clip-path: inset(100% 0px 0px 0px); -webkit-transform: translate(0,-50px); transform: translate(0,-50px); }
 }
 @keyframes clipMoveUpOut {
-    0% { visibility: visible; -webkit-clip-path: inset(0px 0px 0px 0px); -webkit-transform: translate(0,0); transform: translate(0,0); }
-    100% { visibility: visible; -webkit-clip-path: inset(100% 0px 0px 0px); -webkit-transform: translate(0,-50px); transform: translate(0,-50px); }
+    0% { visibility: visible; 
+    /*-webkit-clip-path: inset(0px 0px 0px 0px);*/ 
+    opacity: 1;
+    -webkit-transform: translate(0,0); transform: translate(0,0); }
+    100% { visibility: visible; 
+           /*-webkit-clip-path: inset(100% 0px 0px 0px);*/ 
+           opacity: 0;
+           -webkit-transform: translate(0,-50px); transform: translate(0,-50px); }
 }
 
 .clipMoveUpLittleOut {
@@ -189,8 +225,14 @@
     100% { visibility: visible; -webkit-clip-path: inset(100% 0px 0px 0px); -webkit-transform: translate(0,-20px); transform: translate(0,-20px); }
 }
 @keyframes clipMoveUpLittleOut {
-    0% { visibility: visible; -webkit-clip-path: inset(0px 0px 0px 0px); -webkit-transform: translate(0,0); transform: translate(0,0); }
-    100% { visibility: visible; -webkit-clip-path: inset(100% 0px 0px 0px); -webkit-transform: translate(0,-20px); transform: translate(0,-20px); }
+    0% { visibility: visible; 
+    /*-webkit-clip-path: inset(0px 0px 0px 0px);*/ 
+    opacity: 1;
+    -webkit-transform: translate(0,0); transform: translate(0,0); }
+    100% { visibility: visible; 
+           /*-webkit-clip-path: inset(100% 0px 0px 0px);*/ 
+           opacity: 0;
+           -webkit-transform: translate(0,-20px); transform: translate(0,-20px); }
 }
 
 .clipMoveDown {
@@ -206,8 +248,14 @@
     100% { visibility: visible; -webkit-clip-path: inset(0% 0px 0px 0px); -webkit-transform: translate(0,0); transform: translate(0,0); }
 }
 @keyframes clipMoveDown {
-    0% { visibility: visible; -webkit-clip-path: inset(100% 0px 0px 0px); -webkit-transform: translate(0,-50px); transform: translate(0,-50px); }
-    100% { visibility: visible; -webkit-clip-path: inset(0% 0px 0px 0px); -webkit-transform: translate(0,0); transform: translate(0,0); }
+    0% { visibility: visible; 
+    /*-webkit-clip-path: inset(100% 0px 0px 0px);*/ 
+    opacity: 0;
+    -webkit-transform: translate(0,-50px); transform: translate(0,-50px); }
+    100% { visibility: visible; 
+           /*-webkit-clip-path: inset(0% 0px 0px 0px);*/ 
+           opacity: 1;
+           -webkit-transform: translate(0,0); transform: translate(0,0); }
 }
 
 .clipMoveDownOut {
@@ -223,8 +271,14 @@
     100% { visibility: visible; -webkit-clip-path: inset(0px 0px 100% 0px); -webkit-transform: translate(0,80px); transform: translate(0,80px); }
 }
 @keyframes clipMoveDownOut {
-    0% { visibility: visible; -webkit-clip-path: inset(0px 0px 0% 0px); -webkit-transform: translate(0,0); transform: translate(0,0); }
-    100% { visibility: visible; -webkit-clip-path: inset(0px 0px 100% 0px); -webkit-transform: translate(0,80px); transform: translate(0,80px); }
+    0% { visibility: visible; 
+    /*-webkit-clip-path: inset(0px 0px 0% 0px);*/ 
+    opacity: 1;
+    -webkit-transform: translate(0,0); transform: translate(0,0); }
+    100% { visibility: visible; 
+           /*-webkit-clip-path: inset(0px 0px 100% 0px);*/ 
+           opacity: 0;
+           -webkit-transform: translate(0,80px); transform: translate(0,80px); }
 }
 
 .clipMoveDownLittle {
@@ -240,8 +294,14 @@
     100% { visibility: visible; -webkit-clip-path: inset(0% 0px 0px 0px); -webkit-transform: translate(0,0); transform: translate(0,0); }
 }
 @keyframes clipMoveDownLittle {
-    0% { visibility: visible; -webkit-clip-path: inset(100% 0px 0px 0px); -webkit-transform: translate(0,-20px); transform: translate(0,-20px); }
-    100% { visibility: visible; -webkit-clip-path: inset(0% 0px 0px 0px); -webkit-transform: translate(0,0); transform: translate(0,0); }
+    0% { visibility: visible; 
+    /*-webkit-clip-path: inset(100% 0px 0px 0px);*/ 
+    opacity: 0;
+    -webkit-transform: translate(0,-20px); transform: translate(0,-20px); }
+    100% { visibility: visible; -
+           /*webkit-clip-path: inset(0% 0px 0px 0px);*/ 
+           opacity: 1;
+           -webkit-transform: translate(0,0); transform: translate(0,0); }
 }
 
 .fadeInUp {
@@ -444,8 +504,14 @@
 }
 
 @keyframes clipCenterV {
-    0% { visibility: visible; -webkit-clip-path: inset(0px 50% 0px 50%); }
-    100% { visibility: visible; -webkit-clip-path: inset(0px 0px 0% 0px); }
+    0% { visibility: visible; 
+    /*-webkit-clip-path: inset(0px 50% 0px 50%);*/ 
+    width: 0%;
+}
+    100% { visibility: visible; 
+           /*-webkit-clip-path: inset(0px 0px 0% 0px);*/ 
+           width: 45%;
+    }
 }
 
 .clipCenterVOut {
@@ -461,8 +527,14 @@
     0% { visibility: visible; -webkit-clip-path: inset(0px 0px 0% 0px); }
 }
 @keyframes clipCenterVOut {
-    100% { visibility: visible; -webkit-clip-path: inset(0px 50% 0px 50%); }
-    0% { visibility: visible; -webkit-clip-path: inset(0px 0px 0% 0px); }
+    100% { visibility: visible; 
+    /*-webkit-clip-path: inset(0px 50% 0px 50%);*/ 
+    width: 0%;
+}
+    0% { visibility: visible; 
+         /*-webkit-clip-path: inset(0px 0px 0% 0px);*/ 
+         width: 45%;
+    }
 }
 
 .clipCenterH{
@@ -480,8 +552,14 @@
 }
 
 @keyframes clipCenterH {
-    0% { visibility: visible; -webkit-clip-path: inset(50% 0px 50% 0px); }
-    100% { visibility: visible; -webkit-clip-path: inset(0px 0px 0px 0px); }
+    0% { visibility: visible; 
+    top: 45%;
+    height: 0%;
+}
+    100% { visibility: visible; 
+           top: -5%;
+           height: 100%;
+    }
 }
 
 .jumpUp {
