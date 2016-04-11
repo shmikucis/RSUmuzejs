@@ -733,11 +733,12 @@ var Content = Class.extend({
                   $('#background > div:first')
                     .appendTo('#background')
                     .addClass('clipCenterH');                    
-                },  6000);
+                },  8750);
                 
                 if (isMobile) {
                     $('#mback').addClass('hidden');
                 }
+                else $('#bigmore').css('bottom', $('#footer').height()*1.8 + $('#bigmore').height());
             } else {
                 $('#footer .social').css('display', 'none')
                 if (isMobile) {
@@ -794,6 +795,7 @@ var Content = Class.extend({
                 $("#mcontinue").attr('id', "bigmore");
                 this.animateObject('#mfooter #bigmore', 'fadeInUp2', 100, 'in');
             }
+            else $('#bigmore').css('bottom', $('#footer').height()*1.8 + $('#bigmore').height());
             $('#footer').css('background-image','none');
             this.removeAnimation('#footer .social', 'moveDownOut');
             this.animateObject('#footer .social', 'moveUp', 100, 'in');
@@ -807,7 +809,7 @@ var Content = Class.extend({
                   $('#background > div:first')
                     .appendTo('#background')
                     .addClass('clipCenterH');                    
-                },  6000);
+                },  8750);
 
         }
 
@@ -953,7 +955,7 @@ var Content = Class.extend({
                     '<header class="entry-header main_title layer" data-depth="0.3">' + '</header>' + '<div id="intro" class="layer" data-depth="0">' + '<div id ="background" class="layer" data-depth="0.2">' + '<div id="bg1"></div>' + '<div id="bg2"></div>' + '<div id="bg3"></div>' + '<div id="bg4"></div>' + '<div id="bg5"></div>' + '</div>' + '<div id="intro_content" class="layer" data-depth="0">' + item.post_content + '</div>' + '</div>'
                 );
                 else this.article.append(
-                    '<header class="entry-header main_title layer" data-depth="0.3">' + '</header>' + '<div id="intro" class="layer" data-depth="0">' + '<div id ="background" class="layer" data-depth="0.2">' + '<div id="bg1"></div>' + '<div id="bg2"></div>' + '<div id="bg3"></div>' + '<div id="bg4"></div>' + '<div id="bg5"></div>' + '</div>' + '<div id="intro_content" class="layer" data-depth="0">' + item.post_content + '</div>' + '<div id="bigmore"></div>' + '</div>'
+                    '<header class="entry-header main_title layer" data-depth="0.3">' + '</header>' + '<div id="intro" class="layer" data-depth="0">' + '<div id ="background" class="layer" data-depth="0.2">' + '<div id="bg1"></div>' + '<div id="bg2"></div>' + '<div id="bg3"></div>' + '<div id="bg4"></div>' + '<div id="bg5"></div>' + '</div>' + '<div id="intro_content" class="layer" data-depth="0" style="margin-top: 22vmin">' + item.post_content + '</div>' + '<div id="bigmore"></div>' + '</div>'
                 );
                 break;
             case 'templates/citation-full.php':

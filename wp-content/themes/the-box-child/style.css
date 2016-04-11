@@ -144,12 +144,14 @@ This Theme is licensed under the GPL.
 html{
 	height: 100vh;
 	width: 100%;
-        min-width: 900px;
+        /*min-width: 900px;*/
 }
 
 body{
     margin: 0px;
     padding: 0px;
+    min-width: 600px;
+    min-height: 550px;
 }
 a{
     outline: 0;
@@ -1491,12 +1493,17 @@ a.archive, div.archive{
     left: -5% !important;
 }
 #background div{
-    background-size: cover;
+    background-size: auto 110vh;
     position: absolute;
     width: 110%;
     height: 110%;
     left: -5%;
     top: -5%; 
+}
+@media screen and (min-aspect-ratio: 154/100){
+    #background div{
+        background-size: 110vw auto;
+}
 }
 #bg1{
     background: url(images/background/title1.jpg) no-repeat center center;    
@@ -1555,6 +1562,7 @@ a.archive, div.archive{
 #foreLine {
     height: 1px;
     width: 45%;
+    min-width: 270px;
     background-color: rgba(73, 14, 20, 0.3);
     margin: 0 auto;
 }
@@ -1597,6 +1605,17 @@ a.archive, div.archive{
 /*Titullapas beigas*/
 
 /*media lietas*/
+
+
+@media screen and (max-width: 1024px){
+    #fore1{
+        font-size: 38pt;
+    }
+    .global_botleft{
+        left: 25vw !important;
+    }
+}
+
 @media screen and (max-width: 620px) {
     .text_popup#colorbox{
         width:90vw !important;
@@ -1616,14 +1635,17 @@ a.archive, div.archive{
     .mejs-inner p{
         font-size: 6pt !important;
     }
+    #fore1 {
+        font-size: 32pt;
+    }
 }
 
-@media screen and (max-width: 1024px){
+@media screen and (max-width: 400px){
     #fore1{
-        font-size: 38pt;
+        font-size: 26pt;
     }
-    .global_botleft{
-        left: 25vw !important;
+    #fore2{
+        font-size: 16pt;
     }
 }
 
