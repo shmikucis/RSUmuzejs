@@ -145,6 +145,8 @@ html{
 	height: 100vh;
 	width: 100%;
         /*min-width: 900px;*/
+        min-width: 600px;
+        min-height: 550px;
 }
 
 body{
@@ -1531,12 +1533,12 @@ a.archive, div.archive{
     position: relative !important;
     text-align: center;
     background-image: url(images/ui/line_pattern.png);
-    opacity: 0.9;
+    /*opacity: 0.9;*/
     width: 90%;
     margin-left: 5%;
-    margin-top: 1%;
+    /*margin-top: 1%;*/
     padding-top: 2.5%;
-    padding-bottom: 2.5%;
+    padding-bottom: 3.5%;
 }
 
 #mid2{
@@ -1557,6 +1559,7 @@ a.archive, div.archive{
     font-size: 48pt;
     color: #AB182B;
     font-weight: normal;
+    line-height: 125%;
 }
 
 #foreLine {
@@ -1564,7 +1567,7 @@ a.archive, div.archive{
     width: 45%;
     min-width: 270px;
     background-color: rgba(73, 14, 20, 0.3);
-    margin: 0 auto;
+    margin: 1vh auto 1vh auto;
 }
 
 #fore2{
@@ -1592,14 +1595,15 @@ a.archive, div.archive{
 }
 
 #bigmore{
-    position: absolute;
+    position: relative;
     left: 0;
     right: 0;
     display: block;
     margin: auto;
     background-image: url(images/ui/readmore_big.png);
-    bottom: 22vh;
+    /*bottom: 22vh;*/
     cursor: pointer;
+    opacity: 1 !important;
 }
 
 /*Titullapas beigas*/
@@ -1611,44 +1615,14 @@ a.archive, div.archive{
     #fore1{
         font-size: 38pt;
     }
-    .global_botleft{
-        left: 25vw !important;
-    }
-}
-
-@media screen and (max-width: 620px) {
-    .text_popup#colorbox{
-        width:90vw !important;
-    }
-    .popup{
-        width: 76vw !important;
-    }
-    .pic_popup#colorbox #cboxTitle{
-        width:90%;
-    }
-    .global_botmid{
-        left: 40% !important;
-    }
-    .global_botleft{
-        left: 25vw !important;
-    }
-    .mejs-inner p{
-        font-size: 6pt !important;
-    }
-    #fore1 {
-        font-size: 32pt;
-    }
-}
-
-@media screen and (max-width: 400px){
-    #fore1{
-        font-size: 26pt;
-    }
     #fore2{
-        font-size: 16pt;
+        font-size: 18pt;
+    }
+    
+    .global_botleft{
+        left: 25vw !important;
     }
 }
-
 @media screen and (max-width: 950px) {
     
     .text_popup#colorbox{
@@ -1720,11 +1694,60 @@ a.archive, div.archive{
         height: 50px;
         background-size: 200px 100px;
         background-position: 0px 0px;
+        margin-top: -25px;
+        
     }
     #bigmore:hover{
         background-position: 0% 100%;
     }
 }
+@media screen and (max-width: 620px) {
+    .text_popup#colorbox{
+        width:90vw !important;
+    }
+    .popup{
+        width: 76vw !important;
+    }
+    .pic_popup#colorbox #cboxTitle{
+        width:90%;
+    }
+    .global_botmid{
+        left: 40% !important;
+    }
+    .global_botleft{
+        left: 25vw !important;
+    }
+    .mejs-inner p{
+        font-size: 6pt !important;
+    }
+    #fore1 {
+        font-size: 32pt;
+    }
+    #fore2{
+        font-size: 16pt;
+    }
+     #bigmore{
+        width: 160px;
+        height: 40px;
+        background-size: 160px 80px;
+        background-position: 0px 0px;
+        margin-top: -20px;
+        
+    }
+    #bigmore:hover{
+        background-position: 0% 100%;
+    }
+}
+
+@media screen and (max-width: 400px){
+    #fore1{
+        font-size: 26pt;
+    }
+    #fore2{
+        font-size: 14pt;
+    }
+}
+
 @media screen and (min-width:950px){
    .citation_logo{
         width: 20px;
@@ -1792,6 +1815,7 @@ a.archive, div.archive{
         height: 50px;
         background-size: 200px 100px;
         background-position: 0px 0px;
+        margin-top: -25px;
     }
     #bigmore:hover{
         background-position: 0% 100%;
@@ -1954,6 +1978,7 @@ a.archive, div.archive{
         height: 55px;
         background-size: 220px 110px;
         background-position: 0px 0px;
+        margin-top: -27.5px
     }
     #bigmore:hover{
         background-position: 0% 100%;
@@ -2102,6 +2127,7 @@ a.archive, div.archive{
         height: 82px;
         background-size: 330px 164px;
         background-position: 0px 0px;
+        margin-top: -41px;
     }
     #bigmore:hover{
         background-position: 0% 100%;
@@ -2175,6 +2201,7 @@ a.archive, div.archive{
         height: 110px;
         background-size: 440px 220px;
         background-position: 0px 0px;
+        margin-top: -55px;
     }
     #bigmore:hover{
         background-position: 0% 100%;

@@ -40,6 +40,7 @@ $(window).resize(function() {
         if (dynamicContent.getItem().template === "templates/video.php") setHeadFootSize(true);
         else setHeadFootSize(false);
         if (dynamicContent.getItem().template === "templates/searchResults.php") resizeSrcRes();
+        if (dynamicContent.getItem().template === "templates/title.php") $('#mid1').css('padding-bottom', $('#bigmore').height());
     } else {
         mContinue();
         if($('div.text_container_right').length>0) $('div.text_container_right').css('left', $('.mcit img').width());

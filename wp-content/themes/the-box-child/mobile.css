@@ -74,7 +74,7 @@ div.top_bar{
 #background div{
     top: 0;
     left: 0;
-    background-size: auto 110vh;
+    /*background-size: auto 110vh;*/
 }
 
 #mid1 {
