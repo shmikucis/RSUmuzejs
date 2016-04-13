@@ -6,11 +6,16 @@
 	$dynamicContent = new DynamicContent();
 	class DynamicContent {
 	    public function __construct(){
-	        
+	        $this -> lang = "";
+	    }
+
+	    public function setLang($lang){
+	    	$this -> lang = $lang;
 	    }
 
 	    public function getMenu(){
-	    	$menu = wp_get_nav_menu_items( 'Main', 
+	    	$menuName = $this->lang === "" ? "Main" : "EN Menu";
+	    	$menu = wp_get_nav_menu_items( $menuName, 
 	    		array(
 	    			'order' => 'ASC'
 	    			, 'orderby' => 'menu_order'
@@ -102,6 +107,7 @@
 
 	    	echo '<script>
 	    		var URLS = {};
+	    		URLS.lang = "'.$this->lang.'";
 	    		URLS.site = "'.get_option('siteurl').'/";
 	    		URLS.stylesheet = "'.get_stylesheet_directory_uri().'";
 	    		var NAVIGATION = '.json_encode($navigation).';
