@@ -9,7 +9,7 @@ var DynamicContent = Class.extend({
     set: function(item) {
         if (item) {
             this.activeMenuItem = item.menu_item_id;
-            window.location.href = URLS.site + '#' + item.post_name;
+            window.location.href = URLS.site + URLS.lang + '#' + item.post_name;
         } else {
             console.log('NO ITEM!');
         }

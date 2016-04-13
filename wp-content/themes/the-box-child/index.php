@@ -12,7 +12,6 @@
  * @since The Box 1.0
  */
 get_header(); ?>
-
 		<div id="primary" class="content-area">
 			<div id="fullpage" class="site-content scene" role="main">
                 <article class="section" id="post-157">            
