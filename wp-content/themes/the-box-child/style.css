@@ -1486,6 +1486,11 @@ a.archive, div.archive{
     height: 100vh;
     z-index: 999;
 }
+@media screen and (max-aspect-ratio: 4/3){
+    #intro #intro_content{
+        margin-top: 25vh !important;
+    }
+}
 
 #background
 {
