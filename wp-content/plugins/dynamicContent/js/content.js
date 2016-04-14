@@ -956,7 +956,7 @@ var Content = Class.extend({
                     '<header class="entry-header main_title layer" data-depth="0.3">' + '</header>' + '<div id="intro" class="layer" data-depth="0">' + '<div id ="background" class="layer" data-depth="0.2">' + '<div id="bg1"></div>' + '<div id="bg2"></div>' + '<div id="bg3"></div>' + '<div id="bg4"></div>' + '<div id="bg5"></div>' + '</div>' + '<div id="intro_content" class="layer" data-depth="0">' + item.post_content + '</div>' + '</div>'
                 );
                 else this.article.append(
-                    '<header class="entry-header main_title layer" data-depth="0.3">' + '</header>' + '<div id="intro" class="layer" data-depth="0">' + '<div id ="background" class="layer" data-depth="0.2">' + '<div id="bg1"></div>' + '<div id="bg2"></div>' + '<div id="bg3"></div>' + '<div id="bg4"></div>' + '<div id="bg5"></div>' + '</div>' + '<div id="intro_content" class="layer" data-depth="0" style="margin-top: 20vh">' + item.post_content + '<div id="bigmore"></div>' + '</div>' + '</div>'
+                    '<header class="entry-header main_title layer" data-depth="0.3">' + '</header>' + '<div id="intro" class="layer" data-depth="0">' + '<div id ="background" class="layer" data-depth="0.2">' + '<div id="bg1"></div>' + '<div id="bg2"></div>' + '<div id="bg3"></div>' + '<div id="bg4"></div>' + '<div id="bg5"></div>' + '</div>' + '<div id="intro_content" class="layer" data-depth="0" style="margin-top: 25vh">' + item.post_content + '<div id="bigmore"></div>' + '</div>' + '</div>'
                 );
                 break;
             case 'templates/citation-full.php':

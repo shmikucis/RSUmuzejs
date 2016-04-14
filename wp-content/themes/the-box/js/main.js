@@ -197,8 +197,14 @@ function init() {
             }
             var imgWdt = $('#cboxLoadedContent img').width();
             var imgHgt = $('#cboxLoadedContent img').height();
-            var natWdt = $('#cboxLoadedContent img').get(0).naturalWidth;
-            var natHgt = $('#cboxLoadedContent img').get(0).naturalHeight;
+            if($('#cboxLoadedContent img').get(0)){
+                var natWdt = $('#cboxLoadedContent img').get(0).naturalWidth;
+                var natHgt = $('#cboxLoadedContent img').get(0).naturalHeight;
+            }
+            else {
+                var natWdt = null;
+                var natHgt = null;
+            }
             if (natHgt <= $(window).height()*0.7 && natWdt <= $(window).width()){
                 //$('.cboxPhoto').css('cursor', 'auto');
             }
