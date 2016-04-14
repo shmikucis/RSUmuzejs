@@ -550,7 +550,7 @@ var Content = Class.extend({
     setBackground: function(item) {
         if(isMobile){
             var bgElem = $('#fullpage');
-            if (item.post_name === "ievads-2") {
+            if (item.post_name === "ievads" || item.post_name === "intro") {
                 bgElem.css('background-image', 'url(' + URLS.stylesheet + '/images/background/mobile/' + item.post_name + '.jpg)');
             } else if (item.template === "templates/menu.php" || item.template === "templates/menu2.php") {
                 bgElem.css('background-image', 'url(' + URLS.stylesheet + '/images/background/mobile/mcardboard.jpg)');
@@ -574,8 +574,9 @@ var Content = Class.extend({
             var bgAct = $('.head_image div.layer.active');
             if(bgElem.length){
                 if(dynamicContent.getByMenuID(item.menu_item_parent)) var parent = dynamicContent.getByMenuID(item.menu_item_parent);
+                else if (URLS.lang === "en/")var parent = dynamicContent.getItemByUrl('title');
                 else var parent = dynamicContent.getItemByUrl('titullapa');
-                if (item.post_name === "ievads-2" || item.post_name === "mainmenu") {
+                if (item.post_name === "ievads" || item.post_name === "izvelne" || item.post_name === "menu" || item.post_name === "intro") {
                     bgElem.css('background-image', 'url(' + URLS.stylesheet + '/images/background/intro.jpg)');
                 }
                 else if (~item.post_name.indexOf('attistiba') || ~item.post_name.indexOf('medicinas') || ~item.post_name.indexOf('universitate') || ~item.post_name.indexOf('rektori') || ~item.post_name.indexOf('dzimta') || ~parent.post_name.indexOf('rektori')){
@@ -720,7 +721,7 @@ var Content = Class.extend({
     ,
     drawExceptionsIn: function(prevItem, nextItem) {
         if (prevItem === nextItem) { // calls once right after page is laoded
-            if (prevItem.post_name == 'titullapa') {
+            if (prevItem.template == 'templates/title.php') {
                 $('.head_image, .head_image_bot').addClass('hidden');
                 $('#footer').css('background-image','none');
                 //$('#continue').addClass('hidden none');
@@ -776,7 +777,7 @@ var Content = Class.extend({
                 scrollEnabled = false;
             }
 
-            if (nextItem.post_name !== 'ievads-2') {
+            if (nextItem.post_name !== 'ievads' || nextItem.post_name !== 'intro') {
                 $('#continue').addClass('hidden none');
                 $('#continue').css('display', 'none');
             }
@@ -784,12 +785,12 @@ var Content = Class.extend({
 
             return;
         }
-        if (nextItem.post_name === 'ievads-2') {
+        if (nextItem.post_name === 'ievads' || nextItem.post_name === 'intro') {
             this.removeAnimation('#continue', 'none moveDownOut');
             $('#continue').css('display', 'block');
             this.animateObject('#continue', 'moveUp', 100, 'in');            
         }
-        if (nextItem.post_name == 'titullapa') {
+        if (nextItem.template == 'templates/title.php') {
             if (isMobile) {
                 $('#mback').addClass('hidden');
                 $("#mcontinue").attr('id', "bigmore");
@@ -813,7 +814,7 @@ var Content = Class.extend({
 
         }
 
-        if (prevItem.post_name == 'titullapa') {
+        if (prevItem.template == 'templates/title.php') {
             this.removeAnimation('.head_image', 'moveUpOut');
             this.removeAnimation('.head_image_bot', 'moveUpOut');
             //this.removeAnimation('#continue', 'none moveDownOut');
@@ -874,12 +875,12 @@ var Content = Class.extend({
     ,
     drawExceptionsOut: function(prevItem, nextItem) {
         if (prevItem === nextItem) return;
-        if (prevItem.post_name == 'ievads-2') {
+        if (prevItem.post_name == 'ievads' || prevItem.post_name === 'intro') {
             this.removeAnimation('#continue', 'moveUp');
             this.animateObject('#continue', 'moveDownOut', 100, 'out');
             setTimeout(function(){$('#continue').css('display', 'none');},100);
         }
-        if (nextItem.post_name == 'titullapa') {
+        if (nextItem.template == 'templates/title.php') {
             this.removeAnimation('.head_image', 'moveDown');
             this.removeAnimation('.head_image_bot', 'moveDown');
             //this.removeAnimation('#continue', 'moveUp');
@@ -892,7 +893,7 @@ var Content = Class.extend({
                 this.animateObject('#mcontinue', 'moveDownOut', 100, 'out');
             }
         }
-        if (prevItem.post_name == 'titullapa') {
+        if (prevItem.template == 'templates/title.php') {
             this.removeAnimation('#footer .social', 'moveUp');
             this.animateObject('#footer .social', 'moveDownOut', 100, 'out');
             setTimeout(function(){$('#footer .social').css('display', 'none');},100);

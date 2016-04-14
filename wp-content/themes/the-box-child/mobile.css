@@ -91,6 +91,7 @@ div.top_bar{
 }
 #foreLine{
    width: 90%; 
+   min-width: 70px;
 }
 #fore2{
     width: auto;
