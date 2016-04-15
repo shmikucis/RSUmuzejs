@@ -144,16 +144,16 @@ This Theme is licensed under the GPL.
 html{
 	height: 100vh;
 	width: 100%;
-        /*min-width: 900px;*/
+/*        min-width: 900px;
         min-width: 600px;
-        min-height: 550px;
+        min-height: 550px;*/
 }
 
 body{
     margin: 0px;
     padding: 0px;
-    min-width: 600px;
-    min-height: 550px;
+/*    min-width: 600px;
+    min-height: 550px;*/
 }
 a{
     outline: 0;
@@ -897,6 +897,9 @@ p.vnarrow.author_text_single{
     z-index: 999;
     cursor: pointer;
 }
+.en #continue{
+    background-image: url(images/ui/continue_en.png);
+}
 #backToMenu{
     display: none !important;
     position: absolute;
@@ -1006,6 +1009,9 @@ p.vnarrow.author_text_single{
     text-decoration: none;
     color: inherit;
 }
+.contacts a:hover{
+    color: darkred;
+}
 .contacts p:first-of-type{
     padding-top: 8%;
 }
@@ -1066,6 +1072,9 @@ p.narrow{
     background-image: url(images/ui/readmore.png);
     cursor: pointer;
 }
+.en .readmore{
+    background-image: url(images/ui/readmore_en.png);
+}
 
 .aboutvid{
     position: relative;
@@ -1074,6 +1083,9 @@ p.narrow{
     vertical-align: middle;
     -webkit-transform: translateX(10%);
             transform: translateX(10%);
+}
+.en .aboutvid{
+    background-image: url(images/ui/aboutvid_en.png);
 }
 
 a.obj_icon, div.obj_icon{
@@ -1487,7 +1499,7 @@ a.archive, div.archive{
     z-index: 999;
 }
 #intro #intro_content{
-        margin-top: 34vh !important;
+        margin-top: 34vh;
     }
 @media screen and (min-aspect-ratio: 5/3){
     #intro #intro_content{
@@ -1612,6 +1624,9 @@ a.archive, div.archive{
     /*bottom: 22vh;*/
     cursor: pointer;
     opacity: 1 !important;
+}
+.en #bigmore{
+    background-image: url(images/ui/readmore_big_en.png);
 }
 
 /*Titullapas beigas*/

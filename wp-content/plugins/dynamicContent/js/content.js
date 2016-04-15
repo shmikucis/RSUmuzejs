@@ -165,6 +165,18 @@ var Content = Class.extend({
             }
             self.draw(item);
         });
+        
+        if (URLS.lang === "en/") {
+            $('#page').addClass('en');
+            $('.en #logo_link').attr('href', window.location.origin+window.location.pathname);
+            $('#sidemenu, #msidemenu').remove();
+            $('#sidemenu_en').attr('id', 'sidemenu');
+            $('#msidemenu_en').attr('id', 'msidemenu');
+        }
+        else {
+            $('#page').removeClass('en');
+            $('#sidemenu_en, #msidemenu_en').remove();
+        }
     }
 
     ,

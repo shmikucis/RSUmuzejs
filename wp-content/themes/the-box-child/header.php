@@ -105,9 +105,53 @@ else
                 </ul>
             </div>
             
+            <div id='sidemenu_en'>
+                <ul>
+                   <li class='has-sub'><a><span>Beginnings</span></a>
+                       <ul>
+                         <li><a href='#medicine'><span>Medicine</span></a></li>
+                         <li><a href='#social-sciences'><span>Social sciences</span></a></li>
+                       </ul>
+                   </li>
+                   <li class='has-sub'><a><span>Development</span></a>
+                      <ul>
+                         <li><a href='#rigas-medicinas-instituts'><span>Rīgas Medicīnas institūts</span></a></li>
+                         <li><a href='#latvijas-medicinas-akademija'><span>Latvijas Medicīnas akadēmija</span></a></li>
+                         <li><a href='#rigas-stradina-universitate'><span>Rīgas Stradiņa universitāte</span></a></li>
+                         <li><a href='#rektori-menu'><span>Rektori</span></a></li>
+                      </ul>
+                   </li>
+                   <li><a href="#augstskolas-struktura"><span>Structure</span></a>
+                   </li>
+                   <li class='has-sub'><a><span>Research and paedagogy</span></a>
+                       <ul>
+                         <li><a href='#zinatne'><span>Zinātne</span></a></li>
+                         <li><a href='#pedagogija'><span>Pedagoģija</span></a></li>
+                       </ul>
+                   </li>
+                   <li class='has-sub'><a><span>Personalities</span></a>
+                      <ul>
+                         <li><a href='#veselibas-aprupe'><span>Veselības aprūpe</span></a></li>
+                         <li><a href='#socialas-zinatnes2'><span>Sociālās zinātnes</span></a></li>
+                         <li><a href='#atpazistamas-personibas'><span>Atpazīstamas personības</span></a></li>
+                      </ul>
+                   </li>
+                   <li class='has-sub'><a><span>Activities</span></a>
+                      <ul>
+                         <li><a href='#polakt'><span>Okupācijas laikā</span></a></li>
+                         <li><a href='#sabakt'><span>Sabiedriskās aktivitātes</span></a></li>
+                         <li><a href='#kolektivi'><span>Mākslinieciskie kolektīvi</span></a></li>                         
+                         <li><a href='#sports'><span>Sports</span></a></li>
+                         <li><a href='#svetki'><span>Tradīcijas</span></a></li>
+                      </ul>
+                   </li>
+                   <li><a href="#kontakti"><span>Contacts</span></a>
+                </ul>
+            </div>
+            
             <div id='msidemenu'>
                 <ul>
-                   <li class='has-sub'><div></div><a href='#pirmsakumi-menu'><span>Studiju virzienu pirmsākumi</span></a>
+                   <li class='has-sub'><div></div><a href='#pirmsakumi'><span>Studiju virzienu pirmsākumi</span></a>
                        <ul>
                          <li><a href='#medicina'><span>Medicīna</span></a></li>
                          <li><a href='#socialas-zinatnes'><span>Sociālās zinātnes</span></a></li>
@@ -145,12 +189,63 @@ else
                          <li><a href='#svetki'><span>Tradīcijas</span></a></li>
                       </ul>
                    </li>
-                   <li class='has-sub' id='mcontacts'><div></div><a href="#" id='contlink'>&nbsp;<span>Kontakti</span></a>
+                   <li class='has-sub' id='mcontacts'><div></div><a href="#" id='contlink'><span>Kontakti</span></a>
                        <ul>
                            <li>
                                <p>Tālrunis: <a href="tel:22003426">22003426</a></p>
                                <p>E-pasts: <a href="mailto:muzejs@rsu.lv">muzejs@rsu.lv</a></p>
                                <p><a href="http://www.rsu.lv/par-rsu/rsu-muzejs" id='mcont_link'>http://www.rsu.lv/par-rsu/rsu-muzejs</a></p>
+                           </li>
+                       </ul>
+                   </li>
+                </ul>
+            </div>
+            
+            <div id='msidemenu_en'>
+                <ul>
+                   <li class='has-sub'><div></div><a href='#beginnings'><span>Beginnings</span></a>
+                       <ul>
+                         <li><a href='#medicine'><span>Medicine</span></a></li>
+                         <li><a href='#social-sciences'><span>Social sciences</span></a></li>
+                       </ul>
+                   </li>
+                   <li class='has-sub'><div></div><a href="#development-menu"><span>University development</span></a>
+                      <ul>
+                         <li><a href='#rigas-medicinas-instituts'><span>Rīgas Medicīnas institūts</span></a></li>
+                         <li><a href='#latvijas-medicinas-akademija'><span>Latvijas Medicīnas akadēmija</span></a></li>
+                         <li><a href='#rigas-stradina-universitate'><span>Rīgas Stradiņa universitāte</span></a></li>
+                         <li><a href='#rektori-menu'><span>Rektori</span></a></li>
+                      </ul>
+                   </li>
+                   <li><a href="#institution-structure"><span>Structure of the institution</span></a>
+                   </li>
+                   <li class='has-sub'><div></div><a href="#research-paedagogy"><span>Research and paedagogy</span></a>
+                       <ul>
+                         <li><a href='#zinatne'><span>Zinātne</span></a></li>
+                         <li><a href='#pedagogija'><span>Pedagoģija</span></a></li>
+                       </ul>
+                   </li>
+                   <li class='has-sub'><div></div><a href="#outstanding-personalities"><span>Outstanding personalities</span></a>
+                      <ul>
+                         <li><a href='#veselibas-aprupe'><span>Veselības aprūpe</span></a></li>
+                         <li><a href='#socialas-zinatnes2'><span>Sociālās zinātnes</span></a></li>
+                         <li><a href='#atpazistamas-personibas'><span>Atpazīstamas personības</span></a></li>
+                      </ul>
+                   </li>
+                   <li class='has-sub'><div></div><a href="#extracurricular-menu"><span>Extracurricular activities</span></a>
+                      <ul>
+                         <li><a href='#polakt'><span>Okupācijas laikā</span></a></li>
+                         <li><a href='#sabakt'><span>Sabiedriskās aktivitātes</span></a></li>
+                         <li><a href='#kolektivi'><span>Mākslinieciskie kolektīvi</span></a></li>                         
+                         <li><a href='#sports'><span>Sports</span></a></li>
+                         <li><a href='#svetki'><span>Tradīcijas</span></a></li>
+                      </ul>
+                   </li>
+                   <li class='has-sub' id='mcontacts'><div></div><a href="#" id='contlink'><span>Contacts</span></a>
+                       <ul>
+                           <li>
+                               <p>Phone: <a href="tel:22003426">22003426</a></p>
+                               <p>E-mail: <a href="mailto:muzejs@rsu.lv">muzejs@rsu.lv</a></p>
                            </li>
                        </ul>
                    </li>

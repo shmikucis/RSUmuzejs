@@ -1,5 +1,5 @@
 html{
-    min-width: 0px;
+    /*min-width: 0px;*/
     /*overflow: hidden;*/
     /*-ms-overflow-style: none;*/
     overflow: hidden;
@@ -65,6 +65,9 @@ div.top_bar{
     position: absolute;
     height:auto;
     margin-top: 16vh;
+}
+#intro #intro_content {
+     margin-top: 16vh; 
 }
 #background{
     height:100%;
@@ -132,11 +135,17 @@ div.top_bar{
 #bigmore{
     background-image: url(images/ui/mobile/readmore.png);
 }
+.en #bigmore{
+    background-image: url(images/ui/readmore_big_en.png);
+}
 /*#bigmore:hover {
     background-position: 0px 0px;
 }*/
 #mcontinue{
     background-image: url(images/ui/mobile/continue.png);
+}
+.en #mcontinue{
+    background-image: url(images/ui/continue_en.png);
 }
 /*#bigmore:focus, #bigmore:active, #mcontinue:focus, #mcontinue:active{
     background-position: 0% 100%;
@@ -814,6 +823,9 @@ ol.searchresults{
     width: 33vw;
     height: 7.5vw;
     margin-top: 5%;
+}
+.en .aboutvid{
+    background-image: url(images/ui/mobile/aboutvid_en.png);
 }
 #m_playvid{
     background-image: url(images/ui/mobile/video_start.png);
