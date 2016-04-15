@@ -1486,6 +1486,9 @@ a.archive, div.archive{
     height: 100vh;
     z-index: 999;
 }
+#intro #intro_content{
+        margin-top: 34vh !important;
+    }
 @media screen and (min-aspect-ratio: 5/3){
     #intro #intro_content{
         margin-top: 20vh !important;
