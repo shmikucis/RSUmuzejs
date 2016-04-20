@@ -473,6 +473,7 @@
 
             // start loading image
             self.img.src = self.obj_image.attr("src");
+            $('.ndd-uberzoom-container').css('cursor', 'url(' + URLS.stylesheet + '/images/ui/zoomin.cur), auto');
         },
 
         show_ui : function() {
@@ -973,8 +974,8 @@
             self.currentPosX = lerp(self.currentPosX, self.targetPosX, self.zoomSpeed);
             self.currentPosY = lerp(self.currentPosY, self.targetPosY, self.zoomSpeed);
             
-            if (self.currentZoom > 1.05) $('.ndd-uberzoom-content').css('cursor', 'zoom-out');
-            else $('.ndd-uberzoom-content').css('cursor', 'zoom-in');
+            if (self.currentZoom > 1.05) $('.ndd-uberzoom-container').css('cursor', 'url(' + URLS.stylesheet + '/images/ui/zoomout.cur), auto');
+            else $('.ndd-uberzoom-container').css('cursor', 'url(' + URLS.stylesheet + '/images/ui/zoomin.cur), auto');
             // Apply
             self.redraw();
 
@@ -1203,7 +1204,6 @@
 
         update_size : function() {
             var self = this;
-
             if (self.frameWidth == self.obj.width() && self.frameHeight == self.obj.height()) {
                 return;
             }

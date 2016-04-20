@@ -92,7 +92,7 @@
 	top: 0;
 	background: black;
 }
-.ndd-uberzoom-content{
-    -webkit-cursor: -webkit-zoom-in;
-    cursor: zoom-in;
-}
+/*.ndd-uberzoom-container{
+    /*-webkit-cursor: -webkit-zoom-in;*/
+    cursor: url('images/ui/zoomin.cur'), auto;
+}*/

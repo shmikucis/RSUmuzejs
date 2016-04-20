@@ -863,7 +863,7 @@
      */
     Plugin.prototype.goToPrevSlide = function(fromTouch) {
         var _this = this;
-        if(isMobile && $('.zoom').hasClass('zoomin')){
+//        if((isMobile && $('.zoom').hasClass('zoomin')) || !isMobile){
         if (!_this.lgBusy) {
             if (_this.index > 0) {
                 _this.index--;
@@ -882,7 +882,7 @@
                 }
             }
         }
-        }
+//        }
     };
 
     Plugin.prototype.keyPress = function() {

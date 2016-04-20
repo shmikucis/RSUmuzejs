@@ -220,11 +220,8 @@ function init() {
                 $('#cboxLoadedContent img').attr('usemap', $mapattr);
                 initTags($mapattr);
                 if ($.inArray($mapattr, $visitedMaps) === -1) {
-
-                    //                window.resizevar = $($mapattr).imageMapResize();
-//                    imageMapResize($mapattr);
-                    $('map').imageMapResize();
-                    $visitedMaps.push($mapattr);
+                    setTimeout(function(){$('map').imageMapResize();
+                    $visitedMaps.push($mapattr);},500);
                 }
             }
 
@@ -329,7 +326,8 @@ function init() {
             $('.mejs-duration-container').appendTo('.mejs-time-rail');
             $('.mejs-inner').prepend('<p>' + $('#footer audio').data('title') + '</p>');
             if (id !== "#kolektivi-audio2") {
-                $('.mejs-inner').append('<a href="' + id + '-text" class="mejs-textform cboxElement">Teksta formā</a>');
+                if (URLS.lang === 'en/') $('.mejs-inner').append('<a href="' + id + '-text" class="mejs-textform cboxElement">Transcript</a>');
+                else $('.mejs-inner').append('<a href="' + id + '-text" class="mejs-textform cboxElement">Teksta formā</a>');
             } else {
                 $(".mejs-controls").css("width", 80 + "%");
                 $(".mejs-inner p").css({
@@ -436,7 +434,6 @@ function mInit() {
             }
             else if(popupBtn.hasClass('aboutvid')){
                 $('#colorbox .citation_logo').attr('id', 'vidicon');
-                console.log(1);
             }
             if(popupBtn.hasClass('pic_single')){
                 $('#cboxWrapper').append('<div class="pictoolbar"><div class="zoom zoomin"></div><div id="lg-counter">1/<span id="lg-counter-all">1</span></div><div class="showtext"></div></div>');
@@ -447,8 +444,8 @@ function mInit() {
                 $('#cboxTitle').append('<div>'+$titleattr+'</div><div class="mclose"></div>');
                 
                 $('#cboxTitle').css('display', 'none');
-            if (typeof $titleattr === typeof undefined && $titleattr === false) {
-                $('#showtext').css('display', 'none');
+            if (typeof $titleattr === typeof undefined || $titleattr === false) {
+                $('.showtext').css('display', 'none');
                 }    
             $('.showtext').on('click', function(){
                 $('#cboxTitle').css('display', 'block');
@@ -741,13 +738,11 @@ function initTags(mapname) {
     if ($('#pictag').length <= 0)
         $('#cboxLoadedContent').append('<div id="pictag"></div>');
     $('#pictag').hide();
-
     $(mapname + ' area').each(
             
         function() {
-//    console.log(11);
             $(this).mouseover(function() {
-                if ($('.ndd-uberzoom-main-image').width() === $('.ndd-uberzoom-container').width()) {
+                if ($('.ndd-uberzoom-main-image').width() <= $('.ndd-uberzoom-container').width()+10) {
                     var name = $(this).data('name');
                     var coords = $(this).attr('coords').split(',');
                     var top = parseInt(coords[3]);
@@ -758,7 +753,6 @@ function initTags(mapname) {
                     $('#pictag').css('left', left);
                     $('#pictag').show();
                 }
-//                console.log(10);
             });
 
             $(this).mouseout(function() {

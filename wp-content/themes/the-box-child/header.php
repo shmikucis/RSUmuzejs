@@ -115,10 +115,10 @@ else
                    </li>
                    <li class='has-sub'><a><span>Development</span></a>
                       <ul>
-                         <li><a href='#rigas-medicinas-instituts'><span>Rīgas Medicīnas institūts</span></a></li>
-                         <li><a href='#latvijas-medicinas-akademija'><span>Latvijas Medicīnas akadēmija</span></a></li>
-                         <li><a href='#rigas-stradina-universitate'><span>Rīgas Stradiņa universitāte</span></a></li>
-                         <li><a href='#rektori-menu'><span>Rektori</span></a></li>
+                         <li><a href='#riga-medical-institute'><span>Rīga Medical Institute</span></a></li>
+                         <li><a href='#medical-academy-of-latvia'><span>Medical Academy of Latvia</span></a></li>
+                         <li><a href='#riga-stradins-university'><span>Rīga Stradiņš University</span></a></li>
+                         <li><a href='#rectors-menu'><span>Rectors</span></a></li>
                       </ul>
                    </li>
                    <li><a href="#augstskolas-struktura"><span>Structure</span></a>
@@ -211,10 +211,10 @@ else
                    </li>
                    <li class='has-sub'><div></div><a href="#development-menu"><span>University development</span></a>
                       <ul>
-                         <li><a href='#rigas-medicinas-instituts'><span>Rīgas Medicīnas institūts</span></a></li>
-                         <li><a href='#latvijas-medicinas-akademija'><span>Latvijas Medicīnas akadēmija</span></a></li>
-                         <li><a href='#rigas-stradina-universitate'><span>Rīgas Stradiņa universitāte</span></a></li>
-                         <li><a href='#rektori-menu'><span>Rektori</span></a></li>
+                         <li><a href='#riga-medical-institute'><span>Rīga Medical Institute</span></a></li>
+                         <li><a href='#medical-academy-of-latvia'><span>Medical Academy of Latvia</span></a></li>
+                         <li><a href='#riga-stradins-university'><span>Rīga Stradiņš University</span></a></li>
+                         <li><a href='#rectors-menu'><span>Rectors</span></a></li>
                       </ul>
                    </li>
                    <li><a href="#institution-structure"><span>Structure of the institution</span></a>

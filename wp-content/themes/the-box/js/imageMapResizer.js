@@ -21,8 +21,8 @@
             }
 
             var scallingFactor = {
-                width  : image.width  / image.naturalWidth,
-                height : image.height / image.naturalHeight
+                width  : image.width()  / image[0].naturalWidth,
+                height : image.height() / image[0].naturalHeight
             };
 
             cachedAreaCoordsArray.forEach(resizeAreaTag);
@@ -39,16 +39,16 @@
         }
 
         function start(){
-            if ((image.width !== image.naturalWidth) || (image.height !== image.naturalHeight)) {
+            if ((image.width() !== image[0].naturalWidth) || (image.height() !== image[0].naturalHeight)) {
                 resizeMap();
             }
         }
 
         function attach(){
             map._resize = resizeMap; //Bind resize method to HTML map element
-            image.addEventListener('onload',  resizeMap, false); //Detect late image loads in IE11
+            image[0].addEventListener('onload',  resizeMap, false); //Detect late image loads in IE11
             window.addEventListener('resize', debounce,  false);
-            window.addEventListener('focus',  resizeMap, false); //Cope with window being resized whilst on another tab
+//            window.addEventListener('focus',  resizeMap, false); //Cope with window being resized whilst on another tab
         }
 
         function beenHere(){
@@ -58,7 +58,8 @@
         function setup(){
             areas                 = map.getElementsByTagName('area');
             cachedAreaCoordsArray = Array.prototype.map.call(areas, getCoords);
-            image                 = document.querySelector('img[usemap="#'+map.name+'"]');
+            image                 = $('img[usemap="#'+map.name+'"]');//document.querySelector('img[usemap="#'+map.name+'"]');
+            
         }
 
         var
@@ -66,7 +67,7 @@
             map   = this,
                    
             areas = null, cachedAreaCoordsArray = null, image = null, timer = null;
-            console.log(typeof map._resize);
+//            console.log(typeof map._resize);
         if (!beenHere()){
             setup();
             attach();
