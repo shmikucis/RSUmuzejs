@@ -12,7 +12,7 @@ var Content = Class.extend({
         $(window).bind('mousewheel DOMmousescroll wheel', function(e) {
             var direction = e.originalEvent.deltaY / 120 > 0 ? 'down' : 'up';
 //            console.log(e);
-            if (scrollEnabled) {
+            if (scrollEnabled && dynamicContent.getItem().description !== 'singleSlide') {
                 if (direction === 'down') {
                     self.drawNext();
                 } else {
