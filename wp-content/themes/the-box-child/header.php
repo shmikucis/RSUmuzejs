@@ -118,7 +118,7 @@ else
                          <li><a href='#riga-medical-institute'><span>Rīga Medical Institute</span></a></li>
                          <li><a href='#medical-academy-of-latvia'><span>Medical Academy of Latvia</span></a></li>
                          <li><a href='#riga-stradins-university'><span>Rīga Stradiņš University</span></a></li>
-                         <li><a href='#rectors-menu'><span>Rectors</span></a></li>
+                         <li><a href='#rectors'><span>Rectors</span></a></li>
                       </ul>
                    </li>
                    <li><a href="#augstskolas-struktura"><span>Structure</span></a>
@@ -214,7 +214,7 @@ else
                          <li><a href='#riga-medical-institute'><span>Rīga Medical Institute</span></a></li>
                          <li><a href='#medical-academy-of-latvia'><span>Medical Academy of Latvia</span></a></li>
                          <li><a href='#riga-stradins-university'><span>Rīga Stradiņš University</span></a></li>
-                         <li><a href='#rectors-menu'><span>Rectors</span></a></li>
+                         <li><a href='#rectors'><span>Rectors</span></a></li>
                       </ul>
                    </li>
                    <li><a href="#institution-structure"><span>Structure of the institution</span></a>
