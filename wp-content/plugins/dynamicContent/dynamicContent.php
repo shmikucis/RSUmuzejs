@@ -47,6 +47,7 @@
 	    }
 
 	    public function getAttachments($list){
+                $menuName = $this->lang === "" ? "Main" : "EN Menu";
 	    	$attachments = array();
 	    	$my_wp_query = new WP_Query();
 	    	foreach($list as $post){
@@ -73,11 +74,17 @@
 	    				$images = array();
 	    				foreach($gallery['ids'] as $imageID){
 	    					$image = get_post($imageID);
-	    					array_push($images, array(
-	    						'ID' => $image -> ID
-	    						, 'url' => $image -> guid
-	    						, 'description' => $image -> post_content
-	    					));
+                                                if ($menuName === "Main")
+                                                    array_push($images, array(
+                                                            'ID' => $image -> ID
+                                                            , 'url' => $image -> guid
+                                                            , 'description' => $image -> post_content
+                                                    ));
+                                                else array_push($images, array(
+                                                            'ID' => $image -> ID
+                                                            , 'url' => $image -> guid
+                                                            , 'description' => $image -> post_excerpt
+                                                    ));
 	    				}
 	    				
 	    				// var_dump($image);
