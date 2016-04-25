@@ -114,7 +114,8 @@ var Content = Class.extend({
         
 
         $("#searchbutton").bind("click", function() {
-            var item = dynamicContent.getItemByUrl("meklesanas-rezultati");
+            if (URLS.lang = 'en/') var item = dynamicContent.getItemByUrl("search-results");
+            else var item = dynamicContent.getItemByUrl("meklesanas-rezultati");
             item.post_content = "";
             var searchText = $("#searchfield").val();
             if (searchText.trim() == "") return;
@@ -419,7 +420,7 @@ var Content = Class.extend({
 
     ,
     setSingleSlide: function(item) {
-        scrollEnabled = false;
+//        scrollEnabled = false;
         singleSlide = true;
         var self = this;
         var parent = dynamicContent.getParent(item.menu_item_id);
@@ -428,21 +429,21 @@ var Content = Class.extend({
 
         if (!isMobile) {
             var handler = function(e) {
-                if (e.which === 38 || e.which === 40 || e.which === 1) {
+                if(scrollEnabled) if (e.which === 38 || e.which === 40 || e.which === 1) {
                     if (siblings.indexOf(item) < 14) {
                         if (grandParent.template === parent.template)
                             self.draw(grandParent);
                         else self.draw(parent);
                     } else self.draw(parent);
                     setTimeout(function() {
-                        scrollEnabled = true;
+//                        scrollEnabled = true;
                         $(window).unbind('mousewheel Dommousescroll wheel keyup', handler)
                     }, self.coolDownTime);
                 }
                 singleSlide = false;
             };
 
-            $(window).one('mousewheel Dommousescroll wheel keyup', handler);
+            $(window).on('mousewheel Dommousescroll wheel keyup', handler);
         } else {
             var mhandler = function(e) {
                 if (grandParent.template === parent.template)
@@ -875,6 +876,8 @@ var Content = Class.extend({
             });
             scrollEnabled = false;
         }
+         if (nextItem.post_name === 'kontakti' || nextItem.post_name === 'contacts') scrollEnabled = false;
+         if (prevItem.post_name === 'kontakti' || prevItem.post_name === 'contacts') scrollEnabled = true;
         if (prevItem.template === 'templates/video.php' && nextItem.template !== 'templates/video.php') {
             if (!isMobile) setHeadFootSize(false);
         }

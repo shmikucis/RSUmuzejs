@@ -125,8 +125,8 @@ else
                    </li>
                    <li class='has-sub'><a><span>Research and paedagogy</span></a>
                        <ul>
-                         <li><a href='#zinatne'><span>Zinātne</span></a></li>
-                         <li><a href='#pedagogija'><span>Pedagoģija</span></a></li>
+                         <li><a href='#research'><span>Research</span></a></li>
+                         <li><a href='#paedagogy'><span>Paedagogy</span></a></li>
                        </ul>
                    </li>
                    <li class='has-sub'><a><span>Personalities</span></a>
@@ -221,8 +221,8 @@ else
                    </li>
                    <li class='has-sub'><div></div><a href="#research-paedagogy"><span>Research and paedagogy</span></a>
                        <ul>
-                         <li><a href='#zinatne'><span>Zinātne</span></a></li>
-                         <li><a href='#pedagogija'><span>Pedagoģija</span></a></li>
+                         <li><a href='#research'><span>Research</span></a></li>
+                         <li><a href='#paedagogy'><span>Paedagogy</span></a></li>
                        </ul>
                    </li>
                    <li class='has-sub'><div></div><a href="#outstanding-personalities"><span>Outstanding personalities</span></a>
