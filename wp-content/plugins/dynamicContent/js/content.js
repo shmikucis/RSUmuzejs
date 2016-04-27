@@ -94,24 +94,7 @@ var Content = Class.extend({
             if (!singleSlide) self.drawNext();
         });
 
-        $("#sidemenu, #msidemenu ul").bind("click", function(e) {
-            var pointer;
-            var href;
-            if ($(e.target).is('span')) {
-                pointer = $(e.target).parent();
-                href = $(pointer).attr('href').slice(1);
-            } else if ($(e.target).is('a')) {
-                pointer = $(e.target);
-                href = $(pointer).attr('href').slice(1);
-            }
-
-            if (href && href !== '') {
-                self.drawFromUrl(href);
-            }
-            if (isMobile) m_closeMenu();
-        });
-
-        
+               
 
         $("#searchbutton").bind("click", function() {
             if (URLS.lang = 'en/') var item = dynamicContent.getItemByUrl("search-results");
@@ -178,6 +161,23 @@ var Content = Class.extend({
             $('#page').removeClass('en');
             $('#sidemenu_en, #msidemenu_en').remove();
         }
+        
+        $("#sidemenu, #msidemenu ul").bind("click", function(e) {
+            var pointer;
+            var href;
+            if ($(e.target).is('span')) {
+                pointer = $(e.target).parent();
+                href = $(pointer).attr('href').slice(1);
+            } else if ($(e.target).is('a')) {
+                pointer = $(e.target);
+                href = $(pointer).attr('href').slice(1);
+            }
+
+            if (href && href !== '') {
+                self.drawFromUrl(href);
+            }
+            if (isMobile) m_closeMenu();
+        });
     }
 
     ,
@@ -235,6 +235,7 @@ var Content = Class.extend({
         if (item.description === 'singleSlide') {
             this.setSingleSlide(item);
         }
+        else singleSlide = false;
     }
 
     ,
@@ -429,29 +430,38 @@ var Content = Class.extend({
 
         if (!isMobile) {
             var handler = function(e) {
-                if(scrollEnabled) if (e.which === 38 || e.which === 40 || e.which === 1) {
+                if(scrollEnabled && singleSlide) if (e.which === 38 || e.which === 40 || e.which === 1) {
                     if (siblings.indexOf(item) < 14) {
                         if (grandParent.template === parent.template)
                             self.draw(grandParent);
                         else self.draw(parent);
-                    } else self.draw(parent);
+                    } else self.draw(parent);    
+                    
                     setTimeout(function() {
 //                        scrollEnabled = true;
-                        $(window).unbind('mousewheel Dommousescroll wheel keyup', handler)
+                        $(window).unbind('mousewheel Dommousescroll wheel keyup', handler);
                     }, self.coolDownTime);
+                    
+                    singleSlide = false;
                 }
-                singleSlide = false;
+                
+                
             };
 
             $(window).on('mousewheel Dommousescroll wheel keyup', handler);
         } else {
             var mhandler = function(e) {
-                if (grandParent.template === parent.template)
-                    self.draw(grandParent);
-                else self.draw(parent);
+                if(singleSlide){
+                    if (grandParent.template === parent.template)
+                        self.draw(grandParent);
+                    else self.draw(parent);
+                }
+                setTimeout(function(){                    
+                    $('#mcontinue').unbind('click', mhandler);
+                }, self.coolDownTime);
                 singleSlide = false;
             };
-            $('#mcontinue').one('click', mhandler);
+            $('#mcontinue').on('click', mhandler);
         }
 
     }
@@ -582,35 +592,62 @@ var Content = Class.extend({
                 });
             } else bgElem.css('background-image', 'none');
         }
-        else{
+        else {
             var bgElem = $('.head_image div.layer.inactive');
             var bgAct = $('.head_image div.layer.active');
             if(bgElem.length){
-                if(dynamicContent.getByMenuID(item.menu_item_parent)) var parent = dynamicContent.getByMenuID(item.menu_item_parent);
-                else if (URLS.lang === "en/")var parent = dynamicContent.getItemByUrl('title');
-                else var parent = dynamicContent.getItemByUrl('titullapa');
-                if (item.post_name === "ievads" || item.post_name === "izvelne" || item.post_name === "menu" || item.post_name === "intro") {
-                    bgElem.css('background-image', 'url(' + URLS.stylesheet + '/images/background/intro.jpg)');
+                if (URLS.lang === ""){
+                    if(dynamicContent.getByMenuID(item.menu_item_parent)) var parent = dynamicContent.getByMenuID(item.menu_item_parent);
+                    else var parent = dynamicContent.getItemByUrl('titullapa');
+                    if (item.post_name === "ievads" || item.post_name === "izvelne") {
+                        bgElem.css('background-image', 'url(' + URLS.stylesheet + '/images/background/intro.jpg)');
+                    }
+                    else if (~item.post_name.indexOf('attistiba') || ~item.post_name.indexOf('medicinas') || ~item.post_name.indexOf('universitate') || ~item.post_name.indexOf('rektori') || ~item.post_name.indexOf('dzimta') || ~parent.post_name.indexOf('rektori')){
+                        bgElem.css('background-image', 'url(' + URLS.stylesheet + '/images/background/attistiba.jpg)');
+                    }
+                    else if (~item.post_name.indexOf('pirmsakumi') || ~item.post_name.indexOf('medicina') || item.post_name === 'socialas-zinatnes'){
+                        bgElem.css('background-image', 'url(' + URLS.stylesheet + '/images/background/pirmsakumi.jpg)');
+                    }
+                    else if (~item.post_name.indexOf('augstskolas-struktura')){
+                        bgElem.css('background-image', 'url(' + URLS.stylesheet + '/images/background/struktura.jpg)');
+                    }
+                    else if (~item.post_name.indexOf('zinatne') || ~item.post_name.indexOf('pedagogija')){
+                        bgElem.css('background-image', 'url(' + URLS.stylesheet + '/images/background/zinatne.jpg)');
+                    }
+                    else if (~item.post_name.indexOf('personibas') || ~item.post_name.indexOf('veselibas-aprupe') || item.post_name === 'socialas-zinatnes2' || ~parent.post_name.indexOf('personibas') || ~parent.post_name.indexOf('veselibas-aprupe') || parent.post_name === 'socialas-zinatnes2'){
+                        bgElem.css('background-image', 'url(' + URLS.stylesheet + '/images/background/personibas.jpg)');
+                    }
+                    else if (~item.post_name.indexOf('arpus') || ~item.post_name.indexOf('polakt') || ~item.post_name.indexOf('sabakt') || ~item.post_name.indexOf('kolektivi') || ~item.post_name.indexOf('sports') || ~item.post_name.indexOf('svetki')){
+                        bgElem.css('background-image', 'url(' + URLS.stylesheet + '/images/background/arpus.jpg)');
+                    }
+                    else bgElem.css('background-image', 'url(' + URLS.stylesheet + '/images/background/default.jpg)');
                 }
-                else if (~item.post_name.indexOf('attistiba') || ~item.post_name.indexOf('medicinas') || ~item.post_name.indexOf('universitate') || ~item.post_name.indexOf('rektori') || ~item.post_name.indexOf('dzimta') || ~parent.post_name.indexOf('rektori')){
-                    bgElem.css('background-image', 'url(' + URLS.stylesheet + '/images/background/attistiba.jpg)');
+                else {
+                    if(dynamicContent.getByMenuID(item.menu_item_parent)) var parent = dynamicContent.getByMenuID(item.menu_item_parent);
+                    else var parent = dynamicContent.getItemByUrl('title');
+                    if (item.post_name === "intro" || item.post_name === "menu") {
+                        bgElem.css('background-image', 'url(' + URLS.stylesheet + '/images/background/intro.jpg)');
+                    }
+                    else if (~item.post_name.indexOf('development') || ~item.post_name.indexOf('medical') || ~item.post_name.indexOf('university') || ~item.post_name.indexOf('rectors') || ~item.post_name.indexOf('family') || ~parent.post_name.indexOf('rectors')){
+                        bgElem.css('background-image', 'url(' + URLS.stylesheet + '/images/background/attistiba.jpg)');
+                    }
+                    else if (~item.post_name.indexOf('beginnings') || ~item.post_name.indexOf('medicine') || item.post_name === 'socialas-sciences'){
+                        bgElem.css('background-image', 'url(' + URLS.stylesheet + '/images/background/pirmsakumi.jpg)');
+                    }
+                    else if (~item.post_name.indexOf('institution-structure')){
+                        bgElem.css('background-image', 'url(' + URLS.stylesheet + '/images/background/struktura.jpg)');
+                    }
+                    else if (~item.post_name.indexOf('research') || ~item.post_name.indexOf('paedagogy')){
+                        bgElem.css('background-image', 'url(' + URLS.stylesheet + '/images/background/zinatne.jpg)');
+                    }
+                    else if (~item.post_name.indexOf('personalities') || ~item.post_name.indexOf('healthcare') || item.post_name === 'social-sciences-2' || ~parent.post_name.indexOf('personalities') || ~parent.post_name.indexOf('healthcare') || parent.post_name === 'social-sciences-2'){
+                        bgElem.css('background-image', 'url(' + URLS.stylesheet + '/images/background/personibas.jpg)');
+                    }
+                    else if (~item.post_name.indexOf('extracurricular') || ~item.post_name.indexOf('polact') || ~item.post_name.indexOf('socact') || ~item.post_name.indexOf('collectives') || ~item.post_name.indexOf('sports') || ~item.post_name.indexOf('festivities')){
+                        bgElem.css('background-image', 'url(' + URLS.stylesheet + '/images/background/arpus.jpg)');
+                    }
+                    else bgElem.css('background-image', 'url(' + URLS.stylesheet + '/images/background/default.jpg)');
                 }
-                else if (~item.post_name.indexOf('pirmsakumi') || ~item.post_name.indexOf('medicina') || item.post_name === 'socialas-zinatnes'){
-                    bgElem.css('background-image', 'url(' + URLS.stylesheet + '/images/background/pirmsakumi.jpg)');
-                }
-                else if (~item.post_name.indexOf('augstskolas-struktura')){
-                    bgElem.css('background-image', 'url(' + URLS.stylesheet + '/images/background/struktura.jpg)');
-                }
-                else if (~item.post_name.indexOf('zinatne') || ~item.post_name.indexOf('pedagogija')){
-                    bgElem.css('background-image', 'url(' + URLS.stylesheet + '/images/background/zinatne.jpg)');
-                }
-                else if (~item.post_name.indexOf('personibas') || ~item.post_name.indexOf('veselibas-aprupe') || item.post_name === 'socialas-zinatnes2' || ~parent.post_name.indexOf('personibas') || ~parent.post_name.indexOf('veselibas-aprupe') || parent.post_name === 'socialas-zinatnes2'){
-                    bgElem.css('background-image', 'url(' + URLS.stylesheet + '/images/background/personibas.jpg)');
-                }
-                else if (~item.post_name.indexOf('arpus') || ~item.post_name.indexOf('polakt') || ~item.post_name.indexOf('sabakt') || ~item.post_name.indexOf('kolektivi') || ~item.post_name.indexOf('sports') || ~item.post_name.indexOf('svetki')){
-                    bgElem.css('background-image', 'url(' + URLS.stylesheet + '/images/background/arpus.jpg)');
-                }
-                else bgElem.css('background-image', 'url(' + URLS.stylesheet + '/images/background/default.jpg)');
             }
             bgElem.css('opacity', 1);
             setTimeout(function(){bgAct.css('opacity', 0);}, 750);
@@ -747,7 +784,7 @@ var Content = Class.extend({
                   $('#background > div:first')
                     .appendTo('#background')
                     .addClass('clipCenterH');                    
-                },  8750);
+                },  3750);
                 
                 if (isMobile) {
                     $('#mback').addClass('hidden');
@@ -823,7 +860,7 @@ var Content = Class.extend({
                   $('#background > div:first')
                     .appendTo('#background')
                     .addClass('clipCenterH');                    
-                },  8750);
+                },  3750);
 
         }
 

@@ -121,7 +121,7 @@ else
                          <li><a href='#rectors'><span>Rectors</span></a></li>
                       </ul>
                    </li>
-                   <li><a href="#augstskolas-struktura"><span>Structure</span></a>
+                   <li><a href="#institution-structure"><span>Structure</span></a>
                    </li>
                    <li class='has-sub'><a><span>Research and paedagogy</span></a>
                        <ul>
@@ -131,21 +131,21 @@ else
                    </li>
                    <li class='has-sub'><a><span>Personalities</span></a>
                       <ul>
-                         <li><a href='#veselibas-aprupe'><span>Veselības aprūpe</span></a></li>
-                         <li><a href='#socialas-zinatnes2'><span>Sociālās zinātnes</span></a></li>
-                         <li><a href='#atpazistamas-personibas'><span>Atpazīstamas personības</span></a></li>
+                         <li><a href='#healthcare'><span>Health care</span></a></li>
+                         <li><a href='#social-sciences-2'><span>Social sciences</span></a></li>
+                         <li><a href='#famous-personalities'><span>Famous personalities</span></a></li>
                       </ul>
                    </li>
                    <li class='has-sub'><a><span>Activities</span></a>
                       <ul>
-                         <li><a href='#polakt'><span>Okupācijas laikā</span></a></li>
-                         <li><a href='#sabakt'><span>Sabiedriskās aktivitātes</span></a></li>
-                         <li><a href='#kolektivi'><span>Mākslinieciskie kolektīvi</span></a></li>                         
+                         <li><a href='#polact'><span>Occupation period</span></a></li>
+                         <li><a href='#socact'><span>Social activities</span></a></li>
+                         <li><a href='#collectives'><span>Art collectives</span></a></li>                         
                          <li><a href='#sports'><span>Sports</span></a></li>
-                         <li><a href='#svetki'><span>Tradīcijas</span></a></li>
+                         <li><a href='#festivities'><span>Festivities</span></a></li>
                       </ul>
                    </li>
-                   <li><a href="#kontakti"><span>Contacts</span></a>
+                   <li><a href="#contacts"><span>Contacts</span></a>
                 </ul>
             </div>
             
@@ -227,18 +227,18 @@ else
                    </li>
                    <li class='has-sub'><div></div><a href="#outstanding-personalities"><span>Outstanding personalities</span></a>
                       <ul>
-                         <li><a href='#veselibas-aprupe'><span>Veselības aprūpe</span></a></li>
-                         <li><a href='#socialas-zinatnes2'><span>Sociālās zinātnes</span></a></li>
-                         <li><a href='#atpazistamas-personibas'><span>Atpazīstamas personības</span></a></li>
+                         <li><a href='#healthcare'><span>Health care</span></a></li>
+                         <li><a href='#social-sciences-2'><span>Social sciences</span></a></li>
+                         <li><a href='#famous-personalities'><span>Famous personalities</span></a></li>
                       </ul>
                    </li>
                    <li class='has-sub'><div></div><a href="#extracurricular-menu"><span>Extracurricular activities</span></a>
                       <ul>
-                         <li><a href='#polakt'><span>Okupācijas laikā</span></a></li>
-                         <li><a href='#sabakt'><span>Sabiedriskās aktivitātes</span></a></li>
-                         <li><a href='#kolektivi'><span>Mākslinieciskie kolektīvi</span></a></li>                         
+                         <li><a href='#polact'><span>Occupation period</span></a></li>
+                         <li><a href='#socact'><span>Social activities</span></a></li>
+                         <li><a href='#collectives'><span>Art collectives</span></a></li>                         
                          <li><a href='#sports'><span>Sports</span></a></li>
-                         <li><a href='#svetki'><span>Tradīcijas</span></a></li>
+                         <li><a href='#festivities'><span>Festivities</span></a></li>
                       </ul>
                    </li>
                    <li class='has-sub' id='mcontacts'><div></div><a href="#" id='contlink'><span>Contacts</span></a>
