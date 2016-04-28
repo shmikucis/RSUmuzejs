@@ -156,10 +156,12 @@ var Content = Class.extend({
             $('#sidemenu, #msidemenu').remove();
             $('#sidemenu_en').attr('id', 'sidemenu');
             $('#msidemenu_en').attr('id', 'msidemenu');
+            $('#lang_toggle #eng').remove();
         }
         else {
             $('#page').removeClass('en');
             $('#sidemenu_en, #msidemenu_en').remove();
+            $('#lang_toggle #lat').remove();
         }
         
         $("#sidemenu, #msidemenu ul").bind("click", function(e) {
