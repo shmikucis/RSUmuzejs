@@ -335,6 +335,9 @@ div.top_bar{
 #mcontacts:after{
     display: none;
 }
+#polakt_icon p{
+    font-size: 7pt !important;
+}
 #menutext{
     font-family: oswald-light;
     font-size: 10pt;
@@ -468,6 +471,31 @@ div.top_bar{
     background-image: url(images/ui/mobile/back.png), url(images/ui/mobile/bg_red_small.png);
     background-size: 40px 80px, cover;
     background-position: 0px 0px, center;
+}
+#lang_toggle{
+    position:absolute;
+    display: none;
+/*    right: 0;*/
+    height: 40px;
+    width: 40px;
+    background-image: url(images/ui/mobile/bg_red_small.png);
+    background-size: cover;
+    background-position: center;
+}
+#lat, #eng{
+    background-image: none !important;
+    font-size: 10pt;
+    line-height: 100%;
+    font-family: oswald-light;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+}
+#lat:after{
+    content: 'LAT';    
+}
+#eng:after{
+    content: 'ENG';
 }
 /*#mback:focus, #mback:active{
     background-position: 0% 100%, center;
@@ -1247,7 +1275,7 @@ a.obj_icon[data-title]:after{
 }
 
 @media screen and (min-width:550px), screen and (min-height:700px){
-    #m_srchbtn, .mclose, #mback, #vidclose{
+    #m_srchbtn, .mclose, #mback, #lang_toggle, #vidclose{
         width: 50px;
         height: 50px;
         background-size: 50px 100px, cover;
@@ -1323,7 +1351,7 @@ a.obj_icon[data-title]:after{
     .popup, .pic_popup#colorbox #cboxTitle, .lg-text, .video-content div{
         font-size: 12pt;
     }
-    #searchfield, #menutext, #msidemenu, #lg-counter, #popuplist ul li a div{
+    #searchfield, #menutext, #msidemenu, #lg-counter, #popuplist ul li a div, #lang_toggle a{
         font-size: 14pt;
     }
     #lg-counter-all, p.author_text_single, .mejs-container .mejs-controls  div{
@@ -1366,6 +1394,9 @@ a.obj_icon[data-title]:after{
     .mejs-time-rail{
         margin-top: 0px !important;
     }
+    #polakt_icon p{
+    font-size: 8pt !important;
+}
 }
 .tapped{
     opacity: 0.4 !important;
@@ -1381,7 +1412,7 @@ a.obj_icon[data-title]:after{
 }
 
 @media screen and (min-width:700px), screen and (min-height:900px){
-    #m_srchbtn, .mclose, #mback, #vidclose{
+    #m_srchbtn, .mclose, #mback, #lang_toggle, #vidclose{
         width: 60px;
         height: 60px;
         background-size: 60px 120px, cover;
@@ -1460,7 +1491,7 @@ a.obj_icon[data-title]:after{
     .popup, .pic_popup#colorbox #cboxTitle, .lg-text, .video-content div{
         font-size: 16pt;
     }
-    #searchfield, #menutext, #msidemenu, #lg-counter, #popuplist ul li a div{
+    #searchfield, #menutext, #msidemenu, #lg-counter, #popuplist ul li a div, #lang_toggle a{
         font-size: 18pt;
     }
     #lg-counter-all, p.author_text_single, .mejs-container .mejs-controls  div{
@@ -1503,4 +1534,7 @@ a.obj_icon[data-title]:after{
     .mejs-time-rail{
         margin-top: 2px !important;
     }
+    #polakt_icon p{
+    font-size: 9pt !important;
+}
 }

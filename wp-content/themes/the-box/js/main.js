@@ -49,7 +49,7 @@ $(window).resize(function() {
         $('.readmore.right').css('left', $('.mcit img').width() + $(window).width()*0.2);
         if($('div.text_container_left').length>0)  $('.alignright').css('margin-left', $('div.text_container_left').width());
         else $('.alignright').css('margin-left', $('p.text_left').width());
-        $("#m_srchbtn, .mclose, #mback").css("margin", ($('#masthead').height() - $('#m_srchbtn').height()) / 2);
+        $("#m_srchbtn, .mclose, #mback, #lang_toggle").css("margin", ($('#masthead').height() - $('#m_srchbtn').height()) / 2);
         $("#menutext").css('width', $(window).width() - $('#m_srchbtn').outerWidth(true) * 2);
     }
 });
@@ -363,7 +363,8 @@ function mInit() {
 
     $("#menu_toggle").remove();
     //    $("#masthead").append('<div id="mback"></div><div id="m_srchbtn"></div><div id="menuclose" style="display: none"></div>');
-    $("#m_srchbtn, .mclose, #mback, #search").css("margin", ($('#masthead').height() - $('#m_srchbtn').height()) / 2);
+    $("#m_srchbtn, .mclose, #mback, #search, #lang_toggle").css("margin", ($('#masthead').height() - $('#m_srchbtn').height()) / 2);
+//    $('#lang_toggle').hide();
     $("#m_srchbtn").css({
         height: $("#m_srchbtn").height(),
         width: $("#m_srchbtn").width(),
@@ -392,6 +393,7 @@ function mInit() {
     $('#m_menubtn').on('click', m_showMenu);
     $('#menuclose').on('click', m_closeMenu);
     $('#m_srchbtn').on('click', m_toggleSearch);
+    
     $(document).bind('cbox_open', function() {
         $('html').css({ overflow: 'hidden' });
     });
@@ -802,7 +804,7 @@ function m_updateListeners() {
     $('.mcit img').on('click', scrollToImage);
     
     //focus fix for chrome
-    $("#popupbar li:has(.obj_icon), #bigmore, #mcontinue, #m_menubtn, #mback, .readmore, ul.menu a, ul.menu2 a").on("click",function(){
+    $("#popupbar li:has(.obj_icon), #bigmore, #mcontinue, #m_menubtn, #mback, .readmore, ul.menu a, ul.menu2 a, #lang_toggle").on("click",function(){
 //        $(this).focus();
         $(this).addClass('tapped');
     });
@@ -914,6 +916,7 @@ function m_showMenu() {
     $('#menuclose').show();
     $('#logo_link').hide();
     $('#menutext').show();
+    $('#lang_toggle').show();
     $("#menutext").css('width', $(window).width() - $('#m_srchbtn').outerWidth(true) * 2);
 }
 
@@ -925,6 +928,7 @@ function m_closeMenu() {
     $('#m_srchbtn').show();
     $('#logo_link').show();
     $('#menutext').hide();
+    $('#lang_toggle').hide();
     $('#m_menubtn.tapped').removeClass('tapped');
 }
 

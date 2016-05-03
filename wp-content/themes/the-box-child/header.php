@@ -11,9 +11,9 @@
 <!DOCTYPE html>
 <html lang="lv" <?php // language_attributes(); ?>>
 <head>
-    <title><?php if(is_home() || is_front_page()) { echo bloginfo("name"); echo "  "; echo bloginfo("description"); }
+    <title><?php if(is_home() || is_front_page()) { echo bloginfo("name"); }
 else
-{ echo wp_title('', true, 'right'); }?></title>
+{ echo bloginfo("description");}?></title>
 <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.ico" />
 <!--<meta charset="<?php // bloginfo( 'charset' ); ?>">-->
 <meta charset="utf-8" />
