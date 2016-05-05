@@ -97,11 +97,11 @@ var Content = Class.extend({
                
 
         $("#searchbutton").bind("click", function() {
-            if (URLS.lang = 'en/') var item = dynamicContent.getItemByUrl("search-results");
+            if (URLS.lang === 'en/') var item = dynamicContent.getItemByUrl("search-results");
             else var item = dynamicContent.getItemByUrl("meklesanas-rezultati");
             item.post_content = "";
             var searchText = $("#searchfield").val();
-            if (searchText.trim() == "") return;
+            if (searchText.trim() === "") return;
             var resultItems = dynamicContent.searchString(searchText);
             for (var i = 0, l = resultItems.length; i < l; i++) {
                 var content = resultItems[i].post_content;
