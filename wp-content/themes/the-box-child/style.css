@@ -567,7 +567,7 @@ p{
 }
 
 #game-container{
-    /*display: none;*/
+    display: none;
     position: absolute;
     background-color: black;
     opacity: 0.9;
@@ -579,7 +579,7 @@ p{
 }
 
 #game-inner{
-    /*display: none;*/
+    display: none;
     position: absolute;
     min-height: 200px;
     height: 100%;
@@ -733,7 +733,7 @@ p{
     background-position: 0% 0%;
 }
 #game-intro{
-    /*display: none;*/
+    display: none;
 }
 #game-confirm-basic{
     display: none;
