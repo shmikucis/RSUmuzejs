@@ -382,6 +382,8 @@ function mInit() {
     $('#masthead').height( $('#masthead').height());
     $('.game-content > div').css('top', $('#masthead').height());
     $('.game-content > div').height($('.game-content').height() - $('#masthead').height());
+    $('#game-over ul.social').width($('ul.social li').height()*4 - ($('ul.social li').height()-$('ul.social li').width()));
+    $('#game-question .game-title').css('max-height', $('#game-question').height()-$('#game-question .button-wrap').outerHeight()-$('#game-question img').outerHeight()-5);
     $('#mback').on('click', function() {
         if (content.history.length > 1) {
             content.history.pop();

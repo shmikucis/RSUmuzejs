@@ -522,10 +522,8 @@ div.top_bar{
     height: 100%;
     padding: 0;
 }
-.game-subtitle{
-    width: 80%;
-    font-family: helvetica-neue;
-    font-size: 0.8em;
+#game-intro .game-subtitle{
+    
     padding: 8% 0%;
 }
 #game-intro .game-title{
@@ -537,8 +535,12 @@ div.top_bar{
 }
 #game-intro .foreLine{
     margin: auto;
-    width: 84%;
-    opacity: 0.6;
+}
+.game-subtitle{
+    width: 80%;
+    font-family: helvetica-neue;
+    font-size: 0.8em;
+    padding: 0;
 }
 #game-intro .game-button.green{
     background-image: url(images/game/mobile/game_confirm.png);
@@ -546,10 +548,44 @@ div.top_bar{
 #game-intro .game-button.red{
     background-image: url(images/game/mobile/game_decline.png);
 }
+.game-button.green{
+    background-image: url(images/game/mobile/game_confirm_big.png);
+}
+.game-button.gray{
+    background-image: url(images/game/mobile/game_answer_neutral.png);
+}
+.game-button.right{
+    background-image: url(images/game/mobile/game_answer_right.png);
+}
+.game-button.wrong{
+    background-image: url(images/game/mobile/game_answer_wrong.png);
+}
+#game-inner .game-content #game-close{
+    background-image: url(images/ui/mobile/menuclose_bl.png);
+    background-size: cover, 100% !important;
+    top: 0 !important;
+    height: 40px !important;
+    width: 40px !important;
+    max-width: 100%;
+    max-height: 100%;
+    transform: none;
+}
+.game-title{
+    width: 78%;
+    font-size: 1em;
+    padding-top: 50%;
+}
+.foreLine{
+    height: 2px;
+    opacity: 0.5;
+    width: 84%;
+    margin: 3vh auto 3vh auto;
+}
+
 .button-wrap{
     min-width: 0%;
     width: 64%;
-    padding: 6% 0%;
+    padding: 0% 0% 6% 0%;
 }
 .button-wrap .game-button{
     transform: translate(0%, 0%);
@@ -559,7 +595,49 @@ div.top_bar{
     height: 16vw;
     line-height: 16vw;
     min-height: 40px;
-    
+    width: 64%;
+    transform: translate(0%, 0%);
+    min-width: 200px;
+    margin: auto;
+    left: 0;
+    right: 0;
+    margin-bottom: 6%;
+}
+#game-question{
+    padding-bottom: 0 !important;
+}
+#game-question .game-title{
+    padding-top: 20%;
+    text-align: center;
+    max-height: 30%;
+    overflow: scroll;
+}
+#game-question.imageQuest .game-title{
+    padding-top: 5%;
+    /*max-height: 30vw;*/
+}
+#game-question .button-wrap{
+    width: 90%;    
+}
+#game-question .button-wrap .game-button {
+    width: 100%;
+    margin: 3% 0 0 0;
+}
+#game-question #lg-counter{
+    margin: auto;
+    color: #BA2431;
+    transform: translate(0%, -50%);
+}
+#game-question.imageQuest img{
+    float: none;
+    position: relative;
+    display: block;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 30%;
+    height: auto;
+    padding-top: 10%;
 }
 /*IE specific*/
 
@@ -1336,9 +1414,9 @@ a.obj_icon[data-title]:after{
 }
 
 @media screen and (min-width:550px), screen and (min-height:700px){
-    #m_srchbtn, .mclose, #mback, #lang_toggle, #vidclose{
-        width: 50px;
-        height: 50px;
+    #m_srchbtn, .mclose, #mback, #lang_toggle, #vidclose, #game-inner .game-content #game-close{
+        width: 50px !important;
+        height: 50px !important;
         background-size: 50px 100px, cover;
     }
     #cboxClose, .lg-close{
@@ -1458,6 +1536,37 @@ a.obj_icon[data-title]:after{
     #polakt_icon p{
     font-size: 8pt !important;
 }
+.game-title{
+    font-size: 1.3em;
+    padding-top: 45%;
+}
+.game-subtitle{
+    font-size: 1em;
+}
+.game-button{
+    height: 12vw;
+    line-height: 12vw;
+    font-size: 1em;
+}
+#game-question .button-wrap{
+    width: 80%;
+}
+#game-question.imageQuest img{
+    width: 25%;
+    padding-top: 7%;
+}
+#game-question.imageQuest .game-title{
+    padding-top: 2%;
+}
+#game-question #lg-counter{
+    width: 9.5vw;
+}
+#game-over ul.social{
+    transform: translate(-50%, 0) scale(1.5);
+}
+#game-intro .game-title{
+    font-size: 2.5em;
+}
 }
 .tapped{
     opacity: 0.4 !important;
@@ -1473,9 +1582,9 @@ a.obj_icon[data-title]:after{
 }
 
 @media screen and (min-width:700px), screen and (min-height:900px){
-    #m_srchbtn, .mclose, #mback, #lang_toggle, #vidclose{
-        width: 60px;
-        height: 60px;
+    #m_srchbtn, .mclose, #mback, #lang_toggle, #vidclose, #game-inner .game-content #game-close{
+        width: 60px !important;
+        height: 60px !important;
         background-size: 60px 120px, cover;
     }
     #cboxClose, .lg-close{
@@ -1597,5 +1706,24 @@ a.obj_icon[data-title]:after{
     }
     #polakt_icon p{
     font-size: 9pt !important;
+}
+.game-title{
+    font-size: 1.6em;
+    padding-top: 40%;
+}
+.game-subtitle{
+    font-size: 1.4em;
+}
+.game-button{
+    height: 12vw;
+    line-height: 12vw;
+    font-size: 1.2em;
+}
+#game-over ul.social {
+    transform: translate(-50%, 0) scale(2);
+    margin-top: 7%;
+}
+#game-intro .game-title {
+    font-size: 3.5em;
 }
 }

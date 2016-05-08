@@ -300,7 +300,7 @@ else
 		<div id="game-container"></div>
             <div id="game-inner">
                 <div class="game-content">    
-                    <div id="game-close"></div>
+                    <div id="game-close" class="mclose"></div>
                     <div id="game-intro">
                         <p class="game-title">Esi sveicināts RSU vēstures virtuālās ekspozīcijas spēlē!</p>
                         <div class="foreLine"></div>
@@ -336,7 +336,6 @@ else
                         <div id="lg-counter">
                             <span id="lg-counter-current">4</span> / <span id="lg-counter-all">12</span>
                         </div>
-                        <div class="game-close"></div>
                         <img src="">
                         <p class="game-title"><em>Par ko vīriešiem bija jāmācās Rīgas Medicīnas institūtā</em>, lai institūts tiktu pabeigts ar virsnieka pakāpi bez obligātās karaklausības pildīšanas?</p>
                         <div class="button-wrap">
@@ -346,11 +345,10 @@ else
                             <div class="game-button gray">kara ārstiem</div>
                         </div>                    
                     </div>
-                    <div id="game-question" class="imageQuest">
+                    <!--<div id="game-question" class="imageQuest">
                         <div id="lg-counter">
                             <span id="lg-counter-current">4</span> / <span id="lg-counter-all">12</span>
                         </div>
-                        <div class="game-close"></div>
                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/game/RSU_WEB_SPELE-24.png">
                         <p class="game-title"><em>Kādas trīs dzīvību, cerību un nāvi simbolizējošas krāsas tika iekļautas pirmā Rīgas Medicīnas institūta karoga dizainā </em>(izveidots 1989. gadā un līdz mūsdienām nav saglabājies)? Melnbaltajā attēlā redzama karoga labā puse.</p>
                         <div class="button-wrap">
@@ -359,7 +357,7 @@ else
                             <div class="game-button gray">Tumši zila, pelēka, sarkana</div>
                             <div class="game-button gray">Tumši pelēka, sarkana, melna</div>
                         </div>                    
-                    </div>
+                    </div>-->
                     
                 </div>
                 
