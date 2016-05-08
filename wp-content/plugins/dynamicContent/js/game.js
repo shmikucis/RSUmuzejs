@@ -2,7 +2,7 @@ var Game = Class.extend({
 	init: function(){
 		this.time = 0;
 		this.timeSplit = 0;
-		this.startDealy = 1000;
+		this.startDelay = 1000;
 		this.questionDelay = 2000;
 		this.openedQuestions = 0;
 		this.closedQuestions = 0;
@@ -25,10 +25,10 @@ var Game = Class.extend({
 		this.time += deltaTime;		
 
 		// first question opens
-		if(this.openedQuestions === 0 && this.time >= this.startDealy){
+		if(this.openedQuestions === 0 && this.time >= this.startDelay){
 			this.openedQuestions = 1;
-			// TODO open first question
-			console.log("first question");
+			// TODO open start question
+			console.log("start popup");
 		}
 		else if(this.openedQuestions === this.closedQuestions && !this.isOpenQuestion){
 			if(this.lastOpenTime + this.questionDelay < this.time){
@@ -41,6 +41,22 @@ var Game = Class.extend({
 
 	}
 
+	, closeStartPopup: function(doContinue){
+		if(doContinue){
+			// TODO open instuction popup
+		} else {
+			// TODO instruct how to reopen game
+		}
+	}
+
+	, closeInstuctionPopup: function(){
+		// TODO open first question popup
+	}
+
+	, openQuestionPopup: function(){
+
+	}
+
 	, answerQuestion: function(answerID){
 		var question = this.questions[this.openedQuestions-1];
 		if(question.correctAnswer === answerID){
@@ -49,7 +65,13 @@ var Game = Class.extend({
 		} else {
 			question.isCorrect = false;
 		}
-		this.closeQuestion();
+
+		// TODO show correct and incorrect answer
+
+		var self = this;
+		setTimeout(function(){
+			self.closeQuestion();
+		}, 1000);
 	}
 
 	, closeQuestion: function(){
@@ -94,6 +116,8 @@ game.questions = [
 			, 'Biomedicīna un veselības aprūpe'
 			, 'Veselības aprūpe un Eiropas studijas'
 		]
+		, cheersTrue: 'Tikai pirmais jautājums, bet jau esi parādījis sevi no labākās puses! Tā turpināt!'
+		, cheersFalse: 'Diemžēl atbilde nav pareiza. Bet nekas – kļūdīties ir cilvēcīgi!'
 	}
 
 	, {
@@ -106,6 +130,8 @@ game.questions = [
 			, 'Latvijas Valsts universitāte'
 			, 'Latvijas Augstskola'
 		]
+		, cheersTrue: 'Nav zināms, vai palīdzēja erudīcija vai veiksme, taču esi atbildējis pareizi!'
+		, cheersFalse: 'Ups – atbilde nepareiza. Lai veicas nākamajos jautājumos!'
 	}
 
 	, {
@@ -118,6 +144,8 @@ game.questions = [
 			, 'Tumši zila, pelēka, sarkana'
 			, 'Tumši pelēka, sarkana, melna'
 		]
+		, cheersTrue: 'Priekšnojauta nebūs melojusi – esi atbildējis pareizi!'
+		, cheersFalse: 'Priekšnojauta šoreiz būs melojusi. Lai izdodas nākamajā jautājumā!'
 	}
 
 	, {
@@ -130,6 +158,8 @@ game.questions = [
 			, 'Prof. Pauls Stradiņš'
 			, 'Asoc. prof. Pēteris Stradiņš'
 		]
+		, cheersTrue: 'Tu nu gan esi gudrinieks! Veiksmi arī nākamajos jautājumos!'
+		, cheersFalse: 'Atbilde nepareiza. Bet visu jau arī nevar zināt…'
 	}
 
 	, {
@@ -142,6 +172,8 @@ game.questions = [
 			, 'Ārsta palīgiem'
 			, 'Kara ārstiem'
 		]
+		, cheersTrue: 'Lieliski – atbilde pareiza. Ja nezaudēsi asumu, iegūsi eksperta titulu!'
+		, cheersFalse: 'Tu zaudē asumu. Gan atbildēsi pareizi uz nākamo jautājumu!'
 	}
 
 	, {
@@ -154,6 +186,8 @@ game.questions = [
 			, 'Veselības katedras vadītājs'
 			, 'Pirmais RMI direktors'
 		]
+		, cheersTrue: 'Tu izvēlējies atbildi kā īsts profesionālis. Lai veicas arī nākamajā jautājumā!'
+		, cheersFalse: 'Šoreiz atbildēji nepareizi. Parādi, ko zini, nākamajā jautājumā!'
 	}
 
 	, {
@@ -166,6 +200,8 @@ game.questions = [
 			, '„Zelta stetoskops”'
 			, '„RSU skalpelis”'
 		]
+		, cheersTrue: 'Malacis – viss pareizi! Lai veicas arī nākamajos jautājumos!'
+		, cheersFalse: 'Tu izvēlējies nepareizo atbildi. Vēlam veiksmi nākamajā jautājumā!'
 	}
 
 	, {
@@ -178,6 +214,8 @@ game.questions = [
 			, '“Taurenis”'
 			, '“RSU Sports”'
 		]
+		, cheersTrue: 'Izskatās, ka esi studējis RSU… Atbilde 100 % pareiza!'
+		, cheersFalse: 'Pārliecinoši, bet diemžēl nepareizi. Lai izdodas nākamajā jautājumā!'
 	}
 
 	, {
@@ -190,6 +228,8 @@ game.questions = [
 			, '„Tēvzeme”'
 			, '„Ačkups”'
 		]
+		, cheersTrue: 'Tavas zināšanas Tev neliek vilties! Tā turpināt!'
+		, cheersFalse: 'Diemžēl esi kļūdījies. Taču viss vēl nav zaudēts!'
 	}
 
 	, {
@@ -202,6 +242,8 @@ game.questions = [
 			, '„Viktorim”'
 			, '„Zelta stetoskops”'
 		]
+		, cheersTrue: 'Ar desmito atbildi esi trāpījis desmitniekā! '
+		, cheersFalse: 'Tu kļūdījies, taču arī jautājums nebija no vieglajiem. Veiksmi turpmāk!'
 	}
 
 	, {
@@ -214,6 +256,8 @@ game.questions = [
 			, '“SZB Ateisma nodaļa”'
 			, '“Interclub”'
 		]
+		, cheersTrue: 'Pareizāk par pareizu! Lai izdodas pareizi atbildēt arī uz pēdējo jautājumu!'
+		, cheersFalse: 'Pilnīgi… nepareizi! Taču nākamā atbilde Tev noteikti būs pa spēkam!'
 	}
 
 	, {
@@ -226,5 +270,7 @@ game.questions = [
 			, '1998. gadā'
 			, '2002. gadā'
 		]
+		, cheersTrue: 'Apsveicam – Tu spēli noslēdz ar pareizo atbildi!'
+		, cheersFalse: 'Atbilde diemžēl nepareiza! Taču malacis – Tu turējies kā īsts RSU students!'
 	}
 ];
