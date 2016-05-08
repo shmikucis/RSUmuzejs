@@ -19,10 +19,10 @@
             <div id="continue"></div>
             
             <ul class="social">
-                    <li><a href="#" id="twitter"></a></li>
-                    <li><a href="#" id="facebook"></a></li>
-                    <li><a href="#" id="draugiem"></a></li>
-                    <li><a href="#" id="gplus"></a></li>
+                    <li><a href="#" class="twitter"></a></li>
+                    <li><a href="#" class="facebook"></a></li>
+                    <li><a href="#" class="draugiem"></a></li>
+                    <li><a href="#" class="gplus"></a></li>
             </ul>
         </div>
         <div id="mfooter">

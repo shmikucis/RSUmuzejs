@@ -29,7 +29,7 @@ $(window).resize(function() {
     isMobile = mobilecheck();
     //parallax izmēģinājums
     if (!isMobile) {
-        $('.head_image').css('clip', 'rect(0px,' + $('.head_image').width() + 'px,' + $('.head_image').height() + 'px, 0px)');
+        $('.head_image').css('clip', 'rect(0px,' + $('.head_image').width() + 'px,' + $('.head_image').height() + 'px, 0px)');        
         setInnerImg();
         setSocialMargin();
         galleryInnerResize();
@@ -39,8 +39,10 @@ $(window).resize(function() {
         setButtonMargin();
         if (dynamicContent.getItem().template === "templates/video.php") setHeadFootSize(true);
         else setHeadFootSize(false);
+        $('#game-container').css('top', $('#masthead').height()-2);
         if (dynamicContent.getItem().template === "templates/searchResults.php") resizeSrcRes();
         if (dynamicContent.getItem().template === "templates/title.php") $('#mid1').css('padding-bottom', $('#bigmore').height());
+        $('#lg-counter').css('line-height', $('#lg-counter').height() + "px");
     } else {
         mContinue();
         if($('div.text_container_right').length>0) $('div.text_container_right').css('left', $('.mcit img').width());
@@ -51,6 +53,8 @@ $(window).resize(function() {
         else $('.alignright').css('margin-left', $('p.text_left').width());
         $("#m_srchbtn, .mclose, #mback, #lang_toggle").css("margin", ($('#masthead').height() - $('#m_srchbtn').height()) / 2);
         $("#menutext").css('width', $(window).width() - $('#m_srchbtn').outerWidth(true) * 2);
+        $('.game-content > div').css('top', $('#masthead').height());
+         $('.game-content > div').height($('.game-content').height() - $('#masthead').height());
     }
 });
 
@@ -127,6 +131,8 @@ function init() {
         });
 
         setHeadFootSize();
+        $('#game-container').css('top', $('#masthead').height()-2);
+        $('#game-over ul.social').width($('ul.social li').height()*4 - ($('ul.social li').height()-$('ul.social li').width()));
         setVideoSize();
         $(document).bind('cbox_load', function() {
             scrollEnabled = false;
@@ -369,11 +375,13 @@ function mInit() {
         height: $("#m_srchbtn").height(),
         width: $("#m_srchbtn").width(),
         backgroundSize: $("#m_srchbtn").css('background-size')
-    })
+    });
     $('#search').css('margin-right', $('#m_srchbtn').width() + parseInt($('#m_srchbtn').css('margin-right')));
     $('#searchfield').height($('#m_srchbtn').height());
     $("#masthead").append('<div id="menutext" style="display: none">MENU</div>');
     $('#masthead').height( $('#masthead').height());
+    $('.game-content > div').css('top', $('#masthead').height());
+    $('.game-content > div').height($('.game-content').height() - $('#masthead').height());
     $('#mback').on('click', function() {
         if (content.history.length > 1) {
             content.history.pop();
@@ -479,6 +487,14 @@ function mInit() {
                      $('#colorbox .citation_logo').attr('id', 'audicon');
                      $('#cboxLoadedContent').css('max-height','70vh');
                 }
+                if(popupBtn.hasClass('readmore')){
+                     $('#colorbox .citation_logo').removeAttr('id');
+                     $('#cboxLoadedContent').css('max-height','70vh');
+                }
+                if(popupBtn.hasClass('humor')){
+                     $('#colorbox .citation_logo').attr('id', 'humicon');
+                     $('#cboxLoadedContent').css('max-height','70vh');
+                }
             
             //            content.animateObject('#colorbox .popup', 'cardbordTextfadeInDown', 100, 'in'); 
             //            content.animateObject('#colorbox .citation_logo', 'animMushroom', 300, 'in');      
@@ -493,6 +509,14 @@ function mInit() {
                 }
                 if(popupBtn.hasClass('mejs-textform')){
                      $('#colorbox .citation_logo').attr('id', 'audicon');
+                     $('#cboxLoadedContent').css('max-height','70vh');
+                }
+                if(popupBtn.hasClass('readmore')){
+                     $('#colorbox .citation_logo').removeAttr('id');
+                     $('#cboxLoadedContent').css('max-height','70vh');
+                }
+                if(popupBtn.hasClass('humor')){
+                     $('#colorbox .citation_logo').attr('id', 'humicon');
                      $('#cboxLoadedContent').css('max-height','70vh');
                 }
         $(document).bind('cbox_closed', function() {

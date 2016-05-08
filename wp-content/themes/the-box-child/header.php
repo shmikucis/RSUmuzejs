@@ -255,6 +255,9 @@ else
                    </li>
                 </ul>
             </div>
+            
+            
+            
             <div class="head_image headparallax">
                 <!--<div class="breadcrumbs" xmlns:v="http://rdf.data-vocabulary.org/#">
                     <?php // if(function_exists('bcn_display'))
@@ -287,11 +290,77 @@ else
         </div>
         <div class="head_image_bot">
             <ul class="social">
-                    <li><a href="#" id="twitter"></a></li>
-                    <li><a href="#" id="facebook"></a></li>
-                    <li><a href="#" id="draugiem"></a></li>
-                    <li><a href="#" id="gplus"></a></li>
+                    <li><a href="#" class="twitter"></a></li>
+                    <li><a href="#" class="facebook"></a></li>
+                    <li><a href="#" class="draugiem"></a></li>
+                    <li><a href="#" class="gplus"></a></li>
             </ul>            
         </div>
 </header>
-		
+		<div id="game-container"></div>
+            <div id="game-inner">
+                <div class="game-content">    
+                    <div id="game-close"></div>
+                    <div id="game-intro">
+                        <p class="game-title">Esi sveicināts RSU vēstures virtuālās ekspozīcijas spēlē!</p>
+                        <div class="foreLine"></div>
+                        <p class="game-subtitle">Vai vēlies pieņemt izaicinājumu un noskaidrot, cik labi pārzini RSU vēsturi?</p>
+                        <div class="button-wrap">
+                            <div class="game-button red decline">Nē</div>
+                            <div class="game-button green confirm">Jā</div>
+                        </div>
+                    </div>
+                    <div id="game-confirm-basic">
+                        <p class="game-title">Ja tomēr pārdomā un vēlies spēlēt spēli, <em>meklē to blakus izvēlnei.</em></p>
+                        <div class="game-button green confirm">OK</div>
+                    </div>
+                    <div id="game-confirm-advanced">
+                        <p class="game-title">Lieliski – varam sākt spēli!</p>
+                        <div class="foreLine"></div>
+                        <p class="game-subtitle">Spēles gaitā Tev jāatbild uz 12 jautājumiem, kuri periodiski parādīsies ekrānā. Turpini izzināt Rīgas Stradiņa universitātes vēstures virtuālo ekspozīciju, atbildi uz jautājumiem un noskaidro, kādas ir Tavas zināšanas par universitāti un tās vēsturi!</p>
+                        <div class="game-button green confirm">ok</div>
+                    </div>
+                    <div id="game-over">
+                         <p class="game-title">RSU studenti Tavā priekšā noņemtu cepuri,jo Tu esi īsts </br><em>RSU vēstures eksperts! </em></p>
+                        <div class="foreLine"></div>
+                        <p class="game-subtitle">Pastāsti par to saviem draugiem</p>
+                        <ul class="social">
+                            <li><a href="#" class="twitter"></a></li>
+                            <li><a href="#" class="facebook"></a></li>
+                            <li><a href="#" class="draugiem"></a></li>
+                            <li><a href="#" class="gplus"></a></li>
+                        </ul>    
+                        <div class="game-button green confirm">Spēlēt vēlreiz</div>
+                    </div>
+                   <div id="game-question" class="">
+                        <div id="lg-counter">
+                            <span id="lg-counter-current">4</span> / <span id="lg-counter-all">12</span>
+                        </div>
+                        <div class="game-close"></div>
+                        <img src="">
+                        <p class="game-title"><em>Par ko vīriešiem bija jāmācās Rīgas Medicīnas institūtā</em>, lai institūts tiktu pabeigts ar virsnieka pakāpi bez obligātās karaklausības pildīšanas?</p>
+                        <div class="button-wrap">
+                            <div class="game-button gray">medmāsām</div>
+                            <div class="game-button gray">ārstiem</div>
+                            <div class="game-button gray">ārsta palīgiem</div>
+                            <div class="game-button gray">kara ārstiem</div>
+                        </div>                    
+                    </div>
+                    <div id="game-question" class="imageQuest">
+                        <div id="lg-counter">
+                            <span id="lg-counter-current">4</span> / <span id="lg-counter-all">12</span>
+                        </div>
+                        <div class="game-close"></div>
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/game/RSU_WEB_SPELE-24.png">
+                        <p class="game-title"><em>Kādas trīs dzīvību, cerību un nāvi simbolizējošas krāsas tika iekļautas pirmā Rīgas Medicīnas institūta karoga dizainā </em>(izveidots 1989. gadā un līdz mūsdienām nav saglabājies)? Melnbaltajā attēlā redzama karoga labā puse.</p>
+                        <div class="button-wrap">
+                            <div class="game-button right">Tumši sarkana, balta, melna</div>
+                            <div class="game-button wrong">Tumši sarkana, balta, dzeltena</div>
+                            <div class="game-button gray">Tumši zila, pelēka, sarkana</div>
+                            <div class="game-button gray">Tumši pelēka, sarkana, melna</div>
+                        </div>                    
+                    </div>
+                    
+                </div>
+                
+            </div>
