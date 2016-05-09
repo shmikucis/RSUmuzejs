@@ -332,7 +332,7 @@ div.top_bar{
 #mcont_link{
     color: rgb(190, 50, 63) !important;
 }
-#mcontacts:after{
+#msidemenu li:last-of-type:after{
     display: none;
 }
 #polakt_icon p{

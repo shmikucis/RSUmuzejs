@@ -52,6 +52,7 @@ var Game = Class.extend({
 		this.isStartPopup = true;
 		$('#game-inner').css('display', 'block');
 		$('#game-intro').css('display', 'block');
+                if(isMobile) $('.game-content > div').height($('.game-content').height() - $('#masthead').height());
 		console.log("start popup");
 	}
 

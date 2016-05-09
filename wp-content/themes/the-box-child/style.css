@@ -768,7 +768,7 @@ p{
     right: 0;
     top: 0;
     transform: translate(0%, -100%);
-    width: 2.5vw;
+    width: 3.5vw;
     min-width: 40px;
 }
 #game-question #lg-counter-current{
@@ -817,6 +817,7 @@ ul.social{
     height: 4.5vh;
     width: auto;
     margin-bottom: 0;
+    cursor: pointer;
     /*padding-right: 2vw;*/    
 }
 

@@ -42,6 +42,28 @@ else
 <link id="styleswitch" rel="stylesheet" type="text/css" href="" media="screen" />
 </head>
 <body <?php body_class(); ?>>
+     <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '478546399016584',
+          xfbml      : true,
+          version    : 'v2.0'
+        });
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script type="text/javascript" async src="https://platform.twitter.com/widgets.js"></script>
+    <script type="text/javascript" src="//www.draugiem.lv/api/api.js"></script>
+    
+
 <div class="page_load"><div class="loading">
   <div class="loading-bar"></div>
   <div class="loading-bar"></div>
@@ -202,6 +224,7 @@ else
                            </li>
                        </ul>
                    </li>
+                   <li><a id="game-activate"><span>Spēle</span></a>
                 </ul>
             </div>
             
@@ -253,6 +276,7 @@ else
                            </li>
                        </ul>
                    </li>
+                   <li><a id="game-activate"><span>Game</span></a>
                 </ul>
             </div>
             
@@ -290,10 +314,18 @@ else
         </div>
         <div class="head_image_bot">
             <ul class="social">
-                    <li><a href="#" class="twitter"></a></li>
-                    <li><a href="#" class="facebook"></a></li>
-                    <li><a href="#" class="draugiem"></a></li>
-                    <li><a href="#" class="gplus"></a></li>
+                    <li><a href="https://twitter.com/intent/tweet" class="twitter"></a></li>
+                    <li><a class="facebook"></a></li>
+                    <li><a class="draugiem"></a></li>
+                    <li><a
+  data-contenturl="https://plus.google.com/pages/"
+  data-contentdeeplinkid="/pages"
+  data-clientid="573097370645-8rubdrtbr59q01e2gdva8pfvrrjtfrv3.apps.googleusercontent.com"
+  data-cookiepolicy="single_host_origin"
+  data-prefilltext="Testing is great with G+"
+  data-calltoactionlabel="RECOMMEND"
+  data-calltoactionurl="http://plus.google.com/pages/create"
+  data-calltoactiondeeplinkid="/pages/create" class="gplus g-interactivepost"></a></li>
             </ul>            
         </div>
 </header>
@@ -325,10 +357,10 @@ else
                         <div class="foreLine"></div>
                         <p class="game-subtitle">Pastāsti par to saviem draugiem</p>
                         <ul class="social">
-                            <li><a href="#" class="twitter"></a></li>
-                            <li><a href="#" class="facebook"></a></li>
-                            <li><a href="#" class="draugiem"></a></li>
-                            <li><a href="#" class="gplus"></a></li>
+                            <li><a href="https://twitter.com/intent/tweet" class="twitter"></a></li>
+                            <li><a class="facebook"></a></li>
+                            <li><a class="draugiem"></a></li>
+                            <li><a href="https://plus.google.com/share?url=" class="gplus"></a></li>
                         </ul>    
                         <div class="game-button green confirm">Spēlēt vēlreiz</div>
                     </div>
