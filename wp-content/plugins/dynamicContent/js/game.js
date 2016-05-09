@@ -2,6 +2,7 @@ var Game = Class.extend({
 	init: function(){
 		this.time = 0;
 		this.timeSplit = 0;
+		this.isStartPopup = false;
 		this.startDelay = 1000;
 		this.questionDelay = 2000;
 		this.openedQuestions = 0;
@@ -10,6 +11,8 @@ var Game = Class.extend({
 		this.lastOpenTime = 0;
 		this.questions = []; 
 		this.points = 0;
+
+		this.addEventListeners();
 	}
 
 	, update: function(){
@@ -25,28 +28,31 @@ var Game = Class.extend({
 		this.time += deltaTime;		
 
 		// first question opens
-		if(this.openedQuestions === 0 && this.time >= this.startDelay){
-			this.openedQuestions = 1;
-			// TODO open start question
-			console.log("start popup");
+		if(!this.isStartPopup && this.time >= this.startDelay){
+			this.startPopup();			
 		}
-		else if(this.openedQuestions === this.closedQuestions && !this.isOpenQuestion){
+		
+		if(this.openedQuestions !== 0 
+			&& this.openedQuestions < this.questions.length 
+			&& this.openedQuestions === this.closedQuestions 
+			&& !this.isOpenQuestion)
+		{
 			if(this.lastOpenTime + this.questionDelay < this.time){
-				this.isOpenQuestion = true;
-				this.openedQuestions++;
-				// TODO open question
-				console.log("question "+(this.openedQuestions-1));
+				this.openQuestionPopup();
 			}
 		}
 
 	}
 
-	, closeStartPopup: function(doContinue){
-		if(doContinue){
-			// TODO open instuction popup
-		} else {
-			// TODO instruct how to reopen game
-		}
+	, startPopup: function(){
+		this.closeAllPopups();
+		self.openedQuestions = 0;
+		self.closedQuestions = 0;
+
+		this.isStartPopup = true;
+		$('#game-inner').css('display', 'block');
+		$('#game-intro').css('display', 'block');
+		console.log("start popup");
 	}
 
 	, closeInstuctionPopup: function(){
@@ -54,6 +60,25 @@ var Game = Class.extend({
 	}
 
 	, openQuestionPopup: function(){
+		this.isOpenQuestion = true;
+		this.openedQuestions++;
+		var question = this.questions[this.openedQuestions-1];
+		this.closeAllPopups();
+
+		$('#game-question #lg-counter-current').text(this.openedQuestions);
+		$('#game-question #lg-counter-all').text(this.questions.length);
+		$('#game-question .game-title').html(question.question);
+		var buttons = '';
+		for(var i=0; i<question.answers.length; i++) buttons += '<div class="game-button gray">'+question.answers[i]+'</div>';
+		$('#game-question .button-wrap').html(buttons);
+
+		
+		$('#game-inner').css('display', 'block');
+		$('#game-question').css('display', 'block');
+
+		// TODO open question
+		// console.log("question "+(this.openedQuestions-1));
+
 
 	}
 
@@ -64,27 +89,93 @@ var Game = Class.extend({
 			question.isCorrect = true;
 		} else {
 			question.isCorrect = false;
+			var buttonPointer = $('#game-question .button-wrap').children().eq(answerID);
+			buttonPointer.removeClass('gray');
+			buttonPointer.addClass('wrong');
 		}
+		var buttonPointer = $('#game-question .button-wrap').children().eq(question.correctAnswer);
+		buttonPointer.removeClass('gray');
+		buttonPointer.addClass('right');
 
-		// TODO show correct and incorrect answer
+		// console.log('anwer', question.correctAnswer, answerID);
 
 		var self = this;
 		setTimeout(function(){
-			self.closeQuestion();
+			self.closeQuestion(question.isCorrect);
 		}, 1000);
 	}
 
-	, closeQuestion: function(){
+	, closeQuestion: function(isCorrect){
 		this.closedQuestions = this.openedQuestions;
 		this.isOpenQuestion = false;
 		this.lastOpenTime = this.time;
+		this.closeAllPopups();
+
+
+
 		if(this.closedQuestions === this.questions.length){
 			this.showResults();
 		}
 	}
 
 	, showResults: function(){
+		this.closeAllPopups();
+		$('#game-inner').css('display', 'block');
+		$('#game-over').css('display', 'block');
+	}
 
+	, closeAllPopups: function(){
+		$('#game-inner').css('display', 'none');
+		$('#game-intro').css('display', 'none');
+		$('#game-confirm-basic').css('display', 'none');
+		$('#game-confirm-advanced').css('display', 'none');
+		$('#game-over').css('display', 'none');
+		$('#game-question').css('display', 'none');
+	}
+
+	, addEventListeners: function(){
+		var self = this;
+		// ############ popup close button
+		$('#game-close').bind('click', function() {
+		 	self.closeAllPopups();
+		});
+
+		// ############ start popup
+		$('#game-intro .confirm').bind('click', function(){
+			self.closeAllPopups();
+			$('#game-inner').css('display', 'block');
+			$('#game-confirm-advanced').css('display', 'block');
+		});
+
+		$('#game-intro .decline').bind('click', function(){
+			self.closeAllPopups();
+			$('#game-inner').css('display', 'block');
+			$('#game-confirm-basic').css('display', 'block');
+		});
+
+		// ############ instruction popup
+		$('#game-confirm-advanced .confirm').bind('click', function(){
+			self.closeAllPopups();
+			self.openQuestionPopup();
+		});
+
+		// ############ instruction to reopen game
+		$('#game-confirm-basic').bind('click', function(){
+			self.closeAllPopups();
+		});
+
+		// ############ game question buttons
+		$('#game-question .button-wrap').bind('click', function(e){
+			var pointer = $(e.target)
+			if(pointer.hasClass('game-button')){
+				self.answerQuestion(pointer.index());
+			}
+		});
+
+		// ############ game over repeat game
+		$('#game-over .game-button').bind('click', function(e){
+			self.startPopup();
+		});
 	}
 })
 
