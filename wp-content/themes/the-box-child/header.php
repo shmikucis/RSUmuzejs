@@ -314,6 +314,10 @@ else
                         <p class="game-title">Ja tomēr pārdomā un vēlies spēlēt spēli, <em>meklē to blakus izvēlnei.</em></p>
                         <div class="game-button green confirm">OK</div>
                     </div>
+                    <div id="game-cheers">
+                        <p class="game-title">Tu nu gan esi gudrinieks! Veiksmi arī nākamajos jautājumos!</p>
+                        <div class="game-button green confirm">Turpināt spēli</div>
+                    </div>
                     <div id="game-confirm-advanced">
                         <p class="game-title">Lieliski – varam sākt spēli!</p>
                         <div class="foreLine"></div>

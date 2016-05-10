@@ -46,8 +46,10 @@ var Game = Class.extend({
 
 	, startPopup: function(){
 		this.closeAllPopups();
-		self.openedQuestions = 0;
-		self.closedQuestions = 0;
+		this.openedQuestions = 0;
+		this.closedQuestions = 0;
+		this.points = 0;
+		this.isOpenQuestion = false;
 
 		this.isStartPopup = true;
 		$('#game-inner').css('display', 'block');
@@ -68,6 +70,13 @@ var Game = Class.extend({
 		$('#game-question #lg-counter-current').text(this.openedQuestions);
 		$('#game-question #lg-counter-all').text(this.questions.length);
 		$('#game-question .game-title').html(question.question);
+		if(question.img){
+			$('#game-question img').attr('src', URLS.site+'wp-content/themes/the-box-child/images/game/'+question.img);	
+			$('#game-question').addClass('imageQuest');
+		} else {
+			$('#game-question img').attr('src', "");
+			$('#game-question').removeClass('imageQuest');
+		}
 		var buttons = '';
 		for(var i=0; i<question.answers.length; i++) buttons += '<div class="game-button gray">'+question.answers[i]+'</div>';
 		$('#game-question .button-wrap').html(buttons);
@@ -101,8 +110,18 @@ var Game = Class.extend({
 
 		var self = this;
 		setTimeout(function(){
-			self.closeQuestion(question.isCorrect);
+			self.openCheers(question.isCorrect);
 		}, 1000);
+	}
+
+	, openCheers: function(isCorrect){
+		var question = this.questions[this.openedQuestions-1];
+		var text = isCorrect ? question.cheersTrue : question.cheersFalse;
+		this.closeAllPopups();
+		$('#game-cheers .game-title').html(text);
+		$('#game-inner').css('display', 'block');
+		$('#game-cheers').css('display', 'block');
+
 	}
 
 	, closeQuestion: function(isCorrect){
@@ -110,8 +129,6 @@ var Game = Class.extend({
 		this.isOpenQuestion = false;
 		this.lastOpenTime = this.time;
 		this.closeAllPopups();
-
-
 
 		if(this.closedQuestions === this.questions.length){
 			this.showResults();
@@ -129,6 +146,7 @@ var Game = Class.extend({
 		$('#game-intro').css('display', 'none');
 		$('#game-confirm-basic').css('display', 'none');
 		$('#game-confirm-advanced').css('display', 'none');
+		$('#game-cheers').css('display', 'none');
 		$('#game-over').css('display', 'none');
 		$('#game-question').css('display', 'none');
 	}
@@ -172,6 +190,11 @@ var Game = Class.extend({
 			}
 		});
 
+		// ############ game cheers popup close
+		$('#game-cheers .game-button').bind('click', function(e){
+			self.closeQuestion();
+		});
+
 		// ############ game over repeat game
 		$('#game-over .game-button').bind('click', function(e){
 			self.startPopup();
@@ -198,7 +221,7 @@ requestAnimationFrame(gameUpdate);
 /* ################## GAME CONFIG ################### */
 game.questions = [
 	{
-		question: 'Kādi ir divi mūsdienās Rīgas Stradiņa universitātē dominējošie studiju virzieni?'
+		question: 'Kādi ir divi mūsdienās <em>Rīgas Stradiņa universitātē dominējošie studiju virzieni?</em>'
 		, hint: 'Atbilde meklējama sadaļā "Studiju virzienu pirmsākumi"'
 		, correctAnswer: 0
 		, answers: [
@@ -212,7 +235,7 @@ game.questions = [
 	}
 
 	, {
-		question: 'Kāds ir Rīgas Stradiņa universitātes pirmais nosaukums?'
+		question: 'Kāds ir <em>Rīgas Stradiņa universitātes pirmais nosaukums?</em>'
 		, hint: 'Atbilde meklējama sadaļā “Attīstība, rektori un Stradiņa vārds”'
 		, correctAnswer: 1
 		, answers: [
@@ -226,9 +249,10 @@ game.questions = [
 	}
 
 	, {
-		question: 'Kādas trīs dzīvību, cerību un nāvi simbolizējošas krāsas tika iekļautas pirmā Rīgas Medicīnas institūta karoga dizainā (izveidots 1989. gadā un līdz mūsdienām nav saglabājies)? Melnbaltajā attēlā redzama karoga labā puse.'
+		question: '<em>Kādas trīs dzīvību, cerību un nāvi simbolizējošas krāsas tika iekļautas pirmā Rīgas Medicīnas institūta karoga dizainā</em> (izveidots 1989. gadā un līdz mūsdienām nav saglabājies)? Melnbaltajā attēlā redzama karoga labā puse.'
 		, hint: 'Atbilde meklējama sadaļas “Attīstība, rektori un Stradiņa vārds” apakšsadaļā “Rīgas Medicīnas institūts” (9. turpinājums)'
 		, correctAnswer: 0
+		, img: 'RSU_WEB_SPELE-24.png'
 		, answers: [
 			'Tumši sarkana, balta, melna'
 			, 'Tumši sarkana, balta, dzeltena'
@@ -240,9 +264,10 @@ game.questions = [
 	}
 
 	, {
-		question: 'Kā sauc šo personu (attēlā), kas ir kļuvis par starptautiski ievērojamu zinātnieku fizikā?'
+		question: '<em>Kā sauc šo personu</em> (attēlā), kas ir kļuvis par starptautiski ievērojamu zinātnieku fizikā?'
 		, hint: 'Atbilde meklējama sadaļas “Attīstība, rektori un Stradiņa vārds” apakšsadaļā “Rīgas Stradiņa universitāte” (“Stradiņa vārds augstskolai”) (6. turpinājums)'
 		, correctAnswer: 2
+		, img: 'RSU_WEB_SPELE-25.png'
 		, answers: [
 			'Prof. Jānis Stradiņš'
 			, 'Kārlis Stradiņš'
@@ -254,7 +279,7 @@ game.questions = [
 	}
 
 	, {
-		question: 'Par ko vīriešiem bija jāmācās Rīgas Medicīnas institūtā, lai institūts tiktu pabeigts ar virsnieka pakāpi bez obligātās karaklausības pildīšanas Padomju armijā?'
+		question: '<em>Par ko vīriešiem bija jāmācās Rīgas Medicīnas institūtā</em>, lai institūts tiktu pabeigts ar virsnieka pakāpi bez obligātās karaklausības pildīšanas Padomju armijā?'
 		, hint: 'Atbilde meklējama sadaļas “Attīstība, rektori un Stradiņa vārds” apakšsadaļā “Rīgas Medicīnas institūts” (6. turpinājums)'
 		, correctAnswer: 1
 		, answers: [
@@ -268,9 +293,10 @@ game.questions = [
 	}
 
 	, {
-		question: 'Kādu amatu Rīgas Medicīnas institūtā ieņēma profesors Ernests Burtnieks (attēlā)?'
+		question: 'Kādu amatu Rīgas Medicīnas institūtā ieņēma <em>profesors Ernests Burtnieks (attēlā)?</em>'
 		, hint: 'Atbilde meklējama sadaļas “Attīstība, rektori un Stradiņa vārds” apakšsadaļā “Rektori” (6. turpinājums)'
 		, correctAnswer: 3
+		, img: 'RSU_WEB_SPELE-26.png'
 		, answers: [
 			'Pirmais Medicīnas fakultātes dekāns'
 			, 'Ilggadējs RMI rektors'
@@ -282,9 +308,10 @@ game.questions = [
 	}
 
 	, {
-		question: 'Rīgas Stradiņa universitātē no 1976. gada noris studentu ķirurģijas olimpiāde (tās apbalvojums attēlā). Kā sauc šo olimpiādi?'
+		question: 'Rīgas Stradiņa universitātē no 1976. gada noris <em>studentu ķirurģijas olimpiāde</em> (tās apbalvojums attēlā). <em>Kā sauc šo olimpiādi?</em>'
 		, hint: 'Atbilde meklējama sadaļas “Zinātne un pedagoģija” apakšsadaļā “Pedagoģija” (6. turpinājums)'
 		, correctAnswer: 0
+		, img: 'RSU_WEB_SPELE-27.png'
 		, answers: [
 			'„Zelta skalpelis”'
 			, '„Asais skalpelis”'
@@ -296,7 +323,7 @@ game.questions = [
 	}
 
 	, {
-		question: 'Kā sauc RSU sporta un atpūtas bāzi Vecpiebalgas novadā?'
+		question: 'Kā sauc <em>RSU sporta un atpūtas bāzi</em> Vecpiebalgas novadā?'
 		, hint: 'Kā sauc RSU sporta un atpūtas bāzi Vecpiebalgas novadā?'
 		, correctAnswer: 1
 		, answers: [
@@ -310,7 +337,7 @@ game.questions = [
 	}
 
 	, {
-		question: '1951. gadā Rīgas Medicīnas institūtā izveidoja jaukto kori, kas ir arī viens no mūsdienās atpazīstamākajiem Rīgas Stradiņa universitātes zīmoliem. Kāds ir šī kora nosaukums? '
+		question: '1951. gadā <em>Rīgas Medicīnas institūtā izveidoja jaukto kori</em>, kas ir arī viens no mūsdienās atpazīstamākajiem Rīgas Stradiņa universitātes zīmoliem. Kāds ir šī kora nosaukums? '
 		, hint: 'Atbilde meklējama sadaļas “Ārpus studijām” apakšsadaļā “Mākslinieciskie kolektīvi” (1. turpinājums)'
 		, correctAnswer: 0
 		, answers: [
@@ -324,9 +351,10 @@ game.questions = [
 	}
 
 	, {
-		question: 'Kāds bija no 1987. līdz 1993. gadam augstskolā organizētas ikgadējās gudrības, atjautības un jautrības video viktorīnas nosaukums? Attēlā redzams viktorīnas simbols.'
+		question: 'Kāds bija no 1987. līdz 1993. gadam augstskolā organizētas <em>ikgadējās gudrības, atjautības un jautrības video viktorīnas</em> nosaukums? Attēlā redzams viktorīnas simbols.'
 		, hint: 'Atbilde meklējama sadaļas “Ārpus studijām” apakšsadaļā “Studentu sabiedriskās aktivitātes” (1. turpinājums)'
 		, correctAnswer: 0
+		, img: 'RSU_WEB_SPELE-28.png'
 		, answers: [
 			'„Trivium”'
 			, '„Taurenis”'
@@ -338,7 +366,7 @@ game.questions = [
 	}
 
 	, {
-		question: 'Kā sauc Rīgas Medicīnas institūta veidotu organizāciju, kas aukstā kara laikā veicināja sadarbību ar sociālisma bloka valstīm?'
+		question: 'Kā sauc Rīgas Medicīnas institūta veidotu organizāciju, kas <em>aukstā kara laikā veicināja sadarbību ar sociālisma bloka valstīm?</em>'
 		, hint: 'Atbilde meklējama sadaļas “Ārpus studijām” apakšsadaļā “Studentu sabiedriskā aktivitātes” (2. turpinājums)'
 		, correctAnswer: 0
 		, answers: [
@@ -352,7 +380,7 @@ game.questions = [
 	}
 
 	, {
-		question: 'Kad augstskolā (tagad Rīgas Stradiņa universitātē) tika ieviestas sociālo zinātņu studiju programmas?'
+		question: 'Kad augstskolā (tagad Rīgas Stradiņa universitātē) tika <em>ieviestas sociālo zinātņu studiju programmas?</em>'
 		, hint: 'Atbilde meklējama sadaļas “Augstskolas struktūra” (2. turpinājums)'
 		, correctAnswer: 2
 		, answers: [

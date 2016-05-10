@@ -741,6 +741,9 @@ p{
 #game-confirm-basic{
     display: none;
 }
+#game-confirm-cheers{
+    display: none;
+}
 #game-confirm-advanced{
     display: none;
 }
