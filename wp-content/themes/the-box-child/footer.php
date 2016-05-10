@@ -19,10 +19,10 @@
             <div id="continue"></div>
             
             <ul class="social">
-                    <li><a href="#" class="twitter"></a></li>
-                    <li><a href="#" class="facebook"></a></li>
-                    <li><a href="#" class="draugiem"></a></li>
-                    <li><a href="#" class="gplus"></a></li>
+                    <li><a href="https://twitter.com/intent/tweet" class="twitter"></a></li>
+                    <li><a class="facebook"></a></li>
+                    <li><a class="draugiem"></a></li>
+                    <li><a href="https://plus.google.com/share?url=" class="gplus"></a></li>
             </ul>
         </div>
         <div id="mfooter">
@@ -30,7 +30,7 @@
             <span id="bigmore"></span>
             <span id="m_social">
                 <ul>
-                    <li><a href="#" id="m_twitter"></a></li><li><a href="#" id="m_fb"></a></li><li><a href="#" id="m_draugiem"></a></li><li><a href="#" id="m_gplus"></a></li>
+                    <li><a id="m_twitter" href="https://twitter.com/intent/tweet"></a></li><li><a id="m_fb"></a></li><li><a id="m_draugiem"></a></li><li><a href="https://plus.google.com/share?url=" id="m_gplus"></a></li>
                 </ul>
             </span>
             <span id="m_socbtn"></span>

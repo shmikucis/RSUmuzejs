@@ -446,17 +446,39 @@ ol.searchresults{
     vertical-align: middle;
     background-size: cover;
 }
-#lang_toggle #eng{
+#lang_toggle .eng{
     background-image: url(images/ui/flag_gb.png);
     background-repeat: no-repeat;
 }
-#lang_toggle #lat{
+#lang_toggle .lat{
     background-image: url(images/ui/flag_lv.png);
     background-repeat: no-repeat;
 }
 #lang_toggle img{
     height: 100%;
     width: 100%;
+}
+#game_toggle{
+    position: relative;
+    float: right;
+    margin-right: 1%;
+    background-color: rgb(102,0,0);
+    height: 4vh;
+    min-height: 24px;
+    /*padding: 0 1%;*/
+    font-family: helvetica-neue;
+    color: white;    
+}
+#game_toggle a{
+    display: block;
+    position: relative;
+    padding: 0 20%;
+    top: 50%;
+    transform: translate(0%, -50%);
+    cursor: pointer;
+}
+#game_toggle a:hover{
+    opacity: 0.5;
 }
 div#primary.content-area{
 	width: 100vw;
@@ -771,7 +793,7 @@ p{
     right: 0;
     top: 0;
     transform: translate(0%, -100%);
-    width: 2.5vw;
+    width: 3.5vw;
     min-width: 40px;
 }
 #game-question #lg-counter-current{
@@ -820,6 +842,7 @@ ul.social{
     height: 4.5vh;
     width: auto;
     margin-bottom: 0;
+    cursor: pointer;
     /*padding-right: 2vw;*/    
 }
 
