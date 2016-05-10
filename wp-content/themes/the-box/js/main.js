@@ -393,6 +393,7 @@ function mInit() {
     mContinue();
 
     $("#menu_toggle").remove();
+    $("#game_toggle").remove();
     //    $("#masthead").append('<div id="mback"></div><div id="m_srchbtn"></div><div id="menuclose" style="display: none"></div>');
     $("#m_srchbtn, .mclose, #mback, #search, #lang_toggle").css("margin", ($('#masthead').height() - $('#m_srchbtn').height()) / 2);
 //    $('#lang_toggle').hide();
@@ -749,7 +750,7 @@ function setHeadFootSize(divide) {
     //    $('#masthead').css('height', $('#masthead').height());
 //    $('.top_bar a object').css('height', $('#masthead').height() / 7 * 5);
     $('.top_bar a object').css('margin-top', ($('#masthead').height() - $('.top_bar a object').height())/2);
-    $('#menu_toggle, #lang_toggle').css('margin-top', ($('#masthead').height() - $('#menu_toggle').height()) / 2);
+    $('#menu_toggle, #lang_toggle, #game_toggle').css('margin-top', ($('#masthead').height() - $('#menu_toggle').height()) / 2);
     $('#search').css('margin-top', ($('#masthead').height() - $('#search').height()) / 2);
     //$('#searchfield').css('margin-top', ($('#search').height()-$('#searchfield').height())/2);
     $('#searchbutton').height($('#searchfield').height());

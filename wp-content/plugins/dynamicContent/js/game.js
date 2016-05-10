@@ -50,6 +50,7 @@ var Game = Class.extend({
 		self.closedQuestions = 0;
 
 		this.isStartPopup = true;
+                $('#game-container').css('display', 'block');
 		$('#game-inner').css('display', 'block');
 		$('#game-intro').css('display', 'block');
                 if(isMobile) $('.game-content > div').height($('.game-content').height() - $('#masthead').height());
@@ -65,7 +66,7 @@ var Game = Class.extend({
 		this.openedQuestions++;
 		var question = this.questions[this.openedQuestions-1];
 		this.closeAllPopups();
-
+                $('#game-question #lg-counter').css('line-height', $('#lg-counter').height() + "px");
 		$('#game-question #lg-counter-current').text(this.openedQuestions);
 		$('#game-question #lg-counter-all').text(this.questions.length);
 		$('#game-question .game-title').html(question.question);
@@ -126,6 +127,7 @@ var Game = Class.extend({
 	}
 
 	, closeAllPopups: function(){
+                $('#game-container').css('display', 'none');
 		$('#game-inner').css('display', 'none');
 		$('#game-intro').css('display', 'none');
 		$('#game-confirm-basic').css('display', 'none');
