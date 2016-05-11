@@ -95,7 +95,7 @@ var Game = Class.extend({
 		this.openedQuestions++;
 		var question = this.questions[this.openedQuestions-1];
 		this.closeAllPopups();
-        $('#game-question #lg-counter').css('line-height', $('#lg-counter').height() + "px");
+                $('#game-question #lg-counter').css('line-height', $('#lg-counter').height() + "px");
 		$('#game-question #lg-counter-current').text(this.openedQuestions);
 		$('#game-question #lg-counter-all').text(this.questions.length);
 		$('#game-question .game-title').html(question.question);
@@ -114,6 +114,7 @@ var Game = Class.extend({
 		$('#game-inner').css('display', 'block');
 		$('#game-question').css('display', 'block');
                 $('#game-close').css('display', 'block');
+                $('#game-question .game-title').css('max-height', $('#game-question').height()-$('#game-question .button-wrap').outerHeight()-$('#game-question img').outerHeight()-5);
 
 		// TODO open question
 		// console.log("question "+(this.openedQuestions-1));
