@@ -37,7 +37,7 @@ div.top_bar{
     -webkit-transition: opacity 750ms;
     transition: opacity 750ms;
 }
-#header_logo{
+#header_logo_lv, #header_logo_en{
     min-height:25px;
     height: 7vh;
 }
