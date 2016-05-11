@@ -3,8 +3,8 @@ var Game = Class.extend({
 		this.time = 0;
 		this.timeSplit = 0;
 		this.isStartPopup = false;
-		this.startDelay = 2000;
-		this.questionDelay = 2000;
+		this.startDelay = 2*1000; 	// 2min -> 2 * 60 * 1000
+		this.questionDelay = 2*1000;	// 2min -> 2 * 60 * 1000
 		this.openedQuestions = 0;
 		this.closedQuestions = 0;
 		this.isOpenQuestion = false;
@@ -53,13 +53,30 @@ var Game = Class.extend({
 
 		if(URLS.lang === 'en/'){
 			this.questions = this.questionsEng;
+
+			$('#game-intro .game-title').text('Welcome to RSU virtual exhibition game!');
+			$('#game-intro .game-subtitle').text('Are you ready to take the challenge and test your knowledge about the history of RSU?');
+			$('#game-intro .confirm').text('Yes');
+			$('#game-intro .decline').text('No');
+
+			$('#game-confirm-advanced .game-title').text('Great! Let’s start the game!');
+			$('#game-confirm-advanced game-subtitle').text('Answer to 12 questions appearing on the screen. Get to know more about the virtual exhibition of RSU Museum and test your knowledge about the university and its history.');
+			$('#game-confirm-advanced .confirm').text('OK');
+
+			$('#game-confirm-basic .game-title').text('If you change your mind, go back to MENU.');
+			$('#game-confirm-basic .confirm').text('OK');
+
+			$('#game-cheers .confirm').text('OK');
+
+			$('#game-over .game-title').text('RSU students would take their hats off to you, as you are a true RSU history expert!');
+			$('#game-over .confirm').text('Replay the game');
 		}
 
 		this.isStartPopup = true;
-                $('#game-container').css('display', 'block');
+        $('#game-container').css('display', 'block');
 		$('#game-inner').css('display', 'block');
 		$('#game-intro').css('display', 'block');
-                if(isMobile) $('.game-content > div').height($('.game-content').height() - $('#masthead').height());
+        if(isMobile) $('.game-content > div').height($('.game-content').height() - $('#masthead').height());
 		console.log("start popup");
 	}
 
@@ -72,7 +89,7 @@ var Game = Class.extend({
 		this.openedQuestions++;
 		var question = this.questions[this.openedQuestions-1];
 		this.closeAllPopups();
-                $('#game-question #lg-counter').css('line-height', $('#lg-counter').height() + "px");
+        $('#game-question #lg-counter').css('line-height', $('#lg-counter').height() + "px");
 		$('#game-question #lg-counter-current').text(this.openedQuestions);
 		$('#game-question #lg-counter-all').text(this.questions.length);
 		$('#game-question .game-title').html(question.question);

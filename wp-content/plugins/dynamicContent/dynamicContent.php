@@ -47,7 +47,7 @@
 	    }
 
 	    public function getAttachments($list){
-                $menuName = $this->lang === "" ? "Main" : "EN Menu";
+            $menuName = $this->lang === "" ? "Main" : "EN Menu";
 	    	$attachments = array();
 	    	$my_wp_query = new WP_Query();
 	    	foreach($list as $post){
