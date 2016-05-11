@@ -87,7 +87,7 @@ var Game = Class.extend({
 		for(var i=0; i<question.answers.length; i++) buttons += '<div class="game-button gray">'+question.answers[i]+'</div>';
 		$('#game-question .button-wrap').html(buttons);
 
-		
+		$('#game-container').css('display', 'block');
 		$('#game-inner').css('display', 'block');
 		$('#game-question').css('display', 'block');
 
@@ -143,6 +143,7 @@ var Game = Class.extend({
 
 	, showResults: function(){
 		this.closeAllPopups();
+                $('#game-container').css('display', 'block');
 		$('#game-inner').css('display', 'block');
 		$('#game-over').css('display', 'block');
 	}
@@ -163,17 +164,22 @@ var Game = Class.extend({
 		// ############ popup close button
 		$('#game-close').bind('click', function() {
 		 	self.closeAllPopups();
+                        $('#game-container').css('display', 'block');
+			$('#game-inner').css('display', 'block');
+			$('#game-confirm-basic').css('display', 'block');
 		});
 
 		// ############ start popup
 		$('#game-intro .confirm').bind('click', function(){
 			self.closeAllPopups();
+                        $('#game-container').css('display', 'block');
 			$('#game-inner').css('display', 'block');
 			$('#game-confirm-advanced').css('display', 'block');
 		});
 
 		$('#game-intro .decline').bind('click', function(){
 			self.closeAllPopups();
+                        $('#game-container').css('display', 'block');
 			$('#game-inner').css('display', 'block');
 			$('#game-confirm-basic').css('display', 'block');
 		});
