@@ -439,7 +439,8 @@ ol.searchresults{
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
     height: 3vh;
     width: 6vh;
     margin: auto;
@@ -474,7 +475,8 @@ ol.searchresults{
     position: relative;
     /*padding: 0 20%;*/
     top: 50%;
-    transform: translate(0%, -50%);
+    -webkit-transform: translate(0%, -50%);
+            transform: translate(0%, -50%);
     cursor: pointer;
 }
 #game_toggle a:hover{
@@ -630,7 +632,8 @@ p{
     padding-top: 6%;
     padding-bottom: 7%;
     top: 50%;
-    transform: translate(0%, -50%);
+    -webkit-transform: translate(0%, -50%);
+            transform: translate(0%, -50%);
 }
 #game-inner .game-content > div{
     position: relative;
@@ -647,7 +650,8 @@ p{
     background-size: 100%;
     top: 0;
     right: 0;
-    transform: translate(-25%,25%);
+    -webkit-transform: translate(-25%,25%);
+            transform: translate(-25%,25%);
     height: 4vh;
     width: 4vh;
     min-width: 20px;
@@ -714,7 +718,8 @@ p{
     background-size: 100% 200%;
     background-position: 0% 0%;
     margin-left: 50%;
-    transform: translate(-50%,50%);
+    -webkit-transform: translate(-50%,50%);
+            transform: translate(-50%,50%);
     text-transform: uppercase;
     color: white;
     font-family: oswald;
@@ -727,7 +732,8 @@ p{
     position: relative;
     width: 46%;
     margin: 0% 1%;
-    transform: translate(0%,50%);
+    -webkit-transform: translate(0%,50%);
+            transform: translate(0%,50%);
     /*margin-top: 0;*/
 }
 
@@ -792,7 +798,8 @@ p{
     left: 0;
     right: 0;
     top: 0;
-    transform: translate(0%, -100%);
+    -webkit-transform: translate(0%, -100%);
+            transform: translate(0%, -100%);
     width: 3.5vw;
     min-width: 40px;
 }
@@ -817,12 +824,14 @@ p{
 }
 #social-wrap{
     margin-left: 50%;
-    transform: translate(-50%, 0%);
+    -webkit-transform: translate(-50%, 0%);
+            transform: translate(-50%, 0%);
 }
 #game-over ul.social{
     position: relative;
     margin-left: 50%;
-    transform: translate(-50%,0%);
+    -webkit-transform: translate(-50%,0%);
+            transform: translate(-50%,0%);
     right: 0;
     padding: 0;
 }
@@ -1688,7 +1697,10 @@ a.archive, div.archive{
     -webkit-justify-content: center;
         -ms-flex-pack: center;
             justify-content: center;
-    align-items: flex-start;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+        -ms-flex-align: start;
+            align-items: flex-start;
     height: 70vh !important;
     margin-bottom: 0;
     overflow: hidden !important;

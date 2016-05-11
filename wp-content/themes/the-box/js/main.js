@@ -989,6 +989,7 @@ function m_showMenu() {
     $('#menuclose').show();
     $('#logo_link').hide();
     $('#menutext').show();
+    $('#mback').hide();
     $('#lang_toggle').show();
     $("#menutext").css('width', $(window).width() - $('#m_srchbtn').outerWidth(true) * 2);
 }
@@ -1002,6 +1003,7 @@ function m_closeMenu() {
     $('#logo_link').show();
     $('#menutext').hide();
     $('#lang_toggle').hide();
+    $('#mback').show();
     $('#m_menubtn.tapped').removeClass('tapped');
 }
 
