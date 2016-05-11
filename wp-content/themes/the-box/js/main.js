@@ -53,8 +53,9 @@ $(window).resize(function() {
         else $('.alignright').css('margin-left', $('p.text_left').width());
         $("#m_srchbtn, .mclose, #mback, #lang_toggle").css("margin", ($('#masthead').height() - $('#m_srchbtn').height()) / 2);
         $("#menutext").css('width', $(window).width() - $('#m_srchbtn').outerWidth(true) * 2);
+        $('.game-content').height($(window.height()));
         $('.game-content > div').css('top', $('#masthead').height());
-         $('.game-content > div').height($('.game-content').height() - $('#masthead').height());
+        $('.game-content > div').height($('.game-content').height() - $('#masthead').height());
     }
 });
 
