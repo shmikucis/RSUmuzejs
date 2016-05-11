@@ -962,7 +962,9 @@ function mContinue() {
         'margin-left': ($('#m_social').width() - $('#m_social ul li').width() * 4) / 2,
         "margin-top": ($('#m_social').height() - $('#m_social ul').height()) / 2
     });
-    $("div.top_bar").css("left", ($(window).width() - $("#header_logo").width()) / 2);
+    if(URLS.lang === "en/")
+        $("div.top_bar").css("left", ($(window).width() - $("#header_logo_en").width()) / 2);
+    else $("div.top_bar").css("left", ($(window).width() - $("#header_logo_lv").width()) / 2);
     $("#mfooter").css('top', '86vh');
 }
 
