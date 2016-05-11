@@ -482,7 +482,7 @@ div.top_bar{
     background-size: cover;
     background-position: center;
 }
-#lat, #eng{
+#lang_toggle .lat, #lang_toggle .eng{
     background-image: none !important;
     font-size: 10pt;
     line-height: 100%;
@@ -491,10 +491,10 @@ div.top_bar{
     color: white;
     text-decoration: none;
 }
-#lat:after{
+#lang_toggle .lat:after{
     content: 'LAT';    
 }
-#eng:after{
+#lang_toggle .eng:after{
     content: 'ENG';
 }
 /*#mback:focus, #mback:active{

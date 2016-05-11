@@ -14,6 +14,8 @@
     <title><?php if(is_home() || is_front_page()) { echo bloginfo("name"); }
 else
 { echo bloginfo("description");}?></title>
+    <meta property="og:description"   content="Virtuālais muzejs, izmantojot RSU muzejā sakopotos materiālus, palīdzēs Jums iepazīties ar to, kā noritējusi mūsu augstskolas attīstība dažādos vēsturiskajos laikposmos." id="descr_lv"/>
+    <meta property="og:description"   content="Virtual Museum contains materials compiled by RSU Museum and will lead you through the stages of development of our university throughout various historical periods." id="descr_en"/>
 <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.ico" />
 <!--<meta charset="<?php // bloginfo( 'charset' ); ?>">-->
 <meta charset="utf-8" />
@@ -77,7 +79,8 @@ else
 	<header id="masthead" class="site-header clearfix" role="banner">
 		<div class="top_bar">
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" id="logo_link">
-				<object type="image/svg+xml" data="<?php echo get_stylesheet_directory_uri(); ?>/images/logo.svg" id="header_logo"></object>
+				<object type="image/svg+xml" data="<?php echo get_stylesheet_directory_uri(); ?>/images/logo.svg" id="header_logo_lv"></object>
+                                <object type="image/svg+xml" data="<?php echo get_stylesheet_directory_uri(); ?>/images/logo_en.svg" id="header_logo_en"></object>
 			</a>
 		</div>
             <span id="menu_toggle"></span>
@@ -368,7 +371,14 @@ else
                             <li><a href="https://twitter.com/intent/tweet" class="twitter"></a></li>
                             <li><a class="facebook"></a></li>
                             <li><a class="draugiem"></a></li>
-                            <li><a href="https://plus.google.com/share?url=" class="gplus"></a></li>
+                            <li><a data-contenturl="https://plus.google.com/pages/"
+  data-contentdeeplinkid="/pages"
+  data-clientid="573097370645-8rubdrtbr59q01e2gdva8pfvrrjtfrv3.apps.googleusercontent.com"
+  data-cookiepolicy="single_host_origin"
+  data-prefilltext="Testing is great with G+"
+  data-calltoactionlabel="RECOMMEND"
+  data-calltoactionurl="http://plus.google.com/pages/create"
+  data-calltoactiondeeplinkid="/pages/create" class="gplus g-interactivepost"></a></li>
                         </ul>    
                         <div class="game-button green confirm">Spēlēt vēlreiz</div>
                     </div>
