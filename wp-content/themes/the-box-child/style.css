@@ -459,7 +459,6 @@ ol.searchresults{
     width: 100%;
 }
 #game_toggle{
-    display:none;
     position: relative;
     float: right;
     margin-right: 1%;

@@ -244,6 +244,99 @@ var Game = Class.extend({
 		$('#game-over .game-button').bind('click', function(e){
 			self.startPopup();
 		});
+                
+                function DraugiemSay( title, url, titlePrefix ){
+                 window.open(
+                  'http://www.draugiem.lv/say/ext/add.php?title=' + encodeURIComponent( title ) +
+                  '&link=' + encodeURIComponent( url ) +
+                  ( titlePrefix ? '&titlePrefix=' + encodeURIComponent( titlePrefix ) : '' ),
+                  '',
+                  'location=1,status=1,scrollbars=0,resizable=0,width=530,height=400'
+                 );
+                 return false; 
+                }
+
+
+                
+                // FACEBOOK
+                $('#game-over .social .facebook').on('click', function(){
+                    var socPrefillText;
+                    if (URLS.lang === "en/"){
+                        if (game.points <=12)
+                            socPrefillText = "I am a true RSU history expert. Test your knowledge of RSU history and development";
+                        if (game.points <=8)
+                            socPrefillText = "I am a true RSU history buff. Test your knowledge of RSU history and development.";
+                        if (game.points <= 4) 
+                            socPrefillText = "I am a true RSU history enthusiast. Test your knowledge of RSU history and development.";    
+                    }
+                    else{                        
+                        if (game.points <=12)
+                            socPrefillText = "Esmu īsts RSU vēstures eksperts! Noskaidro savas zināšanas par RSU vēsturi un attīstību arī Tu";
+                        if (game.points <=8)
+                            socPrefillText = "Esmu RSU vēstures lietpratējs! Noskaidro savas zināšanas par RSU vēsturi un attīstību arī Tu.";
+                        if (game.points <= 4) 
+                            socPrefillText = "Esmu īstens RSU vēstures entuziasts! Noskaidro savas zināšanas par RSU vēsturi un attīstību arī Tu.";
+                    }
+                    FB.ui({
+                      method: 'share',
+                      quote: socPrefillText,
+            //          mobile_iframe: true,
+                      href:  window.location.origin
+                    }, function(response){});})
+                // DRAUGIEM
+                $('#game-over .social .draugiem').on('click', function(){
+                    var socPrefillText;
+                    if (URLS.lang === "en/"){
+                        if (game.points <=12)
+                            socPrefillText = "I am a true RSU history expert. Test your knowledge of RSU history and development";
+                        if (game.points <=8)
+                            socPrefillText = "I am a true RSU history buff. Test your knowledge of RSU history and development.";
+                        if (game.points <= 4) 
+                            socPrefillText = "I am a true RSU history enthusiast. Test your knowledge of RSU history and development.";    
+                    }
+                    else{                        
+                        if (game.points <=12)
+                            socPrefillText = "Esmu īsts RSU vēstures eksperts! Noskaidro savas zināšanas par RSU vēsturi un attīstību arī Tu";
+                        if (game.points <=8)
+                            socPrefillText = "Esmu RSU vēstures lietpratējs! Noskaidro savas zināšanas par RSU vēsturi un attīstību arī Tu.";
+                        if (game.points <= 4) 
+                            socPrefillText = "Esmu īstens RSU vēstures entuziasts! Noskaidro savas zināšanas par RSU vēsturi un attīstību arī Tu.";
+                    }
+                    DraugiemSay(socPrefillText,  window.location.origin, null);
+                }); 
+//                // GOOGLE+
+//                $('#game-over .social .gplus').on('click', function(){
+//                    $(this).data('prefilltext', $socPrefillText);
+//                    $(this).data('contenturl', window.location.origin);
+//                    $(this).data('calltoactionurl',  window.location.href);
+//                    $(this).attr('data-prefilltext', $socPrefillText);
+//                    $(this).attr('data-contenturl', window.location.origin);
+//                    $(this).attr('data-calltoactionurl',  window.location.href);
+//                }); 
+                // TWITTER
+                $('#game-over .social .twitter').on('click', function(){
+                    var socPrefillText;
+                    if (URLS.lang === "en/"){
+                        if (game.points <=12)
+                            socPrefillText = "I am a true RSU history expert. Test your knowledge of RSU history and development";
+                        if (game.points <=8)
+                            socPrefillText = "I am a true RSU history buff. Test your knowledge of RSU history and development.";
+                        if (game.points <= 4) 
+                            socPrefillText = "I am a true RSU history enthusiast. Test your knowledge of RSU history and development.";    
+                    }
+                    else{                        
+                        if (game.points <=12)
+                            socPrefillText = "Esmu īsts RSU vēstures eksperts! Noskaidro savas zināšanas par RSU vēsturi un attīstību arī Tu";
+                        if (game.points <=8)
+                            socPrefillText = "Esmu RSU vēstures lietpratējs! Noskaidro savas zināšanas par RSU vēsturi un attīstību arī Tu.";
+                        if (game.points <= 4) 
+                            socPrefillText = "Esmu īstens RSU vēstures entuziasts! Noskaidro savas zināšanas par RSU vēsturi un attīstību arī Tu.";
+                    }
+                    var title = encodeURI(socPrefillText);
+                    var twitUrl = encodeURIComponent(window.location.origin);
+                    $(this).attr('href', "https://twitter.com/intent/tweet" + "?text=" + title + "&url=" + twitUrl);
+                }); 
+                
 	}
 })
 

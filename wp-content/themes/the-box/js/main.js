@@ -141,15 +141,18 @@ $(document).ready(function() {
         DraugiemSay($socPrefillText,  window.location.href, null);
     }); 
     // GOOGLE+
-    $('#masthead .social .gplus, #footer .social .gplus, #m_gplus').on('click', function(){
-        $(this).attr('data-prefilltext', $socPrefillText);
-        $(this).attr('data-contenturl', window.location.origin);
-        $(this).attr('data-calltoactionurl',  window.location.href);
-    }); 
+//    $('#masthead .social .gplus, #footer .social .gplus, #m_gplus').on('click', function(){
+//        $(this).data('prefilltext', $socPrefillText);
+//        $(this).data('contenturl', window.location.origin);
+//        $(this).data('calltoactionurl',  window.location.href);
+//        $(this).attr('data-prefilltext', $socPrefillText);
+//        $(this).attr('data-contenturl', window.location.origin);
+//        $(this).attr('data-calltoactionurl',  window.location.href);
+//    }); 
     // TWITTER
     $('#masthead .social .twitter, #footer .social .twitter, #m_twitter').on('click', function(){
         var title = encodeURI($socPrefillText);
-        var twitUrl = encodeURI(window.location.href);
+        var twitUrl = encodeURIComponent(window.location.href);
         $(this).attr('href', "https://twitter.com/intent/tweet" + "?text=" + title + "&url=" + twitUrl);
     }); 
 //    $('.social .gplus, #m_gplus').on('click', function(){window.open(this.href + window.location.href,
