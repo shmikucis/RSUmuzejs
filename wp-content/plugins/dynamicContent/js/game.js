@@ -3,7 +3,7 @@ var Game = Class.extend({
 		this.time = 0;
 		this.timeSplit = 0;
 		this.isStartPopup = false;
-		this.startDelay = 1000;
+		this.startDelay = 2000;
 		this.questionDelay = 2000;
 		this.openedQuestions = 0;
 		this.closedQuestions = 0;
@@ -50,6 +50,10 @@ var Game = Class.extend({
 		this.closedQuestions = 0;
 		this.points = 0;
 		this.isOpenQuestion = false;
+
+		if(URLS.lang === 'en/'){
+			this.questions = this.questionsEng;
+		}
 
 		this.isStartPopup = true;
                 $('#game-container').css('display', 'block');
@@ -394,5 +398,182 @@ game.questions = [
 		]
 		, cheersTrue: 'Apsveicam – Tu spēli noslēdz ar pareizo atbildi!'
 		, cheersFalse: 'Atbilde diemžēl nepareiza! Taču malacis – Tu turējies kā īsts RSU students!'
+	}
+];
+
+
+/* ################## GAME CONFIG ENG ################### */
+game.questionsEng = [
+	{
+		question: 'Name two currently dominating study directions at Rīga Stradiņš University'
+		, hint: ''
+		, correctAnswer: 0
+		, answers: [
+			'Health care and social sciences'
+			, 'Social sciences and medicine'
+			, 'Biomedicine and health care'
+			, 'Health care and European studies'
+		]
+		, cheersTrue: 'It is only the first step, but you have already shown yourself from your best side. Stay on track.'
+		, cheersFalse: 'Unfortunately, you are wrong. But do not worry – mistakes are a part of being human.'
+	}
+
+	, {
+		question: 'What was the initial name of Rīga Stradiņš University?'
+		, hint: ''
+		, correctAnswer: 1
+		, answers: [
+			'Medical Institute of Latvia'
+			, 'Rīga Medical Institute'
+			, 'State University of Latvia'
+			, 'Institution of higher education of Latvia'
+		]
+		, cheersTrue: 'Knowledge or a lucky guess? You are right!'
+		, cheersFalse: 'Oops! Wrong choice. Good luck for the next question.'
+	}
+
+	, {
+		question: 'Which three colours symbolising life, hope and death are there on the first version of the flag of Rīga Medical Institute (designed in 1989 and has not been preserved until nowadays). On the black and white image – obverse of the flag'
+		, hint: ''
+		, correctAnswer: 0
+		, img: 'RSU_WEB_SPELE-24.png'
+		, answers: [
+			'Dark red, white, black'
+			, 'Dark red, white, yellow'
+			, 'Dark blue, grey, red'
+			, 'Dark grey, red, black'
+		]
+		, cheersTrue: 'Your intuition is right – you have picked the correct answer.'
+		, cheersFalse: 'Your intuition failed you. Good luck for the next question.'
+	}
+
+	, {
+		question: 'Name this person (pictured). He is an internationally renowned scholar in physics.'
+		, hint: ''
+		, correctAnswer: 2
+		, img: 'RSU_WEB_SPELE-25.png'
+		, answers: [
+			'Prof. Jānis Stradiņš'
+			, 'Kārlis Stradiņš'
+			, 'Prof. Pauls Stradiņš'
+			, 'Assoc. prof. Pēteris Stradiņš'
+		]
+		, cheersTrue: 'You are a smarty! Good luck for the next question!'
+		, cheersFalse: 'Wrong answer. But do not get upset – you cannot know everything.'
+	}
+
+	, {
+		question: 'Which profession had to be acquired by men at Rīga Medical Institute so that they could hold the rank of an officer and avoid compulsory military service in the Soviet Army.'
+		, hint: ''
+		, correctAnswer: 1
+		, answers: [
+			'Nurse'
+			, 'Doctor'
+			, 'Doctor’s assistant'
+			, 'Military doctor'
+		]
+		, cheersTrue: 'Great, you are right! Stay witty!'
+		, cheersFalse: 'You are losing your wits! Stay tuned!'
+	}
+
+	, {
+		question: 'Which position at Rīga Medical Institute was taken by Professor Ernests Burtnieks (pictured)?'
+		, hint: ''
+		, correctAnswer: 3
+		, img: 'RSU_WEB_SPELE-26.png'
+		, answers: [
+			'The first dean of the Faculty of Medicine'
+			, 'Long-standing rector of RMI'
+			, 'Head of the Department of Health'
+			, 'The first director of RMI'
+		]
+		, cheersTrue: 'You picked the right answer as a true professional. Good luck for the next question!'
+		, cheersFalse: 'This time you are wrong. Show what you know when answering the next question.'
+	}
+
+	, {
+		question: 'Since 1976, RSU has been hosting students’ surgery olympiad (trophy of the olympiad pictured). Name the title of this olympiad.'
+		, hint: ''
+		, correctAnswer: 0
+		, img: 'RSU_WEB_SPELE-27.png'
+		, answers: [
+			'“Golden Scalpel”'
+			, '“The Sharp Scalpel”'
+			, '“Golden Stethoscope”'
+			, '“RSU Scalpel”'
+		]
+		, cheersTrue: 'Good job – everything is correct! Good luck for the next question!'
+		, cheersFalse: 'You have picked a wrong answer. Good luck for the next question!'
+	}
+
+	, {
+		question: 'What is the name of RSU sports and recreation centre?'
+		, hint: ''
+		, correctAnswer: 1
+		, answers: [
+			'„Vecpiebalga”'
+			, '„Taurene”'
+			, '“Taurenis”'
+			, '“RSU Sports”'
+		]
+		, cheersTrue: 'It seems that you are an RSU graduate ... Your answer is 100% correct.'
+		, cheersFalse: 'Unfortunately, you are wrong. Good luck for the next question!'
+	}
+
+	, {
+		question: 'In 1951, a mixed choir was established at Rīga Medical Institue. Nowadays the choir has become one of the brands of Rīga Stradiņš University. What is the name of the choir? '
+		, hint: ''
+		, correctAnswer: 0
+		, answers: [
+			'„Rīga” (“Riga”)'
+			, '„Latvija” (“Latvia”)'
+			, '„Tēvzeme” (“Fatherland”)'
+			, '„Ačkups”'
+		]
+		, cheersTrue: 'Your knowledge did not let you down. Stay on track.'
+		, cheersFalse: 'Unfortunately, you are wrong, but everything is not lost.'
+	}
+
+	, {
+		question: 'Name the annual video quiz organised from 1987 to 1993? Pictured – symbol of the quiz.'
+		, hint: ''
+		, correctAnswer: 0
+		, img: 'RSU_WEB_SPELE-28.png'
+		, answers: [
+			'„Trivium”'
+			, '„Taurenis” (“Butterfly”)'
+			, '„Viktorim”'
+			, '„Zelta stetoskops” (“Golden Stethoscope”)'
+		]
+		, cheersTrue: 'You have scored!'
+		, cheersFalse: 'You are wrong, but the question was a tough one.'
+	}
+
+	, {
+		question: 'Name an organisation established at Rīga Medical Institute that promoted cooperation with the socialist countries during the Cold War.'
+		, hint: ''
+		, correctAnswer: 0
+		, answers: [
+			'“Interklubs”'
+			, '“Studenti par mieru” (“Students for Peace”)'
+			, '“SZB Ateisma nodaļa” (“SSA Atheism Department”)'
+			, '“Interclub”'
+		]
+		, cheersTrue: 'Correct! Good luck for the last question!'
+		, cheersFalse: 'You are absolutely ... wrong. You will succeed with the next question.'
+	}
+
+	, {
+		question: 'Name the year of the introduction of social sciences study programmes at the institution (now Rīga Stradiņš University)?'
+		, hint: ''
+		, correctAnswer: 2
+		, answers: [
+			'in 1950'
+			, 'in 1990'
+			, 'in 1998'
+			, 'in 2002'
+		]
+		, cheersTrue: 'Congratulations! You have finished the game with a correct answer.'
+		, cheersFalse: 'Unfortunately, you are wrong. But you have stood firm just like a real RSU student!'
 	}
 ];
