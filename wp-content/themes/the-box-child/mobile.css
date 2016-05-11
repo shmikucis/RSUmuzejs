@@ -482,9 +482,11 @@ div.top_bar{
     background-size: cover;
     background-position: center;
 }
+#lang_toggle a{    
+    font-size: 10pt;
+}
 #lang_toggle .lat, #lang_toggle .eng{
     background-image: none !important;
-    font-size: 10pt;
     line-height: 100%;
     font-family: oswald-light;
     text-align: center;
@@ -626,7 +628,8 @@ div.top_bar{
 #game-question #lg-counter{
     margin: auto;
     color: #BA2431;
-    transform: translate(0%, -50%);
+    transform: translate(-50%, -50%);
+    left: 50%;
 }
 #game-question.imageQuest img{
     float: none;
