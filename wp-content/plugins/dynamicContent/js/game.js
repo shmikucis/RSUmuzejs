@@ -5,7 +5,7 @@ var Game = Class.extend({
 		this.isStartPopup = false;
 		// this.startDelay = 2*1000; 	// 2min -> 2 * 60 * 1000
 		// this.questionDelay = 2*1000;	// 2min -> 2 * 60 * 1000
-		this.startDelay = 2*60*1000; 	
+		this.startDelay = 100; 	
 		this.questionDelay = 2*60*1000;	
 		this.openedQuestions = 0;
 		this.closedQuestions = 0;
@@ -151,6 +151,7 @@ var Game = Class.extend({
 		var text = isCorrect ? question.cheersTrue : question.cheersFalse;
 		this.closeAllPopups();
 		$('#game-cheers .game-title').html(text);
+                $('#game-container').css('display', 'block');
 		$('#game-inner').css('display', 'block');
 		$('#game-cheers').css('display', 'block');
                 $('#game-close').css('display', 'block');

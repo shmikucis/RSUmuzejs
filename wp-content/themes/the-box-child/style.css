@@ -267,6 +267,7 @@ div.top_bar{
     border: none;
     margin-left:1%;
     width: 86%;
+    height: auto;
 }
 #searchbutton{
     display:table-cell;
@@ -278,8 +279,9 @@ div.top_bar{
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    width: 11%;
+    width: 12%;
     padding: 0;
+    height: 86%;
 }
 #searchbutton:hover{
     cursor: pointer;
@@ -315,6 +317,7 @@ ol.searchresults{
     min-width: 32px;
     height: 4vh;
     min-height: 24px;
+    max-height: 35px;
     margin-top: 2vh;
     margin-right: 1vw;
     cursor: pointer;
@@ -431,8 +434,10 @@ ol.searchresults{
     background-color: rgb(102,0,0);
     height: 4vh;
     min-height: 24px;
+    max-height: 35px;
     width: 7vh;
     min-width: 46px;
+    max-width: 74px;
 }
 #lang_toggle a{
     display: block;
@@ -442,10 +447,12 @@ ol.searchresults{
     -webkit-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
     height: 3vh;
+    max-height: 28px;
     width: 6vh;
     margin: auto;
     vertical-align: middle;
-    background-size: cover;
+    background-size: contain;
+    background-position: center;
 }
 #lang_toggle .eng{
     background-image: url(images/ui/flag_gb.png);
@@ -466,6 +473,7 @@ ol.searchresults{
     background-color: rgb(102,0,0);
     height: 4vh;
     min-height: 24px;
+    max-height: 35px;
     padding: 0 10px;
     font-family: helvetica-neue;
     color: white;    
@@ -1951,6 +1959,9 @@ a.archive, div.archive{
     .global_botleft{
         left: 25vw !important;
     }
+    #searchfield{
+        font-size: 9pt;
+    }
 }
 @media screen and (max-width: 950px) {
     
@@ -2464,6 +2475,9 @@ a.archive, div.archive{
     #bigmore:hover{
         background-position: 0% 100%;
     }
+    #searchfield{
+        font-size: 12pt;
+    }
 }
 
 @media screen and (min-width: 2400px){
@@ -2548,6 +2562,9 @@ a.archive, div.archive{
     }
     .entry-title{
         border-width: 2px;
+    }
+    #searchfield{
+        font-size: 14pt;
     }
 }
 

@@ -772,7 +772,9 @@ function setHeadFootSize(divide) {
     $('#menu_toggle, #lang_toggle, #game_toggle').css('margin-top', ($('#masthead').height() - $('#menu_toggle').height()) / 2);
     $('#search').css('margin-top', ($('#masthead').height() - $('#search').height()) / 2);
     //$('#searchfield').css('margin-top', ($('#search').height()-$('#searchfield').height())/2);
-    $('#searchbutton').height($('#searchfield').height());
+    $('#search').height($('#game_toggle').height());
+//    $('#searchfield').height($('#game_toggle').height());
+//    $('#searchbutton').height($('#searchfield').height());
 //    $('#searchbutton').css('margin-top', ($('#search').height() - $('#searchbutton').height()) / 2);
 
 
