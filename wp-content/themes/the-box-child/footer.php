@@ -22,7 +22,14 @@
                     <li><a href="https://twitter.com/intent/tweet" class="twitter"></a></li>
                     <li><a class="facebook"></a></li>
                     <li><a class="draugiem"></a></li>
-                    <li><a href="https://plus.google.com/share?url=" class="gplus"></a></li>
+                    <li><a data-contenturl="https://plus.google.com/pages/"
+  data-contentdeeplinkid="/pages"
+  data-clientid="573097370645-8rubdrtbr59q01e2gdva8pfvrrjtfrv3.apps.googleusercontent.com"
+  data-cookiepolicy="single_host_origin"
+  data-prefilltext="Testing is great with G+"
+  data-calltoactionlabel="RECOMMEND"
+  data-calltoactionurl="http://plus.google.com/pages/create"
+  data-calltoactiondeeplinkid="/pages/create" class="gplus g-interactivepost"></a></li>
             </ul>
         </div>
         <div id="mfooter">
@@ -30,7 +37,14 @@
             <span id="bigmore"></span>
             <span id="m_social">
                 <ul>
-                    <li><a id="m_twitter" href="https://twitter.com/intent/tweet"></a></li><li><a id="m_fb"></a></li><li><a id="m_draugiem"></a></li><li><a href="https://plus.google.com/share?url=" id="m_gplus"></a></li>
+                    <li><a id="m_twitter" href="https://twitter.com/intent/tweet"></a></li><li><a id="m_fb"></a></li><li><a id="m_draugiem"></a></li><li><a data-contenturl="https://plus.google.com/pages/"
+  data-contentdeeplinkid="/pages"
+  data-clientid="573097370645-8rubdrtbr59q01e2gdva8pfvrrjtfrv3.apps.googleusercontent.com"
+  data-cookiepolicy="single_host_origin"
+  data-prefilltext="Testing is great with G+"
+  data-calltoactionlabel="RECOMMEND"
+  data-calltoactionurl="http://plus.google.com/pages/create"
+  data-calltoactiondeeplinkid="/pages/create" class="g-interactivepost" id="m_gplus"></a></li>
                 </ul>
             </span>
             <span id="m_socbtn"></span>

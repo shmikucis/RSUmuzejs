@@ -112,13 +112,6 @@ $(document).ready(function() {
             
         });
     }
-
-    $('.social .facebook, #m_fb').on('click', function(){
-        FB.ui({
-          method: 'share',
-//          mobile_iframe: true,
-          href: window.location.href
-        }, function(response){});})
     
     function DraugiemSay( title, url, titlePrefix ){
  window.open(
@@ -128,13 +121,36 @@ $(document).ready(function() {
   '',
   'location=1,status=1,scrollbars=0,resizable=0,width=530,height=400'
  );
- return false;
+ return false; 
 }
 
-    $('.social .draugiem, #m_draugiem').on('click', function(){
-        var title="Sharing with draugiem!";
-        var url = window.location.href;
-        DraugiemSay(title, url, 'Red colored Prefix');
+
+    if (URLS.lang === "en/")
+        $socPrefillText = "Get to know the history of RSU – visit RSU virtual exhibition.";
+    else $socPrefillText = "Uzzini visu par RSU vēstures attīstību un gaitu RSU vēstures virtuālajā ekspozīcijā.";
+    // FACEBOOK
+    $('#masthead .social .facebook, #footer .social .facebook, #m_fb').on('click', function(){
+        FB.ui({
+          method: 'share',
+          quote: $socPrefillText,
+//          mobile_iframe: true,
+          href:  window.location.href
+        }, function(response){});})
+    // DRAUGIEM
+    $('#masthead .social .draugiem, #footer .social .draugiem, #m_draugiem').on('click', function(){
+        DraugiemSay($socPrefillText,  window.location.href, null);
+    }); 
+    // GOOGLE+
+    $('#masthead .social .gplus, #footer .social .gplus, #m_gplus').on('click', function(){
+        $(this).attr('data-prefilltext', $socPrefillText);
+        $(this).attr('data-contenturl', window.location.origin);
+        $(this).attr('data-calltoactionurl',  window.location.href);
+    }); 
+    // TWITTER
+    $('#masthead .social .twitter, #footer .social .twitter, #m_twitter').on('click', function(){
+        var title = encodeURI($socPrefillText);
+        var twitUrl = encodeURI(window.location.href);
+        $(this).attr('href', "https://twitter.com/intent/tweet" + "?text=" + title + "&url=" + twitUrl);
     }); 
 //    $('.social .gplus, #m_gplus').on('click', function(){window.open(this.href + window.location.href,
 //  '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;});

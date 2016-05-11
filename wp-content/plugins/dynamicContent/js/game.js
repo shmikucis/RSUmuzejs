@@ -2,7 +2,7 @@ var Game = Class.extend({
 	init: function(){
 		this.time = 0;
 		this.timeSplit = 0;
-		this.isStartPopup = false;
+		this.isStartPopup = true;
 		this.startDelay = 1000;
 		this.questionDelay = 2000;
 		this.openedQuestions = 0;
@@ -45,7 +45,8 @@ var Game = Class.extend({
 	}
 
 	, startPopup: function(){
-		this.closeAllPopups();
+		this.closeAllPopups();                
+                scrollEnabled = false;
 		this.openedQuestions = 0;
 		this.closedQuestions = 0;
 		this.points = 0;
@@ -56,6 +57,7 @@ var Game = Class.extend({
 		$('#game-inner').css('display', 'block');
 		$('#game-intro').css('display', 'block');
                 if(isMobile) $('.game-content > div').height($('.game-content').height() - $('#masthead').height());
+                $('#game-close').css('display', 'none');
 		console.log("start popup");
 	}
 
@@ -64,6 +66,7 @@ var Game = Class.extend({
 	}
 
 	, openQuestionPopup: function(){
+                scrollEnabled = false;
 		this.isOpenQuestion = true;
 		this.openedQuestions++;
 		var question = this.questions[this.openedQuestions-1];
@@ -86,6 +89,7 @@ var Game = Class.extend({
 		$('#game-container').css('display', 'block');
 		$('#game-inner').css('display', 'block');
 		$('#game-question').css('display', 'block');
+                $('#game-close').css('display', 'block');
 
 		// TODO open question
 		// console.log("question "+(this.openedQuestions-1));
@@ -117,13 +121,14 @@ var Game = Class.extend({
 	}
 
 	, openCheers: function(isCorrect){
+                scrollEnabled = false;
 		var question = this.questions[this.openedQuestions-1];
 		var text = isCorrect ? question.cheersTrue : question.cheersFalse;
 		this.closeAllPopups();
 		$('#game-cheers .game-title').html(text);
 		$('#game-inner').css('display', 'block');
 		$('#game-cheers').css('display', 'block');
-
+                $('#game-close').css('display', 'block');
 	}
 
 	, closeQuestion: function(isCorrect){
@@ -138,6 +143,7 @@ var Game = Class.extend({
 	}
 
 	, showResults: function(){
+                scrollEnabled = false;
 		this.closeAllPopups();
                 $('#game-container').css('display', 'block');
 		$('#game-inner').css('display', 'block');
@@ -153,6 +159,10 @@ var Game = Class.extend({
 		$('#game-cheers').css('display', 'none');
 		$('#game-over').css('display', 'none');
 		$('#game-question').css('display', 'none');
+                
+                var item = dynamicContent.getItem();
+                if (item.template !== 'templates/menu.php' || item.template !== 'templates/searchResults.php' || item.post_name !== 'kontakti' || item.post_name !== 'contacts')
+                    scrollEnabled = true;
 	}
 
 	, addEventListeners: function(){
@@ -163,6 +173,7 @@ var Game = Class.extend({
                         $('#game-container').css('display', 'block');
 			$('#game-inner').css('display', 'block');
 			$('#game-confirm-basic').css('display', 'block');
+                        $('#game-close').css('display', 'none');
 		});
 
 		// ############ start popup
@@ -178,6 +189,7 @@ var Game = Class.extend({
                         $('#game-container').css('display', 'block');
 			$('#game-inner').css('display', 'block');
 			$('#game-confirm-basic').css('display', 'block');
+                        $('#game-close').css('display', 'none');
 		});
 
 		// ############ instruction popup

@@ -177,7 +177,7 @@ header.site-header{
         margin: 0;
 }
 
-#header_logo{
+#header_logo_lv, #header_logo_en{
     /*margin-left: 4%;*/
     min-height: 40px;
     height:6vh;
@@ -459,6 +459,7 @@ ol.searchresults{
     width: 100%;
 }
 #game_toggle{
+    display:none;
     position: relative;
     float: right;
     margin-right: 1%;
