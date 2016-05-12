@@ -1,4 +1,5 @@
 .ndd-uberzoom-container {
+    display: block;
 	width: 100%;
 	height: 100%;
 	position: absolute;
@@ -13,17 +14,17 @@
         max-height: 100% !important;
 	-webkit-touch-callout: none;
     -webkit-user-select: none;
-    -khtml-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
 }
 
-.ndd-uberzoom-container:hover .ndd-uberzoom-interface {
+.ndd-uberzoom-container:hover .ndd-uberzoom-interface, .ndd-uberzoom-container:hover .ndd-uberzoom-navigator {
 	opacity: 1;
 }
 
-.ndd-uberzoom-interface {
+.ndd-uberzoom-interface, .ndd-uberzoom-navigator{
+    display: block;
 	opacity: 0;
 	transition: opacity 0.75s;
 	-moz-transition: opacity 0.75s;
@@ -48,7 +49,6 @@
 	margin: 8px;
 	-webkit-touch-callout: none;
     -webkit-user-select: none;
-    -khtml-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
@@ -94,5 +94,5 @@
 }
 /*.ndd-uberzoom-container{
     /*-webkit-cursor: -webkit-zoom-in;*/
-    cursor: url('images/ui/zoomin.cur'), auto;
+/*    cursor: url('images/ui/zoomin.cur'), auto;
 }*/

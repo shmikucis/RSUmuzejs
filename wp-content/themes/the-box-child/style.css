@@ -248,7 +248,10 @@ div.top_bar{
 }
 /*search field*/
 #search{
-    /*display:flex;*/
+    position: relative;
+    top: 50%;
+    -webkit-transform: translate(0%, -50%);
+    transform: translate(0%, -50%);
     display:table;
     width: 25%;
     float: right;
@@ -482,6 +485,7 @@ ol.searchresults{
     display: block;
     position: relative;
     /*padding: 0 20%;*/
+    vertical-align: middle;
     top: 50%;
     -webkit-transform: translate(0%, -50%);
             transform: translate(0%, -50%);
@@ -720,7 +724,8 @@ p{
     min-width: 120px;*/
 /*    max-height: 90px;
     max-width: 480px;*/
-    min-height: 18px;
+    min-height: 25px;
+    min-width: 100px;
     line-height: 2.5vw;
     background-repeat: no-repeat;
     background-size: 100% 200%;
@@ -937,7 +942,7 @@ ul.menu2 div{
 }
 ul.menu p{
     font-family: oswald-light;
-    font-size: 1vmax;
+    /*font-size: 1vmax;*/
     text-transform: uppercase;
     text-decoration: none;
     color: #000000;
@@ -954,7 +959,7 @@ ul.menu2 p{
     -webkit-transform:translate(-50%,-50%);
             transform:translate(-50%,-50%);
     font-family: oswald-light;
-    font-size: 1vmax;
+    /*font-size: 1vmax;*/
     text-transform: uppercase;
     text-decoration: none;
     color: #FFFFFF;
@@ -964,6 +969,13 @@ ul.menu2 p{
     background-size: 100% 100%;
     background-repeat: no-repeat;
     padding: 4% 8%;
+}
+@media (orientation: landscape) { 
+   ul.menu p, ul.menu2 p{font-size: 1vw;} 
+}
+
+@media (orientation: portrait) {
+    ul.menu p, ul.menu2 p{font-size: 1vh;} 
 }
 ul.menu2 p::after {
     content: '';

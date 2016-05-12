@@ -88,10 +88,7 @@ else
                 <a href="<?php echo esc_url( home_url( '/en/' ) ); ?>" class="eng"></a>
                 <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="lat"></a>
             </span>
-            <span id="game_toggle">
-                <a class="eng" onclick="game.startPopup();">GAME</a>
-                <a class="lat" onclick="game.startPopup();">SPĒLE</a>
-            </span>
+            <span id="game_toggle"><a class="eng" onclick="game.startPopup();">GAME</a>  <a class="lat" onclick="game.startPopup();">SPĒLE</a></span>
             <span id="search"><input id="searchfield" type="text"><button id="searchbutton"></button></span>
             <div id="mback"></div><div id="m_srchbtn"></div><div id="menuclose" class="mclose" style="display: none"></div>
             <div id='sidemenu'>

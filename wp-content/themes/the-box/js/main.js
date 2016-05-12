@@ -53,10 +53,11 @@ $(window).resize(function() {
         else $('.alignright').css('margin-left', $('p.text_left').width());
         $("#m_srchbtn, .mclose, #mback, #lang_toggle").css("margin", ($('#masthead').height() - $('#m_srchbtn').height()) / 2);
         $("#menutext").css('width', $(window).width() - $('#m_srchbtn').outerWidth(true) * 2);
-        $('.game-content').height($(window.height()));
+        $('.game-content').height($(window).height());
         $('.game-content > div').css('top', $('#masthead').height());
         $('.game-content > div').height($('.game-content').height() - $('#masthead').height());
     }
+    $('.game-button').css('line-height', $('.game-button').height()+"px");
 });
 
 $(window).on("orientationchange",function(){
@@ -771,7 +772,7 @@ function setHeadFootSize(divide) {
 //    $('.top_bar a object').css('height', $('#masthead').height() / 7 * 5);
     $('.top_bar a object').css('margin-top', ($('#masthead').height() - $('.top_bar a object').height())/2);
     $('#menu_toggle, #lang_toggle, #game_toggle').css('margin-top', ($('#masthead').height() - $('#menu_toggle').height()) / 2);
-    $('#search').css('margin-top', ($('#masthead').height() - $('#search').height()) / 2);
+//    $('#search').css('margin-top', ($('#masthead').height() - $('#searchfield').height()) / 2);
     //$('#searchfield').css('margin-top', ($('#search').height()-$('#searchfield').height())/2);
     $('#search').height($('#game_toggle').height());
 //    $('#searchfield').height($('#game_toggle').height());

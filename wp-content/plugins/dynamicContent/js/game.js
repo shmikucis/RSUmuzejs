@@ -3,9 +3,9 @@ var Game = Class.extend({
 		this.time = 0;
 		this.timeSplit = 0;
 		this.isStartPopup = false;
-		// this.startDelay = 2*1000; 	// 2min -> 2 * 60 * 1000
-		// this.questionDelay = 2*1000;	// 2min -> 2 * 60 * 1000
-		this.startDelay = 100; 	
+//		 this.startDelay = 100; 	// 2min -> 2 * 60 * 1000
+//		 this.questionDelay = 100;	// 2min -> 2 * 60 * 1000
+		this.startDelay = 2*60*1000; 	
 		this.questionDelay = 2*60*1000;	
 		this.openedQuestions = 0;
 		this.closedQuestions = 0;
@@ -79,11 +79,16 @@ var Game = Class.extend({
         $('#game-container').css('display', 'block');
 		$('#game-inner').css('display', 'block');
 		$('#game-intro').css('display', 'block');
+                 $('.button-wrap .game-button').height(Math.ceil( $('.button-wrap .game-button').height()));
+//                 $('.button-wrap .game-button').width(Math.floor( $('.button-wrap .game-button').width()));
 
         if(isMobile) $('.game-content > div').height($('.game-content').height() - $('#masthead').height());
         $('#game-close').css('display', 'none');
+        $('.game-button').css('line-height', $('.game-button').height()+"px");
 		console.log("start popup");
 	}
+        
+        
 
 	, closeInstuctionPopup: function(){
 		// TODO open first question popup
@@ -109,12 +114,13 @@ var Game = Class.extend({
 		var buttons = '';
 		for(var i=0; i<question.answers.length; i++) buttons += '<div class="game-button gray">'+question.answers[i]+'</div>';
 		$('#game-question .button-wrap').html(buttons);
-
+                $('#game-question .button-wrap .game-button').height(Math.ceil( $('#game-question .button-wrap .game-button').height()));
+//                $('#game-question .button-wrap .game-button').width(Math.floor( $('#game-question .button-wrap .game-button').width()));
 		$('#game-container').css('display', 'block');
 		$('#game-inner').css('display', 'block');
 		$('#game-question').css('display', 'block');
                 $('#game-close').css('display', 'block');
-                $('#game-question .game-title').css('max-height', $('#game-question').height()-$('#game-question .button-wrap').outerHeight()-$('#game-question img').outerHeight()-5);
+                if (isMobile) $('#game-question .game-title').css('max-height', $('#game-question').height()-$('#game-question .button-wrap').outerHeight()-$('#game-question img').outerHeight()-5);
 
 		// TODO open question
 		// console.log("question "+(this.openedQuestions-1));
@@ -150,6 +156,8 @@ var Game = Class.extend({
 		var question = this.questions[this.openedQuestions-1];
 		var text = isCorrect ? question.cheersTrue : question.cheersFalse;
 		this.closeAllPopups();
+                $('.game-button').height(Math.ceil( $('.game-button').height()));
+//                $('.game-button').width(Math.floor( $('.game-button').width()));
 		$('#game-cheers .game-title').html(text);
                 $('#game-container').css('display', 'block');
 		$('#game-inner').css('display', 'block');
@@ -174,6 +182,8 @@ var Game = Class.extend({
                 $('#game-container').css('display', 'block');
 		$('#game-inner').css('display', 'block');
 		$('#game-over').css('display', 'block');
+                $('.game-button').height(Math.ceil( $('.game-button').height()));
+//                $('.game-button').width(Math.floor( $('.game-button').width()));
 	}
 
 	, closeAllPopups: function(){
