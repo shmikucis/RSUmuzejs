@@ -32,6 +32,20 @@ if("http://$_SERVER[HTTP_HOST]" == 'http://localhost'){
 	define('DB_COLLATE', '');
 }
 
+
+// /* ###################### Datubāzes pieejas dati ######################### */
+// 	define('DB_NAME', 'datubāzesnosaukums'); 
+// 	define('DB_USER', 'lietotājs');
+// 	define('DB_PASSWORD', 'parole');
+// 	define('DB_HOST', 'localhost');
+// 	define('DB_CHARSET', 'utf8');
+// 	define('DB_COLLATE', '');
+// /* ####################################################################### */
+
+
+
+
+
 /**#@+
  * Authentication Unique Keys and Salts.
  *
