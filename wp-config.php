@@ -23,6 +23,8 @@ if("http://$_SERVER[HTTP_HOST]" == 'http://localhost'){
 	define('DB_HOST', 'localhost');
 	define('DB_CHARSET', 'utf8');
 	define('DB_COLLATE', '');	
+	// workaround for ftp issues
+	define('FS_METHOD','direct');
 } else {
 	define('DB_NAME', 'rsunanol_rsu'); 
 	define('DB_USER', 'rsunanol_rsu');

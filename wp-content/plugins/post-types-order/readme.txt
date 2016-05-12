@@ -1,15 +1,16 @@
 === Post Types Order  ===
-Contributors: Nsp Code
+Contributors: nsp-code
 Donate link: http://www.nsp-code.com/donate.php
 Tags: post order, posts order, sort, post sort, posts sort, post type order, custom order, admin posts order
 Requires at least: 2.8
-Tested up to: 4.3
+Tested up to: 4.5
+Stable tag: 1.8.7
 
 Post Order and custom Post Type Objects (posts, any custom post types) using a Drag and Drop Sortable JavaScript AJAX interface. 
 
 == Description ==
 
-<strong>Over 1.200.000 DOWNLOADS and near PERFECT ratting out of 150 REVIEWS</strong>. <br />
+<strong>Over 1.500.000 DOWNLOADS and near PERFECT ratting out of 150 REVIEWS</strong>. <br />
 A powerful plugin, Order Posts and Post Types Objects using a Drag and Drop Sortable JavaScript capability.
 It allow to reorder the posts for any custom post types you defined, including the default Posts. Also you can have the admin posts interface sorted per your new sort. Post Order has never been easier.
 
@@ -49,7 +50,7 @@ If for some reason the post order does not update on your front side, you either
 
 == Frequently Asked Questions  ==
 
-Feel free to contact me at electronice_delphi@yahoo.com
+Feel free to contact us at electronice_delphi@yahoo.com
 
 = I have no PHP knowledge at all, i will still be able to use this plugin? =
 
@@ -67,13 +68,40 @@ There's a option you can trigger, to see the post types order as you defined in 
 
 All ideas are welcome and i put them on my list to be implemented into the new versions. Anyway this may take time, but if you are in a rush, please consider a small donation and we can arrange something.
 
+= Can i make certain queries to ignore the custom sort when Autosort is turned On? =
+
+This can be done by including the ignore_custom_sort within custom query arguments. An example can be found at http://www.nsp-code.com/advanced-post-types-order-api/sample-usage/
+
+= How can i force sort apply for certain queries when Autosort is turned On? =
+
+A filter can be used to achieve that pto/posts_orderby. An example can be found at http://www.nsp-code.com/ignore-sort-apply-for-certain-query-on-post-types-order/
+
+= I still need more features like front sorting interface, shortcodes, filters, conditionals, advanced queries, taxonomy/ category sorting etc =
+
+Consider upgrading to our advanced version of this plugin at a very resonable price <a target="_blank" href="http://www.nsp-code.com/premium-plugins/wordpress-plugins/advanced-post-types-order/">Advanced Post Types Order</a>
+
+
 == Change Log ==
+= 1.8.7 =
+  - Admin Post / Page Gallery items order fix
+  - New filter pto/posts_orderby  to ignore sort apply
+
+= 1.8.6 =
+  - PHP 7 deprecated nottice fix Deprecated: Methods with the same name as their class will not be constructors in a future version of PHP;  
+  - Fix: $_REQUEST['action'] comparison evaluate as Identical instead equal
+  - New filter cpto/interface_itme_data to append additional data for items within sortable interface
+  - Slight style updates
+  - Replaced Socialize FB like page
+
+= 1.8.5 =
+  - Text domain change to post-types-order to allow translations at https://translate.wordpress.org/projects/wp-plugins/post-types-order  
+  - New query argument ignore_custom_sort , to be used with Autosort. Ignore any customised sort and return posts in default order.
 
 = 1.8.4.1 =
   - Sortable interface styling improvments
   - Portuguese translation update - Pedro Mendonca - http://www.pedromendonca.pt
   - Text doamin fix for few texts
-
+  
 = 1.8.3.1 =
   - Advanced Custom Fields Page Rule fix
   - Show / Hide Re_order inderface for certain menus. Option available within Settings area.
@@ -85,7 +113,7 @@ All ideas are welcome and i put them on my list to be implemented into the new v
 
 = 1.8.1 =
   - Next / Previous sorting apply bug fix for custom taxonomies
-  - Portuguese translation update - Pedro Mendonça - http://www.pedromendonca.pt
+  - Portuguese translation update - Pedro Mendonca - http://www.pedromendonca.pt
   - Options - phrase translation fix  
 
 = 1.7.9 =
@@ -204,5 +232,5 @@ Make sure you get the latest version.
 == Localization ==
 
 Available in English, Brazilian Portuguese, Spanish, Romanian, Italian, Dusth, Hebrew, German, Norwegian (norsk), Turkish (t?rk?e), Swedish, Hungarian, Portuguese, Chinese, Czech
-Want to contribute with a translation to your language? Please contact us at electronice_delphi@yahoo.com
+Want to contribute with a translation to your language? Please check at https://translate.wordpress.org/projects/wp-plugins/post-types-order
 http://www.nsp-code.com
