@@ -1595,7 +1595,7 @@ a.obj_icon[data-title]:after{
         font-size: 1.5em;
     }
     .game-title{
-        padding: 35%;
+        padding: 20% 0%;
     }
     #game-intro .game-subtitle{
         font-size: 0.7em;
