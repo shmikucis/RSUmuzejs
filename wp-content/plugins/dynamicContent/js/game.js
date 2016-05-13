@@ -79,10 +79,10 @@ var Game = Class.extend({
         $('#game-container').css('display', 'block');
 		$('#game-inner').css('display', 'block');
 		$('#game-intro').css('display', 'block');
-                 $('.button-wrap .game-button').height(Math.ceil( $('.button-wrap .game-button').height()));
+                $('.button-wrap .game-button').height(Math.ceil( $('.button-wrap .game-button').height()));
 //                 $('.button-wrap .game-button').width(Math.floor( $('.button-wrap .game-button').width()));
 
-        if(isMobile) $('.game-content > div').height($('.game-content').height() - $('#masthead').height());
+//        if(isMobile) $('.game-content > div').height($('.game-content').height() - $('#masthead').height());
         $('#game-close').css('display', 'none');
         $('.game-button').css('line-height', $('.game-button').height()+"px");
 		console.log("start popup");
