@@ -44,6 +44,7 @@ $(window).resize(function() {
         if (dynamicContent.getItem().template === "templates/title.php") $('#mid1').css('padding-bottom', $('#bigmore').height());
         $('#lg-counter').css('line-height', $('#lg-counter').height() + "px");
     } else {
+        $('#page').height(window.innerHeight);
         mContinue();
         if($('div.text_container_right').length>0) $('div.text_container_right').css('left', $('.mcit img').width());
         else $('p.text_right').css('left', $('.mcit img').width());
@@ -53,7 +54,8 @@ $(window).resize(function() {
         else $('.alignright').css('margin-left', $('p.text_left').width());
         $("#m_srchbtn, .mclose, #mback, #lang_toggle").css("margin", ($('#masthead').height() - $('#m_srchbtn').height()) / 2);
         $("#menutext").css('width', $(window).width() - $('#m_srchbtn').outerWidth(true) * 2);
-        $('.game-content').height($(window).height());
+//        $('.game-content').height($(window).height());
+        $('.game-content').height(window.innerHeight);
         $('.game-content > div').css('top', $('#masthead').height());
         $('.game-content > div').height($('.game-content').height() - $('#masthead').height());
     }
@@ -411,6 +413,7 @@ function init() {
 }
 
 function mInit() {
+    $('#page').height(window.innerHeight);
     mContinue();
 
     $("#menu_toggle").remove();
@@ -427,6 +430,7 @@ function mInit() {
     $('#searchfield').height($('#m_srchbtn').height());
     $("#masthead").append('<div id="menutext" style="display: none">MENU</div>');
     $('#masthead').height( $('#masthead').height());
+    $('.game-content').height(window.innerHeight);
     $('.game-content > div').css('top', $('#masthead').height());
     $('.game-content > div').height($('.game-content').height() - $('#masthead').height());
     $('#game-over ul.social').width($('ul.social li').height()*4 - ($('ul.social li').height()-$('ul.social li').width()));
@@ -969,7 +973,7 @@ function mContinue() {
     if(URLS.lang === "en/")
         $("div.top_bar").css("left", ($(window).width() - $("#header_logo_en").width()) / 2);
     else $("div.top_bar").css("left", ($(window).width() - $("#header_logo_lv").width()) / 2);
-    $("#mfooter").css('top', '86vh');
+    $("#mfooter").css('top', '86%');
 }
 
 function m_showSocial() {

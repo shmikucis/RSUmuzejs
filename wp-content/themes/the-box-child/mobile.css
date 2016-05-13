@@ -19,7 +19,7 @@ body{
     width: 100vw;
 }
 div#primary.content-area {
-    height: 90vh;
+    height: 90%;
 }
 header.site-header{
     position:relative;
@@ -55,7 +55,7 @@ div.top_bar{
     width: 100%;
     margin: auto;
     /*bottom: 3%;*/
-    top: 86vh;
+    top: 86%;
 }
 #intro{
     height: 90vh;
@@ -590,6 +590,7 @@ div.top_bar{
     min-width: 0%;
     width: 64%;
     padding: 0% 0% 6% 0%;
+    /*top: 100%;*/
 }
 .button-wrap .game-button{
     -webkit-transform: translate(0%, 0%);
