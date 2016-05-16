@@ -150,7 +150,7 @@ var Game = Class.extend({
 		var self = this;
 		setTimeout(function(){
 			self.openCheers(question.isCorrect);
-		}, 1000);
+		}, 500);
 	}
 
 	, openCheers: function(isCorrect){
