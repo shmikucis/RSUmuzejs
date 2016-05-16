@@ -76,7 +76,8 @@ var Game = Class.extend({
 		}
 
 		this.isStartPopup = true;
-        $('#game-container').css('display', 'block');
+                $('#game-container').css('display', 'block');
+                $('#game-container').height(document.documentElement.clientHeight);
 		$('#game-inner').css('display', 'block');
 		$('#game-intro').css('display', 'block');
                 $('.button-wrap .game-button').height(Math.ceil( $('.button-wrap .game-button').height()));
@@ -117,6 +118,7 @@ var Game = Class.extend({
                 $('#game-question .button-wrap .game-button').height(Math.ceil( $('#game-question .button-wrap .game-button').height()));
 //                $('#game-question .button-wrap .game-button').width(Math.floor( $('#game-question .button-wrap .game-button').width()));
 		$('#game-container').css('display', 'block');
+                $('#game-container').height(document.documentElement.clientHeight);
 		$('#game-inner').css('display', 'block');
 		$('#game-question').css('display', 'block');
                 $('#game-close').css('display', 'block');
@@ -156,10 +158,12 @@ var Game = Class.extend({
 		var question = this.questions[this.openedQuestions-1];
 		var text = isCorrect ? question.cheersTrue : question.cheersFalse;
 		this.closeAllPopups();
+                
                 $('.game-button').height(Math.ceil( $('.game-button').height()));
 //                $('.game-button').width(Math.floor( $('.game-button').width()));
 		$('#game-cheers .game-title').html(text);
                 $('#game-container').css('display', 'block');
+                $('#game-container').height(document.documentElement.clientHeight);
 		$('#game-inner').css('display', 'block');
 		$('#game-cheers').css('display', 'block');
                 $('#game-close').css('display', 'block');
@@ -180,6 +184,7 @@ var Game = Class.extend({
                 scrollEnabled = false;
 		this.closeAllPopups();
                 $('#game-container').css('display', 'block');
+                $('#game-container').height(document.documentElement.clientHeight);
 		$('#game-inner').css('display', 'block');
 		$('#game-over').css('display', 'block');
                 $('.game-button').height(Math.ceil( $('.game-button').height()));

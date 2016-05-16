@@ -320,7 +320,7 @@ ol.searchresults{
     min-width: 32px;
     height: 4vh;
     min-height: 24px;
-    max-height: 35px;
+    max-height: 30px;
     margin-top: 2vh;
     margin-right: 1vw;
     cursor: pointer;
@@ -437,7 +437,7 @@ ol.searchresults{
     background-color: rgb(102,0,0);
     height: 4vh;
     min-height: 24px;
-    max-height: 35px;
+    max-height: 30px;
     width: 7vh;
     min-width: 46px;
     max-width: 74px;
@@ -476,7 +476,7 @@ ol.searchresults{
     background-color: rgb(102,0,0);
     height: 4vh;
     min-height: 24px;
-    max-height: 35px;
+    max-height: 30px;
     padding: 0 10px;
     font-family: helvetica-neue;
     color: white;    
