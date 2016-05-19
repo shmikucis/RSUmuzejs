@@ -74,17 +74,17 @@
 	    				$images = array();
 	    				foreach($gallery['ids'] as $imageID){
 	    					$image = get_post($imageID);
-                                                if ($menuName === "Main")
-                                                    array_push($images, array(
-                                                            'ID' => $image -> ID
-                                                            , 'url' => $image -> guid
-                                                            , 'description' => $image -> post_content
-                                                    ));
-                                                else array_push($images, array(
-                                                            'ID' => $image -> ID
-                                                            , 'url' => $image -> guid
-                                                            , 'description' => $image -> post_excerpt
-                                                    ));
+	                            if ($menuName === "Main")
+	                                array_push($images, array(
+	                                        'ID' => $image -> ID
+	                                        , 'url' => $image -> guid
+	                                        , 'description' => $image -> post_content
+	                                ));
+	                            else array_push($images, array(
+	                                        'ID' => $image -> ID
+	                                        , 'url' => $image -> guid
+	                                        , 'description' => $image -> post_excerpt
+	                                ));
 	    				}
 	    				
 	    				// var_dump($image);

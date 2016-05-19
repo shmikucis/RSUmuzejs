@@ -154,12 +154,12 @@ var Game = Class.extend({
 	}
 
 	, openCheers: function(isCorrect){
-                scrollEnabled = false;
+        scrollEnabled = false;
 		var question = this.questions[this.openedQuestions-1];
 		var text = isCorrect ? question.cheersTrue : question.cheersFalse;
 		this.closeAllPopups();
                 
-                $('.game-button').height(Math.ceil( $('.game-button').height()));
+        $('.game-button').height(Math.ceil( $('.game-button').height()));
 //                $('.game-button').width(Math.floor( $('.game-button').width()));
 		$('#game-cheers .game-title').html(text);
                 $('#game-container').css('display', 'block');
@@ -181,18 +181,18 @@ var Game = Class.extend({
 	}
 
 	, showResults: function(){
-                scrollEnabled = false;
+        scrollEnabled = false;
 		this.closeAllPopups();
-                $('#game-container').css('display', 'block');
-                $('#game-container').height(document.documentElement.clientHeight);
+        $('#game-container').css('display', 'block');
+        $('#game-container').height(document.documentElement.clientHeight);
 		$('#game-inner').css('display', 'block');
 		$('#game-over').css('display', 'block');
-                $('.game-button').height(Math.ceil( $('.game-button').height()));
+        $('.game-button').height(Math.ceil( $('.game-button').height()));
 //                $('.game-button').width(Math.floor( $('.game-button').width()));
 	}
 
 	, closeAllPopups: function(){
-                $('#game-container').css('display', 'none');
+        $('#game-container').css('display', 'none');
 		$('#game-inner').css('display', 'none');
 		$('#game-intro').css('display', 'none');
 		$('#game-confirm-basic').css('display', 'none');
@@ -201,9 +201,9 @@ var Game = Class.extend({
 		$('#game-over').css('display', 'none');
 		$('#game-question').css('display', 'none');
                 
-                var item = dynamicContent.getItem();
-                if (item.template !== 'templates/menu.php' || item.template !== 'templates/searchResults.php' || item.post_name !== 'kontakti' || item.post_name !== 'contacts')
-                    scrollEnabled = true;
+        var item = dynamicContent.getItem();
+        if (item.template !== 'templates/menu.php' || item.template !== 'templates/searchResults.php' || item.post_name !== 'kontakti' || item.post_name !== 'contacts')
+        scrollEnabled = true;	
 	}
 
 	, addEventListeners: function(){
