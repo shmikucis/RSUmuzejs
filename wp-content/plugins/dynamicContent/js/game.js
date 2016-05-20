@@ -63,7 +63,7 @@ var Game = Class.extend({
 			$('#game-intro .decline').text('No');
 
 			$('#game-confirm-advanced .game-title').text('Great! Let’s start the game!');
-			$('#game-confirm-advanced game-subtitle').text('Answer to 12 questions appearing on the screen. Get to know more about the virtual exhibition of RSU Museum and test your knowledge about the university and its history.');
+			$('#game-confirm-advanced .game-subtitle').text('Answer to 12 questions appearing on the screen. Get to know more about the virtual exhibition of RSU Museum and test your knowledge about the university and its history.');
 			$('#game-confirm-advanced .confirm').text('OK');
 
 			$('#game-confirm-basic .game-title').text('If you change your mind, go back to MENU.');
