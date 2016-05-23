@@ -152,7 +152,7 @@ var Content = Class.extend({
         
         if (URLS.lang === "en/") {
             $('#page').addClass('en');
-            $('#descr_lv').css('display', 'none');
+//            $('#descr_lv').css('display', 'none');
             $('#page.en #header_logo_lv').css('display','none');
             $('.en #logo_link').attr('href', window.location.origin+window.location.pathname);
             $('#sidemenu, #msidemenu').remove();
@@ -163,7 +163,7 @@ var Content = Class.extend({
         }
         else {
             $('#page').removeClass('en');
-            $('#descr_en').css('display', 'none');
+//            $('#descr_en').css('display', 'none');
             $('#header_logo_en').css('display','none');
             $('#sidemenu_en, #msidemenu_en').remove();
             $('#lang_toggle .lat').remove();
