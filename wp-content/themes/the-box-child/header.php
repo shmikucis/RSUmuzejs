@@ -14,8 +14,16 @@
     <title><?php if(is_home() || is_front_page()) { echo bloginfo("name"); }
 else
 { echo bloginfo("description");}?></title>
-    <meta property="og:description"   content="Virtuālais muzejs, izmantojot RSU muzejā sakopotos materiālus, palīdzēs Jums iepazīties ar to, kā noritējusi mūsu augstskolas attīstība dažādos vēsturiskajos laikposmos." id="descr_lv"/>
-    <meta property="og:description"   content="Virtual Museum contains materials compiled by RSU Museum and will lead you through the stages of development of our university throughout various historical periods." id="descr_en"/>
+    <?php
+ if (is_home() || is_front_page()) {
+ echo '<meta property="og:title" content="RSU vēstures virtuālā ekspozīcija"/>';
+ echo '<meta property="og:description" content="Virtuālais muzejs, izmantojot RSU muzejā sakopotos materiālus, palīdzēs Jums iepazīties ar to, kā noritējusi mūsu augstskolas attīstība dažādos vēsturiskajos laikposmos."/>';
+}
+else {
+ echo '<meta property="og:title" content="RSU historical virtual exhibition"/>';
+ echo '<meta property="og:description" content="Virtual Museum contains materials compiled by RSU Museum and will lead you through the stages of development of our university throughout various historical periods."/>';
+ }
+ ?>   
 <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.ico" />
 <!--<meta charset="<?php // bloginfo( 'charset' ); ?>">-->
 <meta charset="utf-8" />
