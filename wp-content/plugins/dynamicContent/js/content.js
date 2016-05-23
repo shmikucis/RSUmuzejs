@@ -1038,7 +1038,7 @@ var Content = Class.extend({
                 this.article.append(
                     '<header class="entry-header"></header>' + '<div class="slideNav prev"></div>' + '<div class="bg stripes">' + '<div class="anim-right"></div>' + '</div>' + '<div class="entry-content layer" data-depth="0">' + '<div class="bg cardboard narrow">' + '<div class="citation_logo"/>' + item.post_content + '</div>' + '</div><div class="slideNav next"></div>'
                 );
-                break;
+                break;            
             case 'templates/menu.php':
                 this.article.append(
                     '<header class="entry-header layer" data-depth="0">' + '<h1 class="entry-title anim-right">' + item.post_title + '</h1>' + '</header>' + '<div class="bg stripes">' + '<div class="anim-right"></div>' + '</div>' + '<div class="entry-content layer" data-depth="0">' + '<ul class="menu">' + item.post_content + '</ul>' + '</div>'
@@ -1058,6 +1058,38 @@ var Content = Class.extend({
             case 'templates/searchResults.php':
                 this.article.append(
                     '<header class="entry-header layer" data-depth="0">' + '<h1 class="entry-title anim-right">' + item.post_title + '</h1>' + '</header>' + '<div class="slideNav prev"></div>' + '<div class="bg stripes">' + '<div class="anim-right"></div>' + '</div>' + '<div class="entry-content layer searchresults" data-depth="0">' + '<ol class="searchresults">' + item.post_content + '</ol>' + '</div><div class="slideNav next"></div>'
+                );
+                break;
+            case 'templates/1st_template.php':
+                var featured_img = '';
+                if(item.featured_img != 'false'){
+                    featured_img = '<div class="layer" data-depth="0.15">'
+                        +'<div class="wide alignright" >'
+                        // +'<a data-gallery="#popup-medicina-gallery" class="gallery slideleft obj_icon icon_midleft pic_gallery" data-title="'+item.post_title+'"></a>'
+                        +'<div class="innerImg"><div class="layer" data-depth="0.10"><div>'
+                        +'<img src="'+item.featured_img+'" class="wide" />'
+                        +'</div></div></div>'
+                        +'</div></div>';
+                }
+                var readmore = '';
+                var icons = '';
+                var popups = dynamicContent.getAttacments(item.ID);
+                for(var i=0; i<popups.length; i++){
+                    var popup = popups[i];
+                    if(popup.template === "templates/popup-text.php"){
+                        readmore = '<a href="#'+popup.post_name+'" class="readmore left cboxElement"></a>'
+                    }
+                    else if(popup.template === "templates/popup-gallery.php"){
+                        icons += '<div class="layer" data-depth="0.1"><a data-gallery="#'+popup.post_name+'" class="objects obj_icon global_botleft pic_gallery" data-title="'+popup.post_title+'"></a>';
+                    }
+                }
+                this.article.append(
+                    '<header class="entry-header layer"  data-depth="0"></header>' + '<div class="slideNav prev"></div>' + '<div class="bg stripes">' + '<div class="anim-right"></div>' + '</div>' 
+                    + '<div class="entry-content mcit layer" data-depth="0">' 
+                    + featured_img
+                    + icons
+                    + '<p class="text_left narrow citation">' + item.post_content + readmore + '</p>' 
+                    + '</div><div class="slideNav next"></div>'
                 );
                 break;
             default:

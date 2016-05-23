@@ -38,7 +38,7 @@
 	    				, 'menu_order' => $item -> menu_order
 	    				, 'template' => get_page_template_slug($post -> ID)
 	    				, 'description' => $item -> description
-	    				
+	    				, 'featured_img' => $url = wp_get_attachment_url( get_post_thumbnail_id($post -> ID) )	    				
 	    			)
 	    		);
 	    	}
@@ -91,6 +91,7 @@
 	    				array_push($attachments, array(
     						'ID' => $child -> ID
     						, 'parentID' => $post -> ID
+    						, 'post_title' => $child -> post_title
     						, 'post_name' => $child -> post_name
     						, 'template' => $template
     						, 'images' => $images
@@ -112,6 +113,12 @@
 
 	        $navigation = $this -> getMenu();
 	        $attachments = $this -> getAttachments($navigation);
+
+	   //      foreach($navigation as $key => $value){
+	   //      	if($value -> template === "templates/1st_template.php"){
+	   //      		$value -> post_content = "aaaaaaaaaaa " . $value -> post_content . " zzzzzzzz";
+				// }
+	   //      }
 
 	    	echo '<script>
 	    		var URLS = {};
