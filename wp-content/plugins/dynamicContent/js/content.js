@@ -1073,14 +1073,18 @@ var Content = Class.extend({
                 }
                 var readmore = '';
                 var icons = '';
+                var iconCount = 0;
+                var iconClasses = ['global_topleft slideleft', 'global_topmid', 'global_midright', 'global_botmid', 'global_belowbotleft'];
                 var popups = dynamicContent.getAttacments(item.ID);
                 for(var i=0; i<popups.length; i++){
                     var popup = popups[i];
                     if(popup.template === "templates/popup-text.php"){
                         readmore = '<a href="#'+popup.post_name+'" class="readmore left cboxElement"></a>'
                     }
-                    else if(popup.template === "templates/popup-gallery.php"){
-                        icons += '<div class="layer" data-depth="0.1"><a data-gallery="#'+popup.post_name+'" class="objects obj_icon global_botleft pic_gallery" data-title="'+popup.post_title+'"></a>';
+                    else if(popup.template === "templates/popup-gallery.php" && iconCount <=5){
+                        iconCount++;
+                        var icon = popup.icon != '' ? popup.icon : 'gallery';
+                        icons += '<div class="layer" data-depth="0.1"><a data-gallery="#'+popup.post_name+'" class="'+icon+' obj_icon '+iconClasses[iconCount-1]+' pic_gallery" data-title="'+popup.post_title+'"></a></div>';
                     }
                 }
                 this.article.append(

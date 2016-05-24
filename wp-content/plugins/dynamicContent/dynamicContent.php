@@ -38,7 +38,7 @@
 	    				, 'menu_order' => $item -> menu_order
 	    				, 'template' => get_page_template_slug($post -> ID)
 	    				, 'description' => $item -> description
-	    				, 'featured_img' => $url = wp_get_attachment_url( get_post_thumbnail_id($post -> ID) )	    				
+	    				, 'featured_img' => $url = wp_get_attachment_url( get_post_thumbnail_id($post -> ID) )
 	    			)
 	    		);
 	    	}
@@ -55,7 +55,7 @@
 	    		// $all_wp_pages = $my_wp_query->query(array('post_type' => 'page', 'depth' => 1, 'child_of' => $post -> ID));
 	    		// $children = get_page_children( $post -> ID, $all_wp_pages );
 
-	    		$children = get_posts(array('post_parent' => $post->ID, 'post_type' => 'page'));
+	    		$children = get_posts(array('post_parent' => $post->ID, 'post_type' => 'page', 'posts_per_page'   => 10));
 	    		foreach($children as $child){
 	    			$template = get_page_template_slug($child -> ID);
 	    			if($template == 'templates/popup-text.php'){
@@ -73,19 +73,22 @@
 	    				$gallery['ids'] = explode(',', $gallery['ids']);
 	    				$images = array();
 	    				foreach($gallery['ids'] as $imageID){
-	    					$image = get_post($imageID);
-	                            if ($menuName === "Main")
-	                                array_push($images, array(
-	                                        'ID' => $image -> ID
-	                                        , 'url' => $image -> guid
-	                                        , 'description' => $image -> post_content
-	                                ));
-	                            else array_push($images, array(
-	                                        'ID' => $image -> ID
-	                                        , 'url' => $image -> guid
-	                                        , 'description' => $image -> post_excerpt
-	                                ));
+	    					$image = get_post($imageID);	    					
+                            if ($menuName === "Main")
+                                array_push($images, array(
+                                        'ID' => $image -> ID
+                                        , 'url' => $image -> guid
+                                        , 'description' => $image -> post_content
+                                ));
+                            else array_push($images, array(
+                                        'ID' => $image -> ID
+                                        , 'url' => $image -> guid
+                                        , 'description' => $image -> post_excerpt
+                                ));
 	    				}
+
+	    				$categories = wp_get_post_categories($child -> ID);
+	    				$icon = count($categories) > 0 ? get_category($categories[0])->slug  : '';
 	    				
 	    				// var_dump($image);
 	    				array_push($attachments, array(
@@ -95,6 +98,7 @@
     						, 'post_name' => $child -> post_name
     						, 'template' => $template
     						, 'images' => $images
+    						, 'icon' => $icon
     					));
 	    			}
 	    		}
