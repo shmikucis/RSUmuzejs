@@ -24,6 +24,7 @@ else {
  echo '<meta property="og:description" content="Virtual Museum contains materials compiled by RSU Museum and will lead you through the stages of development of our university throughout various historical periods."/>';
  }
  ?>   
+    <meta property="og:image" content="<?php echo get_stylesheet_directory_uri(); ?>/images/appImg.png"/>
 <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.ico" />
 <!--<meta charset="<?php // bloginfo( 'charset' ); ?>">-->
 <meta charset="utf-8" />
