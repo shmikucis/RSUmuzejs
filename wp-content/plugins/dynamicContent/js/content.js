@@ -1064,22 +1064,27 @@ var Content = Class.extend({
                 var featured_img = '';
                 if(item.featured_img != 'false'){
                     featured_img = '<div class="layer" data-depth="0.15">'
-                        +'<div class="wide alignright" >'
+                        +'<div class="narrow alignright" >'
                         // +'<a data-gallery="#popup-medicina-gallery" class="gallery slideleft obj_icon icon_midleft pic_gallery" data-title="'+item.post_title+'"></a>'
                         +'<div class="innerImg"><div class="layer" data-depth="0.10"><div>'
-                        +'<img src="'+item.featured_img+'" class="wide" />'
+                        +'<img src="'+item.featured_img+'" class="narrow" />'
                         +'</div></div></div>'
                         +'</div></div>';
                 }
                 var readmore = '';
                 var icons = '';
                 var iconCount = 0;
-                var iconClasses = ['global_topleft slideleft', 'global_topmid', 'global_midright', 'global_botmid', 'global_belowbotleft'];
+                var iconClasses = ['global_topleft slideleft', 'global_topmid', 'global_midright slideleft', 'global_botmid', 'global_belowbotleft slideleft'];
                 var popups = dynamicContent.getAttacments(item.ID);
                 for(var i=0; i<popups.length; i++){
                     var popup = popups[i];
-                    if(popup.template === "templates/popup-text.php"){
+                    if(popup.template === "templates/popup-text.php" && readmore === ''){
                         readmore = '<a href="#'+popup.post_name+'" class="readmore left cboxElement"></a>'
+                    }
+                    else if(popup.template === "templates/popup-text.php" && readmore !== '' && iconCount <=5){
+                        iconCount++;
+                        var icon = popup.icon != '' ? popup.icon : 'humor';
+                        icons += '<div class="layer" data-depth="0.1"><a href="#'+popup.post_name+'" class="'+icon+' obj_icon '+iconClasses[iconCount-1]+' humortext cboxElement hidden jumpUp" data-title="Joki"></a></div>';
                     }
                     else if(popup.template === "templates/popup-gallery.php" && iconCount <=5){
                         iconCount++;

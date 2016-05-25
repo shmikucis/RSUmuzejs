@@ -59,6 +59,8 @@
 	    		foreach($children as $child){
 	    			$template = get_page_template_slug($child -> ID);
 	    			if($template == 'templates/popup-text.php'){
+	    				$categories = wp_get_post_categories($child -> ID);
+	    				$icon = count($categories) > 0 ? get_category($categories[0])->slug  : '';
     					array_push($attachments, array(
     						'ID' => $child -> ID
     						, 'parentID' => $post -> ID
@@ -66,6 +68,7 @@
     						, 'post_name' => $child -> post_name
     						, 'post_content' => $child -> post_content
     						, 'template' => $template
+    						, 'icon' => $icon
     					));	
     				}
 	    			if($template == 'templates/popup-gallery.php'){
