@@ -14,7 +14,7 @@
 	    }
 
 	    public function getMenu(){
-	    	$menuName = $this->lang === "" ? "Main" : "EN Menu";
+	    	$menuName = $this->lang === "" ? "LV Menu" : "EN Menu";
 	    	$menu = wp_get_nav_menu_items( $menuName, 
 	    		array(
 	    			'order' => 'ASC'
@@ -47,7 +47,7 @@
 	    }
 
 	    public function getAttachments($list){
-            $menuName = $this->lang === "" ? "Main" : "EN Menu";
+            $menuName = $this->lang === "" ? "LV Menu" : "EN Menu";
 	    	$attachments = array();
 	    	$my_wp_query = new WP_Query();
 	    	foreach($list as $post){
@@ -77,7 +77,7 @@
 	    				$images = array();
 	    				foreach($gallery['ids'] as $imageID){
 	    					$image = get_post($imageID);	    					
-                            if ($menuName === "Main")
+                            if ($menuName === "LV Menu")
                                 array_push($images, array(
                                         'ID' => $image -> ID
                                         , 'url' => $image -> guid
